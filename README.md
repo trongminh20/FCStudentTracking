@@ -1,11 +1,11 @@
-#FCStudentTracking system
+# FCStudentTracking system
 
-##clone repo
+## clone repo
 ```
 git clone https://github.com/trongminh20/FCStudentTracking.git
 ```
 
-##After cloning
+## After cloning
 
 *create a branch for yourself, make a first commit on repo with message* <br>
 ```  
@@ -21,7 +21,7 @@ git clone https://github.com/trongminh20/FCStudentTracking.git
 
   git push origin
 ```
-##Pull code from branch main
+## Pull code from branch main
 ```
 git pull origin/main 
 ```
