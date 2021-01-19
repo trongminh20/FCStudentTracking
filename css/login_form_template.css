@@ -1,0 +1,67 @@
+body{
+    background-color: #C1BDBA;
+    width: 100%;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+#wrapper{
+    margin:100px auto 100px auto;
+    background-color: #25313C;
+    width:50%;
+    height: 70vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 40px;
+}
+
+.control-form{
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    justify-content: center;
+    align-items: center;
+    width:80%;
+    height: 80%;
+    border: 1px solid #5a6268;
+}
+#header{
+    color:#5a6268;
+}
+#form-title{
+    margin-bottom: 20px;
+    color:#5a6268;
+    font-size: 30px;
+    font-weight: 300;
+}
+
+#create-account-form > #form-title{
+    margin-top:20px;
+}
+.form-control{
+    width: 70%;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid #5a6268;
+    background-color: #25313C ;
+    color: #FFFFFF;
+}
+.form-btn,
+#login-btn{
+    background-color:#19B188;
+    height: 40px;
+    font-size:20px;
+}
+#forget-password{
+    margin-top:10px;
+}
+#forget-password > a {
+    font-size: 14px;
+    color: #19B188;
+}
+
+#create-user-btn{
+    margin-bottom: 30px;
+}
+
