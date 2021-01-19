@@ -23,6 +23,7 @@ git clone https://github.com/trongminh20/FCStudentTracking.git
 ```
 ## Pull code from branch main
 ```
+git checkout <yourname>
 git pull origin/main 
 ```
 
