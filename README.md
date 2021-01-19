@@ -1,6 +1,7 @@
 #FCStudentTracking system
 
 ##clone repo
+
 <code>
 git clone https://github.com/trongminh20/FCStudentTracking.git
 </code><br>
@@ -8,21 +9,19 @@ git clone https://github.com/trongminh20/FCStudentTracking.git
 ##After cloning
 
 *create a branch for yourself, make a first commit on repo with message* <br>
-<code>
   
-git branch **_yourname_**
+  git branch **_yourname_**
   
-git checkout **_yourname_**
+  git checkout **_yourname_**
 
-echo "this is file from **_yourname_** " >> **_yourname_**.txt
+  echo "this is file from **_yourname_** " >> **_yourname_**.txt
 
-git add **_Yourname_**.txt
+  git add **_Yourname_**.txt
 
-git commit -m "First commit from **_Yourname_** "<br>
+  git commit -m "First commit from **_Yourname_** "
 
-git push origin
+  git push origin
 
-</code>
 ##Pull code from branch main
 <code>
 git pull origin/main 
