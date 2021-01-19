@@ -30,4 +30,8 @@ git pull origin/main
 _The branch main was protected, so you are only able to work on your own branch that you created -> push your code 
 -> wait for merge code in the main branch_ 
 
-
+## Working on this project:
+ * server simulator:  Laragon
+ * Language: PHP, HTML/CSS, JS, SQL
+ 
+ **Make sure your code work properly before request to merge on main branch**
