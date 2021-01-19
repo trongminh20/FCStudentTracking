@@ -9,15 +9,15 @@ git clone https://github.com/trongminh20/FCStudentTracking.git
 
 *create a branch for yourself, make a first commit on repo with message* <br>
 ```  
-  git branch **_yourname_**
+  git branch <Yourname>
   
-  git checkout **_yourname_**
+  git checkout <Yourname>
 
-  echo "this is file from **_yourname_** " >> **_yourname_**.txt
+  echo "this is file from <Yourname>" >> <Yourname>.txt
 
-  git add **_Yourname_**.txt
+  git add <Yourname>.txt
 
-  git commit -m "First commit from **_Yourname_** "
+  git commit -m "First commit from <Yourname>
 
   git push origin
 ```
