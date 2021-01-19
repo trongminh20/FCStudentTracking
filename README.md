@@ -24,7 +24,11 @@ git clone https://github.com/trongminh20/FCStudentTracking.git
 ## Pull code from branch main
 ```
 git checkout <yourname>
-git pull origin main 
+git pull origin main
+```
+or 
+```
+git pull origin <yourname>
 ```
 
 _The branch main was protected, so you are only able to work on your own branch that you created -> push your code 
