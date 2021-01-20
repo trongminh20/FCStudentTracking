@@ -19,7 +19,7 @@ git clone https://github.com/trongminh20/FCStudentTracking.git
 
   git commit -m "First commit from <Yourname>
 
-  git push origin
+  git push origin <your branch>
 ```
 ## Pull code from branch main
 ```
