@@ -38,6 +38,6 @@ _The branch main was protected, so you are only able to work on your own branch 
  * server simulator:  Laragon
  * Language: PHP, HTML/CSS, JS, SQL
 
-## I made a coding style guide for this project, make sure you agree and apply that standard in your code. 
+**I made a coding style guide for this project, make sure you agree and apply that standard in your code.** 
 
  **Make sure your code work properly before request to merge on main branch**
