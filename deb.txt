@@ -2,6 +2,7 @@ Animals.txt for Group 15
 
 Mammals text
 my favourite animal are
+
 1. MinhPhan's fav mammal is Elephan
 2. Jessie's favourite animal is Dog 
 3. Ally's fav mammal are Dogs
@@ -10,7 +11,6 @@ Reptiles
 1.MinhPhan's fav reptile is gecko 
 2.Jessie doesn't have any favourite reptiles..oops :)
 3. Ally's fav reptiles are lepord geckos
-4.
 Fish
 1.MinhPhan's fav is salmon
 2.
@@ -22,8 +22,9 @@ Birds
 3. Ally's fav bird are bearded vultures
 4.
 
+This part from Rafael: 
 
-
-
-
-
+mammal - zebra
+birds - parrot
+fish - clown fish
+reptiles -alligator
