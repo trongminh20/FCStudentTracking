@@ -2,22 +2,22 @@ Animals.txt for Group 15
 
 Mammals text
 my favourite animal are
-1. MinhPhan's fav animal is Elephan
+1. MinhPhan's fav mammal is Elephan
 2. 
 3. 
 4.
 Reptiles
-1.
+1.MinhPhan's fav reptile is gecko 
 2.
 3.
 4.
 Fish
-1.
+1.MinhPhan's fav is salmon
 2.
 3.
 4.
 Birds
-1.
+1.MinhPhan's fav is songbird
 2.
 3.
 4.
