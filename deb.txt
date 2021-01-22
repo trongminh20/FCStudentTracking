@@ -1,1 +1,6 @@
 This is the file we will work on
+
+mammal - zebra
+birds - parrot
+fish - clown fish
+reptiles -alligator
