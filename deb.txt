@@ -1,14 +1,28 @@
-This is the file we will work on
+Animals.txt for Group 15
 
-#Minh phan editted this file with the following content
-
+Mammals text
 my favourite animal are
-1. Dog
-2. cat
-3. lion
+1. MinhPhan's fav animal is Elephan
+2. 
+3. 
 4.
-5.
-6.
+Reptiles
+1.
+2.
+3.
+4.
+Fish
+1.
+2.
+3.
+4.
+Birds
+1.
+2.
+3.
+4.
+
+
 
 
 
