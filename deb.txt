@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Animals.txt for Group 15
 
 Mammals text
@@ -23,4 +24,10 @@ Birds
 3. Ally's fav bird are bearded vultures
 4.
 
+This part from Rafael: 
+
+mammal - zebra
+birds - parrot
+fish - clown fish
+reptiles -alligator
 
