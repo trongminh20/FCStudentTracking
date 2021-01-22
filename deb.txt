@@ -4,22 +4,22 @@ Mammals text
 my favourite animal are
 1. MinhPhan's fav animal is Elephan
 2. 
-3. 
+3. Ally's fav mammal are Dogs
 4.
 Reptiles
 1.
 2.
-3.
+3. Ally's fav reptiles are lepord geckos
 4.
 Fish
 1.
 2.
-3.
+3. Ally's fav fish are fancy goldfish
 4.
 Birds
 1.
 2.
-3.
+3. Ally's fav bird are bearded vultures
 4.
 
 
