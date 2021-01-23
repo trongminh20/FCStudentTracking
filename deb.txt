@@ -6,25 +6,20 @@ my favourite animal are
 1. MinhPhan's fav mammal is Elephan
 2. Jessie's favourite animal is Dog 
 3. Ally's fav mammal are Dogs
-4.
+4. Rafael fav mammal is Zebra
 Reptiles
 1.MinhPhan's fav reptile is gecko 
 2.Jessie doesn't have any favourite reptiles..oops :)
 3. Ally's fav reptiles are lepord geckos
+4. Rafael fav reptile is alligator
 Fish
 1.MinhPhan's fav is salmon
 2.
 3. Ally's fav fish are fancy goldfish
-4.
+4. Rafael fav fish is flowerhorn
 Birds
 1.MinhPhan's fav is songbird
 2.Jessie's favourite bird is Seagull
 3. Ally's fav bird are bearded vultures
-4.
+4. Rafael fav bird is parrot
 
-This part from Rafael: 
-
-mammal - zebra
-birds - parrot
-fish - clown fish
-reptiles -alligator
