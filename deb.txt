@@ -1,7 +1,7 @@
 Animals.txt for Group 15
 
 Mammals text
-my favourite animal are
+our favourite animal are
 
 1. MinhPhan's fav mammal is Elephan
 2. Jessie's favourite animal is Dog 
