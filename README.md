@@ -21,6 +21,10 @@ git clone https://github.com/trongminh20/FCStudentTracking.git
 
   git push origin <your branch>
 ```
+## Branches 
+    * main: for ready-to-release version, always the stable version 
+    * demo : for demo. it is a version for group test
+    * <your name> : Storing version of your own code and this is the branch that you are working on
 ## Pull code from branch main
 ```
 git checkout <yourname>
