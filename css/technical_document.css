@@ -1,87 +1,60 @@
-body {
-    line-height: 1.5;
+body{
+    width: 100%;
+}
+#body-wrapper{
+    width: 100%;
 }
 
-#header {
-    position: fixed;
-    width: 25%;
-    height: 100%;
-    margin-right: 10px;
-    border-right: 1px solid;
-    /*padding:10px;*/
+#nav-bar{
+    position:fixed;
+    width: 20%;
+    display:flex;
+    flex-direction: column;
+    border-right: 1px solid #5a6268;
 }
 
-#title {
-    text-align: center;
-}
-
-nav > ul {
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding: 0;
-}
-
-nav > ul > li {
-    border-bottom: 1px solid;
-    list-style: none;
-    height: 30px;
-    text-align: left;
-}
-
-.nav-link {
-    margin-left: 20px;
-    text-decoration: none;
-    font-size: 16px;
-    color:black;
-}
-
-#main-doc {
-    position: absolute;
-    margin-left: 35%;
-}
-
-footer >div{
-    bottom:0;
-    margin-top:50px;
+#page-title{
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px dashed #5a6268;
     height: 50px;
-    border-top:1px dashed;
-    text-align: center;
 }
-.main-section > header{
-    font-size: 20px;
-    font-weight: bold;
-}
+ #nav{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     height: 100vh;
+     overflow-y:auto ;
+     overflow-x:hidden ;
+ }
+ #nav > li{
+     list-style: none;
+     padding:10px;
+     width: 100%;
+     text-align: center;
+ }
+ .nav-link{
+     text-decoration: none;
+     color: #1b1e21;
+     font-size: 20px;
+ }
+#nav-bar > #footer{
 
-.main-section > article > code{
-    padding:50px;
+}
+#main-container{
     width: 70%;
-    display: block;
+    height: 100%;
+    margin-left: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
 }
-
-@media (max-width:815px){
-    body{
-        display:flex;
-        width:100%;
-        height: auto;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-    #header, #main-doc{
-        flex-basis:200px;
-        flex-shrink: 1;
-        flex-grow: 1;
-        width: 100%;
-        border:none;
-        height: auto;
-        position: unset;
-    }
-    #header{
-        border:none;
-        top:0;
-    }
-
-    #main-doc{
-        margin-left: auto;
-    }
+.content > h1{
+    font-size: 30px;
+}
+.content > p{
+    font-size:16px;
 }
 
