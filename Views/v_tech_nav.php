@@ -4,19 +4,28 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/css_reset.css">
+
     <title>Student Tracking System's Document</title>
-    <link rel="styleshee" href="css/technical_document.css">
+    <link rel="stylesheet" href="../css/technical_document.css">
 </head>
 <body>
-<header>
-    <nav>
-        <header id="title">STUDENT TRACKING</header>
-        <ul>
-            <li><a href="#introduction" class="nav-link">Introduction</a></li>
-            <li><a href="#" class="nav-link">Part 1</a></li>
-            <li><a href="#" class="nav-link">Part 2</a></li>
-            <li><a href="#" class="nav-link">Part 3</a></li>
+    <div id="body-wrapper">
+    <nav id="nav-bar">
+        <div id="page-title" class="nav-item">
+            Student Tracking
+        </div>
+        <ul id="nav" class="nav-item">
+            <li><a href="" class="nav-link">sample</a></li>
+            <li><a href="" class="nav-link">sampe</a></li>
+            <li><a href="" class="nav-link">sample</a></li>
+            <li><a href="" class="nav-link">sample</a></li>
+            <li><a href="" class="nav-link">sample</a></li>
+            <li><a href="" class="nav-link">sample</a></li>
+            <li><a href="" class="nav-link">sample</a></li>
+            <li><a href="" class="nav-link">sample</a></li>
+            <li><a href="" class="nav-link">sample</a></li>
+            <li><a href="" class="nav-link">sample</a></li>
         </ul>
-    </nav>
-</header>
+   </nav>
 
