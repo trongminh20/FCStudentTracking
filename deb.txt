@@ -10,6 +10,7 @@ Our favourite animals are
 2. Jessie's favourite animal is Dog 
 3. 
 4. 
+<<<<<<< HEAD
 Reptiles
 1. 
 2. Jessie doesn't have any favourite reptiles..oops :)
@@ -45,6 +46,23 @@ HEAD
 4. 
 3. Ally's fav bird are bearded vultures
 4. Rafael fav bird is parrot
+=======
+Reptiles
+1. 
+2. Jessie doesn't have any favourite reptiles..oops :)
+3. 
+4. 
+Fish
+1.
+2. Jessie's favourite fish is Crownfish
+3. 
+4. 
+Birds
+1.
+2. Jessie's favourite bird is Seagull
+3. 
+4. 
+>>>>>>> af0568760df7490d7a653a9de5568d18bac14442
 
 
  origin/rafael
