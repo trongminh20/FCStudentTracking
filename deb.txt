@@ -24,10 +24,5 @@ Birds
 3. Ally's fav bird are bearded vultures
 4. Rafael fav bird is parrot
 
-This part from Rafael: 
 
-mammal - zebra
-birds - parrot
-fish - clown fish
-reptiles -alligator
 
