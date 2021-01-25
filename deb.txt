@@ -1,3 +1,6 @@
+ HEAD
+
+ origin/rafael
 Animals.txt for Group 15
 
 Mammals text
@@ -37,6 +40,12 @@ Fish
 Birds
 1.MinhPhan's fav is songbird
 2.
+HEAD
 3. 
 4. 
+3. Ally's fav bird are bearded vultures
+4. Rafael fav bird is parrot
+
+
+ origin/rafael
 
