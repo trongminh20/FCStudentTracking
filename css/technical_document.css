@@ -18,6 +18,7 @@
     border-bottom: 1px dashed #5a6268;
     height: 50px;
 }
+
  #nav{
      display: flex;
      flex-direction: column;
@@ -55,4 +56,3 @@
 .content > p{
     font-size:16px;
 }
-
