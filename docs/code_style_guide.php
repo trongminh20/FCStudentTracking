@@ -1,3 +1,7 @@
+/*
+PHP SOURCE CODE SHOULD BE CODED IN SEPARATE FILES WITH HTML/CSS 
+
+*/
 <?php
 // an constant should be declared with full capital letters and _
 define("CONSTANT_NAME","constant value");
