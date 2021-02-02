@@ -1,8 +1,17 @@
 <?php
-
+/* Changes need to be done:
+ * Add explanation comment that I mentioned in style_guide
+ * TODO:
+ * - add constructor
+ * - add position of Employee
+ * - add getter and setter functions if needed
+ * - add toArray functino
+*/
 class Employee extends User
 {
     private $data;
+
+
     /*
     inherited from User
     function __construct($phoneNumber, $email, $username, $password)
