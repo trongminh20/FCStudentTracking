@@ -46,6 +46,7 @@ class Employee extends User
         }
     }
 
+    //this is not what we expected
     function to_array()
     {
         return $this->data;
