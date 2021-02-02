@@ -1,5 +1,20 @@
-# FCStudentTracking system
-
+# FCStudentTracking system <br>
+-fcstudenttracking / <br>
+ ++ img/ <br>
+ ++ bootstrap / <br>
+    ++++ css/ <br>
+    ++++ js/ <br>
+ ++ controllers /<br> 
+    ++++ c_sample.php<br>
+ ++ views /<br>
+    ++++ v_sample.php<br>
+ ++ models /<br>
+    ++++ m_sample.php<br>
+ ++ src /<br>
+    +++ resources files<br>
+ ++ index.php<br>
+ ++ .htaccess<br>
+--------------
 ## clone repo
 ```
 git clone https://github.com/trongminh20/FCStudentTracking.git
@@ -21,6 +36,10 @@ git clone https://github.com/trongminh20/FCStudentTracking.git
 
   git push origin <your branch>
 ```
+## Branches 
+    * main: for ready-to-release version, always the stable version 
+    * demo : for demo. it is a version for group test
+    * <your name> : Storing version of your own code and this is the branch that you are working on
 ## Pull code from branch main
 ```
 git checkout <yourname>
@@ -38,6 +57,8 @@ _The branch main was protected, so you are only able to work on your own branch 
  * server simulator:  Laragon
  * Language: PHP, HTML/CSS, JS, SQL
 
-**I made a coding style guide for this project, make sure you agree and apply that standard in your code.** 
+**I made a coding style guide for this project in the folder of documents, make sure you agree and apply that 
+standard in your 
+code.** 
 
  **Make sure your code work properly before request to merge on main branch**
