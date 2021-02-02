@@ -1,5 +1,20 @@
 # FCStudentTracking system
-
+-fcstudenttracking /
+ ++ img/
+ ++ bootstrap /
+    ++++ css/
+    ++++ js/
+ ++ controllers / 
+    ++++ c_sample.php
+ ++ views /
+    ++++ v_sample.php
+ ++ models /
+    ++++ m_sample.php
+ ++ src /
+    +++ resources files
+ ++ index.php
+ ++ .htaccess
+--------------
 ## clone repo
 ```
 git clone https://github.com/trongminh20/FCStudentTracking.git
