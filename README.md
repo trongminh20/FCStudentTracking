@@ -1,19 +1,19 @@
 # FCStudentTracking system
--fcstudenttracking /
- ++ img/
- ++ bootstrap /
-    ++++ css/
-    ++++ js/
- ++ controllers / 
-    ++++ c_sample.php
- ++ views /
-    ++++ v_sample.php
- ++ models /
-    ++++ m_sample.php
- ++ src /
-    +++ resources files
- ++ index.php
- ++ .htaccess
+-fcstudenttracking / <br>
+ ++ img/ <br>
+ ++ bootstrap / <br>
+    ++++ css/ <br>
+    ++++ js/ <br>
+ ++ controllers /<br> 
+    ++++ c_sample.php<br>
+ ++ views /<br>
+    ++++ v_sample.php<br>
+ ++ models /<br>
+    ++++ m_sample.php<br>
+ ++ src /<br>
+    +++ resources files<br>
+ ++ index.php<br>
+ ++ .htaccess<br>
 --------------
 ## clone repo
 ```
