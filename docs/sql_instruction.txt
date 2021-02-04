@@ -1,0 +1,7 @@
+access your mysql via cmd or laragon terminal then run the following command
+
+source c:/laragon/www/fcstudenttracking/database_setup.sql
+
+----
+
+another way is copy and paste one by one from sql file into your command windows.
