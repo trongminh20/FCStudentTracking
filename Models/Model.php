@@ -3,7 +3,7 @@
 class Model{
     protected $db;
 
-    public function __construct(){
-        $this->db = Database::connect_to_db();
+    public function __construct(Database $db){
+        $this->db = $db;
     }
 }
