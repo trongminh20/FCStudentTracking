@@ -1,10 +1,16 @@
 <?php
-
+/* Changes need to be done:
+ * Add explanation comment that I mentioned in style_guide
+ * TODO:
+ * - add constructor
+ * - add position of Employee
+ * - add getter and setter functions if needed
+ * - add toArray functino
+*/
 class Employee extends User
 {
     private $data;
-    /*
-    inherited from User
+    /*   
     function __construct($phoneNumber, $email, $username, $password)
     {
         $this->phoneNumber = $phoneNumber;
@@ -13,7 +19,10 @@ class Employee extends User
         $this->password = $password;
     }
     */
-
+    function_construct($department)
+    {
+        $this->department = $department; 
+    }
     function add_data($NewData)
     {
         array_push($data, $NewData);
@@ -36,9 +45,42 @@ class Employee extends User
             }
         }
     }
+   
+    function update_Password($Data,$newPassword)
+    {
+          for ($i = 0; $i < count($this->data); $i++) {
+            if($this->data[$i] == $Data) {
+                $this->data[$i][password] = $newPassword;
+            }
+          }
+     }
 
+    function update_PhoneNumber($Data, $newPhoneNumber)
+    {
+        for ($i = 0; $i < count($this->data); $i++) {
+            if($this->data[$i] == $Data) {
+                $this->data[$i][phoneNumber] = $newPhoneNumber;
+            }
+        }
+    }
+
+    function update_UserName($Data, $newUserName)
+    {
+        for ($i = 0; $i < count($this->data); $i++) {
+            if($this->data[$i] == $Data) {
+                $this->data[$i][username] = $newUserName;
+            }
+        }
+    }
+    //this is not what we expected
     function to_array()
     {
-        return $this->data;
+        return[
+            'username'=>$this->username,
+            'password'=> $this->password,
+            'email' => $this->email,
+            'phone_number'=> $this->phoneNumber,
+            'department' => $this->department
+        ]
     }
 }
