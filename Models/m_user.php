@@ -30,7 +30,9 @@ class User{
     function get_phone_number(){
         return $this->phoneNumber;
     }
-
+    function get_password(){
+        return $this->password;
+    }
     function change_phone_number($pNumber){
         $this->phoneNumber = $pNumber;
     }
@@ -40,12 +42,12 @@ class User{
      * in format [key => values]
      * @return array
      */
-    function toArray(){
+    function to_array(){
         return [
-            'username'=>$this->username,
-            'password'=> $this->password,
-            'email' => $this->email,
-            'phone_number'=> $this->phoneNumber
+            'username'=>$this->get_username(),
+            'password'=> $this->get_password(),
+            'email' => $this->get_email(),
+            'phone'=> $this->get_phone_number()
         ];
     }
 
