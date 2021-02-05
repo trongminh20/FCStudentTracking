@@ -1,54 +1,39 @@
 <?php
-/* Changes need to be done:
- * Add explanation comment that I mentioned in style_guide
- * TODO:
- * - add constructor
- * - add position of Employee
- * - add getter and setter functions if needed
- * - add toArray functino
-*/
+
 class Employee extends User
 {
-    private $data;
 
+    private $role;
+    private $department;
 
-    /*
-    inherited from User
-    function __construct($phoneNumber, $email, $username, $password)
+    public function __construct($username, $password, $email, $phoneNumber, $department)
     {
-        $this->phoneNumber = $phoneNumber;
-        $this->email = $email;
-        $this->username = $username;
-        $this->password = $password;
+        parent::__construct($username, $password, $email, $phoneNumber);
+        $this->department = $department;
+        $this->role = 0;
     }
-    */
-
-    function add_data($NewData)
-    {
-        array_push($data, $NewData);
+    function set_department($dep){
+        $this->department = $dep;
     }
-
-    function update_data($oldData, $NewData)
+    function get_department()
     {
-        for ($i = 0; $i < count($this->data); $i++) {
-            if($this->data[$i] == $oldData) {
-                $this->data[$i] = $NewData;
-            }
-        }
+        return $this->department;
     }
 
-    function delete_data($oldData)
+    function get_role()
     {
-        for ($i = 0; $i < count($this->data); $i++) {
-            if($this->data[$i] == $oldData) {
-                unset($this->data[$i]);
-            }
-        }
+        return $this->role;
     }
 
-    //this is not what we expected
     function to_array()
     {
-        return $this->data;
+        return [
+            'username' => $this->get_username(),
+            'password' => $this->get_password(),
+            'email' => $this->get_email(),
+            'phone' => $this->get_phone_number(),
+            'department' => $this->get_department(),
+            'admin' => $this->get_role()
+        ];
     }
 }
