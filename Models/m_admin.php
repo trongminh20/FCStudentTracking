@@ -7,6 +7,7 @@ class Admin extends User{
         $this->department = $department;
     }
 
+   
     public function create_account (){
     }
 
