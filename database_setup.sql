@@ -36,7 +36,8 @@ CREATE TABLE Employees
     Phone      VARCHAR(15),
     Email      VARCHAR(50),
     Department VARCHAR(50),
-    Password   VARCHAR(50)
+    Password   VARCHAR(100),
+    admin      int
 );
 
 CREATE TABLE Fees
@@ -55,15 +56,31 @@ CREATE TABLE Programs
 );
 
 ALTER TABLE Students
-    ADD CONSTRAINT Students_FK FOREIGN KEY (Prog_ID) REFERENCES Programs (ID);
+    ADD CONSTRAINT Students_FK
+    FOREIGN KEY (Prog_ID)
+    REFERENCES Programs (ID);
+
 ALTER TABLE Students
     ADD CHECK (Dom_OR_Int IN ('Domestic', 'International'));
 
 ALTER TABLE Requirements
-    ADD CONSTRAINT Requirements_FK FOREIGN KEY (Prog_ID) REFERENCES Programs (ID);
+    ADD CONSTRAINT Requirements_FK
+    FOREIGN KEY (Prog_ID)
+    REFERENCES Programs (ID);
+
 ALTER TABLE StudentTracking
-    ADD CONSTRAINT StudentTracking_FK1 FOREIGN KEY (Stu_ID) REFERENCES Students (ID);
+    ADD CONSTRAINT StudentTracking_FK1
+    FOREIGN KEY (Stu_ID)
+    REFERENCES Students (ID);
+
 ALTER TABLE StudentTracking
-    ADD CONSTRAINT StudentTracking_FK2 FOREIGN KEY (Req_ID) REFERENCES Requirements (ID);
+    ADD CONSTRAINT StudentTracking_FK2
+    FOREIGN KEY (Req_ID)
+    REFERENCES Requirements (ID);
+
 ALTER TABLE Fees
-    ADD CONSTRAINT fees_Requirements_FK FOREIGN KEY (Prog_ID) REFERENCES Programs (ID);
+    ADD CONSTRAINT fees_Requirements_FK
+    FOREIGN KEY (Prog_ID)
+    REFERENCES Programs (ID);
+ALTER TABLE Employees
+    ADD CHECK (admin IN (0,1));

@@ -7,7 +7,7 @@ class User{
 
     public function __construct($username, $password, $email= "", $phoneNumber=""){
         $this->username = $username;
-        $this->password = $password;
+        $this->password = SHA1($password);
         $this->email = $email;
         $this->phoneNumber = $phoneNumber;
     }
@@ -35,6 +35,11 @@ class User{
         $this->phoneNumber = $pNumber;
     }
 
+    /**
+     * return an array that store the data of a users
+     * in format [key => values]
+     * @return array
+     */
     function toArray(){
         return [
             'username'=>$this->username,
