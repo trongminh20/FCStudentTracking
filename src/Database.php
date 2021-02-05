@@ -19,7 +19,7 @@ class Database
      * @param $table
      * @return false|array
      */
-    public function get_records($table){
+    public function select_multiple($table){
         $query = "SELECT * FROM ".$table;
         $stm = $this->db->prepare($query);
         $stm->execute();
@@ -32,7 +32,7 @@ class Database
      * @param $id
      * @return array
      */
-    public function get_by_id($table, $id){
+    public function select_single($table, $id){
         $query = "SELECT * FROM $table WHERE id = ?";
         $stm = $this->db->prepare($query);
         $stm ->execute([$id]);
@@ -45,22 +45,54 @@ class Database
      * @param $data as an Array that we got from toArray()
      * @return false|string
      */
-    function create_record($table, $data){
-        $cols = array_keys($data);
-        $colInTable = implode(',', $cols);
-        $binding = ":".implode(',:', $cols);
-
-        $query = "INSERT INTO $table($colInTable) VALUES ($binding)";
+    function insert($table, $data){
+        //key from array
+        $fields = array_key($data);
+        //values from array
+        $vals = array_values($data);
+        //name of columns
+        $cols = implode(",", $fields);
+        //values string
+        $marks = "";
+        for($i = 0; $i < count($fields); $i++){
+            $marks .="?,";
+        }
+        $query = "INSERT INTO $table($cols) VALUES (".rtrim($marks,",").")";
 
         $stm = $this->pdo->prepare($query);
-
-        $stm = $this->bind_data($stm, $data);
-
-        $status = $stm ->execute();
-        // Returns the ID of the last inserted row or sequence value
-        return ($status) ? $this->pdo->lastInsertId() : false;
+        try {
+            $stm->execute($vals);
+        }catch(PDOException $e){
+            return $e->getMessage();
+        }
     }
 
+    /**
+     * Update a row with specific ID in existing table
+     * @param $table
+     * @param $data
+     * @param $id
+     * @return string
+     */
+    function update($table, $data, $id){
+        $fields = array_keys($data);
+        $vals = array_values($data);
+        $bind= "";
+
+        for($i=0; $i < count($fields); $i++){
+            $bind .= $fields[$i]." = ?,";
+        }
+
+        $query = "UPDATE $table SET ".rtrim($bind,",")." WHERE id = $id ";
+
+        $stm = $this -> pdo -> prepare($query);
+
+        try {
+            $stm->execute($vals);
+        }catch(PDOException $e){
+            return $e->getMessage();
+        }
+    }
     /**
      * delete one specific row from existing table
      * @param $table
@@ -76,17 +108,5 @@ class Database
             $e->getMessage();
         }
     }
-    /**
-     * binding data -> sql query
-     * @param $sql
-     * @param $data
-     * @return mixed
-     */
-    private function bind_data($sql , $data){
-        $stm = $sql;
-        foreach($data as $k => $v){
-            $stm->bindValue(':'.$k, $v);
-        }
-        return $stm;
-    }
+
 }
