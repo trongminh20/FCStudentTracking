@@ -1,3 +1,3 @@
 <?php
-echo $e_message;
+echo "error";
 exit();

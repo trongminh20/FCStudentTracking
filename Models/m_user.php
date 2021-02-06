@@ -36,7 +36,9 @@ class User{
     function change_phone_number($pNumber){
         $this->phoneNumber = $pNumber;
     }
-
+    function print_out(){
+        return "this is from user";
+    }
     /**
      * return an array that store the data of a users
      * in format [key => values]

@@ -109,4 +109,8 @@ class Database
         }
     }
 
+    function print_out(){
+        return "this is database";
+    }
+
 }

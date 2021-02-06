@@ -1,10 +1,14 @@
 <?php
+session_start();
+
+include "libs.php";
+
 if(isset($_POST['action'])){
     $action = $_POST['action'];
 }else if(isset($_GET['action'])){
     $action = $_GET['action'];
 }else{
-    $action = 'v_home';
+    $action = 'v_login';
 }
 //getting const information
 $conf = require "src/config.php";
@@ -16,8 +20,7 @@ $dbPassword = $conf['db_password'];
 $pdo = new PDO($dbConnect, $dbUsername, $dbPassword,$conf['db_options']);
 $database = new Database($pdo);
 
-//new Controller for control flow
+//new ccontroller for control flow
 $controller = new Controller($database);
-
 //Routing to destination page
 require $controller -> index($action);

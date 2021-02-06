@@ -15,6 +15,7 @@ class Employee extends User
     function set_department($dep){
         $this->department = $dep;
     }
+
     function get_department()
     {
         return $this->department;
