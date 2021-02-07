@@ -54,6 +54,7 @@ CREATE TABLE Programs
     ID        int auto_increment primary key,
     Prog_Name VARCHAR(50)
 );
+-- tracking sessions on system
 CREATE TABLE sessions
 (
     sessionID   INT AUTO_INCREMENT PRIMARY KEY,
@@ -61,6 +62,7 @@ CREATE TABLE sessions
     created     DATETIME,
     logout      DATETIME
 );
+--the userID must be existed in Employees table
 ALTER TABLE sessions
     ADD CONSTRAINT session_fk
     FOREIGN KEY (userID)
@@ -94,9 +96,11 @@ ALTER TABLE Fees
     FOREIGN KEY (Prog_ID)
     REFERENCES Programs (ID);
 
+--  if the user is an admin then 1, else 0
 ALTER TABLE Employees
     ADD CHECK (admin IN (0,1));
 
+-- not duplicated username
 ALTER TABLE Employees
     ADD CONSTRAINT user_uniq
     UNIQUE (username);
