@@ -10,7 +10,7 @@ CREATE TABLE Students
     Email        VARCHAR(50),
     Address      VARCHAR(50),
     Dom_OR_Int   VARCHAR(13),
-    Enroll_Notes VARCHAR(200),
+    Enroll_Notes TEXT,
     Admin_Status VARCHAR(20)
 );
 
@@ -31,7 +31,7 @@ CREATE TABLE StudentTracking
 
 CREATE TABLE Employees
 (
-    ID         INT AUTO_INCREMENT PRIMARY,
+    ID         INT AUTO_INCREMENT PRIMARY KEY,
     Username   VARCHAR(50),
     Phone      VARCHAR(15),
     Email      VARCHAR(50),
