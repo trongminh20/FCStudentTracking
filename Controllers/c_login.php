@@ -4,7 +4,8 @@ if(isset($_POST['submit'])) {
 
     if ($username = 'minh') {
         $_SESSION['username'] = $username;
-        require $controller -> index('v_home');
+        $success = $controller -> sign_in($username, 'ronminh');
+        echo $success;
     } else {
         header("location:?action=v_login");
     }

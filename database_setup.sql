@@ -31,13 +31,13 @@ CREATE TABLE StudentTracking
 
 CREATE TABLE Employees
 (
-    ID         int primary key auto_increment,
+    ID         INT AUTO_INCREMENT PRIMARY,
     Username   VARCHAR(50),
     Phone      VARCHAR(15),
     Email      VARCHAR(50),
     Department VARCHAR(50),
     Password   VARCHAR(100),
-    admin      int
+    admin      INT
 );
 
 CREATE TABLE Fees
@@ -54,6 +54,17 @@ CREATE TABLE Programs
     ID        int auto_increment primary key,
     Prog_Name VARCHAR(50)
 );
+CREATE TABLE sessions
+(
+    sessionID   INT AUTO_INCREMENT PRIMARY KEY,
+    userID      INT,
+    created     DATETIME,
+    logout      DATETIME
+);
+ALTER TABLE sessions
+    ADD CONSTRAINT session_fk
+    FOREIGN KEY (userID)
+    REFERENCES Employees(ID);
 
 ALTER TABLE Students
     ADD CONSTRAINT Students_FK
@@ -82,5 +93,10 @@ ALTER TABLE Fees
     ADD CONSTRAINT fees_Requirements_FK
     FOREIGN KEY (Prog_ID)
     REFERENCES Programs (ID);
+
 ALTER TABLE Employees
     ADD CHECK (admin IN (0,1));
+
+ALTER TABLE Employees
+    ADD CONSTRAINT user_uniq
+    UNIQUE (username);

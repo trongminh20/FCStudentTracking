@@ -1,6 +1,7 @@
 <?php
 class Controller{
     private $db;
+
     public function __construct(Database $db){
         $this->db = $db;
     }
@@ -18,11 +19,24 @@ class Controller{
             default:
                 return "404.php";
         }
+
+    }
+
+    function sign_in($user, $pass){
+        return $this->db->select_user($user, $pass);
     }
 
 
-    function create_user($table, User $u){
-        $data = $u->to_array();
+    function create_user($table, User $user){
+        $data = $user->to_array();
         $this->db->insert($table,$data);
     }
+
+    function delete_user($table, $id){
+        $this->db->delete($table, $id);
+    }
+
+
+
+
 }

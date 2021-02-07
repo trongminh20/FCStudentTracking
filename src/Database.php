@@ -32,13 +32,25 @@ class Database
      * @param $id
      * @return array
      */
-    public function select_single($table, $id){
+    public function select_by_id($table, $id){
         $query = "SELECT * FROM $table WHERE id = ?";
         $stm = $this->db->prepare($query);
         $stm ->execute([$id]);
         return $stm->fetch(PDO::FETCH_ASSOC);
     }
 
+    /**
+     * check if the user existed
+     * @param $username
+     * @param $password
+     * @return int
+     */
+    public function select_user($username, $password){
+        $query = "SELECT username, password FROM Employees WHERE username = ? AND password = ?";
+        $stm = $this->pdo->prepare($query);
+        $stm ->execute([$username,$password]);
+        return $stm->rowCount();
+    }
     /**
      * Insert one record into existing table in database
      * @param $table
@@ -109,6 +121,10 @@ class Database
         }
     }
 
+    /**
+     * this function used for testing only
+     * @return string
+     */
     function print_out(){
         return "this is database";
     }
