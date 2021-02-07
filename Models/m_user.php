@@ -36,6 +36,10 @@ class User{
     function change_phone_number($pNumber){
         $this->phoneNumber = $pNumber;
     }
+
+    /**this function is used for testing
+     * @return string
+     */
     function print_out(){
         return "this is from user";
     }
