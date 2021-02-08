@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="../css/customize.css">
-        <script src="../js/customize.js"></script>
+        <link rel="stylesheet" href="css/login_form_template.css">
+        <script src="js/customize.js"></script>
     </head>
 
