@@ -105,4 +105,3 @@ ALTER TABLE Employees
 ALTER TABLE Employees
     ADD CONSTRAINT user_uniq
         UNIQUE (username);
->>>>>>> 3a1b0e7db000538e43c4445c28a5c1a93d016cfd
