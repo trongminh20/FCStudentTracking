@@ -3,10 +3,7 @@ use fc_student_tracking;
 
 CREATE TABLE Students
 (
-
-
     ID           int auto_increment primary key,
-
     Prog_ID      VARCHAR(5),
     Name         VARCHAR(50),
     Phone        VARCHAR(15),
