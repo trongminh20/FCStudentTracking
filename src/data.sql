@@ -1,19 +1,3 @@
--- Insert 5 rows of data into Students table
-INSERT INTO Students VALUES
-(3789000, 'HCA', 'Jack Kerwin', '778-959-6325', 'jack.kerwin@fcstudent.ca', '1010 Clement Ave, Kelowna, V1Y 7E3', 'Domestic', 'Application fee paid.', 'Interested');
-
-INSERT INTO Students VALUES
-(3789001, 'CSW', 'Abigail Sloan', '250-123-1425', 'abigail.sloan@fcstudent.ca', '101-3533 Carrington Rd, West Kelowna, V4T 3G9', 'Domestic', 'Waiting for contract', 'Conditional');
-
-INSERT INTO Students VALUES
-(3789002, 'HCA', 'Norman Dreger', '250-748-5362', 'norman.dreger@fcstudent.ca', '202-211 Briarwood Rd, Kelowna, V1X 2G4', 'International', 'Complete', 'Enrolled');
-
-INSERT INTO Students VALUES
-(3789003, 'RMT', 'Alec Bryson', '778-582-4785', 'alec.bryson@fcstudent.ca', '1806 Kloppenburg Crt, Kelowna, V1P 1N6', 'Domestic', '', 'Interested');
-
-INSERT INTO Students VALUES
-(3789004, 'RMT', 'Calista Cornford', '604-582-1213', 'calista.cornford@fcstudent.ca', '2159 Clement Ave, Kelowna, V1Y 7E3', 'Domestic', 'Waiting for transcript.', 'Conditional');
-
 -- Insert 5 rows of data into Programs table
 INSERT INTO Programs VALUES
 ('HCA', 'Health Care Assistant');
@@ -29,6 +13,22 @@ INSERT INTO Programs VALUES
 
 INSERT INTO Programs VALUES
 ('RMT', 'Registered Massage Therapy');
+
+-- Insert 5 rows of data into Students table
+INSERT INTO Students VALUES
+(3789000, 'HCA', 'Jack Kerwin', '778-959-6325', 'jack.kerwin@fcstudent.ca', '1010 Clement Ave, Kelowna, V1Y 7E3', 'Domestic', 'Application fee paid.', 'Interested');
+
+INSERT INTO Students VALUES
+(3789001, 'CSW', 'Abigail Sloan', '250-123-1425', 'abigail.sloan@fcstudent.ca', '101-3533 Carrington Rd, West Kelowna, V4T 3G9', 'Domestic', 'Waiting for contract', 'Conditional');
+
+INSERT INTO Students VALUES
+(3789002, 'HCA', 'Norman Dreger', '250-748-5362', 'norman.dreger@fcstudent.ca', '202-211 Briarwood Rd, Kelowna, V1X 2G4', 'International', 'Complete', 'Enrolled');
+
+INSERT INTO Students VALUES
+(3789003, 'RMT', 'Alec Bryson', '778-582-4785', 'alec.bryson@fcstudent.ca', '1806 Kloppenburg Crt, Kelowna, V1P 1N6', 'Domestic', '', 'Interested');
+
+INSERT INTO Students VALUES
+(3789004, 'RMT', 'Calista Cornford', '604-582-1213', 'calista.cornford@fcstudent.ca', '2159 Clement Ave, Kelowna, V1Y 7E3', 'Domestic', 'Waiting for transcript.', 'Conditional');
 
 -- Insert 5 rows of data into Fees table
 INSERT INTO Fees VALUES
@@ -88,7 +88,7 @@ INSERT INTO StudentTracking VALUES
 INSERT INTO StudentTracking VALUES
 (102, 3789004, 'No');
 
-INSERT INTO StudentTrackinges VALUES
+INSERT INTO StudentTracking VALUES
 (101, 3789000, 'Yes');
 
 INSERT INTO StudentTracking VALUES
