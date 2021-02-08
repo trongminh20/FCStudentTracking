@@ -1,9 +1,10 @@
+drop database fc_student_tracking;
 create database fc_student_tracking;
 use fc_student_tracking;
 
 CREATE TABLE Students
 (
-    ID           int auto_increment primary key,
+    ID           INT PRIMARY KEY,
     Prog_ID      VARCHAR(5),
     Name         VARCHAR(50),
     Phone        VARCHAR(15),
