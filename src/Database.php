@@ -10,7 +10,8 @@ class Database
      * Database constructor.
      * @param PDO $pdo
      */
-    public function __construct(PDO $pdo){
+    public function __construct(PDO $pdo)
+    {
         $this->pdo = $pdo;
     }
 
@@ -19,8 +20,9 @@ class Database
      * @param $table
      * @return false|array
      */
-    public function select_multiple($table){
-        $query = "SELECT * FROM ".$table;
+    public function select_multiple($table)
+    {
+        $query = "SELECT * FROM " . $table;
         $stm = $this->db->prepare($query);
         $stm->execute();
         return $stm;
@@ -32,10 +34,11 @@ class Database
      * @param $id
      * @return array
      */
-    public function select_by_id($table, $id){
+    public function select_by_id($table, $id)
+    {
         $query = "SELECT * FROM $table WHERE id = ?";
         $stm = $this->db->prepare($query);
-        $stm ->execute([$id]);
+        $stm->execute([$id]);
         return $stm->fetch(PDO::FETCH_ASSOC);
     }
 
@@ -45,19 +48,22 @@ class Database
      * @param $password
      * @return int
      */
-    public function select_user($username, $password){
+    public function select_user($username, $password)
+    {
         $query = "SELECT username, password FROM Employees WHERE username = ? AND password = ?";
         $stm = $this->pdo->prepare($query);
-        $stm ->execute([$username,$password]);
+        $stm->execute([$username, $password]);
         return $stm->rowCount();
     }
+
     /**
      * Insert one record into existing table in database
      * @param $table
      * @param $data as an Array that we got from toArray()
      * @return false|string
      */
-    function insert($table, $data){
+    function insert($table, $data)
+    {
         //key from array
         $fields = array_key($data);
         //values from array
@@ -66,17 +72,16 @@ class Database
         $cols = implode(",", $fields);
         //values string
         $marks = "";
-        for($i = 0; $i < count($fields); $i++){
-            $marks .="?,";
+        for ($i = 0; $i < count($fields); $i++) {
+            $marks .= "?,";
         }
-        $query = "INSERT INTO $table($cols) VALUES (".rtrim($marks,",").")";
+        $query = "INSERT INTO $table($cols) VALUES (" . rtrim($marks, ",") . ")";
 
         $stm = $this->pdo->prepare($query);
-        try {
-            $stm->execute($vals);
-        }catch(PDOException $e){
-            return $e->getMessage();
-        }
+
+        $stm->execute($vals);
+
+
     }
 
     /**
@@ -86,46 +91,40 @@ class Database
      * @param $id
      * @return string
      */
-    function update($table, $data, $id){
+    function update($table, $data, $id)
+    {
         $fields = array_keys($data);
         $vals = array_values($data);
-        $bind= "";
-
-        for($i=0; $i < count($fields); $i++){
-            $bind .= $fields[$i]." = ?,";
+        $bind = "";
+        for ($i = 0; $i < count($fields); $i++) {
+            $bind .= $fields[$i] . " = ?,";
         }
-
-        $query = "UPDATE $table SET ".rtrim($bind,",")." WHERE id = $id ";
-
-        $stm = $this -> pdo -> prepare($query);
-
-        try {
-            $stm->execute($vals);
-        }catch(PDOException $e){
-            return $e->getMessage();
-        }
+        $query = "UPDATE $table SET " . rtrim($bind, ",") . " WHERE id = $id ";
+        $stm = $this->pdo->prepare($query);
+        $stm->execute($vals);
     }
+
     /**
      * delete one specific row from existing table
      * @param $table
      * @param $id
      * @return void
      */
-    function delete($table, $id){
-        $query = "DELETE FROM ".$table." WHERE id = ?";
+    function delete($table, $id)
+    {
+        $query = "DELETE FROM " . $table . " WHERE id = ?";
         $stm = $this->pdo->prepare($query);
-        try{
-            $stm -> execute([$id]);
-        }catch(PDOException $e){
-            $e->getMessage();
-        }
+
+        $stm->execute([$id]);
+
     }
 
     /**
      * this function used for testing only
      * @return string
      */
-    function print_out(){
+    function print_out()
+    {
         return "this is database";
     }
 
