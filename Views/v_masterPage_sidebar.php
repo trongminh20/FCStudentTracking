@@ -1,15 +1,5 @@
 <?php
 ?>
-<!DOCUMENT html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title></title>
-    <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/master_page.css" />
-    <link rel="stylesheet" href="css/w3.css" />
-</head>
 <body>
     <div class="wrapper">
         <!-- Sidebar Section -->
