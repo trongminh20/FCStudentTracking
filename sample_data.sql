@@ -16,19 +16,19 @@ INSERT INTO Programs VALUES
 
 -- Insert 5 rows of data into Fees table
 INSERT INTO Fees VALUES
-(210101, 100, "Application Fee", 150, 150);
+(210101, "HCA", "Application Fee", 150, 150);
 
 INSERT INTO Fees VALUES
-(210102, 104, "Intro Course Fee", 300, 300);
+(210102, "RMT", "Intro Course Fee", 300, 300);
 
 INSERT INTO Fees VALUES
-(210103, 100, "Textbook Fee", 100, 100);
+(210103, "CSW", "Textbook Fee", 100, 100);
 
 INSERT INTO Fees VALUES
-(210104, 100, "Tuition Fee", 7795, 9580);
+(210104, "HCA", "Tuition Fee", 7795, 9580);
 
 INSERT INTO Fees VALUES
-(210105, 101, "Administration Fee", 0, 300);
+(210105, "DA", "Administration Fee", 0, 300);
 
 -- Insert 5 rows of data into Employees table
 INSERT INTO Employees VALUES
