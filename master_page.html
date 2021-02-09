@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="wrapper">
-        <!-- Sidebar Holder -->
+        <!-- Sidebar Section -->
         <nav id="sidebar">
             <div class="sidebar-header" style="height:60px;">
             </div>
@@ -40,7 +40,7 @@
                 </li>
                 <li>
                     <a href="#helpSubmenu" data-toggle="collapse" aria-expanded="false">
-                        <i class="glyphicon glyphicon-search"></i>
+                        <i class="glyphicon glyphicon-question-sign"></i>
                         Help
                     </a>
                     <ul class="collapse list-unstyled" id="helpSubmenu">
@@ -51,7 +51,7 @@
                 
             </ul>
         </nav>
-        <!-- Page Content Holder -->
+        <!-- Header Section -->
         <div id="content">
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
@@ -69,9 +69,12 @@
                             </button>
                         </div>
                     </div>
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <div style="float: left; padding: 10px;">
+                            <input type="text" placeholder="Search..">
+                        </div>
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="dropdown top-menu-item-xs">
+                            <li class="dropdown top-menu-item">
                                 <a href="#" class="dropdown-toggle profile waves-effect waves-light" data-toggle="dropdown" aria-expanded="true" style="background: #ffffff;">
                                     <img id="userimg" src="images/default.png" alt="user-img" class="img-circle" width="30" style="border: 1px solid" />
                                 </a>

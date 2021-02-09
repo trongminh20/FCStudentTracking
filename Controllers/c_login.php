@@ -1,11 +1,14 @@
 <?php
 if(isset($_POST['submit'])) {
     $username = $_POST['username'];
+    $password = $_POST['password'];
 
-    if ($username = 'minh') {
+    $success = $controller -> sign_in($username, $password);
+
+    if ($success == 1) {
         $_SESSION['username'] = $username;
-        $success = $controller -> sign_in($username, 'ronminh');
-        echo $success;
+        $_SESSION['password'] = $password;
+        header ("Location:?action=v_home");
     } else {
         header("location:?action=v_login");
     }
