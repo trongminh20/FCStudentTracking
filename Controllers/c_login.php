@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['submit'])) {
     $username = $_POST['username'];
-    $password = SHA1($_POST['password']);
+    $password = $_POST['password'];
 
     $success = $controller -> sign_in($username, $password);
 
