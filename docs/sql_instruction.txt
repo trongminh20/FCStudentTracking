@@ -1,0 +1,29 @@
+setup mysql command for Windows' cmd:
+1. open your windows command prompt
+2. enter "pathman /au c:\laragon\bin\mysql\mysql-5.7.24-winx64\bin"
+3. to check if it is added, type "echo %PATH%"
+-------------------------------------------------------------------
+if you dont want to do the above setup then do the following process,
+Access your sql from Laragon Window or access via CMD (if you set path for it),
+at the very first times access mysql via command:
+ > mysql -u root -p
+ the password will be empty, so you just keep pressing Enter to go to mySL
+
+ -----------------------------------------------------------
+ In case you want to set the password for your root account, there are 2 ways for it.
+ method 1:
+ - after went into mySQL already , enter the following command
+ > ALTER USER 'root'@'localhost' IDENTIFIED BY '<Enter_your_password_here>';
+ method 2:
+ - exit mySQL if you were in it.
+ - from Laragon's terminal or Windows' cmd, Enter the following command
+ > mysql_secure_installation
+ - then follow the instruction of mySQL itself.
+--------------------------------------------------------------
+after finish setting up for mySQL, get into it and run the following command
+
+source c:/laragon/www/fcstudenttracking/database_setup.sql
+
+----
+
+another way is copy and paste one by one from sql file into your command windows.
