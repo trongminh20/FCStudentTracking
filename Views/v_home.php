@@ -1,5 +1,6 @@
 <?php
+include "v_masterPage_header.php";
+?>
+<?php
+include "v_masterPage_sidebar.php";
 
-include "test_navbar.php";
-
-print_r($_SESSION);
