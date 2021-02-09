@@ -1,10 +1,10 @@
 <?php
 ?>
-<<<<<<< HEAD
 <!DOCUMENT html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
+    <title>First College Management</title>
+    <link rel="stylesheet" href="css/css_reset.css" />
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <!-- Custom CSS -->
@@ -47,12 +47,3 @@
                 </div>
             </nav>
 </div>
-=======
-<!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="css/login_form_template.css">
-        <script src="js/customize.js"></script>
-    </head>
-
->>>>>>> 405abcfe8091b64ef023da9cb151bc29829020fb
