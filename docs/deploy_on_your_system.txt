@@ -5,4 +5,3 @@ change:
     db_username = 'your database username',
     db_password = 'your password',
 
-    
