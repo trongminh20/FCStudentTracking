@@ -14,7 +14,6 @@
 
 <!-- Header Section -->
 <body>
-<div id="content">
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header" style="width: 250px;">
@@ -25,6 +24,7 @@
                         </a>
                     </h3>
                 </div>
+                
             </div>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div style="float: left; padding: 10px;">
@@ -51,4 +51,3 @@
             </div>
         </div>
     </nav>
-</div>
