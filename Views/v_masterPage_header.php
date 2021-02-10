@@ -10,6 +10,9 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/master_page.css"/>
     <link rel="stylesheet" href="css/w3.css"/>
+    <!-- jQuery CDN -->
+    <script src="js/jquery-1.12.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </head>
 
 <!-- Header Section -->
