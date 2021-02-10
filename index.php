@@ -21,6 +21,7 @@ $pdo = new PDO($dbConnect, $dbUsername, $dbPassword,$conf['db_options']);
 $database = new Database($pdo);
 
 //new ccontroller for control flow
+$model = new Model($database);
 $controller = new Controller($database);
 //Routing to destination page
 require $controller -> index($action);

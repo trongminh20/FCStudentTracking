@@ -3,7 +3,7 @@ if(isset($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $success = $controller -> sign_in($username, $password);
+    $success = $model-> sign_in($username, $password);
 
     if ($success == 1) {
         $_SESSION['username'] = $username;

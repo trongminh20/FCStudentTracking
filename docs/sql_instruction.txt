@@ -22,7 +22,7 @@ at the very first times access mysql via command:
 --------------------------------------------------------------
 after finish setting up for mySQL, get into it and run the following command
 
-source c:/laragon/www/fcstudenttracking/database_setup.sql
+source c:/laragon/www/fcstudenttracking/src/database_setup.sql
 
 ----
 
