@@ -1,4 +1,5 @@
 <?php
+	require_once "Models/Model.php";
     require_once "Models/m_user.php";
     require_once "Models/m_admin.php";
     require_once "Models/m_employee.php";
