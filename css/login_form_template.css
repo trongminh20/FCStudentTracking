@@ -65,3 +65,10 @@ body{
     margin-bottom: 30px;
 }
 
+
+#message {
+    color:white;
+    font-size: 12px;
+    margin-bottom: 10px;
+    font-style: italic;
+}

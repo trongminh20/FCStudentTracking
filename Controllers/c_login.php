@@ -10,6 +10,7 @@ if(isset($_POST['submit'])) {
         $_SESSION['password'] = $password;
         header ("Location:?action=v_home");
     } else {
+        $_SESSION['error'] = 'invalid password or username';
         header("location:?action=v_login");
     }
 }
