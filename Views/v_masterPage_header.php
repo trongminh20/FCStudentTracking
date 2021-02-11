@@ -32,6 +32,7 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div style="float: left; padding: 10px;">
                     <input type="text" placeholder="Search..">
+                    <button type="button" class="btn btn-light">GO!</button>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown top-menu-item">
@@ -43,6 +44,12 @@
                         <ul class="dropdown-menu" style="padding: 10px;">
                             <li id="changepassword"><a href="#" style="background: #ffffff;"><i
                                             class="glyphicon glyphicon-lock"></i> Change Password</a></li>
+                            <li class="divider"></li>
+                            <li id="adduser"><a href="#" style="background: #ffffff;"><i
+                                            class="glyphicon glyphicon-plus"></i> Add User</a></li>
+                            <li class="divider"></li>
+                            <li id="deleteuser"><a href="#" style="background: #ffffff;"><i
+                                            class="glyphicon glyphicon-trash"></i> Delete User</a></li>
                             <li class="divider"></li>
                             <li>
                                 <input type="button" id="btnlogout" value="Log out" class="btn btn-default btn-flat"
