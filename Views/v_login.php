@@ -13,9 +13,11 @@ include "v_header.php";
                 $_SESSION['error'] = "";
             ?>
         </div>
-        <input type="text" class="form-control" id="username-txt" placeholder="Enter your username" name="username"><br>
+        <input type="text" class="form-control" id="username-txt" placeholder="Enter your username" name="username"
+               required="required"
+        ><br>
         <input type="password" class="form-control" id="password-txt" placeholder="Enter your password"
-               name="password"><br>
+               name="password" required="required"><br>
         <input type="submit" class="form-btn form-control" id="login-btn" value="LOG IN" name="submit">
         <div id="forget-password">
             <a href="?action=c_forget_password">Forgot your password?</a>
