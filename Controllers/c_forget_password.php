@@ -1,2 +1,2 @@
 <?php
-$controller -> request_reset_password();
+$model -> request_reset_password();

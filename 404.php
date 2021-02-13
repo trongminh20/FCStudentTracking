@@ -1,8 +1,6 @@
 <?php
 
 ?>
-
-
 <div id="404-logo"
     style="display: flex; flex-direction: column;align-items: center;"
 >

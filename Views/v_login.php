@@ -1,6 +1,6 @@
 <?php
 include "v_header.php";
-    $error = $_SESSION['error'] ;
+
 ?>
 
 <div id="wrapper">
@@ -9,8 +9,12 @@ include "v_header.php";
         <div id="form-title">Welcome Back!</div>
         <div id="message">
             <?php
-                echo $error;
-                $_SESSION['error'] = "";
+                if(empty($_SESSION['error'])){
+                    echo "<p></p>";
+                }else{
+                    echo $_SESSION['error'];
+                    unset($_SESSION['error']);
+                }
             ?>
         </div>
         <input type="text" class="form-control" id="username-txt" placeholder="Enter your username" name="username"
