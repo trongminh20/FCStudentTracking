@@ -14,9 +14,12 @@ class Model{
      * @return int
      */
     function sign_in($user, $pass){
-        return $this->db->select_user($user, $pass);
+        return $this->db->log_in($user, $pass);
     }
 
+    function select_user($username){
+        return $this->db->select_user($username);
+    }
 
     /**
      * Function create user for admin

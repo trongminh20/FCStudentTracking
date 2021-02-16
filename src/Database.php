@@ -48,11 +48,17 @@ class Database
      * @param $password
      * @return int
      */
-    public function select_user($username, $password)
-    {
-        $query = "SELECT id, username, phone, email, Department, admin FROM Employees WHERE username = ? AND password = ?";
+    public function log_in($username, $password){
+        $query = "SELECT username, password FROM Employees WHERE username = ? AND password = ?";
         $stm = $this->pdo->prepare($query);
         $stm->execute([$username, $password]);
+        return $stm->rowCount();
+    }
+    public function select_user($username)
+    {
+        $query = "SELECT id, username, phone, email, Department, admin FROM Employees WHERE username = ?";
+        $stm = $this->pdo->prepare($query);
+        $stm->execute([$username]);
         return $stm->fetch(PDO::FETCH_ASSOC);
     }
 
