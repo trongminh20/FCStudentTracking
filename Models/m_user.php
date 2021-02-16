@@ -5,6 +5,7 @@ class User{
     private $password;
     private $email;
     private $phoneNumber;
+    private $department;
 
     /**
      * default constructor with no parameters
@@ -20,12 +21,29 @@ class User{
      * @param string $email
      * @param string $phoneNumber
      */
-    public function User($id, $username, $password, $email= "", $phoneNumber=""){
+    public function User($id, $username, $password, $email= "", $phoneNumber="", $department){
         $this->id = $id;
         $this->username = $username;
         $this->password = SHA1($password);
         $this->email = $email;
         $this->phoneNumber = $phoneNumber;
+        $this->department = $department;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function get_department()
+    {
+        return $this->department;
+    }
+
+    /**
+     * @param mixed $department
+     */
+    public function set_department($department)
+    {
+        $this->department = $department;
     }
 
     function get_id(){
@@ -77,6 +95,38 @@ class User{
             'email' => $this->get_email(),
             'phone'=> $this->get_phone_number()
         ];
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function set_id($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @param mixed $username
+     */
+    public function set_username($username)
+    {
+        $this->username = $username;
+    }
+
+    /**
+     * @param mixed $email
+     */
+    public function set_email($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @param mixed $phoneNumber
+     */
+    public function set_phone_number($phoneNumber)
+    {
+        $this->phoneNumber = $phoneNumber;
     }
 
 }

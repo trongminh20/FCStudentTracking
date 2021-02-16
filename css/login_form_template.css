@@ -29,7 +29,7 @@ body{
 #header{
     color:#5a6268;
 }
-#form-title{
+#formTitle{
     margin-bottom: 20px;
     color:#5a6268;
     font-size: 30px;
@@ -48,20 +48,20 @@ body{
     color: #FFFFFF;
 }
 .form-btn,
-#login-btn{
+#loginBtn{
     background-color:#19B188;
     height: 40px;
     font-size:20px;
 }
-#forget-password{
+#forgetPassword{
     margin-top:10px;
 }
-#forget-password > a {
+#forgetPassword > a {
     font-size: 14px;
     color: #19B188;
 }
 
-#create-user-btn{
+#createUserBtn{
     margin-bottom: 30px;
 }
 

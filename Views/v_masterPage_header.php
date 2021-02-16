@@ -41,12 +41,17 @@
                                  style="border: 1px solid"/>
                         </a>
                         <ul class="dropdown-menu" style="padding: 10px;">
+                            <li id="username"><a href="#" style="background: #ffffff;"><?=$_SESSION['user']['username']?></a></li>
                             <li id="changepassword"><a href="#" style="background: #ffffff;"><i
                                             class="glyphicon glyphicon-lock"></i> Change Password</a></li>
                             <li class="divider"></li>
                             <li>
-                                <input type="button" id="btnlogout" value="Log out" class="btn btn-default btn-flat"
+                                <form action="?action=c_logout" method="POST">
+                                <input type="submit" id="btnlogout" value="Log out" name="logout" class="btn
+                                btn-default
+                                       btn-flat"
                                        style="background:#ef0707 ;Color:#fff;width:100%;"/>
+                                </form>
                             </li>
                         </ul>
                     </li>

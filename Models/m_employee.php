@@ -4,21 +4,23 @@ class Employee extends User
 {
 
     private $role;
-    private $department;
 
-    public function __construct($username, $password, $email, $phoneNumber, $department)
+
+    public function __construct()
     {
-        parent::__construct($username, $password, $email, $phoneNumber);
-        $this->department = $department;
+    }
+
+    public function Employee($username, $password, $email, $phoneNumber, $department)
+    {
+        parent::User($username, $password, $email, $phoneNumber, $department);
         $this->role = 0;
     }
-    function set_department($dep){
-        $this->department = $dep;
-    }
-
-    function get_department()
+    /**
+     * @param mixed $role
+     */
+    function set_role($role)
     {
-        return $this->department;
+        $this->role = $role;
     }
 
     function get_role()
