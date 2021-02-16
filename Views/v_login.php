@@ -24,7 +24,7 @@ include "v_header.php";
                name="password" required="required"><br>
         <input type="submit" class="form-btn form-control" id="loginBtn" value="LOG IN" name="submit">
         <div id="forgetPassword">
-            <a href="?action=c_forget_password">Forgot your password?</a>
+            <a href="?action=c_forgot_password">Forgot your password?</a>
         </div>
     </form>
 </div>
