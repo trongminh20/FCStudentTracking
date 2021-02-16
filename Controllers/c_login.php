@@ -1,4 +1,9 @@
 <?php
+//TODO
+// create new user with username
+// set values with data from database
+
+
 if(isset($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];

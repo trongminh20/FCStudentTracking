@@ -65,7 +65,7 @@ class Database
     function insert($table, $data)
     {
         //key from array
-        $fields = array_key($data);
+        $fields = array_keys($data);
         //values from array
         $vals = array_values($data);
         //name of columns
@@ -80,8 +80,6 @@ class Database
         $stm = $this->pdo->prepare($query);
 
         $stm->execute($vals);
-
-
     }
 
     /**
