@@ -4,13 +4,47 @@ class User{
     private $username;
     private $password;
     private $email;
+    private $department;
     private $phoneNumber;
+    private $admin;
 
     /**
      * default constructor with no parameters
      * User constructor.
      */
     public function __construct(){}
+
+    /**
+     * @param mixed $department
+     */
+    public function set_department($department)
+    {
+        $this->department = $department;
+    }
+
+    /**
+     * @param mixed $admin
+     */
+    public function set_admin($admin)
+    {
+        $this->admin = $admin;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function get_department()
+    {
+        return $this->department;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function get_admin()
+    {
+        return $this->admin;
+    }
 
     /**
      * Defined constructer with parameters
@@ -20,17 +54,53 @@ class User{
      * @param string $email
      * @param string $phoneNumber
      */
-    public function User($id, $username, $password, $email= "", $phoneNumber=""){
+    public function User($id, $username, $password,$department, $email= "", $phoneNumber=""){
         $this->id = $id;
         $this->username = $username;
         $this->password = SHA1($password);
         $this->email = $email;
         $this->phoneNumber = $phoneNumber;
+        $this -> department = $department;
+        $this->admin = 0;
+
     }
 
     function get_id(){
         return $this->id;
     }
+
+    /**
+     * @param mixed $id
+     */
+    public function set_id($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @param mixed $username
+     */
+    public function set_username($username)
+    {
+        $this->username = $username;
+    }
+
+    /**
+     * @param mixed $email
+     */
+    public function set_email($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @param mixed $phoneNumber
+     */
+    public function set_phone_number($phoneNumber)
+    {
+        $this->phoneNumber = $phoneNumber;
+    }
+
 
     function get_username(){
         return $this->username;
@@ -75,7 +145,9 @@ class User{
             'username'=>$this->get_username(),
             'password'=> $this->get_password(),
             'email' => $this->get_email(),
-            'phone'=> $this->get_phone_number()
+            'Department'=>$this->get_department(),
+            'phone'=> $this->get_phone_number(),
+            'admin'=>$this->get_department()
         ];
     }
 

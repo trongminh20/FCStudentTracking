@@ -50,10 +50,10 @@ class Database
      */
     public function select_user($username, $password)
     {
-        $query = "SELECT username, password FROM Employees WHERE username = ? AND password = ?";
+        $query = "SELECT id, username, phone, email, Department, admin FROM Employees WHERE username = ? AND password = ?";
         $stm = $this->pdo->prepare($query);
         $stm->execute([$username, $password]);
-        return $stm->rowCount();
+        return $stm->fetch(PDO::FETCH_ASSOC);
     }
 
     /**
