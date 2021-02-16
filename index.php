@@ -28,4 +28,4 @@ $model = new Model($database);
 $controller = new Controller($database);
 
 //Routing to destination page
-require $controller -> index($action);
+require $controller::index($action);
