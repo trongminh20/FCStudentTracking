@@ -1,6 +1,8 @@
 <?php
 class Controller{
+
     public function __construct(){}
+
     public static function index($dr){
         $action = $dr[0];
 
@@ -15,5 +17,4 @@ class Controller{
                 return "404.php";
         }
     }
-
 }
