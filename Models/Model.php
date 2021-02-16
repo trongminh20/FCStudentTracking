@@ -14,9 +14,12 @@ class Model{
      * @return int
      */
     function sign_in($user, $pass){
-        return $this->db->select_user($user, $pass);
+        return $this->db->log_in($user, $pass);
     }
 
+    function select_user($username){
+        return $this->db->select_user($username);
+    }
 
     /**
      * Function create user for admin
@@ -36,13 +39,15 @@ class Model{
     function delete_user($table, $id){
         $this->db->delete($table, $id);
     }
+    function reset_password($username){
 
+    }
     /**
      * adding request into table admin, lets admin know if any request existing
      * @param $user
      */
-    function request_reset_password($user){
-
+    function request_reset_password(Request $request){
+        $this->db->insert('Requests',$request->to_array());
     }
 
 }
