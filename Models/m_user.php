@@ -1,15 +1,35 @@
 <?php
 class User{
+    private $id;
     private $username;
     private $password;
     private $email;
     private $phoneNumber;
 
-    public function __construct($username, $password, $email= "", $phoneNumber=""){
+    /**
+     * default constructor with no parameters
+     * User constructor.
+     */
+    public function __construct(){}
+
+    /**
+     * Defined constructer with parameters
+     * @param $id
+     * @param $username
+     * @param $password
+     * @param string $email
+     * @param string $phoneNumber
+     */
+    public function User($id, $username, $password, $email= "", $phoneNumber=""){
+        $this->id = $id;
         $this->username = $username;
         $this->password = SHA1($password);
         $this->email = $email;
         $this->phoneNumber = $phoneNumber;
+    }
+
+    function get_id(){
+        return $this->id;
     }
 
     function get_username(){
@@ -43,6 +63,7 @@ class User{
     function print_out(){
         return "this is from user";
     }
+
     /**
      * return an array that store the data of a users
      * in format [key => values]
@@ -50,6 +71,7 @@ class User{
      */
     function to_array(){
         return [
+            'id' =>$this->get_id(),
             'username'=>$this->get_username(),
             'password'=> $this->get_password(),
             'email' => $this->get_email(),

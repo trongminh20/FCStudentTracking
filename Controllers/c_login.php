@@ -1,9 +1,16 @@
 <?php
+//TODO
+// create new user with username
+// set values with data from database
+
+
 if(isset($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
     $success = $model-> sign_in($username, $password);
+    $id ="" ;
+    $user = new User();
 
     if ($success == 1) {
         $_SESSION['username'] = $username;

@@ -36,13 +36,15 @@ class Model{
     function delete_user($table, $id){
         $this->db->delete($table, $id);
     }
+    function reset_password($username){
 
+    }
     /**
      * adding request into table admin, lets admin know if any request existing
      * @param $user
      */
-    function request_reset_password($user){
-
+    function request_reset_password(Request $request){
+        $this->db->insert('Requests',$request->to_array());
     }
 
 }
