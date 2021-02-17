@@ -1,7 +1,9 @@
-
-drop database fc_student_tracking;
-create database fc_student_tracking;
-use fc_student_tracking;
+drop
+database fc_student_tracking;
+create
+database fc_student_tracking;
+use
+fc_student_tracking;
 
 CREATE TABLE Students
 (
@@ -64,6 +66,13 @@ CREATE TABLE sessions
     created   DATETIME,
     logout    DATETIME
 );
+CREATE TABLE requests
+(
+    id       INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50),
+    request  VARCHAR(100)
+);
+
 ALTER TABLE sessions
     ADD CONSTRAINT session_fk
         FOREIGN KEY (userID)
@@ -105,3 +114,8 @@ ALTER TABLE Employees
 ALTER TABLE Employees
     ADD CONSTRAINT user_uniq
         UNIQUE (username);
+
+ALTER TABLE requests
+    ADD CONSTRAINT req_fk
+        FOREIGN KEY (username)
+            REFERENCES Employees (username);

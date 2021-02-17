@@ -14,6 +14,14 @@ class Database
     {
         $this->pdo = $pdo;
     }
+    public function get_type($table){
+        $query = "DESC $table";
+        $stm = $this->pdo->prepare($query);
+        $stm -> execute();
+        return $stm->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
 
     /**
      * getting all records that existing in one table
