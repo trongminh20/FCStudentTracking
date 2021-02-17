@@ -3,7 +3,7 @@ class Controller{
 
     public function __construct(){}
 
-    public static function index($dr){
+    public function index($dr){
         $action = $dr[0];
 
         switch ($action){
