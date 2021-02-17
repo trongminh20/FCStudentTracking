@@ -26,6 +26,6 @@ $database = new Database($pdo);
 //new ccontroller for control flow
 $model = new Model($database);
 $controller = new Controller($database);
-
+$view = new View();
 //Routing to destination page
 require $controller::index($action);

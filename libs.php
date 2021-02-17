@@ -6,3 +6,4 @@
     require_once "Models/m_request.php";
     require_once "src/Database.php";
     require_once "Controllers/c_controller.php";
+    require_once "Views/View.php";
