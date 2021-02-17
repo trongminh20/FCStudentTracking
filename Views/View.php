@@ -18,13 +18,19 @@ class View
         foreach($data as $d) {
             echo "<tr>";
             foreach ($d as $key => $vals) {
-                if($count < count($data)){
+                if($count < count($d)){
                     echo "<td>$key</td>";
                 }else{
-                    echo "<td>$vals</td>";
+                    echo "<td></td>";
                 }
-                $count++;
+                $count+=1;
             }
+            echo "</tr><tr>";
+
+            foreach ($d as $key => $vals) {
+                echo "<td>$vals</td>";
+            }
+
             echo "</tr>";
         }
         echo "</table><br>";

@@ -6,6 +6,6 @@
 //?>
 
 <?php
-$data = $model->select_data('fees');
+$data = $model->select_data('Employees');
 //print_r($data);
 $view -> display_as_table("","",$data);
