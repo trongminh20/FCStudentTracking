@@ -14,7 +14,6 @@
 
     $formData = $model->get_type('Employees');
 
-
     $view->display_as_form("formAddEmployee", "form-add-emp", "c_add", "POST", $formData);
 
     echo "<h2>studentracking table </h2>";

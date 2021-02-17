@@ -27,5 +27,6 @@ $database = new Database($pdo);
 $model = new Model($database);
 $controller = new Controller($database);
 $view = new View();
+
 //Routing to destination page
 require $controller::index($action);
