@@ -9,8 +9,7 @@
      $textbook = $_POST['textbook'];  
      $admin_fee = $_POST['admin_fee']; */
 ?>
-<!DOCYPE html>
-<html>
+<div class="payment" id="payment">
     <head>
          <title>PAYMENT TRACKING</title>
          <style type="text/css">
@@ -54,4 +53,4 @@
               <br class="clear" /> 
          </form>
     </body>
-</html>
+</div>

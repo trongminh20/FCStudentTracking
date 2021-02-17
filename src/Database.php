@@ -14,6 +14,14 @@ class Database
     {
         $this->pdo = $pdo;
     }
+    public function get_type($table){
+        $query = "DESC $table";
+        $stm = $this->pdo->prepare($query);
+        $stm -> execute();
+        return $stm->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
 
     /**
      * getting all records that existing in one table
@@ -23,9 +31,9 @@ class Database
     public function select_multiple($table)
     {
         $query = "SELECT * FROM " . $table;
-        $stm = $this->db->prepare($query);
+        $stm = $this->pdo->prepare($query);
         $stm->execute();
-        return $stm;
+        return $stm->fetchAll(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -37,7 +45,7 @@ class Database
     public function select_by_id($table, $id)
     {
         $query = "SELECT * FROM $table WHERE id = ?";
-        $stm = $this->db->prepare($query);
+        $stm = $this->pdo->prepare($query);
         $stm->execute([$id]);
         return $stm->fetch(PDO::FETCH_ASSOC);
     }

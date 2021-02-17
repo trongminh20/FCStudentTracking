@@ -12,8 +12,7 @@
      $9th_payment = $_POST['9th_payment'];  
      $10th_payment = $_POST['10th_payment']; */      
 ?>
-<!DOCYPE html>
-<html>
+<div class="tuition" id="tuition">
     <head>
          <title>TUITION FEE</title>
          <style type="text/css">
@@ -63,7 +62,6 @@
                    <br class="clear" /> <br> 
                    <input type="submit" name="Submit" id="Submit" value="Submit" />
                    <br class="clear" /> 
-
-</form>
+         </form>
     </body>
-</html>
+</div>
