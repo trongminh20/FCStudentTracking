@@ -1,11 +1,12 @@
 <?php
-//include "v_masterPage_header.php";
+include "v_masterPage_header.php";
 //?>
 <?php
-//include "v_masterPage_sidebar.php";
+include "v_masterPage_sidebar.php";
 //?>
-
-<?php
-$data = $model->select_data('Employees');
-//print_r($data);
-$view -> display_as_table("","",$data);
+<div id="mainContent">
+    <?php
+        $data = $model->select_data('Employees');
+        $view->display_as_table("", "", $data);
+    ?>
+</div>
