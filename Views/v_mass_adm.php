@@ -32,8 +32,7 @@
      $handbook = $_POST['handbook'];  */
 
 ?>
-<!DOCYPE html>
-<html>
+<div class="admission" id="admission">
     <head>
          <title>ADMISSION PRIOR TO START DATE</title>
          <style type="text/css">
@@ -118,5 +117,5 @@
               <input type="submit" name="Submit" id="Submit" value="Submit" />
               <br class="clear" /> 
          </form>
-    </body>
-</html>
+         </body>
+</div>

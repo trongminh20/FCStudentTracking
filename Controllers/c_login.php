@@ -4,6 +4,7 @@ if (isset($_POST['submit'])) {
     $password = $_POST['password'];
 
     $success = $model->sign_in($username, $password);
+    
     if ($success == 1) {
         $data = $model->select_user($username);
         $user = new Employee();

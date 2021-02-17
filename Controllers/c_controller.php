@@ -1,12 +1,9 @@
 <?php
 class Controller{
-    private $db;
 
-    public function __construct(Database $db){
-        $this->db = $db;
-    }
+    public function __construct(){}
 
-    public function index($dr){
+    public static function index($dr){
         $action = $dr[0];
 
         switch ($action){
@@ -20,5 +17,4 @@ class Controller{
                 return "404.php";
         }
     }
-
 }

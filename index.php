@@ -3,11 +3,11 @@ session_start();
 
 include "libs.php";
 
-if(isset($_POST['action'])){
+if (isset($_POST['action'])) {
     $action = $_POST['action'];
-}else if(isset($_GET['action'])){
+} else if (isset($_GET['action'])) {
     $action = $_GET['action'];
-}else{
+} else {
     $action = 'v_login';
 }
 
@@ -15,17 +15,17 @@ if(isset($_POST['action'])){
 $conf = require "src/config.php";
 
 //Coonect to database hosting
-$dbConnect = "mysql:host=".$conf['db_host'].";dbname=".$conf['db_name'].";charset=".$conf['db_charset'];
+$dbConnect = "mysql:host=" . $conf['db_host'] . ";dbname=" . $conf['db_name'] . ";charset=" . $conf['db_charset'];
 $dbUsername = $conf['db_username'];
 
 $dbPassword = $conf['db_password'];
-$pdo = new PDO($dbConnect, $dbUsername, $dbPassword,$conf['db_options']);
+$pdo = new PDO($dbConnect, $dbUsername, $dbPassword, $conf['db_options']);
 
 $database = new Database($pdo);
 
 //new ccontroller for control flow
 $model = new Model($database);
 $controller = new Controller($database);
-
+$view = new View();
 //Routing to destination page
-require $controller -> index($action);
+require $controller::index($action);
