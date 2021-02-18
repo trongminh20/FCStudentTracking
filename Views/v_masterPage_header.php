@@ -16,7 +16,7 @@
 </head>
 
 <!-- Header Section -->
-<div id="content">
+
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header" style="width: 250px;">
@@ -42,7 +42,9 @@
                                  style="border: 1px solid"/>
                         </a>
                         <ul class="dropdown-menu" style="padding: 10px;">
-                            <li id="username"><a href="#" style="background: #ffffff;"><?=$_SESSION['user']['username']?></a></li>
+                            <li id="username"><a href="#" style="background: #ffffff;"><i class="glyphicon glyphicon-user"></i>
+                                <?=$_SESSION['user']['username']?></a></li>
+                            <li class="divider"></li>
                             <li id="changepassword"><a href="#" style="background: #ffffff;"><i
                                             class="glyphicon glyphicon-lock"></i> Change Password</a></li>
                             <li class="divider"></li>
