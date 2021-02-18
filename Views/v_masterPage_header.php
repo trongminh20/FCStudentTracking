@@ -16,7 +16,7 @@
 </head>
 
 <!-- Header Section -->
-<body>
+
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header" style="width: 250px;">
@@ -32,6 +32,7 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div style="float: left; padding: 10px;">
                     <input type="text" placeholder="Search..">
+                    <button type="button" class="btn btn-light">GO!</button>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown top-menu-item">
@@ -41,9 +42,17 @@
                                  style="border: 1px solid"/>
                         </a>
                         <ul class="dropdown-menu" style="padding: 10px;">
-                            <li id="username"><a href="#" style="background: #ffffff;"><?=$_SESSION['user']['username']?></a></li>
+                            <li id="username"><a href="#" style="background: #ffffff;"><i class="glyphicon glyphicon-user"></i>
+                                <?=$_SESSION['user']['username']?></a></li>
+                            <li class="divider"></li>
                             <li id="changepassword"><a href="#" style="background: #ffffff;"><i
                                             class="glyphicon glyphicon-lock"></i> Change Password</a></li>
+                            <li class="divider"></li>
+                            <li id="adduser"><a href="#" style="background: #ffffff;"><i
+                                            class="glyphicon glyphicon-plus"></i> Add User</a></li>
+                            <li class="divider"></li>
+                            <li id="deleteuser"><a href="#" style="background: #ffffff;"><i
+                                            class="glyphicon glyphicon-trash"></i> Delete User</a></li>
                             <li class="divider"></li>
                             <li>
                                 <form action="?action=c_logout" method="POST">
@@ -59,3 +68,5 @@
             </div>
         </div>
     </nav>
+
+
