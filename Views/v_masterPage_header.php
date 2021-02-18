@@ -16,7 +16,7 @@
 </head>
 
 <!-- Header Section -->
-<body>
+<div id="content">
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header" style="width: 250px;">
@@ -66,3 +66,5 @@
             </div>
         </div>
     </nav>
+
+
