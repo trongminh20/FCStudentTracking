@@ -1,8 +1,8 @@
 <?php
 ?>
 
+<!-- Sidebar Section -->
 <div class="wrapper">
-    <!-- Sidebar Section -->
     <nav id="sidebar">
         <div class="sidebar-header" style="height:60px;">
         </div>
@@ -43,4 +43,3 @@
 
         </ul>
     </nav>
-</div>
