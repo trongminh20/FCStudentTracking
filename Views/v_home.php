@@ -5,7 +5,7 @@ include "v_masterPage_header.php";
 include "v_masterPage_sidebar.php";
 ?>
 
-<div id="mainContent">
+<!-- <div id="mainContent">
     <?php
     echo "<h2>Emp table </h2>";
     $table = $model->select_data('Employees');
@@ -36,3 +36,4 @@ include "v_masterPage_sidebar.php";
 
     ?>
 </div>
+-->
