@@ -22,7 +22,7 @@ class Model{
     }
 
     function select_data($table){
-        return $this->db->select_multiple($table);
+        return $this->db->selqect_multiple($table);
     }
     /**
      * Function create user for admin
