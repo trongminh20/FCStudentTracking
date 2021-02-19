@@ -27,12 +27,14 @@ class Model{
      * @param $unsetCols is a column that does not show
      * @return array|false
      */
-    function select_data($table, $unsetCols){
+    function select_data($table, $unsetCols=""){
         $data = $this->db->select_multiple($table);
-        for($i= 0; $i < count($data); $i++){
-            foreach($data[$i] as $k => $v){
-                if($k == $unsetCols){
-                    unset($data[$i][$unsetCols]);
+        if($unsetCols != "") {
+            for ($i = 0; $i < count($data); $i++) {
+                foreach ($data[$i] as $k => $v) {
+                    if ($k == $unsetCols) {
+                        unset($data[$i][$unsetCols]);
+                    }
                 }
             }
         }
@@ -56,8 +58,14 @@ class Model{
     function delete_user($table, $id){
         $this->db->delete($table, $id);
     }
-    function reset_password($username){
 
+    /**
+     * reset user password as newPass
+     * @param $id
+     * @param $newPass
+     */
+    function reset_password($id, $newPass){
+        $this->db->update("Employees",$id, $newPass);
     }
     /**
      * adding request into table admin, lets admin know if any request existing
@@ -80,6 +88,8 @@ class Model{
         }
         return $type;
     }
+
+
 
     /**
      * get type of columns of a table from database

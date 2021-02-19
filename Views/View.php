@@ -80,7 +80,8 @@ class View
      * @param $actionForDelete routes to controller or view for feature Delete information
      * @param $data
      */
-    public function show_table_with_manage_functions($id = "", $class = "", $actionForEdit, $actionForDelete, $data)
+    public function show_table_with_manage_functions($id = "", $class = "", $actionForEdit, $actionForDelete,
+                                                     $actionForReset, $data)
     {
         $count = 0;
 
@@ -120,6 +121,16 @@ class View
                 echo "<input type='hidden' name='$k' value='$v'>";
             }
             echo " <input type='submit' name='edit' value='Delete'>";
+            echo "</form>";
+
+            echo "</td>";
+            //information for Reset Password
+            echo "<td>";
+            echo "<form action='?action=$actionForReset' method='POST'>";
+            foreach ($d as $k => $v) {
+                echo "<input type='hidden' name='$k' value='$v'>";
+            }
+            echo " <input type='submit' name='reset_password' value='Reset Password'>";
             echo "</form>";
 
             echo "</td>";

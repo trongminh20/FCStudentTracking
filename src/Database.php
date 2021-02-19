@@ -107,7 +107,7 @@ class Database
      * @param $id
      * @return string
      */
-    function update($table, $data, $id)
+    function update($table, $id,$data)
     {
         $fields = array_keys($data);
         $vals = array_values($data);
