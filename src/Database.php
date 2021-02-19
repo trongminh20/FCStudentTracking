@@ -14,14 +14,18 @@ class Database
     {
         $this->pdo = $pdo;
     }
+
+    /**
+     * getting data type of all cols in a database table
+     * @param $table
+     * @return array
+     */
     public function get_type($table){
         $query = "DESC $table";
         $stm = $this->pdo->prepare($query);
         $stm -> execute();
         return $stm->fetchAll(PDO::FETCH_ASSOC);
     }
-
-
 
     /**
      * getting all records that existing in one table
@@ -126,7 +130,6 @@ class Database
     {
         $query = "DELETE FROM " . $table . " WHERE id = ?";
         $stm = $this->pdo->prepare($query);
-
         $stm->execute([$id]);
 
     }

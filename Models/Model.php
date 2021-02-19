@@ -20,8 +20,22 @@ class Model{
     function select_user($username){
         return $this->db->select_user($username);
     }
-    function select_data($table){
-        return $this->db->select_multiple($table);
+
+    /**
+     * @param $table
+     * @param $unsetCols is a column that does not show
+     * @return array|false
+     */
+    function select_data($table, $unsetCols){
+        $data = $this->db->select_multiple($table);
+        for($i= 0; $i < count($data); $i++){
+            foreach($data[$i] as $k => $v){
+                if($k == $unsetCols){
+                    unset($data[$i][$unsetCols]);
+                }
+            }
+        }
+        return $data;
     }
     /**
      * Function create user for admin
