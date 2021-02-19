@@ -15,7 +15,7 @@ include "v_masterPage_sidebar.php";
 
     $formData = $model->get_type('Employees');
 
-    $view->display_as_form("formAddEmployee", "form-add-emp", "c_add", "POST", $formData);
+    $view->display_form("formAddEmployee", "form-add-emp", "c_add", "POST", $formData);
 
     echo "<h2>studentracking table </h2>";
     $table = $model->select_data('Studenttracking');
@@ -23,7 +23,7 @@ include "v_masterPage_sidebar.php";
     echo "<h2>Studentractking form </h2>";
 
     $formData = $model->get_type('Studenttracking');
-    $view->display_as_form("formAddEmployee", "form-add-emp", "c_add", "POST", $formData);
+    $view->display_form("formAddEmployee", "form-add-emp", "c_add", "POST", $formData);
 
     echo "<h2>fees table </h2>";
     $table = $model->select_data('fees');
@@ -31,7 +31,7 @@ include "v_masterPage_sidebar.php";
     echo "<h2>Insert new fees form </h2>";
 
     $formData = $model->get_type('fees');
-    $view->display_as_form("formAddEmployee", "form-add-emp", "c_add", "POST", $formData);
+    $view->display_form("formAddEmployee", "form-add-emp", "c_add", "POST", $formData);
 
 
     ?>
