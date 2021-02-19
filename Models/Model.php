@@ -20,6 +20,7 @@ class Model{
     function select_user($username){
         return $this->db->select_user($username);
     }
+
     function select_data($table){
         return $this->db->select_multiple($table);
     }
