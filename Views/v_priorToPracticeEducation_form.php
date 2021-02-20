@@ -22,11 +22,11 @@
                 <div id="nameTag" class="row" style="padding-top: 10px">
                   <div class="col-sm-6">
                     <label class="radio-inline">
-                    <input id="yes" value="yes" type="radio"/> YES</label>
+                    <input name="y-or-n" id="yes" value="yes" type="radio"/> YES</label>
                   </div>
                   <div class="col-sm-6">
                     <label class="radio-inline">
-                    <input id="no" value="no" type="radio"/> NO</label>
+                    <input name="y-or-n" id="no" value="no" type="radio"/> NO</label>
                   </div>
                 </div>
             </div>
@@ -71,11 +71,11 @@
                 <div id="acknowledgement&agreement_signed" class="row" style="padding-top: 10px">
                   <div class="col-sm-6">
                     <label class="radio-inline">
-                    <input id="yes" value="yes" type="radio"/> YES</label>
+                    <input name="y-or-n" id="yes" value="yes" type="radio"/> YES</label>
                   </div>
                   <div class="col-sm-6">
                     <label class="radio-inline">
-                    <input id="no" value="no" type="radio"/> NO</label>
+                    <input name="y-or-n" id="no" value="no" type="radio"/> NO</label>
                   </div>
                 </div>
             </div>
@@ -85,11 +85,11 @@
                 <div id="acknowledgement&medicalFileReceived" class="row" style="padding-top: 10px">
                   <div class="col-sm-6">
                     <label class="radio-inline">
-                    <input id="yes" value="yes" type="radio"/> YES</label>
+                    <input name="y-or-n" id="yes" value="yes" type="radio"/> YES</label>
                   </div>
                   <div class="col-sm-6">
                     <label class="radio-inline">
-                    <input id="no" value="no" type="radio"/> NO</label>
+                    <input name="y-or-n" id="no" value="no" type="radio"/> NO</label>
                   </div>
                 </div>
             </div>
