@@ -1,17 +1,9 @@
-<?php
-
-     /* $stud_type = $_POST['stud_type'];  
-     $stud_id = $_POST['stud_id'];  
-     $app_fee = $_POST['app_fee'];  
-     $mass_fee = $_POST['mass_fee'];  
-     $scholarships = $_POST['scholarships'];  
-     $mat_fee = $_POST['mat_fee'];  
-     $textbook = $_POST['textbook'];  
-     $admin_fee = $_POST['admin_fee']; */
+<?php    
 ?>
-<div class="payment" id="payment">
-    <head>
-         <title>PAYMENT TRACKING</title>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PAYMENT TRACKING</title>
          <style type="text/css">
              form label {
 	          float: left;
@@ -25,10 +17,11 @@
 	          width: 100%;
              }
          </style>   
-    </head>
+</head>
     <body>
+       <div>
          <h2> PAYMENT TRACKING </h2>
-         <form id="form1" name="form1" method="post" action="payment.php">
+           <form id="form1" name="form1" method="post" action="payment.php">
               <label for="stud_type">Student Type</label>
               <input type="radio" name="stud_type" value="Domestic" id="stud_type_0" />Domestic
               <input type="radio" name="stud_type" value="International" id="stud_type_1" />International
@@ -51,6 +44,6 @@
               <br class="clear" /> <br>
               <input type="submit" name="Submit" id="Submit" value="Submit" />
               <br class="clear" /> 
-         </form>
+           </form>
+       </div>
     </body>
-</div>

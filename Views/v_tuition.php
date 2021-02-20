@@ -1,19 +1,8 @@
 <?php
-     /* $stud_type = $_POST['stud_type'];  
-     $stud_id = $_POST['stud_id'];  
-     $1st_payment = $_POST['1st_payment'];  
-     $2nd_payment = $_POST['2nd_payment'];  
-     $3rd_payment = $_POST['3rd_payment'];  
-     $4th_payment = $_POST['4th_payment'];  
-     $5th_payment = $_POST['5th_payment'];  
-     $6th_payment = $_POST['6th_payment'];  
-     $7th_payment = $_POST['7th_payment'];  
-     $8th_payment = $_POST['8th_payment'];  
-     $9th_payment = $_POST['9th_payment'];  
-     $10th_payment = $_POST['10th_payment']; */      
 ?>
-<div class="tuition" id="tuition">
-    <head>
+<!DOCTYPE html>
+<html>
+<head>
          <title>TUITION FEE</title>
          <style type="text/css">
              form label {
@@ -30,6 +19,7 @@
          </style>   
     </head>
     <body>
+      <div>
          <h2> TUITION FEE </h2>
               <form id="form1" name="form1" method="post" action="tuition.php">
                    <label for="stud_type">Type of Student</label>
@@ -63,5 +53,6 @@
                    <input type="submit" name="Submit" id="Submit" value="Submit" />
                    <br class="clear" /> 
          </form>
+      </div>
     </body>
-</div>
+
