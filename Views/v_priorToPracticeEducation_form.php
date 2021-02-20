@@ -10,11 +10,11 @@
 </head>
 
 <!-- Prior to Practice Education Section -->
-<body>
-  <div class="container">
-    <div class="row">
+<body style="background-color: #f2f2f2">
+  <div class="container" style="padding-top: 20px">
+    <div class="row" style="background-color: white; border-radius: 10px !important">
       <div class="col-xs-12">
-        <h2 style="text-align: center;">Prior to Practice Education</h2>
+        <h2 style="text-align: center; padding-top: 10px">Prior to Practice Education</h2>
         <form action="" method="">
           <div class="form-group" style="padding-top: 20px">
             <div class="col-sm-6">
@@ -93,7 +93,7 @@
                   </div>
                 </div>
             </div>
-            <div class="form-group" style="padding-top: 20px">
+            <div class="form-group" style="padding-top: 20px; padding-bottom: 10px">
               <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </form>
