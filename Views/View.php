@@ -81,7 +81,7 @@ class View
      * @param $data
      */
     public function show_table_with_manage_functions($id = "", $class = "", $actionForEdit, $actionForDelete,
-                                                     $actionForReset,$editSubmit,$deleteSubmit,$resetSubmit, $data)
+                                                     $actionForReset, $data)
     {
         $count = 0;
 

@@ -15,8 +15,7 @@ include "v_masterPage_sidebar.php";
     }
 
     $loadTable = $model->select_data("Employees", 'Password');
-    $view->show_table_with_manage_functions("", "table", "v_edit_user", "c_delete_user", "c_reset_pass",'edit_user_info', 'delete_user' ,
-        $loadTable);
+    $view->show_table_with_manage_functions("", "table", "v_edit_user", "c_delete_user", "c_reset_pass", $loadTable);
 
     ?>
 
