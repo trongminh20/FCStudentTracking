@@ -20,10 +20,11 @@ class Database
      * @param $table
      * @return array
      */
-    public function get_type($table){
+    public function get_type($table)
+    {
         $query = "DESC $table";
         $stm = $this->pdo->prepare($query);
-        $stm -> execute();
+        $stm->execute();
         return $stm->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -60,15 +61,22 @@ class Database
      * @param $password
      * @return int
      */
-    public function log_in($username, $password){
+    public function log_in($username, $password)
+    {
         $query = "SELECT username, password FROM Employees WHERE username = ? AND password = ?";
         $stm = $this->pdo->prepare($query);
         $stm->execute([$username, $password]);
         return $stm->rowCount();
     }
+
+    /**
+     * not include pasword
+     * @param $username
+     * @return mixed
+     */
     public function select_user($username)
     {
-        $query = "SELECT id, username, phone, email, Department, admin FROM Employees WHERE username = ?";
+        $query = "SELECT ID, Username, Phone, Email, Department, admin  FROM Employees WHERE username = ?";
         $stm = $this->pdo->prepare($query);
         $stm->execute([$username]);
         return $stm->fetch(PDO::FETCH_ASSOC);
@@ -102,12 +110,12 @@ class Database
 
     /**
      * Update a row with specific ID in existing table
-     * @param $table
-     * @param $data
-     * @param $id
+     * @param $table is the table that we want to update data
+     * @param $data is an array including all cols and changed data of $table
+     * @param $id is row identify
      * @return string
      */
-    function update($table, $id,$data)
+    function update($table, $data, $id)
     {
         $fields = array_keys($data);
         $vals = array_values($data);
@@ -117,7 +125,11 @@ class Database
         }
         $query = "UPDATE $table SET " . rtrim($bind, ",") . " WHERE id = $id ";
         $stm = $this->pdo->prepare($query);
-        $stm->execute($vals);
+        try {
+            $stm->execute($vals);
+        }catch(PDOException $e){
+            echo $e->errorInfo;
+        }
     }
 
     /**

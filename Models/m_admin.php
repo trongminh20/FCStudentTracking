@@ -28,6 +28,7 @@ class Admin extends User{
     function to_array()
     {
         return [
+            'id'=>$this->get_id(),
             'username' => $this->get_username(),
             'password' => $this->get_password(),
             'email' => $this->get_email(),

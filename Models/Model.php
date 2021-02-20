@@ -1,7 +1,7 @@
 <?php
 
 class Model{
-    protected $db;
+    private $db;
 
     public function __construct(Database $db){
         $this->db = $db;
@@ -40,6 +40,7 @@ class Model{
         }
         return $data;
     }
+
     /**
      * Function create user for admin
      * @param $table
@@ -76,6 +77,15 @@ class Model{
     }
 
     /**
+     * @param $table
+     * @param $id
+     * @param $data is an array including current SESSION INFO
+     */
+    function change_password($table, $data, $id){
+        $this->db->update($table,$data, $id);
+    }
+
+    /**
      * get type of each field in pair key = >value
      * @param $table
      * @return array
@@ -88,8 +98,6 @@ class Model{
         }
         return $type;
     }
-
-
 
     /**
      * get type of columns of a table from database

@@ -48,7 +48,7 @@
                                 (<?= ($_SESSION['user']['admin'] == 1) ? 'admin' : 'Emp' ?>)
                             </a></li>
                         <li class="divider"></li>
-                        <li id="changepassword"><a href="#" style="background: #ffffff;"><i
+                        <li id="changepassword"><a href="?action=v_change_password" style="background: #ffffff;"><i
                                         class="glyphicon glyphicon-lock"></i> Change Password</a></li>
                         <li class="divider"></li>
                         <?php
