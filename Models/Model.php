@@ -55,7 +55,7 @@ class Model{
      * @param $table
      * @param $id
      */
-    function delete_user($table, $id){
+    function delete($table, $id){
         $this->db->delete($table, $id);
     }
 

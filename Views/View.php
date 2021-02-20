@@ -81,7 +81,7 @@ class View
      * @param $data
      */
     public function show_table_with_manage_functions($id = "", $class = "", $actionForEdit, $actionForDelete,
-                                                     $actionForReset, $data)
+                                                     $actionForReset,$editSubmit,$deleteSubmit,$resetSubmit, $data)
     {
         $count = 0;
 
@@ -110,7 +110,7 @@ class View
             foreach ($d as $k => $v) {
                 echo "<input type='hidden' name='$k' value='$v'>";
             }
-            echo " <input type='submit' name='edit' value='Edit'>";
+            echo " <input type='submit' name='edit_user_info' value='Edit'>";
             echo "</form>";
 
             echo "</td>";
@@ -120,7 +120,7 @@ class View
             foreach ($d as $k => $v) {
                 echo "<input type='hidden' name='$k' value='$v'>";
             }
-            echo " <input type='submit' name='edit' value='Delete'>";
+            echo " <input type='submit' name='delete_user' value='Delete'>";
             echo "</form>";
 
             echo "</td>";
