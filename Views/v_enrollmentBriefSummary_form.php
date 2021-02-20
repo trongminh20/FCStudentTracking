@@ -44,6 +44,9 @@
             <label for="emrollmentNotes">Emrollment Notes:</label>
             <textarea class="form-control" id="emrollmentNotes" rows="5"></textarea>
           </div>
+          <div class="form-group" style="padding-top: 20px">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
         </form>
       </div>
     </div>

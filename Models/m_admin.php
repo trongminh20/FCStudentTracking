@@ -1,8 +1,13 @@
 <?php
 class Admin extends User{
     private $role;
-    public function __construct($username, $password, $email, $phoneNumber, $department){
-        parent::__construct($username, $password, $email, $phoneNumber, $department);
+
+    public function __construct(){
+        parent::__construct();
+    }
+
+    public function Admin($username, $password, $email, $phoneNumber, $department){
+        parent::User($username, $password, $email, $phoneNumber, $department);
         $this->role = 1;
     }
 
@@ -10,6 +15,14 @@ class Admin extends User{
     function get_role()
     {
         return $this->role;
+    }
+
+    /**
+     * @param mixed $role
+     */
+    public function set_role($role)
+    {
+        $this->role = $role;
     }
 
     function to_array()

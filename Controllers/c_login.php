@@ -7,7 +7,11 @@ if (isset($_POST['submit'])) {
     
     if ($success == 1) {
         $data = $model->select_user($username);
-        $user = new Employee();
+        if($data['admin'] == 1){
+            $user = new Admin();
+        } else if($data['admin'] == 0){
+            $user = new Employee();
+        }
         $user->set_username($data['username']);
         $user->set_email($data['email']);
         $user->set_id($data['id']);
