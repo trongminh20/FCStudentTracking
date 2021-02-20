@@ -9,13 +9,13 @@
 
         <ul class="list-unstyled components">
             <li class="active">
-                <a href="#">
+                <a href="?action=v_home">
                     <i class="glyphicon glyphicon-home"></i>
                     Dashboard
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="?action=v_add_new_record">
                     <i class="glyphicon glyphicon-cloud-upload"></i>
                     Add New Record
                 </a>

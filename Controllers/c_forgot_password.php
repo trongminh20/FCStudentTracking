@@ -1,6 +1,6 @@
 <?php
 $username = $_POST['username'];
-$check = $model -> select_user($username);
+$check = $model->select_user($username);
 
 $request = new Request($username, 'Reset password');
 

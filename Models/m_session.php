@@ -39,7 +39,10 @@ class Session
 
     public function to_array()
     {
-        return ['sessionID' => $this->get_id(), 'userID' => $this->get_user_ID(), 'created' => '', 'logout' => ''];
+        return ['sessionID' => $this->get_id(),
+                'userID'    => $this->get_user_ID(),
+                'created'   => '',
+                'logout'    => ''];
 
     }
 
