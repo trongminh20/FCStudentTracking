@@ -1,7 +1,7 @@
 <?php
 
 $model -> delete('requests','username',$_POST['Username']);
-$model -> delete('Employees','ID', $_POST['ID']);
+$model -> delete('employees','ID', $_POST['ID']);
 
 $_SESSION['manage_info'] = $_POST['Username']." has been deleted";
 

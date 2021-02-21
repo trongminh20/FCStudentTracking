@@ -63,7 +63,7 @@ class Database
      */
     public function log_in($username, $password)
     {
-        $query = "SELECT username, password FROM Employees WHERE username = ? AND password = ?";
+        $query = "SELECT username, password FROM employees WHERE username = ? AND password = ?";
         $stm = $this->pdo->prepare($query);
         $stm->execute([$username, $password]);
         return $stm->rowCount();
@@ -76,7 +76,7 @@ class Database
      */
     public function select_user($username)
     {
-        $query = "SELECT ID, Username, Phone, Email, Department, admin  FROM Employees WHERE username = ?";
+        $query = "SELECT ID, Username, Phone, Email, Department, admin  FROM employees WHERE username = ?";
         $stm = $this->pdo->prepare($query);
         $stm->execute([$username]);
         return $stm->fetch(PDO::FETCH_ASSOC);

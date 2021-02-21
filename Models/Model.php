@@ -73,7 +73,7 @@ class Model{
      * @param $user
      */
     function request_reset_password(Request $request){
-        $this->db->insert('Requests',$request->to_array());
+        $this->db->insert('requests',$request->to_array());
     }
 
     /**

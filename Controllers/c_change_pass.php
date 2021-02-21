@@ -1,10 +1,9 @@
 <?php
-print_r($_POST);
 if(isset($_POST['change_pass'])) {
     $new = $_POST['new_pass'];
     $_SESSION['user']['password'] = $new ;
     $id = $_SESSION['user']['id'];
-    $table = 'Employees';
+    $table = 'employees';
     $data = $_SESSION['user'];
     if (!empty($new)) {
         $model->change_password($table, $data, $id);
@@ -12,8 +11,7 @@ if(isset($_POST['change_pass'])) {
     } else {
         $_SESSION['change_password_announce'] = 'Your password has been changed';
     }
-    header("Location:?action=v_change_password");
-    exit();
-}
 
+}
+header("Location:?action=v_change_password");
 
