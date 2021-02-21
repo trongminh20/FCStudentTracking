@@ -9,9 +9,9 @@ include "v_masterPage_sidebar.php";
 
     <?php
 
-    if (!empty($_SESSION['reset'])) {
-        echo "<h4>" . $_SESSION['reset'] . "</h4>";
-        unset($_SESSION['reset']);
+    if (!empty($_SESSION['manage_info'])) {
+        echo "<h4>" . $_SESSION['manage_info'] . "</h4>";
+        unset($_SESSION['manage_info']);
     }
 
     $loadTable = $model->select_data("Employees", 'Password');
@@ -24,7 +24,7 @@ include "v_masterPage_sidebar.php";
     <?php
 
     $addInfo = $model->get_type("Employees");
-    $view->display_form("formAddUser", "form_add_user", "c_add_user", "POST", $addInfo);
+    $view->display_form("formAddUser", " form form_add_user", "c_add_user", "POST", $addInfo);
 
     ?>
 </div>

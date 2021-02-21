@@ -15,7 +15,8 @@ class View
      * @param string $method is POST / GET
      * @param $data is an array that contains field names => data type.
      */
-    public function display_form($id = "", $class = "", $action = "", $method = "", $data)
+    public function display_form($id = "", $class = "",$action = "", $method = "",
+                                 $data)
     {
         echo "<form class='$class' id='$id' method='$method' action='?action=$action'>";
 
@@ -110,7 +111,7 @@ class View
             foreach ($d as $k => $v) {
                 echo "<input type='hidden' name='$k' value='$v'>";
             }
-            echo " <input type='submit' name='edit_user_info' value='Edit'>";
+            echo " <input class='btn btn-default' type='submit' name='edit_user_info' value='Edit'>";
             echo "</form>";
 
             echo "</td>";
@@ -120,7 +121,7 @@ class View
             foreach ($d as $k => $v) {
                 echo "<input type='hidden' name='$k' value='$v'>";
             }
-            echo " <input type='submit' name='delete_user' value='Delete'>";
+            echo " <input class='btn btn-danger' type='submit' name='delete_user' value='Delete'>";
             echo "</form>";
 
             echo "</td>";
@@ -130,7 +131,7 @@ class View
             foreach ($d as $k => $v) {
                 echo "<input type='hidden' name='$k' value='$v'>";
             }
-            echo " <input type='submit' name='reset_password' value='Reset Password'>";
+            echo " <input class='btn btn-warning' type='submit' name='reset_password' value='Reset Password'>";
             echo "</form>";
 
             echo "</td>";

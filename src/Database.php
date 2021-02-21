@@ -138,11 +138,12 @@ class Database
      * @param $id
      * @return void
      */
-    function delete($table, $id)
+    function delete($table, $col, $val)
     {
-        $query = "DELETE FROM " . $table . " WHERE id = ?";
+
+        $query = "DELETE FROM " . $table . " WHERE $col = ?";
         $stm = $this->pdo->prepare($query);
-        $stm->execute([$id]);
+        $stm->execute([$val]);
 
     }
 

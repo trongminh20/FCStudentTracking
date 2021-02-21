@@ -17,7 +17,7 @@ class Model{
         return $this->db->log_in($user, $pass);
     }
 
-    function select_user($username){
+    function select_user( $username){
         return $this->db->select_user($username);
     }
 
@@ -56,8 +56,8 @@ class Model{
      * @param $table
      * @param $id
      */
-    function delete($table, $id){
-        $this->db->delete($table, $id);
+    function delete($table, $col, $val){
+        $this->db->delete($table, $col, $val);
     }
 
     /**
@@ -66,7 +66,7 @@ class Model{
      * @param $newPass
      */
     function reset_password($id, $newPass){
-        $this->db->update("Employees",$id, $newPass);
+        $this->db->update("Employees",$newPass, $id);
     }
     /**
      * adding request into table admin, lets admin know if any request existing
