@@ -23,20 +23,22 @@ class Model{
 
     /**
      * @param $table
-     * @param $unsetCols is a column that does not show
+     * @param $unsetCols is list of columns that does not show
      * @return array|false
      */
-    function select_data($table, $unsetCols=""){
+    function select_displayed_data($table, $unsetCols){
         $data = $this->db->select_multiple($table);
-        if($unsetCols != "") {
+
             for ($i = 0; $i < count($data); $i++) {
                 foreach ($data[$i] as $k => $v) {
-                    if ($k == $unsetCols) {
-                        unset($data[$i][$unsetCols]);
+                    foreach($unsetCols as $c){
+                        if ($k == $c) {
+                            unset($data[$i][$c]);
+                        }
                     }
                 }
             }
-        }
+
         return $data;
     }
 
@@ -58,15 +60,17 @@ class Model{
     function delete($table, $col, $val){
         $this->db->delete($table, $col, $val);
     }
-
-    /**
-     * reset user password as newPass
-     * @param $id
-     * @param $newPass
-     */
-    function reset_password($id, $newPass){
-        $this->db->update("Employees",$newPass, $id);
-    }
+//    function update($table, $data,$id){
+//        $this->db->update($table, $data, $id);
+//    }
+//    /**
+//     * reset user password as newPass
+//     * @param $id
+//     * @param $newPass
+//     */
+//    function reset_password($id, $newPass){
+//        $this->db->update("Employees",$newPass, $id);
+//    }
 
     /**
      * adding request into table admin, lets admin know if any request existing
@@ -81,7 +85,7 @@ class Model{
      * @param $id
      * @param $data is an array including current SESSION INFO
      */
-    function change_password($table, $data, $id){
+    function change_info($table, $data, $id){
         $this->db->update($table,$data, $id);
     }
 

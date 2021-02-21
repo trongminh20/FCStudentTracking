@@ -11,12 +11,17 @@ include "v_masterPage_sidebar.php";
         echo "<h4>" . $_SESSION['manage_info'] . "</h4>";
         unset($_SESSION['manage_info']);
     }
-    $loadTable = $model->select_data("Employees", 'Password');
+    //the cols that are not displayed
+
+    $unsetCols = ['Password', 'admin'];
+
+    $loadTable = $model->select_displayed_data("Employees",$unsetCols);
+
     $view->show_table_with_manage_functions("", "table", "v_edit_user", "c_delete_user", "c_reset_pass", $loadTable);
     ?>
-    
+
     <?php
     $addInfo = $model->get_type("Employees");
-    $view->display_form("formAddUser", " form form_add_user", "Adding new Employee","c_add_user", "POST", $addInfo);
+    $view->display_form("formAddUser", " form form_add_user", "Adding new Employee", "c_add_user", "POST", $addInfo);
     ?>
 </div>

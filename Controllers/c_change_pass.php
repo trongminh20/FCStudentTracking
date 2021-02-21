@@ -6,7 +6,7 @@ if(isset($_POST['change_pass'])) {
     $table = 'employees';
     $data = $_SESSION['user'];
     if (!empty($new)) {
-        $model->change_password($table, $data, $id);
+        $model->change_info($table, $data, $id);
         $_SESSION['change_password_announce'] = 'Your password has been changed';
     } else {
         $_SESSION['change_password_announce'] = 'Your password has been changed';
