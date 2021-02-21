@@ -21,7 +21,6 @@ class Model{
         return $this->db->select_user($username);
     }
 
-
     /**
      * @param $table
      * @param $unsetCols is a column that does not show
@@ -68,6 +67,7 @@ class Model{
     function reset_password($id, $newPass){
         $this->db->update("Employees",$newPass, $id);
     }
+
     /**
      * adding request into table admin, lets admin know if any request existing
      * @param $user
@@ -86,6 +86,7 @@ class Model{
     }
 
     /**
+     * use for form display
      * get type of each field in pair key = >value
      * @param $table
      * @return array

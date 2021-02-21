@@ -8,12 +8,12 @@ include "v_masterPage_sidebar.php";
     <h4>add record to Student tracking</h4>
     <?php
     $studentTrackingTable = $model->get_type('StudentTracking');
-    $view->display_form("","","","",$studentTrackingTable);
+    $view->display_form("","form","Student Tracking table","","",$studentTrackingTable);
     ?>
 
     <h4>add Student</h4>
     <?php
     $studentTable = $model->get_type('Students');
-    $view->display_form("","","","",$studentTable);
+    $view->display_form("","form","Student table","","",$studentTable);
     ?>
 </div>

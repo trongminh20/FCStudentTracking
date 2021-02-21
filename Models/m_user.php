@@ -54,7 +54,7 @@ class User{
         return $this->username;
     }
 
-    function change_password($password){
+    function set_password($password){
         $this->password = $password;
     }
 

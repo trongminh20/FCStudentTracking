@@ -6,8 +6,8 @@ class Admin extends User{
         parent::__construct();
     }
 
-    public function Admin($username, $password, $email, $phoneNumber, $department){
-        parent::User($username, $password, $email, $phoneNumber, $department);
+    public function Admin($id, $username, $password, $email, $phoneNumber, $department){
+        parent::User($id, $username, $password, $email, $phoneNumber, $department);
         $this->role = 1;
     }
 

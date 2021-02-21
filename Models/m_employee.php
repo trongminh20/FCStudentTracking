@@ -10,9 +10,9 @@ class Employee extends User
     {
     }
 
-    public function Employee($username, $password, $email, $phoneNumber, $department)
+    public function Employee($id,$username, $password, $email, $phoneNumber, $department)
     {
-        parent::User($username, $password, $email, $phoneNumber, $department);
+        parent::User($id, $username, $password, $email, $phoneNumber, $department);
         $this->role = 0;
     }
     /**

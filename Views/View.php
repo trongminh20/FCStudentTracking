@@ -1,6 +1,5 @@
 <?php
 
-
 class View
 {
     public function __construct()
@@ -15,11 +14,11 @@ class View
      * @param string $method is POST / GET
      * @param $data is an array that contains field names => data type.
      */
-    public function display_form($id = "", $class = "",$action = "", $method = "",
-                                 $data)
+    public function display_form($id = "", $class = "",$fieldSet,$action = "", $method = "", $data)
     {
         echo "<form class='$class' id='$id' method='$method' action='?action=$action'>";
-
+        echo "<filedset>";
+        echo "<legend>$fieldSet</legend>";
         foreach ($data as $k => $v) {
             echo "<label>$k</label>";
             if (strpos($v, 'int') !== false) {
@@ -33,12 +32,12 @@ class View
             } else {
                 $type = 'text';
             }
-            echo "<input type='$type' name = '$k' placeholder='$k' required='required'><br>";
+            echo "<input class='form-control' type='$type' name = '$k' placeholder='$k' required='required'><br>";
         }
-        echo "<input type='submit' name='submit' value='submit'>";
+        echo "<input class='btn btn-primary' type='submit' name='submit' value='submit'>";
+        echo "</filedset>";
         echo "</form>";
     }
-
 
     /**
      * auto generate table view of data that got from database
@@ -81,8 +80,7 @@ class View
      * @param $actionForDelete routes to controller or view for feature Delete information
      * @param $data
      */
-    public function show_table_with_manage_functions($id = "", $class = "", $actionForEdit, $actionForDelete,
-                                                     $actionForReset, $data)
+    public function show_table_with_manage_functions($id = "", $class = "", $actionForEdit, $actionForDelete, $actionForReset, $data)
     {
         $count = 0;
 
