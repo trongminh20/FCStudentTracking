@@ -7,7 +7,7 @@ $phone  = $_POST['Phone'];
 $department  = $_POST['Department'];
 
 $user = new Employee();
-$user -> Employee($id, $username, $password, $email, $phone, $department);
-$model->create_user('Employees', $user);
+$user  -> Employee($id, $username, $password, $email, $phone, $department);
+$model -> create_user('employees', $user);
 
 header("Location:?action=v_user_manage");

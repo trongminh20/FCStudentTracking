@@ -5,13 +5,12 @@ include "v_masterPage_header.php";
 include "v_masterPage_sidebar.php";
 ?>
 <div id="mainContent">
-    <h4>add record to Student tracking</h4>
+    <h4>add new records</h4>
     <?php
     $studentTrackingTable = $model->get_type('studenttracking');
     $view->display_form("","form","Student Tracking table","","",$studentTrackingTable);
     ?>
 
-    <h4>add Student</h4>
     <?php
     $studentTable = $model->get_type('students');
     $view->display_form("","form","Student table","","",$studentTable);
