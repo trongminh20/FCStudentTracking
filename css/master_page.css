@@ -125,7 +125,7 @@ i, span {
 }
 
 #sidebar ul.components {
-    
+    position: fixed;
     min-width: 250px;
     max-width: 250px;
     padding: 20px 0;
