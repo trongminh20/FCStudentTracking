@@ -197,14 +197,19 @@ a.article, a.article:hover {
 /* ---------------------------------------------------
     CONTENT STYLE
 ----------------------------------------------------- */
-#content {
-    padding: 0px 15px 0px 0px;
+#mainContent {
+    margin-top:50px;
+    margin-left:50px;
+    padding: 50px 15px 0px 0px;
     min-height: 100vh;
     transition: all 0.3s;
     width:100%;
     color:#5f5e5e;
-}
 
+}
+.form{
+    width: 50%;
+}
 /*-----------------------------------------------------
     Export Button Style
 ------------------------------------------------------*/

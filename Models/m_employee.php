@@ -4,21 +4,23 @@ class Employee extends User
 {
 
     private $role;
-    private $department;
 
-    public function __construct($username, $password, $email, $phoneNumber, $department)
+
+    public function __construct()
     {
-        parent::__construct($username, $password, $email, $phoneNumber);
-        $this->department = $department;
+    }
+
+    public function Employee($id,$username, $password, $email, $phoneNumber, $department)
+    {
+        parent::User($id, $username, $password, $email, $phoneNumber, $department);
         $this->role = 0;
     }
-    function set_department($dep){
-        $this->department = $dep;
-    }
-
-    function get_department()
+    /**
+     * @param mixed $role
+     */
+    function set_role($role)
     {
-        return $this->department;
+        $this->role = $role;
     }
 
     function get_role()
@@ -29,6 +31,7 @@ class Employee extends User
     function to_array()
     {
         return [
+            'id' =>$this->get_id(),
             'username' => $this->get_username(),
             'password' => $this->get_password(),
             'email' => $this->get_email(),

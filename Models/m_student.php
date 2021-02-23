@@ -10,7 +10,9 @@ class Student{
 	private $note;
 	private $status;
 
-	public function __construct($id, $prID, $name, $phone, $email, $address, $dOrI, $note, $status ){
+	public function __construct(){}
+
+	public function Student($id, $prID, $name, $phone, $email, $address, $dOrI, $note, $status ){
 		$this -> id 	= $id;
 		$this -> progID = $prID;
 		$this -> name 	= $name;
@@ -47,7 +49,7 @@ class Student{
 		return $this -> status;
 	}
 
-	public function to_ar
+	public function to_array(){
 		return [
 		 'id' => $this -> get_id(),
 		 'prog_ID' => $this -> get_prog_id(),

@@ -16,6 +16,19 @@ class Database
     }
 
     /**
+     * getting data type of all cols in a database table
+     * @param $table
+     * @return array
+     */
+    public function get_type($table)
+    {
+        $query = "DESC $table";
+        $stm = $this->pdo->prepare($query);
+        $stm->execute();
+        return $stm->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    /**
      * getting all records that existing in one table
      * @param $table
      * @return false|array
@@ -23,9 +36,9 @@ class Database
     public function select_multiple($table)
     {
         $query = "SELECT * FROM " . $table;
-        $stm = $this->db->prepare($query);
+        $stm = $this->pdo->prepare($query);
         $stm->execute();
-        return $stm;
+        return $stm->fetchAll(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -37,7 +50,7 @@ class Database
     public function select_by_id($table, $id)
     {
         $query = "SELECT * FROM $table WHERE id = ?";
-        $stm = $this->db->prepare($query);
+        $stm = $this->pdo->prepare($query);
         $stm->execute([$id]);
         return $stm->fetch(PDO::FETCH_ASSOC);
     }
@@ -48,12 +61,25 @@ class Database
      * @param $password
      * @return int
      */
-    public function select_user($username, $password)
+    public function log_in($username, $password)
     {
-        $query = "SELECT username, password FROM Employees WHERE username = ? AND password = ?";
+        $query = "SELECT username, password FROM employees WHERE username = ? AND password = ?";
         $stm = $this->pdo->prepare($query);
         $stm->execute([$username, $password]);
         return $stm->rowCount();
+    }
+
+    /**
+     * not include pasword
+     * @param $username
+     * @return mixed
+     */
+    public function select_user($username)
+    {
+        $query = "SELECT ID, Username, Phone, Email, Department, admin  FROM employees WHERE username = ?";
+        $stm = $this->pdo->prepare($query);
+        $stm->execute([$username]);
+        return $stm->fetch(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -65,7 +91,7 @@ class Database
     function insert($table, $data)
     {
         //key from array
-        $fields = array_key($data);
+        $fields = array_keys($data);
         //values from array
         $vals = array_values($data);
         //name of columns
@@ -80,15 +106,13 @@ class Database
         $stm = $this->pdo->prepare($query);
 
         $stm->execute($vals);
-
-
     }
 
     /**
      * Update a row with specific ID in existing table
-     * @param $table
-     * @param $data
-     * @param $id
+     * @param $table is the table that we want to update data
+     * @param $data is an array including all cols and changed data of $table
+     * @param $id is row identify
      * @return string
      */
     function update($table, $data, $id)
@@ -101,7 +125,11 @@ class Database
         }
         $query = "UPDATE $table SET " . rtrim($bind, ",") . " WHERE id = $id ";
         $stm = $this->pdo->prepare($query);
-        $stm->execute($vals);
+        try {
+            $stm->execute($vals);
+        }catch(PDOException $e){
+            echo $e->errorInfo;
+        }
     }
 
     /**
@@ -110,12 +138,12 @@ class Database
      * @param $id
      * @return void
      */
-    function delete($table, $id)
+    function delete($table, $col, $val)
     {
-        $query = "DELETE FROM " . $table . " WHERE id = ?";
-        $stm = $this->pdo->prepare($query);
 
-        $stm->execute([$id]);
+        $query = "DELETE FROM " . $table . " WHERE $col = ?";
+        $stm = $this->pdo->prepare($query);
+        $stm->execute([$val]);
 
     }
 
