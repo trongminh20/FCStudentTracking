@@ -1,7 +1,7 @@
 <?php
 
 class Model{
-    protected $db;
+    private $db;
 
     public function __construct(Database $db){
         $this->db = $db;
@@ -17,12 +17,31 @@ class Model{
         return $this->db->log_in($user, $pass);
     }
 
-    function select_user($username){
+    function select_user( $username){
         return $this->db->select_user($username);
     }
-    function select_data($table){
-        return $this->db->select_multiple($table);
+
+    /**
+     * @param $table
+     * @param $unsetCols is list of columns that does not show
+     * @return array|false
+     */
+    function select_displayed_data($table, $unsetCols){
+        $data = $this->db->select_multiple($table);
+
+            for ($i = 0; $i < count($data); $i++) {
+                foreach ($data[$i] as $k => $v) {
+                    foreach($unsetCols as $c){
+                        if ($k == $c) {
+                            unset($data[$i][$c]);
+                        }
+                    }
+                }
+            }
+
+        return $data;
     }
+
     /**
      * Function create user for admin
      * @param $table
@@ -38,21 +57,40 @@ class Model{
      * @param $table
      * @param $id
      */
-    function delete_user($table, $id){
-        $this->db->delete($table, $id);
+    function delete($table, $col, $val){
+        $this->db->delete($table, $col, $val);
     }
-    function reset_password($username){
+//    function update($table, $data,$id){
+//        $this->db->update($table, $data, $id);
+//    }
+//    /**
+//     * reset user password as newPass
+//     * @param $id
+//     * @param $newPass
+//     */
+//    function reset_password($id, $newPass){
+//        $this->db->update("Employees",$newPass, $id);
+//    }
 
-    }
     /**
      * adding request into table admin, lets admin know if any request existing
      * @param $user
      */
     function request_reset_password(Request $request){
-        $this->db->insert('Requests',$request->to_array());
+        $this->db->insert('requests',$request->to_array());
     }
 
     /**
+     * @param $table
+     * @param $id
+     * @param $data is an array including current SESSION INFO
+     */
+    function change_info($table, $data, $id){
+        $this->db->update($table,$data, $id);
+    }
+
+    /**
+     * use for form display
      * get type of each field in pair key = >value
      * @param $table
      * @return array

@@ -48,18 +48,24 @@
                                 (<?= ($_SESSION['user']['admin'] == 1) ? 'admin' : 'Emp' ?>)
                             </a></li>
                         <li class="divider"></li>
-                        <li id="changepassword"><a href="#" style="background: #ffffff;"><i
+                        <li id="changepassword"><a href="?action=v_change_password" style="background: #ffffff;"><i
                                         class="glyphicon glyphicon-lock"></i> Change Password</a></li>
                         <li class="divider"></li>
                         <?php
                         if ($_SESSION['user']['admin'] == 1) {
+                            // I changed delete and edit user -> user management page
+                            // TODO:
+                            // edit icon if needed
+                            // edit css if needed
+                            // delete the commented html code
                             ?>
-                            <li id="adduser"><a href="?action=c_add_user" style="background: #ffffff;"><i
-                                            class="glyphicon glyphicon-plus"></i> Add User</a></li>
+                            <li id="adduser"><a href="?action=v_user_manage" style="background: #ffffff;"><i
+                                            class="glyphicon glyphicon-plus"></i> Manage User</a></li>
                             <li class="divider"></li>
-                            <li id="deleteuser"><a href="?action=c_delete_user" style="background: #ffffff;"><i
-                                            class="glyphicon glyphicon-trash"></i> Delete User</a></li>
-                            <li class="divider"></li>
+<!-- WE ARE NO LONGER NEED THIS ONE
+                         <li id="deleteuser"><a href="?action=v_delete_user" style="background: #ffffff;"><i-->
+<!--                                            class="glyphicon glyphicon-trash"></i> Delete User</a></li>-->
+<!--                            <li class="divider"></li>-->
                             <?php
                         }
                         ?>
