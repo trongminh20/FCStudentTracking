@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/css_reset.css"/>
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
+   
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/master_page.css"/>
     <link rel="stylesheet" href="css/w3.css"/>
