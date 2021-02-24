@@ -15,7 +15,7 @@ if (isset($_POST['action'])) {
 $conf = require "src/config.php";
 
 //init information of DB hosting
-$dbConnect = "mysql:host=" . $conf['db_host'] . ";dbname=" . $conf['db_name'] . ";charset=" . $conf['db_charset'];
+$dbConnect = "mysql:host=". $conf['db_host'] . ";dbname=" . $conf['db_name'] . ";charset=" . $conf['db_charset'];
 $dbUsername = $conf['db_username'];
 
 $dbPassword = $conf['db_password'];

@@ -6,8 +6,8 @@ class Admin extends User{
         parent::__construct();
     }
 
-    public function Admin($username, $password, $email, $phoneNumber, $department){
-        parent::User($username, $password, $email, $phoneNumber, $department);
+    public function Admin($id, $username, $password, $email, $phoneNumber, $department){
+        parent::User($id, $username, $password, $email, $phoneNumber, $department);
         $this->role = 1;
     }
 
@@ -28,6 +28,7 @@ class Admin extends User{
     function to_array()
     {
         return [
+            'id'=>$this->get_id(),
             'username' => $this->get_username(),
             'password' => $this->get_password(),
             'email' => $this->get_email(),
