@@ -22,7 +22,7 @@ class Model{
     }
 
     /**
-     * return data for function display as table in view
+     * return data for function display_as_table in view
      * @param $table
      * @param $unsetCols is list of columns that does not show
      * @return array|false
