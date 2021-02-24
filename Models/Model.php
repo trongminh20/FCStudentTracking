@@ -60,17 +60,6 @@ class Model{
     function delete($table, $col, $val){
         $this->db->delete($table, $col, $val);
     }
-//    function update($table, $data,$id){
-//        $this->db->update($table, $data, $id);
-//    }
-//    /**
-//     * reset user password as newPass
-//     * @param $id
-//     * @param $newPass
-//     */
-//    function reset_password($id, $newPass){
-//        $this->db->update("Employees",$newPass, $id);
-//    }
 
     /**
      * adding request into table admin, lets admin know if any request existing
