@@ -32,4 +32,4 @@ $controller = new Controller();
 $view = new View();
 
 //Routing to destination page
-require $controller->index($action);
+require $controller->index($action, $model);

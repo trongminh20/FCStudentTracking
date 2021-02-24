@@ -1,9 +1,6 @@
-drop
-database fc_student_tracking;
-create
-database fc_student_tracking;
-use
-fc_student_tracking;
+drop database fc_student_tracking;
+create database fc_student_tracking;
+use fc_student_tracking;
 
 CREATE TABLE Students
 (
