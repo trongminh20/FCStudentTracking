@@ -1,8 +1,11 @@
 <?php
 include "v_masterPage_header.php";
+
+?>
+<?php
+include "v_masterPage_sidebar.php";
 ?>
 
-<!-- Enrollment Brief Summary Section -->
   <div class="container" style="padding-top: 20px">
     <div class="row">
       <div class="col-xs-12">

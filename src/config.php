@@ -1,5 +1,5 @@
 <?php
-return [
+return ['DATABASE' => [
     'db_host' => 'localhost',
     'db_username' => 'root',
     'db_password' => 'password',
@@ -8,4 +8,12 @@ return [
     'db_options' => [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         PDO::ATTR_EMULATE_PREPARES => false]
+],
+    'INVOICE_INFO' => ['name' => 'First College',
+        'address' => '532 Leon Ave, Second Floor, Kelowna, BC V1Y 6J6',
+        'tel' => '778-478-6611',
+        'fax' => '778-478-6610',
+        'Email' => 'enrollment@firstcollege.ca',
+        'logo' => 'images/logo.png'
+        ]
 ];
