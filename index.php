@@ -15,11 +15,12 @@ if (isset($_POST['action'])) {
 $conf = require "src/config.php";
 
 //init information of DB hosting
-$dbConnect = "mysql:host=". $conf['db_host'] . ";dbname=" . $conf['db_name'] . ";charset=" . $conf['db_charset'];
-$dbUsername = $conf['db_username'];
+$dbConnect = "mysql:host=". $conf['DATABASE']['db_host'] . ";dbname=" . $conf['DATABASE']['db_name'] . ";charset=" .
+    $conf['DATABASE']['db_charset'];
+$dbUsername = $conf['DATABASE']['db_username'];
 
-$dbPassword = $conf['db_password'];
-$pdo = new PDO($dbConnect, $dbUsername, $dbPassword, $conf['db_options']);
+$dbPassword = $conf['DATABASE']['db_password'];
+$pdo = new PDO($dbConnect, $dbUsername, $dbPassword, $conf['DATABASE']['db_options']);
 
 //connect to Database
 $database = new Database($pdo);

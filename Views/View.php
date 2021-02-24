@@ -12,10 +12,11 @@ class View
      * @param string $class
      * @param string $action is redirect to an controller or another view
      * @param string $method is POST / GET
-     * @param $data is an array that contains field names => data type.
+     * @param
      */
-    public function display_form($id = "", $class = "",$fieldSet,$action = "", $method = "", $data)
+    public function display_form($id = "", $class = "",$fieldSet,$action = "", $method = "", $table, $model)
     {
+        $data = $model -> get_type($table);
         echo "<form class='$class' id='$id' method='$method' action='?action=$action'>";
         echo "<filedset>";
         echo "<legend>$fieldSet</legend>";
@@ -45,10 +46,10 @@ class View
      * @param string $class
      * @param $data is an array which contains data of a table
      */
-    public function display_as_table($id = "", $class = "", $data)
+    public function display_as_table($id = "", $class = "", $table, $listOfUnsetCols,$model)
     {
         $count = 0;
-
+        $data = $model -> select_displayed_data($table, $listOfUnsetCols);
         echo "<table id='$id' class='$class'>";
 
         foreach ($data as $d) {
