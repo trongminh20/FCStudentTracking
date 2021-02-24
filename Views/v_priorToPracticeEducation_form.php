@@ -1,35 +1,25 @@
 <?php
+include "v_masterPage_header.php";
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Prior to Practice Education Form</title>
-    <link rel="stylesheet" href="css/css_reset.css"/>
-    <!-- Bootstrap CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-</head>
 
 <!-- Prior to Practice Education Section -->
-<body>
-  <div class="container">
+  <div class="container" style="padding-top: 20px">
     <div class="row">
       <div class="col-xs-12">
-        <h2 style="text-align: center;">Prior to Practice Education</h2>
+        <h2 style="text-align: center; padding-top: 10px">Prior to Practice Education</h2>
         <form action="" method="">
           <div class="form-group" style="padding-top: 20px">
-            <div class="col-sm-6">
               <label for="nameTag">Name Tag:</label>
                 <div id="nameTag" class="row" style="padding-top: 10px">
                   <div class="col-sm-6">
                     <label class="radio-inline">
-                    <input id="yes" value="yes" type="radio"/> YES</label>
+                    <input name="y-or-n" id="yes" value="yes" type="radio"/> YES</label>
                   </div>
                   <div class="col-sm-6">
                     <label class="radio-inline">
-                    <input id="no" value="no" type="radio"/> NO</label>
+                    <input name="y-or-n" id="no" value="no" type="radio"/> NO</label>
                   </div>
                 </div>
-            </div>
           </div>
           <div class="form-group" style="padding-top: 20px">
             <label for="clinicShirtSize">Clinic Shirt Size:</label>
@@ -66,34 +56,48 @@
             <input class="form-control" id="hankbookReceiveDate" name="hankbookReceiveDate" placeholder="MM/DD/YYYY" type="text"/>
           </div>
           <div class="form-group" style="padding-top: 20px">
-            <div class="col-sm-6">
-              <label for="acknowledgement&agreement_signed">Acknowledgement and Agreement Form Signed:</label>
-                <div id="acknowledgement&agreement_signed" class="row" style="padding-top: 10px">
-                  <div class="col-sm-6">
-                    <label class="radio-inline">
-                    <input id="yes" value="yes" type="radio"/> YES</label>
-                  </div>
-                  <div class="col-sm-6">
-                    <label class="radio-inline">
-                    <input id="no" value="no" type="radio"/> NO</label>
-                  </div>
+            <label for="acknowledgement&agreement_signed">Acknowledgement and Agreement Form Signed:</label>
+              <div id="acknowledgement&agreement_signed" class="row" style="padding-top: 10px">
+                <div class="col-sm-6">
+                  <label class="radio-inline">
+                  <input name="y-or-n" id="yes" value="yes" type="radio"/> YES</label>
+                 </div>
+                <div class="col-sm-6">
+                  <label class="radio-inline">
+                  <input name="y-or-n" id="no" value="no" type="radio"/> NO</label>
                 </div>
-            </div>
+              </div>
+          </div>
             <div class="form-group" style="padding-top: 20px">
-            <div class="col-sm-6">
               <label for="medicalFileReceived">Medical File (Vaccinations) Received:</label>
                 <div id="acknowledgement&medicalFileReceived" class="row" style="padding-top: 10px">
                   <div class="col-sm-6">
                     <label class="radio-inline">
-                    <input id="yes" value="yes" type="radio"/> YES</label>
+                    <input name="y-or-n" id="yes" value="yes" type="radio"/> YES</label>
                   </div>
                   <div class="col-sm-6">
                     <label class="radio-inline">
-                    <input id="no" value="no" type="radio"/> NO</label>
+                    <input name="y-or-n" id="no" value="no" type="radio"/> NO</label>
                   </div>
                 </div>
             </div>
-            <div class="form-group" style="padding-top: 20px">
+            <div class="form-group" style="padding-top: 20px; padding-bottom: 10px">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+abel class="radio-inline">
+                    <input name="y-or-n" id="yes" value="yes" type="radio"/> YES</label>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="radio-inline">
+                    <input name="y-or-n" id="no" value="no" type="radio"/> NO</label>
+                  </div>
+                </div>
+            </div>
+            <div class="form-group" style="padding-top: 20px; padding-bottom: 10px">
               <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </form>
