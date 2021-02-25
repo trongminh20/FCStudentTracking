@@ -25,7 +25,7 @@ include "v_masterPage_sidebar.php";
                 <!--dom or int student radio button-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="DomORInt">Domestic OR International:</label>
-                    <div id="DomORInt" class="row" style="padding-top: 10px">
+                    <div name="Dom_OR_Int" id="DomORInt" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
                             <label class="radio-inline">
                                 <input name="Dom_OR_Int" id="DomORInt" type="radio"/> Domestic
@@ -41,7 +41,7 @@ include "v_masterPage_sidebar.php";
                 <!--enrollment notes-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="emrollmentNotes">Emrollment Notes:</label>
-                    <textarea name="Enroll_Notes" class="form-control" id="emrollmentNotes" rows="5"></textarea>
+                    <textarea class="form-control" name="Enroll_Notes" id="emrollmentNotes" rows="5"></textarea>
                 </div>
                 <!--submit button-->
                 <div class="form-group" style="padding-top: 20px">
