@@ -69,6 +69,4 @@ include "v_masterPage_sidebar.php";
             "<td><input id='' class='' type='number' name='total[]' value=''></td>" + "</tr>";
     }
 
-
-
 </script>
