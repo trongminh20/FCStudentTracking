@@ -13,15 +13,15 @@ include "v_masterPage_sidebar.php";
     }
     //the cols that are not displayed
 
-    $unsetCols = ['Password', 'admin'];
+    $unsetCols = ['Password'];
 
-    $loadTable = $model->select_displayed_data("Employees",$unsetCols);
+    $loadTable = $model->select_displayed_data("employees",$unsetCols);
 
     $view->show_table_with_manage_functions("", "table", "v_edit_user", "c_delete_user", "c_reset_pass", $loadTable);
     ?>
 
     <?php
-    $addInfo = $model->get_type("Employees");
+    $addInfo = $model->get_type("employees");
     $view->display_form("formAddUser", " form form_add_user", "Adding new Employee", "c_add_user", "POST", $addInfo);
     ?>
 </div>

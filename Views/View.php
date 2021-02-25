@@ -6,16 +6,22 @@ class View
     {
     }
 
+
     /**
-     * auto generate form view of a table from database
+     * generate a form view from a chosen table
      * @param string $id
      * @param string $class
-     * @param string $action is redirect to an controller or another view
-     * @param string $method is POST / GET
-     * @param $data is an array that contains field names => data type.
+     * @param $fieldSet is the <fieldset> of form
+     * @param string $action is form's action
+     * @param string $method is form's method
+     * @param $table is the name of table need to be display
+     * @param $model current Model
      */
-    public function display_form($id = "", $class = "",$fieldSet,$action = "", $method = "", $data)
+    public function display_form($id = "", $class = "",
+                                 $fieldSet, $action = "",
+                                 $method = "", $table, $model)
     {
+        $data = $model -> get_type($table);
         echo "<form class='$class' id='$id' method='$method' action='?action=$action'>";
         echo "<filedset>";
         echo "<legend>$fieldSet</legend>";
@@ -39,16 +45,20 @@ class View
         echo "</form>";
     }
 
+
     /**
-     * auto generate table view of data that got from database
+     * Display data from the chosen table with wanted columns
      * @param string $id
      * @param string $class
-     * @param $data is an array which contains data of a table
+     * @param $table the chosen table
+     * @param $listOfUnsetCols an array of the cols that won't be displayed
+     * @param $model is the current Model
      */
-    public function display_as_table($id = "", $class = "", $data)
+    public function display_as_table($id = "", $class = "",
+                                     $table, $listOfUnsetCols, $model)
     {
         $count = 0;
-
+        $data = $model -> select_displayed_data($table, $listOfUnsetCols);
         echo "<table id='$id' class='$class'>";
 
         foreach ($data as $d) {
@@ -80,7 +90,9 @@ class View
      * @param $actionForDelete routes to controller or view for feature Delete information
      * @param $data
      */
-    public function show_table_with_manage_functions($id = "", $class = "", $actionForEdit, $actionForDelete, $actionForReset, $data)
+    public function show_table_with_manage_functions($id = "", $class = "",
+                                                     $actionForEdit, $actionForDelete,
+                                                     $actionForReset, $data)
     {
         $count = 0;
 
@@ -120,6 +132,7 @@ class View
                 echo "<input type='hidden' name='$k' value='$v'>";
             }
             echo " <input class='btn btn-danger' type='submit' name='delete_user' value='Delete'>";
+
             echo "</form>";
 
             echo "</td>";
@@ -137,6 +150,5 @@ class View
         }
         echo "</table><br>";
     }
-
 
 }
