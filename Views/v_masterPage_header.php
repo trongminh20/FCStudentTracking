@@ -16,13 +16,13 @@
 </head>
 
 <!-- Header Section -->
-
+<body>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header" style="width: 250px;">
             <div style="float: left; width: 84%">
                 <h3>
-                    <a href="#">
+                    <a href="?action=v_home">
                         <img src="images/logo.png" width="60" style="padding: 0 5px 0 5px;"/>First College
                     </a>
                 </h3>
@@ -53,19 +53,11 @@
                         <li class="divider"></li>
                         <?php
                         if ($_SESSION['user']['admin'] == 1) {
-                            // I changed delete and edit user -> user management page
-                            // TODO:
-                            // edit icon if needed
-                            // edit css if needed
-                            // delete the commented html code
                             ?>
                             <li id="adduser"><a href="?action=v_user_manage" style="background: #ffffff;"><i
                                             class="glyphicon glyphicon-plus"></i> Manage User</a></li>
                             <li class="divider"></li>
-<!-- WE ARE NO LONGER NEED THIS ONE
-                         <li id="deleteuser"><a href="?action=v_delete_user" style="background: #ffffff;"><i-->
-<!--                                            class="glyphicon glyphicon-trash"></i> Delete User</a></li>-->
-<!--                            <li class="divider"></li>-->
+
                             <?php
                         }
                         ?>
