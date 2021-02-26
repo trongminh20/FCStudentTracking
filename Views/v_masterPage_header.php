@@ -33,8 +33,10 @@
         </div>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div style="float: left; padding: 10px;">
-                <input type="text" placeholder="Search..">
-                <button type="button" class="btn btn-light">GO!</button>
+                <form action="?action=v_search_res" method="POST">
+                    <input type="text" placeholder="Search.." name="keyword">
+                    <input type="submit" name="search" class="btn btn-light" value="GO!">
+                </form>
             </div>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown top-menu-item">

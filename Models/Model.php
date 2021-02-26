@@ -93,7 +93,9 @@ class Model{
         }
         return $type;
     }
-
+    function select_by_id($table,$id){
+        return $this->db->select_by_id($table, $id);
+    }
     /**
      * get type of columns of a table from database
      * @param $table

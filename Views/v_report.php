@@ -3,6 +3,9 @@ include "v_masterPage_header.php";
 ?>
 <?php
 include "v_masterPage_sidebar.php";
+
+$stuData = $_POST;
+
 ?>
 
 <div id="mainContent">
@@ -10,9 +13,16 @@ include "v_masterPage_sidebar.php";
     <form class="form-group col-lg-8" method="POST" action="?action=v_generate_report">
     <fieldset>
         <legend>Student Info</legend>
+        <?php if($stuData != NULL){?>
+            <input class="form-control" id='studentId' type="text" placeholder="Student ID"
+               required="required" value="<?=$stuData['stuID']?>"><br>
+            <input class="form-control" type="text" id="program" placeholder="Program" required="required"
+                   value="<?=$stuData['progID']?>">
+        <?php }else{ ?>
         <input class="form-control" id='studentId' type="text" placeholder="Student ID"
                required="required"><br>
         <input class="form-control" type="text" id="program" placeholder="Program" required="required">
+        <?php }?>
     </fieldset>
     <fieldset>
         <legend>Including Information</legend>
