@@ -1,8 +1,6 @@
 <?php
-
-
 $data = $_POST;
-
+$number = $data['number'];
 $billto = $data['billTo'];
 $program = $data['program'];
 $note = $data['note'];
@@ -28,6 +26,9 @@ $subtotal = $data['subtotal'];
     <!-- jQuery CDN -->
     <script src="js/jquery-1.12.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+<style>
+
+</style>
 </head>
 <body>
 <div id="invoiceContent" style="margin: auto; display: flex; flex-direction: column; justify-content: space-around;
@@ -37,6 +38,7 @@ align-items: center;">
             <td id="mainInfo">
                 <?= $conf['INVOICE_INFO']['name'];?> <br>
                 <?= $conf['INVOICE_INFO']['address'];?><br>
+                <?= $conf['INVOICE_INFO']['city'];?><br>
                 Tel: <?= $conf['INVOICE_INFO']['tel'];?><br>
                 Fax: <?= $conf['INVOICE_INFO']['fax'];?><br>
                 Email: <?= $conf['INVOICE_INFO']['email']; ?><br>
@@ -51,15 +53,14 @@ align-items: center;">
     </table>
     <table class="table">
         <thead>
-        <tr>
+        <tr style="background-color: #2e6da4;color:white; height: 50px;">
             <td>
-                INVOICE NUMBER XXXXXX (PAID)
+                INVOICE NUMBER <?=$number?>(PAID)
             </td>
             <td></td>
 
-            <td>DATE</td>
+            <td><?=date("d-m-Y")?></td>
         </tr>
-        <tr>
             <td>BILL TO</td>
             <td>PROGRAM</td>
             <td>NOTE</td>
@@ -82,7 +83,7 @@ align-items: center;">
 
     <table class="table" id="invoice_table">
         <thead>
-        <tr>
+        <tr style="background-color: #2e6da4;color:white; height: 50px;">
             <td>Quantity</td>
             <td>Description</td>
             <td>Unit Price</td>
@@ -106,15 +107,20 @@ align-items: center;">
             <td></td>
             <td></td>
             <td>SUBTOTAL</td>
-            <td></td>
+            <td><?=array_sum($total)?></td>
         </tr>
         <tr>
             <td></td>
             <td></td>
             <td>TOTAL</td>
-            <td></td>
+            <td><?=array_sum($total)?></td>
         </tr>
         </tfoot>
     </table>
+
+    <div>
+        Thank you for your choosing First College and Welcome!
+    </div>
+
 </div>
 </body>
