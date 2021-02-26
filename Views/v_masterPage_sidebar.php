@@ -26,7 +26,7 @@
                     Export Documents
                 </a>
                 <ul class="collapse list-unstyled" id="exportSubmenu">
-                    <li><a href="#">Generate Report</a></li>
+                    <li><a href="?action=v_report">Generate Report</a></li>
                     <li><a href="?action=v_invoice">Generate Invoice</a></li>
                 </ul>
             </li>

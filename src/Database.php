@@ -69,6 +69,12 @@ class Database
         return $stm->rowCount();
     }
 
+    function select_count($table){
+        $query = "SELECT DISTINCT COUNT(*) FROM $table";
+        $stm = $this->pdo->prepare($query);
+        $res = $stm->execute();
+        return $res;
+    }
     /**
      * not include pasword
      * @param $username
