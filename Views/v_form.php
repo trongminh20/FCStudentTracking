@@ -11,6 +11,10 @@ class Form
         echo "<form class='" . $class . "' id='" . $id . "' action='" . $action . "' method='" . $method . "'>";
     }
 
+    /**
+     *
+     * @param $attributes
+     */
     public static function add_input($attributes)
     {
         $input = "";
