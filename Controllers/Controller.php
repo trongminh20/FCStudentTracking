@@ -131,9 +131,11 @@ class Controller
 
         header("Location:?action=v_user_manage");
     }
+
     private function pdf_generator(){
 
     }
+
     private function c_logout()
     {
         if (isset($_POST['logout'])) {
