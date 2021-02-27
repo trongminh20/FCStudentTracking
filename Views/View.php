@@ -6,6 +6,18 @@ class View
     {
     }
 
+    public function display_customized_form($id, $class, $inputList, $formMethod, $formAction, $formName){
+        $form = new Form();
+        $form::start_form($id, $class, $formMethod, $formAction,$formName);
+        for($i = 0; $i < count($inputList);$i++){
+          foreach($inputList[$i] as $key=>$val){
+              if($key=='label')$form::add_label($val);
+              if($key=='input')$form::add_input($val);
+          }
+      }
+
+        $form::end_form();
+    }
 
     /**
      * generate a form view from a chosen table
@@ -17,9 +29,9 @@ class View
      * @param $table is the name of table need to be display
      * @param $model current Model
      */
-    public function display_form($id = "", $class = "",
-                                 $fieldSet, $action = "",
-                                 $method = "", $table, $model)
+    public function display_table_to_form($id = "", $class = "",
+                                          $fieldSet, $action = "",
+                                          $method = "", $table, $model)
     {
         $data = $model -> get_type($table);
         echo "<form class='$class' id='$id' method='$method' action='?action=$action'>";
