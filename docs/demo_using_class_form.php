@@ -1,13 +1,25 @@
+for using form auto generation feature:
+for customized form
+ 1: create 3D array with the following formar:
 <?php
-
-
-$form = new Form();
-$inputAttribute = [
-    ["name" => "username", "type" => "text", 'placeholder' => 'Enter username'], // input 1
-    ["name" => "password", "type" => "password", 'placeholder' => 'Enter password'], // input 2
-    ["name" => 'submit', 'type' => 'submit', 'value' => 'LOGIN'] //input 3
+$inputList = [
+    ['label' => ['attribute name'=>'attribute value', .... ],'input' =>['attribute name'=>'attribute value', .... ]],
+    ['label' => ['attribute name'=>'attribute value', .... ],'input' =>['attribute name'=>'attribute value', .... ]],
+    ['label' => ['attribute name'=>'attribute value', .... ],'input' =>['attribute name'=>'attribute value', .... ]].
+    //....
 ];
-$form::start_form("form", "loginform", "action", "POST");
-$form::add_input($inputAttribute);
-$form::end_form();
+?>
+2: call the function form view
+<?php
+$view -> display_customized_form($id, $class,$inputList, $formMethod, $formAction, $formName);
 
+?>
+
+
+in case we only want to display all colunms of a table -> form
+<?php
+$listOfUnsetCols // is the list of cols that we dont want to display,
+// for example, in the table Employees, I dont want to display column password, so
+$listOfUnsetCols = ['password'];
+
+$table = $view->display_as_table($id, $class,$table, $listOfUnsetCols,$model);

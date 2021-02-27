@@ -21,4 +21,10 @@ include "v_masterPage_sidebar.php";
             <td><?=$_SESSION['user']['email']?></td>
         </tr>
     </table>
+
+     <?php
+     if($_SESSION['user']['admin'] == 1) {
+         $view->display_as_table("requestsTable", "table", 'requests', [], $model);
+     }
+     ?>
  </div>
