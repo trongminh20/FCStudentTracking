@@ -8,12 +8,18 @@ class Form
 
     public static function start_form($class, $id, $action, $method, $formName)
     {
-        echo "<h3>".$formName."</h3>";
+        echo "<h3>" . $formName . "</h3>";
         echo "<form class='" . $class . "' id='" . $id . "' action='" . $action . "' method='" . $method . "'>";
     }
 
-    public static function add_label($label){
-        echo "<label for='".$label['for']."'>".$label['label']."</label>";
+    public static function add_label($labelAtt)
+    {
+        $label = '<label ';
+        foreach ($labelAtt as $att => $val) {
+            $label .= ' ' . $att . " = '" . $val . "'";
+        }
+        $label .= ">" . $labelAtt['label']."</label><br>";
+        echo $label;
     }
 
     /**
@@ -21,14 +27,12 @@ class Form
      */
     public static function add_input($attributes)
     {
-        $input = "";
-//        foreach ($attributes as $att) {
-            $input .= "<input ";
-            foreach ($attributes as $name => $value) {
-                $input .= ' ' . $name . " = '" . $value . "'";
-            }
-            $input .= " ><br>";
-//        }
+        $input = "<input ";
+        foreach ($attributes as $name => $value) {
+            $input .= ' ' . $name . " = '" . $value . "'";
+        }
+        $input .= " ><br>";
+
         echo $input;
     }
 

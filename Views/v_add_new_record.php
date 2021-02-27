@@ -12,14 +12,14 @@ include "v_masterPage_sidebar.php";
     //    $view->display_table_to_form("","form","Student Tracking table","","",'studenttracking',$model);
     ?>
     <?php
-    
+
     $inputList = [
         [
             'label' => ['for' => 'input1', 'label' => 'label 1'],
             'input' => ['id' => 'input1', 'class' => 'form-control', 'name' => 'req_id', 'type' => 'text']
         ],
         [
-            'label' => ['for' => 'input2', 'label' => 'label 2'],
+            'label' => ['id'=>'labeltest', 'for' => 'input2', 'label' => 'label 2'],
             'input' => ['id' => 'input2', 'class' => 'form-control', 'name' => 'req_id', 'type' => 'text']
         ],
         [
@@ -28,7 +28,6 @@ include "v_masterPage_sidebar.php";
         ]
 
     ];
-
     $view->display_customized_form("", "form-group", $inputList, "POST", "c_add_student", "Add to Student Tracking");
     ?>
 
