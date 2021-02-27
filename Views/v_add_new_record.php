@@ -19,8 +19,20 @@ include "v_masterPage_sidebar.php";
             'input' => ['id' => 'input1', 'class' => 'form-control', 'name' => 'req_id', 'type' => 'text']
         ],
         [
-            'label' => ['id'=>'labeltest', 'for' => 'input2', 'label' => 'label 2'],
+            'label' => ['id' => 'labeltest', 'for' => 'input2', 'label' => 'label 2'],
             'input' => ['id' => 'input2', 'class' => 'form-control', 'name' => 'req_id', 'type' => 'text']
+        ],
+
+        [
+            'label' => ['for' => 'textarea', 'label' => 'textarea'],
+            'textarea' => ['name' => 'textarea', 'cols' => 10, 'rows' => 5]
+        ],
+        [
+            'label' => ['for' => 'droplist', 'label' => 'droplist'],
+            'selection' => [
+                'attributes' => ['id' => 'id', 'name' => 'name'],
+                'options' => [1, 2, 3, 4]
+            ]
         ],
         [
             'label' => ['for' => '', 'label' => ''],

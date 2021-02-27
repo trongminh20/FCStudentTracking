@@ -7,12 +7,17 @@ class View
     }
 
     public function display_customized_form($id, $class, $inputList, $formMethod, $formAction, $formName){
-        $form = new Form();
-        $form::start_form($id, $class, $formMethod, $formAction,$formName);
+
+        $form = new Form($id, $class, $formMethod, $formAction,$formName);
         for($i = 0; $i < count($inputList);$i++){
           foreach($inputList[$i] as $key=>$val){
+              if($key =='fieldset')$form::start_fieldset($val);
+              if($key=='end_fieldset')$form::end_fieldset();
+              if($key=='legend')$form::add_legend($val);
               if($key=='label')$form::add_label($val);
               if($key=='input')$form::add_input($val);
+              if($key=='textarea')$form::add_text_area($val); echo "<br>";
+              if($key=='selection')$form::add_selection($val);
           }
       }
 
