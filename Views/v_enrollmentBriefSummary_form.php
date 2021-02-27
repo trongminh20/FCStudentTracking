@@ -9,7 +9,7 @@ include "v_masterPage_sidebar.php";
 <div class="container" style="padding-top: 20px">
     <div class="row">
         <div class="col-xs-12">
-            <h2 style="text-align: center; padding-top: 10px">Enrollment Brief Summary</h2>
+            <h2 style="padding-top: 10px">Enrollment Brief Summary</h2>
             <!--Form starts-->
             <form action="" method="">
                 <!--phone number-->
