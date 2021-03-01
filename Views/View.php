@@ -6,20 +6,48 @@ class View
     {
     }
 
-    public function display_customized_form($id, $class, $inputList, $formMethod, $formAction, $formName){
+    /**
+     * @param $id
+     * @param $class
+     * @param $inputList is a 3D array
+     * [
+     *  [
+     *      fieldset => [],
+     *      legend => []
+     *  ],
+     *  [
+     *      label => [],
+     *      intput => []
+     *  ],
+     *  [
+     *      label => [],
+     *      input => []
+     *  ],
+     *  [
+     *      end_fieldset=>[]
+     *  ]
+     *  ,...
+     * ]
+     * @param $formMethod
+     * @param $formAction
+     * @param $formName
+     */
+    public function display_customized_form($id, $class, $inputList, $formMethod, $formAction, $formName)
+    {
 
-        $form = new Form($id, $class, $formMethod, $formAction,$formName);
-        for($i = 0; $i < count($inputList);$i++){
-          foreach($inputList[$i] as $key=>$val){
-              if($key =='fieldset')$form::start_fieldset($val);
-              if($key=='end_fieldset')$form::end_fieldset();
-              if($key=='legend')$form::add_legend($val);
-              if($key=='label')$form::add_label($val);
-              if($key=='input')$form::add_input($val);
-              if($key=='textarea')$form::add_text_area($val); echo "<br>";
-              if($key=='selection')$form::add_selection($val);
-          }
-      }
+        $form = new Form($id, $class, $formMethod, $formAction, $formName);
+        for ($i = 0; $i < count($inputList); $i++) {
+            foreach ($inputList[$i] as $key => $val) {
+                if ($key == 'fieldset') $form::start_fieldset($val);
+                if ($key == 'end_fieldset') $form::end_fieldset();
+                if ($key == 'legend') $form::add_legend($val);
+                if ($key == 'label') $form::add_label($val);
+                if ($key == 'input') $form::add_input($val);
+                if ($key == 'textarea') $form::add_text_area($val);
+                echo "<br>";
+                if ($key == 'selection') $form::add_selection($val);
+            }
+        }
 
         $form::end_form();
     }
@@ -38,7 +66,7 @@ class View
                                           $fieldSet, $action = "",
                                           $method = "", $table, $model)
     {
-        $data = $model -> get_type($table);
+        $data = $model->get_type($table);
         echo "<form class='$class' id='$id' method='$method' action='?action=$action'>";
         echo "<filedset>";
         echo "<legend>$fieldSet</legend>";
@@ -75,7 +103,7 @@ class View
                                      $table, $listOfUnsetCols, $model)
     {
         $count = 0;
-        $data = $model -> select_displayed_data($table, $listOfUnsetCols);
+        $data = $model->select_displayed_data($table, $listOfUnsetCols);
         echo "<table id='$id' class='$class'>";
 
         foreach ($data as $d) {
