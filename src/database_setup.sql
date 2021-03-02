@@ -83,66 +83,55 @@ CREATE TABLE apsds
     app_fee            VARCHAR(50),
     app_essay          VARCHAR(30),
     refer_letter       VARCHAR(50),
-    Resume             VARCHAR(20),
+    resume             VARCHAR(20),
     intro_of_msg       DATE,
     fee_paid_inv       VARCHAR(50),
     w_letter_sent      BOOLEAN,
-    Completed          VARCHAR(30),
+    completed          VARCHAR(30),
     eng_test_res       INT,
-    CRC                VARCHAR(50),
+    crc                VARCHAR(50),
     medical_note       VARCHAR(20),
-    interview          date,
+    interview          DATE,
     approved           BOOLEAN,
-    diploma_and_trans  varchar(50),
-    stu_email          varchar(50),
---         Student Number
+    diploma_and_trans  VARCHAR(50),
+    stu_email          VARCHAR(50),
     accept_letter_date DATE,
-    enrollment_contact varchar(50),
-    handbook_notes varchar(5),
-    payment_option varchar(50),
-    ack_and_agr date,
-    receive_card boolean,
-
-
-
-        RMT General Handbook Receive Date
-        Student Aid BC (optional)/payment plan
-        RMT Student Handbook Receive Date
-        Acknowledgement and Agreement Form
-        Sheet Set
-        Labtop
-        Goniometer
-        Oil Holster
-        Bottle
-        Student General Handbook AAF & Photography Waiver Form
+    enroll_contract    VARCHAR(50),
+    handbook_notes     VARCHAR(5),
+    payment_option     VARCHAR(50),
+    ack_and_agr        DATE,
+    receive_card       BOOLEAN,
+    rmt_stu_matt       VARCHAR(100),
 );
 
 --prior to practice education
 CREATE TABLE ppes
 (
-    Clinic Shirt Size
-        Order Date
-        Pick-up Date
-        First Aid & CPR Date & Time
-        First Aid & CPR Location & Contact Person
-        Certificate Receive Mark
-        Clinic Handbook Receive Date
-        Acknowledgement and Agreement Form
-        Medical File (Vaccinations)
-
+    student_id         INT,
+    clinic_shirt_size  VARCHAR(30),
+    first_aid_loc      VARCHAR(100),
+    first_aid_contact  VARCHAR(50),
+    order_date         DATE,
+    pickup_date        DATE,
+    first_aid_and_cpr  DATETIME,
+    cert_mark_received DATE,
+    handbook_received  DATE,
+    ack_and_agr        BOOLEAN,
+    medical_file       BOOLEAN
 );
 
 CREATE TABLE graduations
 (
-    Tuition Paid in Full
-        Official Student Transcript
-        Official Completion Letter
-        Copy of signed Diploma
-        Board Exam Date
-        Copy of T2202A (tax form)
-        Employment Following Up
-
+    student_id INT,
+    tuition_paid,
+    transcript,
+    completion_letter,
+    signed_diploma,
+    exam_date,
+    T2202A,
+    employment
 );
+
 ALTER TABLE sessions
     ADD CONSTRAINT session_fk
         FOREIGN KEY (userID)
