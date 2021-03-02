@@ -14,7 +14,7 @@ include "v_masterPage_header.php";
                     <div name="photo_ID" id="photoID" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="photo_ID" id="photoID" type="radio"/> YES
+                                <input name="photo_id" id="photoID" type="radio"/> YES
                             </label>
                         </div>
                         <div class="col-sm-6">

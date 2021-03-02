@@ -70,6 +70,71 @@ CREATE TABLE requests
     request  VARCHAR(100)
 );
 
+CREATE TABLE invoices
+(
+    number INT PRIMARY KEY,
+    bill_to VARCHAR(50),
+    date    DATE,
+    total   INT,
+    note    VARCHAR(100)
+);
+--table for Admission Prior to Start Date
+CREATE TABLE apsd
+(
+    student ID
+    photo_id    VARCHAR(2),
+    app_form
+    app_fee
+    app_essay
+    refer_letter
+    resume
+    intro_mess_course
+    fee_paid_invoice
+    welcome_letter_sent
+    completed
+    ennglish test result
+    CRC
+    Medical note from physican
+    interview date and time
+    approved
+    high school diploma and trascipt
+    college email address
+    student number
+    letter of acceptance
+    enrollment contract
+    RMT General handbook receive date
+    student aid subclass_origin
+    RMT student handbook
+    acknowledgement and agreement transform
+    sheet set
+    labtop
+    goniometer
+    oil holster
+    bottle
+    student General handbook aaf & photogram waiver transform
+);
+
+--prior to practice education
+CREATE TABLE ppe
+(
+    student_id,
+    clinic shirt size,
+    order date,
+    pick-up date,
+    first aid and CPR  date and time,
+    first aid and cpR location and contact person,
+    certificate receive mark,
+    clinic handbook receive date,
+    acknowledgement and agreement form
+    medical file(vaccinations)
+);
+
+CREATE TABLE graduation(
+    tuition paid in full,
+    official student transcript,
+    official comleteion letter
+                       
+);
 ALTER TABLE sessions
     ADD CONSTRAINT session_fk
         FOREIGN KEY (userID)
