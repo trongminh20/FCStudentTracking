@@ -1,6 +1,9 @@
-drop database fc_student_tracking;
-create database fc_student_tracking;
-use fc_student_tracking;
+drop
+database fc_student_tracking;
+create
+database fc_student_tracking;
+use
+fc_student_tracking;
 
 CREATE TABLE Students
 (
@@ -70,6 +73,76 @@ CREATE TABLE requests
     request  VARCHAR(100)
 );
 
+--admission prior to start date
+
+CREATE TABLE apsds
+(
+    student_id         INT,
+    photo_id           BOOLEAN,
+    app_form           VARCHAR(50),
+    app_fee            VARCHAR(50),
+    app_essay          VARCHAR(30),
+    refer_letter       VARCHAR(50),
+    Resume             VARCHAR(20),
+    intro_of_msg       DATE,
+    fee_paid_inv       VARCHAR(50),
+    w_letter_sent      BOOLEAN,
+    Completed          VARCHAR(30),
+    eng_test_res       INT,
+    CRC                VARCHAR(50),
+    medical_note       VARCHAR(20),
+    interview          date,
+    approved           BOOLEAN,
+    diploma_and_trans  varchar(50),
+    stu_email          varchar(50),
+--         Student Number
+    accept_letter_date DATE,
+    enrollment_contact varchar(50),
+    handbook_notes varchar(5),
+    payment_option varchar(50),
+    ack_and_agr date,
+    receive_card boolean,
+
+
+
+        RMT General Handbook Receive Date
+        Student Aid BC (optional)/payment plan
+        RMT Student Handbook Receive Date
+        Acknowledgement and Agreement Form
+        Sheet Set
+        Labtop
+        Goniometer
+        Oil Holster
+        Bottle
+        Student General Handbook AAF & Photography Waiver Form
+);
+
+--prior to practice education
+CREATE TABLE ppes
+(
+    Clinic Shirt Size
+        Order Date
+        Pick-up Date
+        First Aid & CPR Date & Time
+        First Aid & CPR Location & Contact Person
+        Certificate Receive Mark
+        Clinic Handbook Receive Date
+        Acknowledgement and Agreement Form
+        Medical File (Vaccinations)
+
+);
+
+CREATE TABLE graduations
+(
+    Tuition Paid in Full
+        Official Student Transcript
+        Official Completion Letter
+        Copy of signed Diploma
+        Board Exam Date
+        Copy of T2202A (tax form)
+        Employment Following Up
+
+);
 ALTER TABLE sessions
     ADD CONSTRAINT session_fk
         FOREIGN KEY (userID)
