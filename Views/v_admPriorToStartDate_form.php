@@ -27,12 +27,12 @@ include "v_masterPage_header.php";
                 <!--application form received notes-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="appForm">Application Form:</label>
-                    <input name="app_Form" class="form-control" id="appForm"/>
+                    <input type="text" name="app_Form" class="form-control" id="appForm"/>
                 </div>
                 <!--application fee notes-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="appFee">Application Fee with Paid Invoice:</label>
-                    <input name="app_Fee" class="form-control" id="appFee"/>
+                    <input type="text" name="app_Fee" class="form-control" id="appFee"/>
                 </div>
                 <!--application essay radio button-->
             	<div class="form-group" style="padding-top: 20px">
@@ -53,7 +53,7 @@ include "v_masterPage_header.php";
                 <!--reference letters notes-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="refLetters">Character Reference Letters:</label>
-                    <input name="ref_Letters" class="form-control" id="refLetters"/>
+                    <input type="text" name="ref_Letters" class="form-control" id="refLetters"/>
                 </div>
                 <!--resume radio button-->
             	<div class="form-group" style="padding-top: 20px">
@@ -74,17 +74,17 @@ include "v_masterPage_header.php";
                 <!--intro to massage date & time -->
           		<div class="form-group" style="padding-top: 20px"> 
             		<label class="control-label" for="introToMassageDateandTime">Intro of Massage Course Date & Time:</label>
-            		<input class="form-control" id="introToMassageDateandTime" name="intro_To_Massage_Date_and_Time" placeholder="MONTH DD - DD, YYYY" type="text"/>
+            		<input type="text" class="form-control" id="introToMassageDateandTime" name="intro_To_Massage_Date_and_Time" placeholder="MONTH DD - DD, YYYY"/>
           		</div>
           		<!--intro to massage fee notes-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="introFee">Intro of Massage Fee with Paid Invoice:</label>
-                    <input name="intro_Fee" class="form-control" id="introFee"/>
+                    <input type="text" name="intro_Fee" class="form-control" id="introFee"/>
                 </div>
                 <!--intro to massage completed notes -->
           		<div class="form-group" style="padding-top: 20px"> 
           			<label for="introToMassageComp">Intro of Massage Course Completed:</label>
-                    <input name="intro_To_Massage_Comp" class="form-control" id="introToMassageComp"/>
+                    <input type="text" name="intro_To_Massage_Comp" class="form-control" id="introToMassageComp"/>
           		</div>
           		<!--welcome letter radio button-->
             	<div class="form-group" style="padding-top: 20px">
@@ -105,12 +105,12 @@ include "v_masterPage_header.php";
                 <!--english test result notes -->
           		<div class="form-group" style="padding-top: 20px"> 
           			<label for="engTestResult">English Test Result:</label>
-                    <input name="eng_Test_Result" class="form-control" id="engTestResult"/>
+                    <input type="text" name="eng_Test_Result" class="form-control" id="engTestResult"/>
           		</div>
           		<!--CRC result notes -->
           		<div class="form-group" style="padding-top: 20px"> 
           			<label for="CRCResult">CRC Result:</label>
-                    <input name="CRC_Result" class="form-control" id="CRCResult"/>
+                    <input type="text" name="CRC_Result" class="form-control" id="CRCResult"/>
                 </div>
                 <!--medical notes radio button-->
             	<div class="form-group" style="padding-top: 20px">
@@ -131,7 +131,7 @@ include "v_masterPage_header.php";
                 <!--interview date & time -->
           		<div class="form-group" style="padding-top: 20px"> 
             		<label class="control-label" for="interviewDateandTime">Interview Date & Time:</label>
-            		<input class="form-control" id="interviewDateandTime" name="interview_Date_and_Time" placeholder="MM/DD/YYYY 00:00" type="text"/>
+            		<input type="text" class="form-control" id="interviewDateandTime" name="interview_Date_and_Time" placeholder="MM/DD/YYYY 00:00"/>
           		</div>
           		<!--interview approved radio button-->
             	<div class="form-group" style="padding-top: 20px">
@@ -152,32 +152,32 @@ include "v_masterPage_header.php";
                 <!--high school diploma & transcript notes -->
           		<div class="form-group" style="padding-top: 20px"> 
           			<label for="diplomaAndTranscript">High School Diploma & Transcript (Or Above):</label>
-                    <input name="diploma_And_Transcript" class="form-control" id="diplomaAndTranscript"/>
+                    <input type="text" name="diploma_And_Transcript" class="form-control" id="diplomaAndTranscript"/>
                 </div>
                 <!--student email -->
           		<div class="form-group" style="padding-top: 20px"> 
           			<label for="stuEmail">Student Email:</label>
-                    <input name="stu_Email" class="form-control" id="stuEmail"/>
+                    <input type="text" name="stu_Email" class="form-control" id="stuEmail"/>
           		</div>
           		<!--student number -->
           		<div class="form-group" style="padding-top: 20px"> 
           			<label for="stuNumber">Student Number:</label>
-                    <input name="stu_Number" class="form-control" id="stuNumber"/>
+                    <input type="text" name="stu_Number" class="form-control" id="stuNumber"/>
           		</div>
           		<!--letter of acceptance date-->
           		<div class="form-group" style="padding-top: 20px"> 
             		<label class="control-label" for="acceptLetterDate">Letter of Acceptance Issued Date:</label>
-            		<input class="form-control" id="acceptLetterDate" name="accept_Letter_Date" placeholder="MM/DD/YYYY" type="text"/>
+            		<input type="date" class="form-control" id="acceptLetterDate" name="accept_Letter_Date" placeholder="MM/DD/YYYY"/>
           		</div>
           		<!--enrollment contract notes -->
           		<div class="form-group" style="padding-top: 20px"> 
           			<label for="enrollContract">Enrollment Contract:</label>
-                    <input name="enroll_Contract" class="form-control" id="enrollContract"/>
+                    <input type="text" name="enroll_Contract" class="form-control" id="enrollContract"/>
           		</div>
           		<!--Handbooks notes -->
           		<div class="form-group" style="padding-top: 20px">
                     <label for="HandbooksNotes">Student Handbooks:</label>
-                    <textarea class="form-control" name="Handbooks_Notes" id="HandbooksNotes" rows="5"></textarea>
+                    <textarea type="text" class="form-control" name="Handbooks_Notes" id="HandbooksNotes" rows="5"></textarea>
                 </div>
                 <!--payment options-->
           		<div class="form-group" style="padding-top: 20px">
@@ -193,7 +193,7 @@ include "v_masterPage_header.php";
           		<!--ackmowledgement & agreemtnt form received date-->
           		<div class="form-group" style="padding-top: 20px"> 
             		<label class="control-label" for="ackAndAgrForm">Ackmowledgement & Agreemtnt Form Received Date:</label>
-            		<input class="form-control" id="ackAndAgrForm" name="ack_And_Agr_Form" placeholder="MM/DD/YYYY" type="text"/>
+            		<input type="date" class="form-control" id="ackAndAgrForm" name="ack_And_Agr_Form" placeholder="MM/DD/YYYY"/>
           		</div>
           		<!--student id radio button-->
             	<div class="form-group" style="padding-top: 20px">

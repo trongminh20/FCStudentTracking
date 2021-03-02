@@ -68,7 +68,7 @@ include "v_masterPage_header.php";
           <!--board exam date-->
           <div class="form-group" style="padding-top: 20px"> 
             <label class="control-label" for="boardExamDate">Board Exam Date:</label>
-            <input class="form-control" name="board_Exam_Date" id="boardExamDate" placeholder="MM/DD/YYYY" type="text"/>
+            <input type="date" class="form-control" name="board_Exam_Date" id="boardExamDate" placeholder="MM/DD/YYYY"/>
           </div>
           <!--tax form issued radio button-->
           <div class="form-group" style="padding-top: 20px">
@@ -87,7 +87,7 @@ include "v_masterPage_header.php";
           <!--enrollment follow up notes-->
           <div class="form-group" style="padding-top: 20px">
             <label for="emrollmentFollowUp">Emrollment Follow Up:</label>
-            <textarea class="form-control" name="emrollment_FollowUp" id="emrollmentFollowUp" rows="5"></textarea>
+            <textarea type="text" class="form-control" name="emrollment_FollowUp" id="emrollmentFollowUp" rows="5"></textarea>
           </div>
           <!--submit button-->
           <div class="form-group" style="padding-top: 20px">

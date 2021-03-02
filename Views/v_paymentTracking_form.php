@@ -27,27 +27,27 @@ include "v_masterPage_header.php";
                 <!--application fee-->
                 <div class="form-group" style="padding-top: 20px"> 
             		<label class="control-label" for="applicationFee">Application Fee:</label>
-            		<input class="form-control" id="applicationFee" name="application_Fee" placeholder="$" type="text"/>
+            		<input type="number" class="form-control" id="applicationFee" name="application_Fee" placeholder="$"/>
           		</div>
           		<!--intro to massage fee-->
           		<div class="form-group" style="padding-top: 20px"> 
             		<label class="control-label" for="introToMassageFee">Intro to Massage Fee:</label>
-            		<input class="form-control" id="introToMassageFee" name="intro_To_Massage_Fee" placeholder="$" type="text"/>
+            		<input type="number" class="form-control" id="introToMassageFee" name="intro_To_Massage_Fee" placeholder="$"/>
           		</div>
           		<!--course materials fee-->
           		<div class="form-group" style="padding-top: 20px"> 
             		<label class="control-label" for="courseMaterialsFee">Course Materials Fee:</label>
-            		<input class="form-control" id="courseMaterialsFee" name="course_Materials_Fee" placeholder="$" type="text"/>
+            		<input type="number" class="form-control" id="courseMaterialsFee" name="course_Materials_Fee" placeholder="$"/>
           		</div>
           		<!--textbook fee-->
           		<div class="form-group" style="padding-top: 20px"> 
             		<label class="control-label" for="textbookFee">Textbook Fee:</label>
-            		<input class="form-control" id="textbookFee" name="textbook_Fee" placeholder="$" type="text"/>
+            		<input type="number" class="form-control" id="textbookFee" name="textbook_Fee" placeholder="$"/>
           		</div>
           		<!--admin fee-->
           		<div class="form-group" style="padding-top: 20px"> 
             		<label class="control-label" for="adminFee">Administration Fee:</label>
-            		<input class="form-control" id="adminFee" name="admin_Fee" placeholder="$" type="text"/>
+            		<input type="number" class="form-control" id="adminFee" name="admin_Fee" placeholder="$"/>
           		</div>
           		<!--tuition fee-->
           		<div class="form-group" style="padding-top: 20px">
@@ -59,7 +59,7 @@ include "v_masterPage_header.php";
     						<input type="text" readonly class="form-control-plaintext" name="1st_Payment" id="1stPayment" value="First Payment:">
                         </div>
                         <div class="col-sm-6">
-    						<input type="text" class="form-control" name="1st_Payment" id="1stPayment" placeholder="$">
+    						<input type="number" class="form-control" name="1st_Payment" id="1stPayment" placeholder="$">
                         </div>
                         <!--2nd payment-->
                         <div class="col-sm-6" style="padding-top: 10px">
@@ -67,7 +67,7 @@ include "v_masterPage_header.php";
     						<input type="text" readonly class="form-control-plaintext" name="2nd_Payment" id="2ndPayment" value="Second Payment:">
                         </div>
                         <div class="col-sm-6" style="padding-top: 10px">
-    						<input type="text" class="form-control" name="2nd_Payment" id="2ndPayment" placeholder="$">
+    						<input type="number" class="form-control" name="2nd_Payment" id="2ndPayment" placeholder="$">
                         </div>
                         <!--3rd payment-->
                         <div class="col-sm-6" style="padding-top: 10px">
@@ -75,7 +75,7 @@ include "v_masterPage_header.php";
     						<input type="text" readonly class="form-control-plaintext" name="3rd_Payment" id="3rdPayment" value="Third Payment:">
                         </div>
                         <div class="col-sm-6" style="padding-top: 10px">
-    						<input type="text" class="form-control" name="3rd_Payment" id="3rdPayment" placeholder="$">
+    						<input type="number" class="form-control" name="3rd_Payment" id="3rdPayment" placeholder="$">
                         </div>
                         <!--4th payment-->
                         <div class="col-sm-6" style="padding-top: 10px">
@@ -83,7 +83,7 @@ include "v_masterPage_header.php";
     						<input type="text" readonly class="form-control-plaintext" name="4th_Payment" id="4thPayment" value="Fourth Payment:">
                         </div>
                         <div class="col-sm-6" style="padding-top: 10px">
-    						<input type="text" class="form-control" name="4th_Payment" id="4thPayment" placeholder="$">
+    						<input type="number" class="form-control" name="4th_Payment" id="4thPayment" placeholder="$">
                         </div>
                         <!--5th payment-->
                         <div class="col-sm-6" style="padding-top: 10px">
@@ -91,7 +91,7 @@ include "v_masterPage_header.php";
     						<input type="text" readonly class="form-control-plaintext" name="5th_Payment" id="5thPayment" value="Fifth Payment:">
                         </div>
                         <div class="col-sm-6" style="padding-top: 10px">
-    						<input type="text" class="form-control" name="5th_Payment" id="5thPayment" placeholder="$">
+    						<input type="number" class="form-control" name="5th_Payment" id="5thPayment" placeholder="$">
                         </div>
                         <!--6th payment-->
                         <div class="col-sm-6" style="padding-top: 10px">
@@ -99,7 +99,7 @@ include "v_masterPage_header.php";
     						<input type="text" readonly class="form-control-plaintext" name="6th_Payment" id="6thPayment" value="Sixth Payment:">
                         </div>
                         <div class="col-sm-6" style="padding-top: 10px">
-    						<input type="text" class="form-control" name="6th_Payment" id="6thPayment" placeholder="$">
+    						<input type="number" class="form-control" name="6th_Payment" id="6thPayment" placeholder="$">
                         </div>
                         <!--7th payment-->
                         <div class="col-sm-6" style="padding-top: 10px">
@@ -107,7 +107,7 @@ include "v_masterPage_header.php";
     						<input type="text" readonly class="form-control-plaintext" name="7th_Payment" id="7thPayment" value="Seventh Payment:">
                         </div>
                         <div class="col-sm-6" style="padding-top: 10px">
-    						<input type="text" class="form-control" name="7th_Payment" id="7thPayment" placeholder="$">
+    						<input type="number" class="form-control" name="7th_Payment" id="7thPayment" placeholder="$">
                         </div>
                         <!--8th payment-->
                         <div class="col-sm-6" style="padding-top: 10px">
@@ -115,7 +115,7 @@ include "v_masterPage_header.php";
     						<input type="text" readonly class="form-control-plaintext" name="8th_Payment" id="8thPayment" value="Eighth Payment:">
                         </div>
                         <div class="col-sm-6" style="padding-top: 10px">
-    						<input type="text" class="form-control" name="8th_Payment" id="8thPayment" placeholder="$">
+    						<input type="number" class="form-control" name="8th_Payment" id="8thPayment" placeholder="$">
                         </div>
                         <!--9th payment-->
                         <div class="col-sm-6" style="padding-top: 10px">
@@ -123,7 +123,7 @@ include "v_masterPage_header.php";
     						<input type="text" readonly class="form-control-plaintext" name="9th_Payment" id="9thPayment" value="Nineth Payment:">
                         </div>
                         <div class="col-sm-6" style="padding-top: 10px">
-    						<input type="text" class="form-control" name="9th_Payment" id="9thPayment" placeholder="$">
+    						<input type="number" class="form-control" name="9th_Payment" id="9thPayment" placeholder="$">
                         </div>
                         <!--10th payment-->
                         <div class="col-sm-6" style="padding-top: 10px">
@@ -131,7 +131,7 @@ include "v_masterPage_header.php";
     						<input type="text" readonly class="form-control-plaintext" name="10th_Payment" id="10thPayment" value="Tenth Payment:">
                         </div>
                         <div class="col-sm-6" style="padding-top: 10px">
-    						<input type="text" class="form-control" name="10th_Payment" id="10thPayment" placeholder="$">
+    						<input type="number" class="form-control" name="10th_Payment" id="10thPayment" placeholder="$">
                         </div>
                     </div>
 				</div>
