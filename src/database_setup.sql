@@ -133,7 +133,7 @@ CREATE TABLE graduation(
     tuition paid in full,
     official student transcript,
     official comleteion letter
-                       
+
 );
 ALTER TABLE sessions
     ADD CONSTRAINT session_fk
