@@ -37,32 +37,32 @@ include "v_masterPage_header.php";
           <!--shirt order date-->
           <div class="form-group" style="padding-top: 20px"> 
             <label class="control-label" for="shirtOrderDate">Order Date:</label>
-            <input type="date" class="form-control" id="ShirtOrderDate" name="shirt_Order_Date" placeholder="MM/DD/YYYY"/>
+            <input type="date" class="form-control" id="ShirtOrderDate" name="shirt_Order_Date"/>
           </div>
           <!--pick up date-->
           <div class="form-group" style="padding-top: 20px"> 
             <label class="control-label" for="pickUpDate">Pick-up Date:</label>
-            <input type="date" class="form-control" id="PickUpDate" name="pick_Up_Date" placeholder="MM/DD/YYYY"/>
+            <input type="date" class="form-control" id="PickUpDate" name="pick_Up_Date"/>
           </div>
           <!--first aid & cpr date & time -->
           <div class="form-group" style="padding-top: 20px"> 
             <label class="control-label" for="FirstAidandCPRDateandTime">First Aid & CPR Date & Time:</label>
-            <input type="text" class="form-control" id="FirstAidandCPRDateandTime" name="firstaid_and_CPR_Date_and_Time" placeholder="MM/DD/YYYY 00:00"/>
+            <input type="datetime-local" class="form-control" id="FirstAidandCPRDateandTime" name="firstaid_and_CPR_Date_and_Time"/>
           </div>
           <!--first aid & cpr location & contact -->
           <div class="form-group" style="padding-top: 20px">
             <label for="FirstAidandCPRLocandContact">First Aid & CPR Location & Contact: </label>
             <textarea type="text" class="form-control" id="FirstAidandCPRLocandContact" name="firstaid_and_CPR_Loc_and_Contact" rows="3"></textarea>
           </div>
-          <!--certificate receive mark-->
+          <!--certificate of first aid & cpr received date-->
           <div class="form-group" style="padding-top: 20px">
-            <label for="CertificateReceiveMark">Certificate Receive Mark:</label>
-            <input type="text" class="form-control" id="CertificateReceiveMark" name="certificate_Receive_Mark"/>
+            <label for="CertificateReceiveDate">Certificate of First Aid & CPR Receive Date:</label>
+            <input type="date" class="form-control" id="CertificateReceiveDate" name="certificate_Receive_Date"/>
           </div>
           <!--handbook receive date-->
           <div class="form-group" style="padding-top: 20px"> 
             <label class="control-label" for="HankbookReceiveDate">Hankbook Receive Date:</label>
-            <input type="date" class="form-control" id="HankbookReceiveDate" name="hankbook_Receive_Date" placeholder="MM/DD/YYYY"/>
+            <input type="date" class="form-control" id="HankbookReceiveDate" name="hankbook_Receive_Date"/>
           </div>
           <!--acknowledgement and agreement form signed -->
           <div class="form-group" style="padding-top: 20px">
