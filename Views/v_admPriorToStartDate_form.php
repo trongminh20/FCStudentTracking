@@ -74,8 +74,27 @@ include "v_masterPage_header.php";
                 <!--intro to massage date & time -->
           		<div class="form-group" style="padding-top: 20px"> 
             		<label class="control-label" for="introToMassageDateandTime">Intro of Massage Course Date & Time:</label>
-            		<input type="text" class="form-control" id="introToMassageDateandTime" name="intro_To_Massage_Date_and_Time" placeholder="MONTH DD - DD, YYYY"/>
-          		</div>
+                  <div name="intro_To_Massage_Date_and_Time" id="introToMassageDateandTime" class="row" style="padding-top: 10px">
+                    <!--from_textDisplay-->
+                    <div class="col-sm-6">
+                      <label for="from" class="sr-only">From:</label>
+                      <input type="text" readonly class="form-control-plaintext" name="from" id="from" value="From:">
+                    </div>
+                    <!---from_datetimePicker-->
+                    <div class="col-sm-6">
+                      <input type="datetime-local" class="form-control" name="from" id="from">
+                    </div>
+                    <!--to_textDisplay-->
+                    <div class="col-sm-6" style="padding-top: 10px">
+                      <label for="to" class="sr-only">To:</label>
+                      <input type="text" readonly class="form-control-plaintext" name="to" id="to" value="To:">
+                    </div>
+                    <!---to_datetimePicker-->
+                    <div class="col-sm-6" style="padding-top: 10px">
+                      <input type="datetime-local" class="form-control" name="to" id="to">
+                    </div>
+          		    </div>
+              </div>
           		<!--intro to massage fee notes-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="introFee">Intro of Massage Fee with Paid Invoice:</label>
@@ -131,7 +150,7 @@ include "v_masterPage_header.php";
                 <!--interview date & time -->
           		<div class="form-group" style="padding-top: 20px"> 
             		<label class="control-label" for="interviewDateandTime">Interview Date & Time:</label>
-            		<input type="text" class="form-control" id="interviewDateandTime" name="interview_Date_and_Time" placeholder="MM/DD/YYYY 00:00"/>
+            		<input type="datetime-local" class="form-control" id="interviewDateandTime" name="interview_Date_and_Time"/>
           		</div>
           		<!--interview approved radio button-->
             	<div class="form-group" style="padding-top: 20px">
@@ -167,7 +186,7 @@ include "v_masterPage_header.php";
           		<!--letter of acceptance date-->
           		<div class="form-group" style="padding-top: 20px"> 
             		<label class="control-label" for="acceptLetterDate">Letter of Acceptance Issued Date:</label>
-            		<input type="date" class="form-control" id="acceptLetterDate" name="accept_Letter_Date" placeholder="MM/DD/YYYY"/>
+            		<input type="datetime-local" class="form-control" id="acceptLetterDate" name="accept_Letter_Date"/>
           		</div>
           		<!--enrollment contract notes -->
           		<div class="form-group" style="padding-top: 20px"> 
@@ -193,11 +212,11 @@ include "v_masterPage_header.php";
           		<!--ackmowledgement & agreemtnt form received date-->
           		<div class="form-group" style="padding-top: 20px"> 
             		<label class="control-label" for="ackAndAgrForm">Ackmowledgement & Agreemtnt Form Received Date:</label>
-            		<input type="date" class="form-control" id="ackAndAgrForm" name="ack_And_Agr_Form" placeholder="MM/DD/YYYY"/>
+            		<input type="datetime-local" class="form-control" id="ackAndAgrForm" name="ack_And_Agr_Form"/>
           		</div>
-          		<!--student id radio button-->
+          		<!--student id card issued radio button-->
             	<div class="form-group" style="padding-top: 20px">
-                    <label for="stuID">Student ID Issued:</label>
+                    <label for="stuID">Student ID Card Issued:</label>
                     <div name="stu_ID" id="stuID" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
                             <label class="radio-inline">
@@ -210,37 +229,37 @@ include "v_masterPage_header.php";
                             </label>
                         </div>
                     </div>
-                </div>
-                <!--RMT students material checkbox-->
-				<div class="form-group" style="padding-top: 20px">
-                    <label for="rmtStuMaterials">RMT Student Learning Materials:</label>
-                    	<!--sheet set-->
-                		<div class="form-check form-check-inline">
-  							<input class="form-check-input" type="checkbox" id="rmtStuMaterials" value="option1">
-  							<label class="form-check-label" for="rmtStuMaterials">Sheet Set</label>
-						</div>
-						<!--laptop/Electronic Learning Support-->
-						<div class="form-check form-check-inline">
-  							<input class="form-check-input" type="checkbox" id="rmtStuMaterials" value="option2">
-  							<label class="form-check-label" for="rmtStuMaterials">Laptop/Electronic Learning Support</label>
-						</div>
-						<!--goniometer-->
-						<div class="form-check form-check-inline">
-  							<input class="form-check-input" type="checkbox" id="rmtStuMaterials" value="option3">
-  							<label class="form-check-label" for="rmtStuMaterials">Goniometer</label>
-						</div>
-						<!--oil holster-->
-						<div class="form-check form-check-inline">
-  							<input class="form-check-input" type="checkbox" id="rmtStuMaterials" value="option4">
-  							<label class="form-check-label" for="rmtStuMaterials">Oil Holster</label>
-						</div>
-						<!--bottle-->
-						<div class="form-check form-check-inline">
-  							<input class="form-check-input" type="checkbox" id="rmtStuMaterials" value="option5">
-  							<label class="form-check-label" for="rmtStuMaterials">Bottle</label>
-						</div>
-				</div>
-				<!--submit button-->
+              </div>
+              <!--RMT students material checkbox-->
+				      <div class="form-group" style="padding-top: 20px">
+                <label for="rmtStuMaterials">RMT Student Learning Materials:</label>
+                  <!--sheet set-->
+                	<div class="form-check form-check-inline">
+  							    <input class="form-check-input" type="checkbox" id="rmtStuMaterials" value="option1">
+  							    <label class="form-check-label" for="rmtStuMaterials">Sheet Set</label>
+						      </div>
+						      <!--laptop/Electronic Learning Support-->
+						      <div class="form-check form-check-inline">
+  							    <input class="form-check-input" type="checkbox" id="rmtStuMaterials" value="option2">
+  							    <label class="form-check-label" for="rmtStuMaterials">Laptop/Electronic Learning Support</label>
+						      </div>
+						      <!--goniometer-->
+						      <div class="form-check form-check-inline">
+  							    <input class="form-check-input" type="checkbox" id="rmtStuMaterials" value="option3">
+  							    <label class="form-check-label" for="rmtStuMaterials">Goniometer</label>
+						      </div>
+						      <!--oil holster-->
+						      <div class="form-check form-check-inline">
+  							    <input class="form-check-input" type="checkbox" id="rmtStuMaterials" value="option4">
+  							    <label class="form-check-label" for="rmtStuMaterials">Oil Holster</label>
+						      </div>
+						      <!--bottle-->
+						      <div class="form-check form-check-inline">
+  							    <input class="form-check-input" type="checkbox" id="rmtStuMaterials" value="option5">
+  							    <label class="form-check-label" for="rmtStuMaterials">Bottle</label>
+						      </div>
+				      </div>
+				      <!--submit button-->
             	<div class="form-group" style="padding-top: 20px; padding-bottom: 10px">
               		<button type="submit" class="btn btn-primary">Submit</button>
             	</div>
