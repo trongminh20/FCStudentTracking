@@ -15,7 +15,7 @@ include "v_masterPage_header.php";
                 <div name="tuition_Paid" id="tuitionPaid" class="row" style="padding-top: 10px">
                   <div class="col-sm-6">
                     <label class="radio-inline">
-                    <input name="tuition_Paid" id="tuitionPaid" value="yes" type="radio"/> YES</label>
+                    <input name="tuition_paid" id="tuitionPaid" value="yes" type="radio"/> YES</label>
                   </div>
                   <div class="col-sm-6">
                     <label class="radio-inline">
@@ -43,7 +43,7 @@ include "v_masterPage_header.php";
                 <div name="official_Completion_Letter" id="officialCompletionLetter" class="row" style="padding-top: 10px">
                   <div class="col-sm-6">
                     <label class="radio-inline">
-                    <input name="official_Completion_Letter" id="officialCompletionLetter" value="yes" type="radio"/> YES</label>
+                    <input name="completion_letter" id="officialCompletionLetter" value="yes" type="radio"/> YES</label>
                   </div>
                   <div class="col-sm-6">
                     <label class="radio-inline">

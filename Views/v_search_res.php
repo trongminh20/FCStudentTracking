@@ -4,6 +4,14 @@ include "v_masterPage_header.php";
 <?php
 include "v_masterPage_sidebar.php";
 
+$keyword = $_POST['keyword'];
+
+if($keyword[0] == '@'){
+
+}else if($keyword[0] == '#'){
+    
+}
+
 $students = $model->select_by_id('students',$_POST['keyword']);
 ?>
 
