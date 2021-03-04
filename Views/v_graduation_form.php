@@ -84,10 +84,10 @@ include "v_masterPage_header.php";
                   </div>
                 </div>
           </div>
-          <!--enrollment follow up notes-->
+          <!--employment follow up notes-->
           <div class="form-group" style="padding-top: 20px">
-            <label for="emrollmentFollowUp">Emrollment Follow Up:</label>
-            <textarea type="text" class="form-control" name="emrollment_FollowUp" id="emrollmentFollowUp" rows="5"></textarea>
+            <label for="employmentFollowUp">Employment Follow Up:</label>
+            <textarea type="text" class="form-control" name="employment_FollowUp" id="employmentFollowUp" rows="5"></textarea>
           </div>
           <!--submit button-->
           <div class="form-group" style="padding-top: 20px">
