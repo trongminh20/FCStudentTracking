@@ -68,7 +68,7 @@ include "v_masterPage_header.php";
           <!--board exam date-->
           <div class="form-group" style="padding-top: 20px"> 
             <label class="control-label" for="boardExamDate">Board Exam Date:</label>
-            <input type="date" class="form-control" name="board_Exam_Date" id="boardExamDate" placeholder="MM/DD/YYYY"/>
+            <input type="datetime-local" class="form-control" name="board_Exam_Date" id="boardExamDate"/>
           </div>
           <!--tax form issued radio button-->
           <div class="form-group" style="padding-top: 20px">
