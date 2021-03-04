@@ -1,6 +1,9 @@
-drop database fc_student_tracking;
-create database fc_student_tracking;
-use fc_student_tracking;
+drop
+database fc_student_tracking;
+create
+database fc_student_tracking;
+use
+fc_student_tracking;
 
 CREATE TABLE Students
 (
@@ -68,6 +71,65 @@ CREATE TABLE requests
     id       INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50),
     request  VARCHAR(100)
+);
+
+--admission prior to start date
+
+CREATE TABLE apsds
+(
+    student_id         INT,
+    photo_id           BOOLEAN,
+    app_form           VARCHAR(50),
+    app_fee            VARCHAR(50),
+    app_essay          VARCHAR(30),
+    refer_letter       VARCHAR(50),
+    resume             VARCHAR(20),
+    intro_of_msg       DATE,
+    fee_paid_inv       VARCHAR(50),
+    w_letter_sent      BOOLEAN,
+    completed          VARCHAR(30),
+    eng_test_res       INT,
+    crc                VARCHAR(50),
+    medical_note       VARCHAR(20),
+    interview          DATE,
+    approved           BOOLEAN,
+    diploma_and_trans  VARCHAR(50),
+    stu_email          VARCHAR(50),
+    accept_letter_date DATE,
+    enroll_contract    VARCHAR(50),
+    handbook_notes     VARCHAR(5),
+    payment_option     VARCHAR(50),
+    ack_and_agr        DATE,
+    receive_card       BOOLEAN,
+    rmt_stu_matt       VARCHAR(100),
+);
+
+--prior to practice education
+CREATE TABLE ppes
+(
+    student_id         INT,
+    clinic_shirt_size  VARCHAR(30),
+    first_aid_loc      VARCHAR(100),
+    first_aid_contact  VARCHAR(50),
+    order_date         DATE,
+    pickup_date        DATE,
+    first_aid_and_cpr  DATETIME,
+    cert_mark_received DATE,
+    handbook_received  DATE,
+    ack_and_agr        BOOLEAN,
+    medical_file       BOOLEAN
+);
+
+CREATE TABLE graduations
+(
+    student_id INT,
+    tuition_paid,
+    transcript,
+    completion_letter,
+    signed_diploma,
+    exam_date,
+    T2202A,
+    employment
 );
 
 ALTER TABLE sessions
