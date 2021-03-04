@@ -198,16 +198,21 @@ include "v_masterPage_header.php";
                     <label for="HandbooksNotes">Student Handbooks:</label>
                     <textarea type="text" class="form-control" name="Handbooks_Notes" id="HandbooksNotes" rows="5"></textarea>
                 </div>
-                <!--payment options-->
+              <!--payment options-->
           		<div class="form-group" style="padding-top: 20px">
             		<label for="payOptions">Payment Options:</label>
-              		<select class="form-control" name="pay_Options" id="payOptions">
-                		<option>Student Aid BC</option>
-                		<option>Full Payment</option>
-                		<option>Monthly Payment</option>
-                		<option>Payment Plan</option>
-                		<option>Others</option>
+              		<select class="form-control" name="pay_Options" id="payOptions" onChange="check();">
+                		<option value="studentAidBC">Student Aid BC</option>
+                		<option value="fullPayment">Full Payment</option>
+                		<option value="monthlyPayment">Monthly Payment</option>
+                		<option value="paymentPlan">Payment Plan</option>
+                		<option value="others">Others</option>
               		</select>
+                  <div id="otherPayOptions" style="display:none; padding-top: 10px">
+                    <label>Enter Payment Method:
+                      <input type="text" id="otherInput" class="form-control"></input>
+                    </label>
+                  </div>
           		</div>
           		<!--ackmowledgement & agreemtnt form received date-->
           		<div class="form-group" style="padding-top: 20px"> 
@@ -230,34 +235,16 @@ include "v_masterPage_header.php";
                         </div>
                     </div>
               </div>
-              <!--RMT students material checkbox-->
+              <!--RMT students material muulti select-->
 				      <div class="form-group" style="padding-top: 20px">
                 <label for="rmtStuMaterials">RMT Student Learning Materials:</label>
-                  <!--sheet set-->
-                	<div class="form-check form-check-inline">
-  							    <input class="form-check-input" type="checkbox" id="rmtStuMaterials" value="option1">
-  							    <label class="form-check-label" for="rmtStuMaterials">Sheet Set</label>
-						      </div>
-						      <!--laptop/Electronic Learning Support-->
-						      <div class="form-check form-check-inline">
-  							    <input class="form-check-input" type="checkbox" id="rmtStuMaterials" value="option2">
-  							    <label class="form-check-label" for="rmtStuMaterials">Laptop/Electronic Learning Support</label>
-						      </div>
-						      <!--goniometer-->
-						      <div class="form-check form-check-inline">
-  							    <input class="form-check-input" type="checkbox" id="rmtStuMaterials" value="option3">
-  							    <label class="form-check-label" for="rmtStuMaterials">Goniometer</label>
-						      </div>
-						      <!--oil holster-->
-						      <div class="form-check form-check-inline">
-  							    <input class="form-check-input" type="checkbox" id="rmtStuMaterials" value="option4">
-  							    <label class="form-check-label" for="rmtStuMaterials">Oil Holster</label>
-						      </div>
-						      <!--bottle-->
-						      <div class="form-check form-check-inline">
-  							    <input class="form-check-input" type="checkbox" id="rmtStuMaterials" value="option5">
-  							    <label class="form-check-label" for="rmtStuMaterials">Bottle</label>
-						      </div>
+                <select class="form-control" name="rmt_Stu_Materials" id="rmtStuMaterials" multiple>
+                    <option>Sheet Set</option>
+                    <option>Laptop/Electronic Learning Support</option>
+                    <option>Goniometer</option>
+                    <option>Oil Holster</option>
+                    <option>Bottle</option>
+                </select>
 				      </div>
 				      <!--submit button-->
             	<div class="form-group" style="padding-top: 20px; padding-bottom: 10px">

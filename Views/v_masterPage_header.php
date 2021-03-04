@@ -15,6 +15,8 @@
     <!-- jQuery CDN -->
     <script src="js/jquery-1.12.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <!--Custom JS-->
+    <script src="js/javascript.js"></script>
 </head>
 
 <!-- Header Section -->
