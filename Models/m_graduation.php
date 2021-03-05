@@ -145,7 +145,7 @@ class Graduation
     }
 
 
-    public function to_rray()
+    public function to_array()
     {
         return ['tuition_paid' => $this->get_tuition_paid(),
             'transcript' => $this->get_transcript(),

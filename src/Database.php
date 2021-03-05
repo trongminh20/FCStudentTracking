@@ -152,6 +152,21 @@ class Database
         $stm->execute([$val]);
 
     }
+    function select($table, $keywords){
+        $cols = array_keys($keywords);
+        $vals = array_values($keywords);
+        $marks = "";
+
+        for($i = 0; $i < count($keywords); $i++){
+            $marks .= $cols[$i]." = ?";
+        }
+        $query = "SELECT * FROM $table WHERE ". $marks;
+
+        $stm = $this->pdo->prepare($query);
+        $stm->execute($vals);
+        return $stm->fetch(PDO::FETCH_ASSOC);
+//        return $query;
+    }
 
     /**
      * this function used for testing only

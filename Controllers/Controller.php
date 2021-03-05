@@ -22,6 +22,19 @@ class Controller
         }
     }
 
+    function c_search($model)
+    {
+        $keyword = $_POST['keyword'];
+        if ($keyword[0] == '@' || $keyword[0] == '#') {
+            $_SESSION['search_result'] = $model->search_student($keyword);
+            header("Location:?action=v_search_res");
+        } else {
+            $_SESSION['search_error'] = "You has entered invalid keyword's format";
+            header("Location:?action=v_search_res");
+        }
+
+    }
+
     private function c_login($model)
     {
         if (isset($_POST['submit'])) {
@@ -132,7 +145,8 @@ class Controller
         header("Location:?action=v_user_manage");
     }
 
-    private function pdf_generator(){
+    private function pdf_generator()
+    {
 
     }
 
