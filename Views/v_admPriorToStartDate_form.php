@@ -1,11 +1,14 @@
 <?php
 include "v_masterPage_header.php";
 ?>
+<?php
+include "v_masterPage_sidebar.php";
+?>
 
 <div class="container" style="padding-top: 20px">
     <div class="row">
         <div class="col-xs-12">
-            <h2 style="padding-top: 10px">Admission Prior to Start Date</h2>
+            <h2 style="padding-top: 70px">Admission Prior to Start Date</h2>
             <!--Form starts-->
             <form action="" method="">
             	<!--photo id radio button-->
@@ -35,7 +38,7 @@ include "v_masterPage_header.php";
                     <input type="text" name="app_Fee" class="form-control" id="appFee"/>
                 </div>
                 <!--application essay radio button-->
-            	<div class="form-group" style="padding-top: 20px">
+            	  <div class="form-group" style="padding-top: 20px">
                     <label for="appEssay">Application Essay:</label>
                     <div name="app_Essay" id="appEssay" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
@@ -56,7 +59,7 @@ include "v_masterPage_header.php";
                     <input type="text" name="ref_Letters" class="form-control" id="refLetters"/>
                 </div>
                 <!--resume radio button-->
-            	<div class="form-group" style="padding-top: 20px">
+            	  <div class="form-group" style="padding-top: 20px">
                     <label for="resume">Resume:</label>
                     <div name="resume" id="resume" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
@@ -72,7 +75,7 @@ include "v_masterPage_header.php";
                     </div>
                 </div>
                 <!--intro to massage date & time -->
-          		<div class="form-group" style="padding-top: 20px"> 
+          		  <div class="form-group" style="padding-top: 20px"> 
             		<label class="control-label" for="introToMassageDateandTime">Intro of Massage Course Date & Time:</label>
                   <div name="intro_To_Massage_Date_and_Time" id="introToMassageDateandTime" class="row" style="padding-top: 10px">
                     <!--from_textDisplay-->
@@ -100,7 +103,7 @@ include "v_masterPage_header.php";
                     <label for="introFee">Intro of Massage Fee with Paid Invoice:</label>
                     <input type="text" name="intro_Fee" class="form-control" id="introFee"/>
                 </div>
-                <!--intro to massage completed notes -->
+              <!--intro to massage completed notes -->
           		<div class="form-group" style="padding-top: 20px"> 
           			<label for="introToMassageComp">Intro of Massage Course Completed:</label>
                     <input type="text" name="intro_To_Massage_Comp" class="form-control" id="introToMassageComp"/>
@@ -120,8 +123,8 @@ include "v_masterPage_header.php";
                             </label>
                         </div>
                     </div>
-                </div>
-                <!--english test result notes -->
+              </div>
+              <!--english test result notes -->
           		<div class="form-group" style="padding-top: 20px"> 
           			<label for="engTestResult">English Test Result:</label>
                     <input type="text" name="eng_Test_Result" class="form-control" id="engTestResult"/>
@@ -130,8 +133,8 @@ include "v_masterPage_header.php";
           		<div class="form-group" style="padding-top: 20px"> 
           			<label for="CRCResult">CRC Result:</label>
                     <input type="text" name="CRC_Result" class="form-control" id="CRCResult"/>
-                </div>
-                <!--medical notes radio button-->
+              </div>
+              <!--medical notes radio button-->
             	<div class="form-group" style="padding-top: 20px">
                     <label for="medicalNotes">Medical Notes from Physician:</label>
                     <div name="medical_Notes" id="medicalNotes" class="row" style="padding-top: 10px">
@@ -146,8 +149,8 @@ include "v_masterPage_header.php";
                             </label>
                         </div>
                     </div>
-                </div>
-                <!--interview date & time -->
+              </div>
+              <!--interview date & time -->
           		<div class="form-group" style="padding-top: 20px"> 
             		<label class="control-label" for="interviewDateandTime">Interview Date & Time:</label>
             		<input type="datetime-local" class="form-control" id="interviewDateandTime" name="interview_Date_and_Time"/>
@@ -167,13 +170,13 @@ include "v_masterPage_header.php";
                             </label>
                         </div>
                     </div>
-                </div>
-                <!--high school diploma & transcript notes -->
+              </div>
+              <!--high school diploma & transcript notes -->
           		<div class="form-group" style="padding-top: 20px"> 
           			<label for="diplomaAndTranscript">High School Diploma & Transcript (Or Above):</label>
                     <input type="text" name="diploma_And_Transcript" class="form-control" id="diplomaAndTranscript"/>
-                </div>
-                <!--student email -->
+              </div>
+              <!--student email -->
           		<div class="form-group" style="padding-top: 20px"> 
           			<label for="stuEmail">Student Email:</label>
                     <input type="text" name="stu_Email" class="form-control" id="stuEmail"/>
@@ -197,7 +200,7 @@ include "v_masterPage_header.php";
           		<div class="form-group" style="padding-top: 20px">
                     <label for="HandbooksNotes">Student Handbooks:</label>
                     <textarea type="text" class="form-control" name="Handbooks_Notes" id="HandbooksNotes" rows="5"></textarea>
-                </div>
+              </div>
               <!--payment options-->
           		<div class="form-group" style="padding-top: 20px">
             		<label for="payOptions">Payment Options:</label>
