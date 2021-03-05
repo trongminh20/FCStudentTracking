@@ -73,7 +73,6 @@ CREATE TABLE requests
     request  VARCHAR(100)
 );
 
---admission prior to start date
 
 CREATE TABLE apsds
 (
@@ -101,10 +100,9 @@ CREATE TABLE apsds
     payment_option     VARCHAR(50),
     ack_and_agr        DATE,
     receive_card       BOOLEAN,
-    rmt_stu_matt       VARCHAR(100),
+    rmt_stu_matt       VARCHAR(100)
 );
 
---prior to practice education
 CREATE TABLE ppes
 (
     student_id         INT,
@@ -144,7 +142,7 @@ CREATE TABLE invoice
 
 ALTER TABLE sessions
     ADD CONSTRAINT session_fk
-        FOREIGN KEY (userID)
+        FOREIGN KEY (user_id)
             REFERENCES Employees (id);
 
 ALTER TABLE Students
