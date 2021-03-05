@@ -1,70 +1,70 @@
-drop
-database fc_student_tracking;
-create
-database fc_student_tracking;
-use
+DROP
+DATABASE fc_student_tracking;
+CREATE
+DATABASE fc_student_tracking;
+USE
 fc_student_tracking;
 
-CREATE TABLE Students
+CREATE TABLE students
 (
-    ID           INT PRIMARY KEY,
-    Prog_ID      VARCHAR(5),
-    Name         VARCHAR(50),
-    Phone        VARCHAR(15),
-    Email        VARCHAR(50),
-    Address      VARCHAR(50),
-    Dom_OR_Int   VARCHAR(13),
-    Enroll_Notes TEXT,
-    Admin_Status VARCHAR(20)
+    id           INT PRIMARY KEY,
+    prog_id      VARCHAR(5),
+    name         VARCHAR(50),
+    phone        VARCHAR(15),
+    email        VARCHAR(50),
+    address      VARCHAR(50),
+    dom_or_int   VARCHAR(13),
+    enroll_notes TEXT,
+    admin_status VARCHAR(20)
 );
 
-CREATE TABLE Requirements
+CREATE TABLE requirements
 (
-    ID         INT PRIMARY KEY,
-    Prog_ID    VARCHAR(5),
-    Section    VARCHAR(50),
-    Field_Name VARCHAR(50)
+    id         INT PRIMARY KEY,
+    prog_id    VARCHAR(5),
+    section    VARCHAR(50),
+    field_name VARCHAR(50)
 );
 
-CREATE TABLE StudentTracking
+CREATE TABLE studentTracking
 (
-    Req_ID INT,
-    Stu_ID INT,
-    ANS    VARCHAR(50)
+    req_id INT,
+    stu_id INT,
+    ans    VARCHAR(50)
 );
 
-CREATE TABLE Employees
+CREATE TABLE employees
 (
-    ID         INT PRIMARY KEY,
-    Username   VARCHAR(50),
-    Phone      VARCHAR(15),
-    Email      VARCHAR(50),
-    Department VARCHAR(50),
-    Password   VARCHAR(100),
+    id         INT PRIMARY KEY,
+    username   VARCHAR(50),
+    phone      VARCHAR(15),
+    email      VARCHAR(50),
+    department VARCHAR(50),
+    password   VARCHAR(100),
     admin      INT
 );
 
-CREATE TABLE Fees
+CREATE TABLE fees
 (
-    ID        INT PRIMARY KEY,
-    Prog_ID   VARCHAR(5),
-    Fee_Name  VARCHAR(50),
-    Dom_Price int,
-    Int_Price int
+    id        INT PRIMARY KEY,
+    prog_id   VARCHAR(5),
+    fee_name  VARCHAR(50),
+    dom_price int,
+    int_price int
 );
 
-CREATE TABLE Programs
+CREATE TABLE programs
 (
-    ID        VARCHAR(5) PRIMARY KEY,
-    Prog_Name VARCHAR(50)
+    id        VARCHAR(5) PRIMARY KEY,
+    prog_name VARCHAR(50)
 );
 
 CREATE TABLE sessions
 (
-    sessionID INT PRIMARY KEY,
-    userID    INT,
-    created   DATETIME,
-    logout    DATETIME
+    session_id INT PRIMARY KEY,
+    user_id    INT,
+    created    DATETIME,
+    logout     DATETIME
 );
 CREATE TABLE requests
 (
@@ -82,56 +82,6 @@ CREATE TABLE invoices
     total   INT,
     note    VARCHAR(100)
 );
---table for Admission Prior to Start Date
-CREATE TABLE apsd
-(
-    student ID
-    photo_id    VARCHAR(2),
-    app_form
-    app_fee
-    app_essay
-    refer_letter
-    resume
-    intro_mess_course
-    fee_paid_invoice
-    welcome_letter_sent
-    completed
-    ennglish test result
-    CRC
-    Medical note from physican
-    interview date and time
-    approved
-    high school diploma and trascipt
-    college email address
-    student number
-    letter of acceptance
-    enrollment contract
-    RMT General handbook receive date
-    student aid subclass_origin
-    RMT student handbook
-    acknowledgement and agreement transform
-    sheet set
-    labtop
-    goniometer
-    oil holster
-    bottle
-    student General handbook aaf & photogram waiver transform
-);
-
---prior to practice education
-CREATE TABLE ppe
-(
-    student_id,
-    clinic shirt size,
-    order date,
-    pick-up date,
-    first aid and CPR  date and time,
-    first aid and cpR location and contact person,
-    certificate receive mark,
-    clinic handbook receive date,
-    acknowledgement and agreement form
-    medical file(vaccinations)
-);
 
 CREATE TABLE graduation(
     tuition paid in full,
@@ -140,7 +90,6 @@ CREATE TABLE graduation(
 
 );
 
---admission prior to start date
 
 CREATE TABLE apsds
 (
@@ -168,10 +117,9 @@ CREATE TABLE apsds
     payment_option     VARCHAR(50),
     ack_and_agr        DATE,
     receive_card       BOOLEAN,
-    rmt_stu_matt       VARCHAR(100),
+    rmt_stu_matt       VARCHAR(100)
 );
 
---prior to practice education
 CREATE TABLE ppes
 (
     student_id         INT,
@@ -189,49 +137,58 @@ CREATE TABLE ppes
 
 CREATE TABLE graduations
 (
-    student_id INT,
-    tuition_paid,
-    transcript,
-    completion_letter,
-    signed_diploma,
-    exam_date,
-    T2202A,
-    employment
+    student_id        INT,
+    tuition_paid      BOOLEAN,
+    transcript        BOOLEAN,
+    completion_letter BOOLEAN,
+    signed_diploma    BOOLEAN,
+    exam_date         DATETIME,
+    T2202A            BOOLEAN,
+    employment        VARCHAR(200)
+);
+
+CREATE TABLE invoice
+(
+    number  INT PRIMARY KEY,
+    bill_to VARCHAR(50),
+    date    DATE,
+    total   INT,
+    note    VARCHAR(100)
 );
 
 
 ALTER TABLE sessions
     ADD CONSTRAINT session_fk
-        FOREIGN KEY (userID)
-            REFERENCES Employees (ID);
+        FOREIGN KEY (user_id)
+            REFERENCES Employees (id);
 
 ALTER TABLE Students
     ADD CONSTRAINT Students_FK
-        FOREIGN KEY (Prog_ID)
-            REFERENCES Programs (ID);
+        FOREIGN KEY (prog_id)
+            REFERENCES Programs (id);
 
 ALTER TABLE Students
-    ADD CHECK (Dom_OR_Int IN ('Domestic', 'International'));
+    ADD CHECK (dom_or_int IN ('Domestic', 'International'));
 
 ALTER TABLE Requirements
     ADD CONSTRAINT Requirements_FK
-        FOREIGN KEY (Prog_ID)
-            REFERENCES Programs (ID);
+        FOREIGN KEY (prog_id)
+            REFERENCES Programs (id);
 
 ALTER TABLE StudentTracking
     ADD CONSTRAINT StudentTracking_FK1
-        FOREIGN KEY (Stu_ID)
-            REFERENCES Students (ID);
+        FOREIGN KEY (stu_id)
+            REFERENCES Students (id);
 
 ALTER TABLE StudentTracking
     ADD CONSTRAINT StudentTracking_FK2
-        FOREIGN KEY (Req_ID)
-            REFERENCES Requirements (ID);
+        FOREIGN KEY (req_id)
+            REFERENCES Requirements (id);
 
 ALTER TABLE Fees
     ADD CONSTRAINT fees_Requirements_FK
-        FOREIGN KEY (Prog_ID)
-            REFERENCES Programs (ID);
+        FOREIGN KEY (prog_id)
+            REFERENCES Programs (id);
 
 --  if the user is an admin then 1, else 0
 ALTER TABLE Employees
@@ -246,3 +203,17 @@ ALTER TABLE requests
     ADD CONSTRAINT req_fk
         FOREIGN KEY (username)
             REFERENCES Employees (username);
+
+ALTER TABLE apsds
+    ADD CONSTRAINT apsd_stu_fk
+        FOREIGN KEY (student_id)
+            REFERENCES Students (id);
+ALTER TABLE ppes
+    ADD CONSTRAINT ppe_stu_fk
+        FOREIGN KEY (student_id)
+            REFERENCES Students (id);
+ALTER TABLE graduations
+    ADD CONSTRAINT grad_stu_fk
+        FOREIGN KEY (student_id)
+            REFERENCES Students (id);
+
