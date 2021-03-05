@@ -26,8 +26,11 @@ include "v_masterPage_sidebar.php";
 
     ?>
 
+
     <?php
+
     $addInfo = $model->get_type("employees");
+
     $id='formAddUser';
     $class= "form form_add_user";
     $fieldSet = "Add new Employees";
@@ -36,5 +39,10 @@ include "v_masterPage_sidebar.php";
     $table = 'employees';
 
     $view->display_form($id, $class, $fieldSet,$action,$method, $table,$model);
+
+    $view->display_table_to_form("formAddUser", " form form_add_user", "Adding new Employee", "c_add_user", "POST", 'employees',$model);
+
+
+
     ?>
 </div>

@@ -145,6 +145,8 @@ $number = $database->select_count('invoice');
 
         </table>
         <input id="" class="btn btn-primary" type="submit" name="preview" value="Preview">
+        <input id="" class="btn btn-primary" type="submit" name="Generate" value="Generate">
+
     </form>
 </div>
 <script>
