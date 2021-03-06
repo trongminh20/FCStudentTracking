@@ -4,11 +4,10 @@ include "v_masterPage_header.php";
 <?php
 include "v_masterPage_sidebar.php";
 
-if (isset($_SESSION['search_result'])) {
-    $students = $_SESSION['search_result'];
-} else {
-    $students = NULL;
-}
+
+$students = ((isset($_SESSION['search_result'])) ? $_SESSION['search_result'] : NULL);
+unset($_SESSION['search_result']);
+
 ?>
 
 <div id='mainContent'>
@@ -47,9 +46,9 @@ if (isset($_SESSION['search_result'])) {
             <td><?= $students['enroll_notes'] ?></td>
             <td><?= $students['admin_status'] ?></td>
             <td>
-                <form action="?action=v_report" method="POST">
-                    <input type="hidden" name='stuID' value="<?= $students['ID']; ?>">
-                    <input type="hidden" name='progID' value="<?= $students['Prog_ID']; ?>">
+                <form action="?action=c_to_report" method="POST">
+                    <input type="hidden" name='stu_id' value="<?= $students['id']; ?>">
+                    <input type="hidden" name='prog_id' value="<?= $students['prog_id']; ?>">
                     <input type="submit" name="submit" value="Report">
                 </form>
             </td>

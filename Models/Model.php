@@ -118,6 +118,11 @@ class Model
         return $this->db->get_type($table);
     }
 
+    /**
+     * search on table students with ID or Username
+     * @param $keyword is a string
+     * @return mixed
+     */
     function search_student($keyword)
     {
         if ($keyword[0] == '@') {
@@ -128,5 +133,14 @@ class Model
             $keyword = ['id' => $id];
         }
         return $this->db->select('students', $keyword);
+    }
+
+    /**
+     * @param $table
+     * @param $data is an array [columns => value]
+     * @return mixed
+     */
+    function select($table, $data){
+        return $this->db->select($table, $data);
     }
 }

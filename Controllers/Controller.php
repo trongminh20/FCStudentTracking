@@ -152,10 +152,40 @@ class Controller
 
         header("Location:?action=v_user_manage");
     }
+    private function c_to_report($model){
+        $id = $_POST['stu_id'];
+        $programId = $_POST['prog_id'];
 
-    private function pdf_generator()
+        $_SESSION['student'] = ['stu_id' => $id, 'prog_id' => $programId];
+
+        header("Location:?action=v_report");
+    }
+
+    /**
+     *generate pdf for invoice
+     */
+    private function c_generate_invoice()
     {
 
     }
+
+    /**
+     * generate report pdf
+     */
+    private function c_generate_report_pdf(){
+
+    }
+
+    /**
+     *generate report .docx
+     */
+    private function c_generate_report_docx(){
+
+    }
+
+    /**
+     *auto sending email attaching invoice to student
+     */
+    private function c_sending_mail(){}
 
 }
