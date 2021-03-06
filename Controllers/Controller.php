@@ -22,7 +22,7 @@ class Controller
         }
     }
 
-    function c_search($model)
+    private function c_search($model)
     {
         $keyword = $_POST['keyword'];
         if ($keyword[0] == '@' || $keyword[0] == '#') {
@@ -69,14 +69,22 @@ class Controller
         }
     }
 
+    private function c_logout()
+    {
+        if (isset($_POST['logout'])) {
+            session_destroy();
+            header("Location:?action=v_logout");
+        }
+    }
+
     private function c_add_user($model)
     {
-        $id = $_POST['ID'];
-        $username = $_POST['Username'];
-        $password = $_POST['Password'];
-        $email = $_POST['Email'];
-        $phone = $_POST['Phone'];
-        $department = $_POST['Department'];
+        $id = $_POST['id'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
+        $department = $_POST['department'];
 
         $user = new Employee();
         $user->Employee($id, $username, $password, $email, $phone, $department);
@@ -134,9 +142,9 @@ class Controller
 
     private function c_reset_pass($model)
     {
-        $id = $_POST['ID'];
+        $id = $_POST['id'];
 
-        $data = ['Password' => $_POST['Phone']];
+        $data = ['password' => $_POST['phone']];
 
         $model->change_info('employees', $data, $id);
 
@@ -150,11 +158,4 @@ class Controller
 
     }
 
-    private function c_logout()
-    {
-        if (isset($_POST['logout'])) {
-            session_destroy();
-            header("Location:?action=v_logout");
-        }
-    }
 }

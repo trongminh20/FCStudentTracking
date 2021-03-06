@@ -122,11 +122,11 @@ class Model
     {
         if ($keyword[0] == '@') {
             $username = ltrim($keyword, '@');
-            $keyword = ['Name' => $username];
+            $keyword = ['name' => $username];
         } else if ($keyword[0] == '#') {
             $id = ltrim($keyword, '#');
             $keyword = ['id' => $id];
         }
-        return $this->db->select('Students', $keyword);
+        return $this->db->select('students', $keyword);
     }
 }
