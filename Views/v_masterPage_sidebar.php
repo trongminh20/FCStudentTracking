@@ -15,7 +15,7 @@
                 </a>
             </li>
             <li>
-                <a href="?action=v_add_new_record">
+                <a href="?action=v_admPriorToStartDate_form">
                     <i class="glyphicon glyphicon-cloud-upload"></i>
                     Add New Record
                 </a>
