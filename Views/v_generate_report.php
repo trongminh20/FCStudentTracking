@@ -16,29 +16,29 @@ echo $ebs;
 
 $arr = $model->select('students', ['id' => $studentID]);
 ?>
-<table>
-    <?php
-    foreach ($arr as $k => $v) {
-        echo "<tr>";
-        echo "<td>".$k ."</td>";
-        echo "<td>" . $v . "</td>";
-    }
-    ?>
-</table>
+    <table>
+        <?php
+        foreach ($arr as $k => $v) {
+            echo "<tr>";
+            echo "<td>" . $k . "</td>";
+            echo "<td>" . $v . "</td>";
+        }
+        ?>
+    </table>
 <?php
 
 echo $apsd;
-$arr = $model -> select('apsds', ['student_id'=>$studentID]);
+$arr = $model->select('apsds', ['student_id' => $studentID]);
 ?>
-<table>
-    <?php
-    foreach ($arr as $k => $v) {
-        echo "<tr>";
-        echo "<td>".$k ."</td>";
-        echo "<td>" . $v . "</td>";
-    }
-    ?>
-</table>
+    <table>
+        <?php
+        foreach ($arr as $k => $v) {
+            echo "<tr>";
+            echo "<td>" . $k . "</td>";
+            echo "<td>" . $v . "</td>";
+        }
+        ?>
+    </table>
 <?php
 echo $ppe;
 echo $graduation;
