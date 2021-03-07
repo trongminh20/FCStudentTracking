@@ -60,7 +60,9 @@ class Controller
                 $user->set_role($data['admin']);
 
                 // assign User's information from database -> $_SESSION
+                $_SESSION['session_id'] = rand(1000, 9999);
                 $_SESSION['user'] = $user->to_array();
+                $_SESSION['login'] = date('Y-m-d H:i:s');
                 header("Location:?action=v_home");
             } else {
                 $_SESSION['error'] = 'invalid password or username';
@@ -69,9 +71,15 @@ class Controller
         }
     }
 
-    private function c_logout()
+    private function c_logout(Model $model)
     {
         if (isset($_POST['logout'])) {
+            $data = ['session_id' => $_SESSION['session_id'],
+                'user_id' => $_SESSION['user']['id'],
+                'created' => $_SESSION['login'],
+                'logout' => date('Y-m-d H:i:s')
+            ];
+            $model->insert('sessions', $data);
             session_destroy();
             header("Location:?action=v_logout");
         }
@@ -125,19 +133,25 @@ class Controller
         header("Location:?action=v_user_manage");
     }
 
-    private function c_forgot_password( Model $model)
+    private function c_forgot_password(Model $model)
     {
         $username = $_POST['username'];
 
-        $check = $model->select_user($username);
-
-        $request = new Request($username, 'Reset password');
+        $check = $model->select('employees',['username' => $username]);
+        if($check){
+            $request = new Request($username, 'Reset password');
 
         $model->request_reset_password($request);
 
         $_SESSION['error'] = 'YOU REQUEST HAS SENT';
 
         header("Location:?action=v_login");
+        }else{
+            $_SESSION['forget_password'] = 'YOUR USERNAME IS NOT VALID';
+                   header("Location:?action=v_forgot_password");
+
+        }
+
     }
 
     private function c_reset_pass(Model $model)
@@ -152,7 +166,9 @@ class Controller
 
         header("Location:?action=v_user_manage");
     }
-    private function c_to_report(Model $model){
+
+    private function c_to_report(Model $model)
+    {
         $id = $_POST['stu_id'];
         $programId = $_POST['prog_id'];
 
@@ -172,20 +188,24 @@ class Controller
     /**
      * generate report pdf
      */
-    private function c_generate_report_pdf(){
+    private function c_generate_report_pdf()
+    {
 
     }
 
     /**
      *generate report .docx
      */
-    private function c_generate_report_docx(){
+    private function c_generate_report_docx()
+    {
 
     }
 
     /**
      *auto sending email attaching invoice to student
      */
-    private function c_sending_mail(){}
+    private function c_sending_mail()
+    {
+    }
 
 }

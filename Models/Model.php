@@ -143,4 +143,8 @@ class Model
     function select($table, $data){
         return $this->db->select($table, $data);
     }
+
+    function insert($table, $data){
+        $this->db->insert($table, $data);
+    }
 }
