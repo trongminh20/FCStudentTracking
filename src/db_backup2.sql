@@ -30,7 +30,7 @@ CREATE TABLE `apsds` (
   `app_essay` varchar(30) DEFAULT NULL,
   `refer_letter` varchar(50) DEFAULT NULL,
   `resume` varchar(20) DEFAULT NULL,
-  `intro_of_msg` date DEFAULT NULL,
+  `intro_of_msg` datetime DEFAULT NULL,
   `fee_paid_inv` varchar(50) DEFAULT NULL,
   `w_letter_sent` tinyint(1) DEFAULT NULL,
   `completed` varchar(30) DEFAULT NULL,
@@ -43,12 +43,12 @@ CREATE TABLE `apsds` (
   `stu_email` varchar(50) DEFAULT NULL,
   `accept_letter_date` date DEFAULT NULL,
   `enroll_contract` varchar(50) DEFAULT NULL,
-  `handbook_notes` varchar(5) DEFAULT NULL,
+  `handbook_notes` varchar(30) DEFAULT NULL,
   `payment_option` varchar(50) DEFAULT NULL,
   `ack_and_agr` date DEFAULT NULL,
   `receive_card` tinyint(1) DEFAULT NULL,
   `rmt_stu_matt` varchar(100) DEFAULT NULL,
-  KEY `apsd_stu_fk` (`student_id`),
+  UNIQUE KEY `apsd_stu_unq` (`student_id`),
   CONSTRAINT `apsd_stu_fk` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -59,6 +59,7 @@ CREATE TABLE `apsds` (
 
 LOCK TABLES `apsds` WRITE;
 /*!40000 ALTER TABLE `apsds` DISABLE KEYS */;
+INSERT INTO `apsds` VALUES (3789000,1,'Received and signed','Received with Invoice','Received and reviewed','Received one','Not received','2021-06-11 08:00:00','Received with Invoice',1,NULL,90,'Received and clear','Not received','2021-06-12',NULL,'Transcript received','jack.kerwin@fcstudent.ca',NULL,'Received but not signed',NULL,'StudentAidBC',NULL,NULL,NULL),(3789001,1,'Received and signed','Received with Invoice','Received and reviewed','Received two','Received','2020-12-17 08:00:00','Received with Invoice',1,'Completed at DT location',NULL,'Received and clear','Received and clear','2020-12-17',1,'Transcript received','abigail.sloan@fcstudent.ca','2020-12-19','Received and signed','Received and signed','StudentAidBC','2020-12-19',1,'Sheet, oil bottle, laptop'),(3789002,0,'Received not signed','Received with Invoice','Received and reviewed','Received one','Not received','2021-06-12 16:00:00','Received with Invoice',1,NULL,88,'Received and clear','Not received','2021-06-13',NULL,'Diploma received','norman.dreger@fcstudent.ca',NULL,'Received and signed',NULL,'Monthly payment',NULL,NULL,NULL),(3789003,1,'Received and signed','Received with Invoice','Received and reviewed','Received two','Received','2020-12-17 08:00:00','Received with Invoice',1,'Completed at DT location',NULL,'Received and clear','Received and clear','2020-12-18',1,'Diploma received','alec.bryson@fcstudent.ca','2020-12-19','Received and signed','Received and signed','Payment plan','2020-12-19',1,'Sheet, oil bottle, laptop, holster'),(3789004,0,'Received and signed','Received with Invoice','Received and reviewed','Received one','Not received','2021-06-11 08:00:00','Received with Invoice',0,NULL,NULL,'Received and clear','Not received','2021-06-12',NULL,'Diploma received','alec.bryson@fcstudent.ca',NULL,'Received but not signed',NULL,'StudentAidBC',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `apsds` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -88,7 +89,7 @@ CREATE TABLE `employees` (
 
 LOCK TABLES `employees` WRITE;
 /*!40000 ALTER TABLE `employees` DISABLE KEYS */;
-INSERT INTO `employees` VALUES (1000,'jessie.zhang','250-718-6186','jessie.zhang@firstcollege.ca','IT Department','123456789',1),(1001,'timothy.yang','205-899-3790','timothy.yang@firstcollege.ca','Director Office','205-899-3790',0),(1002,'cecily.qiu','250-859-8417','cecily.qiu@firstcollege.ca','Student Service Department','250-859-8417',0),(1003,'jason.zhong','778-231-3456','jason.zhong@firstcollege.ca','President','778-231-3456',0),(1004,'sydney.stoltz','250-718-8279','sydney.stoltz@firstcollege.ca','Student Service Department','123456789',0);
+INSERT INTO `employees` VALUES (1000,'jessie.zhang','250-718-6186','jessie.zhang@firstcollege.ca','IT Department','123456789',1),(1001,'timothy.yang','205-899-3790','timothy.yang@firstcollege.ca','Director Office','123456789',0),(1002,'cecily.qiu','250-859-8417','cecily.qiu@firstcollege.ca','Student Service Department','123456789',0),(1003,'jason.zhong','778-231-3456','jason.zhong@firstcollege.ca','President','123456789',0),(1004,'sydney.stoltz','250-718-8279','sydney.stoltz@firstcollege.ca','Student Service Department','123456789',0);
 /*!40000 ALTER TABLE `employees` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -137,7 +138,7 @@ CREATE TABLE `graduations` (
   `exam_date` datetime DEFAULT NULL,
   `T2202A` tinyint(1) DEFAULT NULL,
   `employment` varchar(200) DEFAULT NULL,
-  KEY `grad_stu_fk` (`student_id`),
+  UNIQUE KEY `grad_stu_unq` (`student_id`),
   CONSTRAINT `grad_stu_fk` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -148,6 +149,7 @@ CREATE TABLE `graduations` (
 
 LOCK TABLES `graduations` WRITE;
 /*!40000 ALTER TABLE `graduations` DISABLE KEYS */;
+INSERT INTO `graduations` VALUES (3789000,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3789001,1,1,1,1,'2021-05-10 00:00:00',1,'Got a job offer from Lotus Massage Therapy clinic'),(3789002,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3789003,1,1,1,1,'2021-03-15 00:00:00',1,'Got a job offer from Lackshore Massage Therapy clinic'),(3789004,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `graduations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -196,7 +198,7 @@ CREATE TABLE `ppes` (
   `handbook_received` date DEFAULT NULL,
   `ack_and_agr` tinyint(1) DEFAULT NULL,
   `medical_file` tinyint(1) DEFAULT NULL,
-  KEY `ppe_stu_fk` (`student_id`),
+  UNIQUE KEY `ppes_stu_unq` (`student_id`),
   CONSTRAINT `ppe_stu_fk` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -207,6 +209,7 @@ CREATE TABLE `ppes` (
 
 LOCK TABLES `ppes` WRITE;
 /*!40000 ALTER TABLE `ppes` DISABLE KEYS */;
+INSERT INTO `ppes` VALUES (3789000,NULL,'1634 Harvey Ave, Kelowna, BC V1Y 6G2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3789001,'Small','1634 Harvey Ave, Kelowna, BC V1Y 6G2',NULL,'2020-12-16','2021-01-11','2020-12-14 11:00:00','2020-12-15','2020-12-16',1,1),(3789002,NULL,'1634 Harvey Ave, Kelowna, BC V1Y 6G2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3789003,'Large','1634 Harvey Ave, Kelowna, BC V1Y 6G2',NULL,'2020-12-16','2021-01-11','2020-12-14 11:00:00','2020-12-15','2020-12-16',1,1),(3789004,NULL,'1634 Harvey Ave, Kelowna, BC V1Y 6G2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `ppes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -248,7 +251,7 @@ CREATE TABLE `requests` (
   PRIMARY KEY (`id`),
   KEY `req_fk` (`username`),
   CONSTRAINT `req_fk` FOREIGN KEY (`username`) REFERENCES `employees` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -257,7 +260,6 @@ CREATE TABLE `requests` (
 
 LOCK TABLES `requests` WRITE;
 /*!40000 ALTER TABLE `requests` DISABLE KEYS */;
-INSERT INTO `requests` VALUES (2,'jason.zhong','Reset password');
 /*!40000 ALTER TABLE `requests` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -386,4 +388,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-03-05 20:19:21
+-- Dump completed on 2021-03-07  0:23:06

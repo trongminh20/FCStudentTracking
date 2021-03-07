@@ -7,7 +7,7 @@ class Controller
     {
     }
 
-    public function index($dr, $model)
+    public function index($dr, Model $model)
     {
         $action = $dr[0];
         switch ($action) {
@@ -22,7 +22,7 @@ class Controller
         }
     }
 
-    private function c_search($model)
+    private function c_search(Model $model)
     {
         $keyword = $_POST['keyword'];
         if ($keyword[0] == '@' || $keyword[0] == '#') {
@@ -35,7 +35,7 @@ class Controller
 
     }
 
-    private function c_login($model)
+    private function c_login(Model $model)
     {
         if (isset($_POST['submit'])) {
             $username = $_POST['username'];
@@ -77,7 +77,7 @@ class Controller
         }
     }
 
-    private function c_add_user($model)
+    private function c_add_user(Model $model)
     {
         $id = $_POST['id'];
         $username = $_POST['username'];
@@ -92,7 +92,7 @@ class Controller
         header("Location:?action=v_user_manage");
     }
 
-    private function c_update_info($model)
+    private function c_update_info(Model $model)
     {
         $data = $_POST;
         unset($data['edit']);
@@ -101,7 +101,7 @@ class Controller
         header("Location:?action=v_user_manage");
     }
 
-    private function c_change_pass($model)
+    private function c_change_pass(Model $model)
     {
         $newPass = $_POST['new_pass'];
         $_SESSION['user']['password'] = $newPass;
@@ -117,7 +117,7 @@ class Controller
         header("Location:?action=v_change_password");
     }
 
-    private function c_delete_user($model)
+    private function c_delete_user(Model $model)
     {
         $model->delete('requests', 'username', $_POST['Username']);
         $model->delete('employees', 'ID', $_POST['ID']);
@@ -125,7 +125,7 @@ class Controller
         header("Location:?action=v_user_manage");
     }
 
-    private function c_forgot_password($model)
+    private function c_forgot_password( Model $model)
     {
         $username = $_POST['username'];
 
@@ -140,7 +140,7 @@ class Controller
         header("Location:?action=v_login");
     }
 
-    private function c_reset_pass($model)
+    private function c_reset_pass(Model $model)
     {
         $id = $_POST['id'];
 
@@ -152,7 +152,7 @@ class Controller
 
         header("Location:?action=v_user_manage");
     }
-    private function c_to_report($model){
+    private function c_to_report(Model $model){
         $id = $_POST['stu_id'];
         $programId = $_POST['prog_id'];
 
