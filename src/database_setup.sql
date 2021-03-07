@@ -1,9 +1,7 @@
-DROP
-DATABASE fc_student_tracking;
-CREATE
-DATABASE fc_student_tracking;
-USE
-fc_student_tracking;
+-- DROP
+-- DATABASE fc_student_tracking;
+CREATE DATABASE fc_student_tracking;
+USE fc_student_tracking;
 
 CREATE TABLE students
 (
@@ -83,7 +81,7 @@ CREATE TABLE apsds
     app_essay          VARCHAR(30),
     refer_letter       VARCHAR(50),
     resume             VARCHAR(20),
-    intro_of_msg       DATE,
+    intro_of_msg       DATETIME,
     fee_paid_inv       VARCHAR(50),
     w_letter_sent      BOOLEAN,
     completed          VARCHAR(30),
@@ -96,7 +94,7 @@ CREATE TABLE apsds
     stu_email          VARCHAR(50),
     accept_letter_date DATE,
     enroll_contract    VARCHAR(50),
-    handbook_notes     VARCHAR(5),
+    handbook_notes     VARCHAR(30),
     payment_option     VARCHAR(50),
     ack_and_agr        DATE,
     receive_card       BOOLEAN,
@@ -191,12 +189,22 @@ ALTER TABLE apsds
     ADD CONSTRAINT apsd_stu_fk
         FOREIGN KEY (student_id)
             REFERENCES Students (id);
+ALTER TABLE apsds
+    ADD CONSTRAINT apsd_stu_unq
+        UNIQUE (student_id);
 ALTER TABLE ppes
     ADD CONSTRAINT ppe_stu_fk
         FOREIGN KEY (student_id)
             REFERENCES Students (id);
+ALTER TABLE ppes
+    ADD CONSTRAINT ppes_stu_unq
+        UNIQUE (student_id);
+
 ALTER TABLE graduations
     ADD CONSTRAINT grad_stu_fk
         FOREIGN KEY (student_id)
             REFERENCES Students (id);
+ALTER TABLE graduations
+    ADD CONSTRAINT grad_stu_unq
+        UNIQUE (student_id);
 
