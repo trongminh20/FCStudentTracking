@@ -17,12 +17,12 @@ include "v_masterPage_sidebar.php";
                     <div name="photo_id" id="photoID" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="photo_id" id="photoID" type="radio"/> YES
+                                <input name="photo_id" id="photoID" value="yes" type="radio"/> YES
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="photo_id" id="photoID" type="radio"/> NO
+                                <input name="photo_id" id="photoID" value="no" type="radio"/> NO
                             </label>
                         </div>
                     </div>
@@ -43,12 +43,12 @@ include "v_masterPage_sidebar.php";
                     <div name="app_Essay" id="appEssay" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="app_essay" id="appEssay" type="radio"/> YES
+                                <input name="app_essay" id="appEssay" value="yes" type="radio"/> YES
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="app_essay" id="appEssay" type="radio"/> NO
+                                <input name="app_essay" id="appEssay" value="no" type="radio"/> NO
                             </label>
                         </div>
                     </div>
@@ -64,12 +64,13 @@ include "v_masterPage_sidebar.php";
                     <div name="resume" id="resume" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="resume" value="received" id="resume" type="radio"/> Received
+
+                                <input name="resume" id="resume" value="yes" type="radio"/> YES
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="resume" value="not received" id="resume" type="radio"/> Not received
+                                <input name="resume" id="resume" value="no" type="radio"/> NO
                             </label>
                         </div>
                     </div>
@@ -110,12 +111,12 @@ include "v_masterPage_sidebar.php";
                     <div name="welcome_Letter" id="welcomeLetter" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="welcome_Letter" id="welcomeLetter" type="radio"/> YES
+                                <input name="welcome_Letter" id="welcomeLetter" value="yes" type="radio"/> YES
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="welcome_Letter" id="welcomeLetter" type="radio"/> NO
+                                <input name="welcome_Letter" id="welcomeLetter" value="no" type="radio"/> NO
                             </label>
                         </div>
                     </div>
@@ -136,14 +137,14 @@ include "v_masterPage_sidebar.php";
                     <div name="medical_Notes" id="medicalNotes" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="medical_Notes" id="medicalNotes" value= "received and clear" type="radio"/>
-                                Received and Clear
+
+                                <input name="medical_Notes" id="medicalNotes" value="yes" type="radio"/> YES
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="medical_Notes" id="medicalNotes" value="not received" type="radio"/>
-                                Not received
+
+                                <input name="medical_Notes" id="medicalNotes" value="no" type="radio"/> NO
                             </label>
                         </div>
                     </div>
@@ -159,12 +160,12 @@ include "v_masterPage_sidebar.php";
                     <div name="interview_Approved" id="interviewApproved" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="interview_Approved" id="interviewApproved" type="radio"/> YES
+                                <input name="interview_Approved" id="interviewApproved" value="yes" type="radio"/> YES
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="interview_Approved" id="interviewApproved" type="radio"/> NO
+                                <input name="interview_Approved" id="interviewApproved" value="no" type="radio"/> NO
                             </label>
                         </div>
                     </div>
@@ -203,11 +204,11 @@ include "v_masterPage_sidebar.php";
           		<div class="form-group" style="padding-top: 20px">
             		<label for="payOptions">Payment Options:</label>
               		<select class="form-control" name="pay_Options" id="payOptions" onChange="check();">
-                		<option value="studentAidBC">Student Aid BC</option>
-                		<option value="fullPayment">Full Payment</option>
-                		<option value="monthlyPayment">Monthly Payment</option>
-                		<option value="paymentPlan">Payment Plan</option>
-                		<option value="others">Others</option>
+                		<option value="Student Aid BC">Student Aid BC</option>
+                		<option value="Full Payment">Full Payment</option>
+                		<option value="Monthly Payment">Monthly Payment</option>
+                		<option value="Payment Plan">Payment Plan</option>
+                		<option value="Others">Others</option>
               		</select>
                   <div id="otherPayOptions" style="display:none; padding-top: 10px">
                     <label>Enter Payment Method:
@@ -226,12 +227,12 @@ include "v_masterPage_sidebar.php";
                     <div name="stu_ID" id="stuID" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="stu_ID" id="stuID" type="radio"/> YES
+                                <input name="stu_ID" id="stuID" value="yes" type="radio"/> YES
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="stu_ID" id="stuID" type="radio"/> NO
+                                <input name="stu_ID" id="stuID" value="no" type="radio"/> NO
                             </label>
                         </div>
                     </div>
@@ -240,11 +241,11 @@ include "v_masterPage_sidebar.php";
 				      <div class="form-group" style="padding-top: 20px">
                 <label for="rmtStuMaterials">RMT Student Learning Materials:</label>
                 <select class="form-control" name="rmt_Stu_Materials" id="rmtStuMaterials" multiple>
-                    <option>Sheet Set</option>
-                    <option>Laptop/Electronic Learning Support</option>
-                    <option>Goniometer</option>
-                    <option>Oil Holster</option>
-                    <option>Bottle</option>
+                    <option value="Sheet Set">Sheet Set</option>
+                    <option value="Laptop or Learning Support">Laptop/Electronic Learning Support</option>
+                    <option value="Goniometer">Goniometer</option>
+                    <option value="Oil Holster">Oil Holster</option>
+                    <option value="Bottle">Bottle</option>
                 </select>
 				      </div>
 				      <!--submit button-->

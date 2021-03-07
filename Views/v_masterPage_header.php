@@ -35,11 +35,9 @@
         </div>
         <div class="collapse navbar-collapse" id="navbarCollapse">
 
-            <div style="float: left; padding: 10px;">
-                <form action="?action=c_search" method="POST">
-                    <input class="" type="text" placeholder="@student name OR #student number"
-                           name="keyword">
-
+            <div style="float: left; padding: 13px;">
+                <form class="search-form" action="?action=v_search_res" method="POST" style="flex-grow: 1">
+                    <input type="text" placeholder="@student name OR #student id" name="keyword">
                     <input type="submit" name="search" class="btn btn-light" value="GO!">
                 </form>
             </div>
