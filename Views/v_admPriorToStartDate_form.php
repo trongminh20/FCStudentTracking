@@ -64,12 +64,12 @@ include "v_masterPage_sidebar.php";
                     <div name="resume" id="resume" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="resume" id="resume" type="radio"/> YES
+                                <input name="resume" value="received" id="resume" type="radio"/> Received
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="resume" id="resume" type="radio"/> NO
+                                <input name="resume" value="not received" id="resume" type="radio"/> Not received
                             </label>
                         </div>
                     </div>
