@@ -136,12 +136,14 @@ include "v_masterPage_sidebar.php";
                     <div name="medical_Notes" id="medicalNotes" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="medical_Notes" id="medicalNotes" type="radio"/> YES
+                                <input name="medical_Notes" id="medicalNotes" value= "received and clear" type="radio"/>
+                                Received and Clear
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="medical_Notes" id="medicalNotes" type="radio"/> NO
+                                <input name="medical_Notes" id="medicalNotes" value="not received" type="radio"/>
+                                Not received
                             </label>
                         </div>
                     </div>
