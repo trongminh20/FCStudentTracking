@@ -25,12 +25,12 @@ include "v_masterPage_header.php";
                     <div name="Dom_OR_Int" id="DomORInt" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="Dom_OR_Int" id="DomORInt" type="radio"/> Domestic
+                                <input name="Dom_OR_Int" id="DomORInt" value="domestic" type="radio"/> Domestic
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="Dom_OR_Int" id="DomORInt" type="radio"/> International
+                                <input name="Dom_OR_Int" id="DomORInt" value="international" type="radio"/> International
                             </label>
                         </div>
                     </div>

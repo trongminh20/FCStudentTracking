@@ -27,11 +27,11 @@ include "v_masterPage_header.php";
           <div class="form-group" style="padding-top: 20px">
             <label for="ClinicShirtSize">Clinic Shirt Size:</label>
               <select class="form-control" name="clinic_Shirt_Size" id="ClinicShirtSize">
-                <option>Extra Small</option>
-                <option>Small</option>
-                <option>Medium</option>
-                <option>Large</option>
-                <option>Extra Large</option>
+                <option value="Extra Small">Extra Small</option>
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+                <option value="Extra Large">Extra Large</option>
               </select>  
           </div>
           <!--shirt order date-->
