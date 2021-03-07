@@ -5,7 +5,7 @@ include "v_masterPage_header.php";
 include "v_masterPage_sidebar.php";
 
 $stuData = ((isset($_SESSION['student'])) ? $_SESSION['student'] : NULL);
-//var_dump($stuData);
+unset($_SESSION['student']);
 ?>
 
 <div id="mainContent">
@@ -30,12 +30,12 @@ $stuData = ((isset($_SESSION['student'])) ? $_SESSION['student'] : NULL);
  ?>
     <br>
     <?php
-    $form::add_input(['id' => 'checkbox2', 'value' => "apsd",'name'=>"include[]" ,'type' => 'checkbox']);
+    $form::add_input(['id' => 'checkbox2', 'value' => "apsds",'name'=>"include[]" ,'type' => 'checkbox']);
     $form::add_label(['for' => 'checkbox1', 'label' => 'Admission Prior to Start Date']);
      ?>
     <br>
     <?php
-    $form::add_input(['id' => 'checkbox3', 'value' => "ppe",'name' => "include[]", 'type' => 'checkbox']);
+    $form::add_input(['id' => 'checkbox3', 'value' => "ppes",'name' => "include[]", 'type' => 'checkbox']);
     $form::add_label(['for' => 'checkbox3', 'label' => 'Prior to Practice Education']);
     ?>
     <br>

@@ -99,8 +99,8 @@ class View
      * @param $listOfUnsetCols an array of the cols that won't be displayed
      * @param $model is the current Model
      */
-    public function display_as_table($id = "", $class = "",
-                                     $table, $listOfUnsetCols, $model)
+    public function display_as_table_multi_rows($id = "", $class = "",
+                                                $table, $listOfUnsetCols, $model)
     {
         $count = 0;
         $data = $model->select_displayed_data($table, $listOfUnsetCols);
@@ -127,32 +127,29 @@ class View
         echo "</table><br>";
     }
 
-    public function display_single_row_table($id = "", $class = "",
-                                     $table, $rowId, $model)
-    {
-        $count = 0;
-        $data = $model->select($table, ['id' => $rowId]);
-        echo "<table id='$id' class='$class'>";
-
-        foreach ($data as $d) {
-            echo "<tr>";
-            foreach ($d as $key => $vals) {
-                if ($count < count($d)) {
-                    echo "<td>$key</td>";
-                } else {
-                    echo "<td></td>";
-                }
-                $count += 1;
+    public function display_as_table_single_row($table, $data, Model $model){
+        $arr = $model -> select($table, $data);
+        if($table == 'apsds' || $table == 'ppes' || $table == 'graduations'){
+            if(isset($arr['student_id'])){
+                unset($arr['student_id']);
             }
-            echo "</tr><tr>";
-
-            foreach ($d as $key => $vals) {
-                echo "<td>$vals</td>";
+        }
+        echo "<table>";
+        foreach($arr as $k => $v){
+            echo "<tr>";
+            echo "<td>$k</td>";
+            if($v == 1){
+                echo "<td>Yes</td>";
+            }else if( $v == false){
+                echo "<td>No</td>";
+            }else if($v == NULL){
+                echo "<td>Not Available</td>";
+            }else {
+                echo "<td>$v</td>";
             }
             echo "</tr>";
         }
-
-        echo "</table><br>";
+        echo "</table>";
     }
     /**
      * auto generate a table with Edit and Delete buttons

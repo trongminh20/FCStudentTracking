@@ -12,35 +12,18 @@ $ppe = $_POST['include'][2];
 $graduation = $_POST['include'][3];
 $payemntTracking = $_POST['include'][4];
 
-echo $ebs;
+echo "<h3>Student brief summary</h3>";
+$view->display_as_table_single_row('students', ['id' => $studentID], $model);
+echo "<br>";
 
-$arr = $model->select('students', ['id' => $studentID]);
-?>
-    <table>
-        <?php
-        foreach ($arr as $k => $v) {
-            echo "<tr>";
-            echo "<td>" . $k . "</td>";
-            echo "<td>" . $v . "</td>";
-        }
-        ?>
-    </table>
-<?php
+echo "<h3>Admission perior to start date</h3>";
+$view -> display_as_table_single_row('apsds', ['student_id' => $studentID], $model);
 
-echo $apsd;
-$arr = $model->select('apsds', ['student_id' => $studentID]);
-?>
-    <table>
-        <?php
-        foreach ($arr as $k => $v) {
-            echo "<tr>";
-            echo "<td>" . $k . "</td>";
-            echo "<td>" . $v . "</td>";
-        }
-        ?>
-    </table>
-<?php
-echo $ppe;
-echo $graduation;
-echo $payemntTracking;
+echo "<h3>Perior Practice education</h3>";
+$view -> display_as_table_single_row('ppes', ['student_id' => $studentID], $model);
+
+echo "<h3>Payment tracking</h3>";
+
+
+
 
