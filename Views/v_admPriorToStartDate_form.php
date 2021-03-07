@@ -14,15 +14,15 @@ include "v_masterPage_sidebar.php";
             	<!--photo id radio button-->
             	<div class="form-group" style="padding-top: 20px">
                     <label for="photoID">Photo ID:</label>
-                    <div name="photo_ID" id="photoID" class="row" style="padding-top: 10px">
+                    <div name="photo_id" id="photoID" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="photo_ID" id="photoID" type="radio"/> YES
+                                <input name="photo_id" id="photoID" type="radio"/> YES
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="photo_ID" id="photoID" type="radio"/> NO
+                                <input name="photo_id" id="photoID" type="radio"/> NO
                             </label>
                         </div>
                     </div>
@@ -30,12 +30,12 @@ include "v_masterPage_sidebar.php";
                 <!--application form received notes-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="appForm">Application Form:</label>
-                    <input type="text" name="app_Form" class="form-control" id="appForm"/>
+                    <input type="text" name="app_form" class="form-control" id="appForm"/>
                 </div>
                 <!--application fee notes-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="appFee">Application Fee with Paid Invoice:</label>
-                    <input type="text" name="app_Fee" class="form-control" id="appFee"/>
+                    <input type="text" name="app_fee" class="form-control" id="appFee"/>
                 </div>
                 <!--application essay radio button-->
             	  <div class="form-group" style="padding-top: 20px">
@@ -43,12 +43,12 @@ include "v_masterPage_sidebar.php";
                     <div name="app_Essay" id="appEssay" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="app_Essay" id="appEssay" type="radio"/> YES
+                                <input name="app_essay" id="appEssay" type="radio"/> YES
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="app_Essay" id="appEssay" type="radio"/> NO
+                                <input name="app_essay" id="appEssay" type="radio"/> NO
                             </label>
                         </div>
                     </div>
@@ -56,7 +56,7 @@ include "v_masterPage_sidebar.php";
                 <!--reference letters notes-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="refLetters">Character Reference Letters:</label>
-                    <input type="text" name="ref_Letters" class="form-control" id="refLetters"/>
+                    <input type="text" name="refer_letters" class="form-control" id="refLetters"/>
                 </div>
                 <!--resume radio button-->
             	  <div class="form-group" style="padding-top: 20px">
@@ -76,25 +76,21 @@ include "v_masterPage_sidebar.php";
                 </div>
                 <!--intro to massage date & time -->
           		  <div class="form-group" style="padding-top: 20px"> 
-            		<label class="control-label" for="introToMassageDateandTime">Intro of Massage Course Date & Time:</label>
-                  <div name="intro_To_Massage_Date_and_Time" id="introToMassageDateandTime" class="row" style="padding-top: 10px">
-                    <!--from_textDisplay-->
-                    <div class="col-sm-6">
-                      <label for="from" class="sr-only">From:</label>
-                      <input type="text" readonly class="form-control-plaintext" name="from" id="from" value="From:">
-                    </div>
+            		<label class="control-label" for="introOfMsg">Intro of Massage Course Date & Time:</label>
+                  <div name="intro_of_msg" id="introOfMsg" class="row" style="padding-top: 10px">
                     <!---from_datetimePicker-->
                     <div class="col-sm-6">
-                      <input type="datetime-local" class="form-control" name="from" id="from">
+                      <label class="control-label" id="introOfMsgFrom">From:</label>
                     </div>
-                    <!--to_textDisplay-->
-                    <div class="col-sm-6" style="padding-top: 10px">
-                      <label for="to" class="sr-only">To:</label>
-                      <input type="text" readonly class="form-control-plaintext" name="to" id="to" value="To:">
+                    <div class="col-sm-6">
+                      <input type="datetime-local" class="form-control" name="intro_of_msg_from" id="introOfMsgFrom">
                     </div>
                     <!---to_datetimePicker-->
                     <div class="col-sm-6" style="padding-top: 10px">
-                      <input type="datetime-local" class="form-control" name="to" id="to">
+                      <label class="control-label" id="introOfMsgTo">To:</label>
+                    </div>
+                    <div class="col-sm-6" style="padding-top: 10px">
+                      <input type="datetime-local" class="form-control" name="intro_of_msg_to" id="introOfMsgTo">
                     </div>
           		    </div>
               </div>

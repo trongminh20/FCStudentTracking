@@ -55,89 +55,70 @@ include "v_masterPage_header.php";
             		<div name="tuition_Fee" id="tuitionFee" class="row" style="padding-top: 10px">
             			<!--1st payment-->
                         <div class="col-sm-6">
-                            <label for="1stPayment" class="sr-only">1st Payment</label>
-    						<input type="text" readonly class="form-control-plaintext" name="1st_Payment" id="1stPayment" value="First Payment:">
+                            <label name="1st_Payment" id="1stPayment" class="control-label">1st Payment:</label>
                         </div>
-                        <!--1st payment_input-->
                         <div class="col-sm-6">
     						<input type="number" class="form-control" name="1st_Payment" id="1stPayment" placeholder="$">
                         </div>
                         <!--2nd payment-->
                         <div class="col-sm-6" style="padding-top: 10px">
-                            <label for="2ndPayment" class="sr-only">2nd Payment</label>
-    						<input type="text" readonly class="form-control-plaintext" name="2nd_Payment" id="2ndPayment" value="Second Payment:">
+                            <label name="2nd_Payment" id="2ndPayment" class="control-label">2nd Payment:</label>
                         </div>
-                        <!--2nd payment_input-->
                         <div class="col-sm-6" style="padding-top: 10px">
     						<input type="number" class="form-control" name="2nd_Payment" id="2ndPayment" placeholder="$">
                         </div>
                         <!--3rd payment-->
                         <div class="col-sm-6" style="padding-top: 10px">
-                            <label for="3rdPayment" class="sr-only">3rd Payment</label>
-    						<input type="text" readonly class="form-control-plaintext" name="3rd_Payment" id="3rdPayment" value="Third Payment:">
+                            <label name="3rd_Payment" id="3rdPayment" class="control-label">3rd Payment:</label>
                         </div>
-                        <!--3rd payment_input-->
                         <div class="col-sm-6" style="padding-top: 10px">
     						<input type="number" class="form-control" name="3rd_Payment" id="3rdPayment" placeholder="$">
                         </div>
                         <!--4th payment-->
                         <div class="col-sm-6" style="padding-top: 10px">
-                            <label for="4thPayment" class="sr-only">4th Payment</label>
-    						<input type="text" readonly class="form-control-plaintext" name="4th_Payment" id="4thPayment" value="Fourth Payment:">
+                            <label name="4th_Payment" id="4thPayment" class="control-label">4th Payment:</label>
                         </div>
-                        <!--4th payment_input-->
                         <div class="col-sm-6" style="padding-top: 10px">
     						<input type="number" class="form-control" name="4th_Payment" id="4thPayment" placeholder="$">
                         </div>
                         <!--5th payment-->
                         <div class="col-sm-6" style="padding-top: 10px">
-                            <label for="5thPayment" class="sr-only">5th Payment</label>
-    						<input type="text" readonly class="form-control-plaintext" name="5th_Payment" id="5thPayment" value="Fifth Payment:">
+                            <label name="5th_Payment" id="5thPayment" class="control-label">5th Payment:</label>
                         </div>
-                        <!--5th payment_input-->
                         <div class="col-sm-6" style="padding-top: 10px">
     						<input type="number" class="form-control" name="5th_Payment" id="5thPayment" placeholder="$">
                         </div>
                         <!--6th payment-->
                         <div class="col-sm-6" style="padding-top: 10px">
-                            <label for="6thPayment" class="sr-only">6th Payment</label>
-    						<input type="text" readonly class="form-control-plaintext" name="6th_Payment" id="6thPayment" value="Sixth Payment:">
+                            <label name="6th_Payment" id="6thPayment" class="control-label">6th Payment:</label>
                         </div>
-                        <!--6th payment_input-->
                         <div class="col-sm-6" style="padding-top: 10px">
     						<input type="number" class="form-control" name="6th_Payment" id="6thPayment" placeholder="$">
                         </div>
                         <!--7th payment-->
                         <div class="col-sm-6" style="padding-top: 10px">
-                            <label for="7thPayment" class="sr-only">7th Payment</label>
-    						<input type="text" readonly class="form-control-plaintext" name="7th_Payment" id="7thPayment" value="Seventh Payment:">
+                            <label name="7th_Payment" id="7thPayment" class="control-label">7th Payment:</label>
                         </div>
-                        <!--7th payment_input-->
                         <div class="col-sm-6" style="padding-top: 10px">
     						<input type="number" class="form-control" name="7th_Payment" id="7thPayment" placeholder="$">
                         </div>
                         <!--8th payment-->
                         <div class="col-sm-6" style="padding-top: 10px">
-                            <label for="8thPayment" class="sr-only">8th Payment</label>
-    						<input type="text" readonly class="form-control-plaintext" name="8th_Payment" id="8thPayment" value="Eighth Payment:">
+                            <label name="8th_Payment" id="8thPayment" class="control-label">8th Payment:</label>
                         </div>
-                        <!--8th payment_input-->
                         <div class="col-sm-6" style="padding-top: 10px">
     						<input type="number" class="form-control" name="8th_Payment" id="8thPayment" placeholder="$">
                         </div>
                         <!--9th payment-->
                         <div class="col-sm-6" style="padding-top: 10px">
-                            <label for="9thPayment" class="sr-only">9th Payment</label>
-    						<input type="text" readonly class="form-control-plaintext" name="9th_Payment" id="9thPayment" value="Nineth Payment:">
+                            <label name="9th_Payment" id="9thPayment" class="control-label">9th Payment:</label>
                         </div>
-                        <!--9th payment_input-->
                         <div class="col-sm-6" style="padding-top: 10px">
     						<input type="number" class="form-control" name="9th_Payment" id="9thPayment" placeholder="$">
                         </div>
                         <!--10th payment-->
                         <div class="col-sm-6" style="padding-top: 10px">
-                            <label for="10thPayment" class="sr-only">10th Payment</label>
-    						<input type="text" readonly class="form-control-plaintext" name="10th_Payment" id="10thPayment" value="Tenth Payment:">
+                            <label name="10th_Payment" id="10thPayment" class="control-label">10th Payment:</label>
                         </div>
                         <!--10th payment_input-->
                         <div class="col-sm-6" style="padding-top: 10px">
