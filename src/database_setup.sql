@@ -1,7 +1,9 @@
 -- DROP
 -- DATABASE fc_student_tracking;
-CREATE DATABASE fc_student_tracking;
-USE fc_student_tracking;
+CREATE
+DATABASE fc_student_tracking;
+USE
+fc_student_tracking;
 
 CREATE TABLE students
 (
@@ -137,6 +139,15 @@ CREATE TABLE invoice
     note    VARCHAR(100)
 );
 
+CREATE TABLE intro_msg_detail
+(
+    id            INT PRIMARY KEY,
+    from_date     DATETIME,
+    to_date       DATETIME,
+    intro_msg_fee VARCHAR(100),
+    intro_msg     VARCHAR(100)
+);
+
 
 ALTER TABLE sessions
     ADD CONSTRAINT session_fk
@@ -207,6 +218,11 @@ ALTER TABLE graduations
 ALTER TABLE graduations
     ADD CONSTRAINT grad_stu_unq
         UNIQUE (student_id);
+
+
+ALTER TABLE apsds
+    ADD CONSTRAINT introMsg_fk
+        FOREIGN KEY (intro_of_msg) REFERENCES intro_msg_detail (id);
 
 -- Insert 5 rows of data into Programs table
 INSERT INTO Programs
