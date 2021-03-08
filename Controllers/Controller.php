@@ -137,7 +137,7 @@ class Controller
     {
         $username = $_POST['username'];
 
-        $check = $model->select('employees', ['username' => $username]);
+        $check = $model->select_single_row('employees', ['username' => $username]);
         if ($check) {
             $request = new Request($username, 'Reset password');
 
@@ -215,7 +215,27 @@ class Controller
             $data['rmt_stu_materials'] = implode(", ", $data['rmt_stu_materials']);
             unset($data['add_apsds']);
             $model->insert('apsds', $data);
-            header("Location:?action=v_add_new_record");
+            header("Location:?action=v_admPriorToStartDate_form");
+        }
+    }
+
+    private function c_add_ppe(Model $model)
+    {
+        if (isset($_POST['add_ppes'])) {
+            $data = $_POST;
+            unset($data['add_ppes']);
+            $model->insert('ppes', $data);
+            header("Location:?action=v_priorToPracticeEducation_form");
+        }
+    }
+
+    private function c_add_grad(Model $model)
+    {
+        if (isset($_POST['add_grad'])) {
+            $data = $_POST;
+            unset($data['add_grad']);
+            $model->insert('graduations', $data);
+            header("Location:?action=v_graduation_form");
         }
     }
 }

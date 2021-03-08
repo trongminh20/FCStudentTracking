@@ -84,52 +84,52 @@ CREATE TABLE apsds
     refer_letter       VARCHAR(50),
     resume             VARCHAR(3),
 --     fee_paid_inv       VARCHAR(50),
-    intro_of_msg_from     DATETIME,
-    intro_of_msg_to       DATETIME,
-    intro_fee      VARCHAR(100),
+    intro_of_msg_from  DATETIME,
+    intro_of_msg_to    DATETIME,
+    intro_fee          VARCHAR(100),
     intro_msg_complete VARCHAR(100),
-    welcome_letter      VARCHAR(3),
-    eng_test_result      INT,
+    welcome_letter     VARCHAR(3),
+    eng_test_result    INT,
     crc_result         VARCHAR(50),
-    medical_notes       VARCHAR(3),
+    medical_notes      VARCHAR(3),
     interview_date     DATETIME,
     interview_approved VARCHAR(3),
-    dips_and_trans  VARCHAR(50),
+    dips_and_trans     VARCHAR(50),
     stu_email          VARCHAR(50),
     accept_letter_date DATETIME,
     enroll_contract    VARCHAR(50),
-    handbook_notes   VARCHAR(300),
-    pay_option     VARCHAR(50),
+    handbook_notes     VARCHAR(300),
+    pay_option         VARCHAR(50),
     ack_and_agr        DATETIME,
-    received_card       VARCHAR(3),
-    rmt_stu_materials VARCHAR(100)
+    received_card      VARCHAR(3),
+    rmt_stu_materials  VARCHAR(100)
 );
 
 CREATE TABLE ppes
 (
-    student_id         INT,
-    clinic_shirt_size  VARCHAR(30),
-    first_aid_loc      VARCHAR(100),
-    first_aid_contact  VARCHAR(50),
-    order_date         DATE,
-    pickup_date        DATE,
-    first_aid_and_cpr  DATETIME,
-    cert_mark_received DATE,
-    handbook_received  DATE,
-    ack_and_agr        BOOLEAN,
-    medical_file       BOOLEAN
+    student_id          INT,
+    name_tag            VARCHAR(3),
+    clinic_shirt_size   VARCHAR(30),
+    order_size          DATE,
+    pickup_date         DATE,
+    fa_and_cpr_dt       DATETIME,
+    fa_and_cpr_contact  VARCHAR(100),
+    cert_fa_cpr_receive DATE,
+    handbook_receive    DATE,
+    ack_and_agr         VARCHAR(3),
+    medical_file        VARCHAR(3),
 );
 
 CREATE TABLE graduations
 (
-    student_id        INT,
-    tuition_paid      BOOLEAN,
-    transcript        BOOLEAN,
-    completion_letter BOOLEAN,
-    signed_diploma    BOOLEAN,
-    exam_date         DATETIME,
-    T2202A            BOOLEAN,
-    employment        VARCHAR(200)
+    student_id               INT,
+    tuition_paid             VARCHAR(3),
+    official_transcript       VARCHAR(3),
+    completion_letter VARCHAR(3),
+    signed_diploma    VARCHAR(3),
+    exam_date                DATETIME,
+    T2202A                   VARCHAR(3),
+    employment               VARCHAR(200)
 );
 
 CREATE TABLE invoice

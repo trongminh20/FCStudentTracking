@@ -128,7 +128,7 @@ class View
     }
 
     public function display_as_table_single_row($table, $data, Model $model){
-        $arr = $model -> select($table, $data);
+        $arr = $model -> select_single_row($table, $data);
         if($table == 'apsds' || $table == 'ppes' || $table == 'graduations'){
             if(isset($arr['student_id'])){
                 unset($arr['student_id']);

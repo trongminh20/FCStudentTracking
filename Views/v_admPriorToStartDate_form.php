@@ -10,10 +10,10 @@ include "v_masterPage_sidebar.php";
         <div class="col-xs-12">
             <h2 style="padding-top: 70px">Admission Prior to Start Date</h2>
             <!--Form starts-->
-            <form action="?action=v_test" method="POST">
+            <form action="?action=c_add_apsds" method="POST">
                 <div class="form-group">
                     <label for="student_id">STUDENT ID</label>
-                    <input type="number" name="student_id" value="">
+                    <input type="number" name="student_id" value="" required="required">
                 </div>
             	<!--photo id radio button-->
             	<div class="form-group" style="padding-top: 20px">
@@ -182,12 +182,6 @@ include "v_masterPage_sidebar.php";
           			<label for="stuEmail">Student Email:</label>
                     <input type="text" name="stu_email" class="form-control" id="stuEmail"/>
           		</div>
-          		<!--student number -->
-<!--          		<div class="form-group" style="padding-top: 20px"> -->
-<!--          			<label for="stuNumber">Student Number:</label>-->
-<!--                    <input type="text" name="stu_Number" class="form-control" id="stuNumber"/>-->
-<!--          		</div>-->
-          		<!--letter of acceptance date-->
           		<div class="form-group" style="padding-top: 20px"> 
             		<label class="control-label" for="acceptLetterDate">Letter of Acceptance Issued Date:</label>
             		<input type="datetime-local" class="form-control" id="acceptLetterDate" name="accept_letter_date"/>

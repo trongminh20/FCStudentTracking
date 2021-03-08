@@ -1,10 +1,11 @@
 <?php
 //print_r($_POST);
 
-if(isset($_POST['add_apsds'])){
+if(isset($_POST['add_ppes'])){
     $data = $_POST;
-    $data['rmt_stu_materials'] = implode(", ", $data['rmt_stu_materials']);
-    unset($data['add_apsds']);
-
-    $database -> insert('apsds',$data );
+    unset($data['add_ppes']);
+    foreach($data as $k => $v ):
+        echo $k ." => " . $v."<br>";
+    endforeach;
+    $database -> insert('ppes',$data );
 }
