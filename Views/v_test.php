@@ -7,5 +7,5 @@ if(isset($_POST['add_ppes'])){
     foreach($data as $k => $v ):
         echo $k ." => " . $v."<br>";
     endforeach;
-    $database -> insert('ppes',$data );
+    $database -> insert_single_row('ppes',$data );
 }

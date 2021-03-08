@@ -10,10 +10,10 @@ unset($_SESSION['student']);
 
 <div id="mainContent">
     <?php
-    $form = new Form('form-group col-lg-12', "reportForm", "v_generate_report", "POST", "Creating Report");
+    $form = new Form('form-group col-lg-8', "reportForm", "v_generate_report", "POST", "Creating Report");
 
     $form::start_fieldset(['id' => 'id', 'class' => '']);
-    $form::add_legend(['id' => "", 'value' => "this is legend"]);
+    $form::add_legend(['id' => "", 'value' => "Student Information"]);
     $form::add_label(['for' => "stuID", 'label' => "Student ID"]);
     $form::add_input(['id' => 'stuID', 'class' => 'form-control', 'name' => 'stu_id', 'type' => 'text', 'value' =>(
             ($stuData != NULL) ? $stuData['stu_id'] : ""), 'placeholder' => 'Enter Student ID']);

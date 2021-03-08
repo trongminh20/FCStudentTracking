@@ -162,7 +162,7 @@ class Controller
 
         $model->change_info('employees', $data, $id);
 
-        $_SESSION['manage_info'] = $_POST['Username'] . "'s password has been reseted to phone number ";
+        $_SESSION['manage_info'] = $_POST['Username'] . "'s password has been reset to phone number ";
 
         header("Location:?action=v_user_manage");
     }
@@ -171,44 +171,12 @@ class Controller
     {
         $id = $_POST['stu_id'];
         $programId = $_POST['prog_id'];
-
-        $_SESSION['student'] = ['stu_id' => $id, 'prog_id' => $programId];
-
+        $_SESSION['student'] = [ 'stu_id' => $id,
+            'prog_id' => $programId ];
         header("Location:?action=v_report");
     }
 
-    /**
-     *generate pdf for invoice
-     */
-    private function c_generate_invoice()
-    {
-
-    }
-
-    /**
-     * generate report pdf
-     */
-    private function c_generate_report_pdf()
-    {
-
-    }
-
-    /**
-     *generate report .docx
-     */
-    private function c_generate_report_docx()
-    {
-
-    }
-
-    /**
-     *auto sending email attaching invoice to student
-     */
-    private function c_sending_mail()
-    {
-    }
-
-    private function c_add_apsds(Model $model)
+     private function c_add_apsds(Model $model)
     {
         if (isset($_POST['add_apsds'])) {
             $data = $_POST;
@@ -238,4 +206,36 @@ class Controller
             header("Location:?action=v_graduation_form");
         }
     }
+
+    /**
+     *generate pdf for invoice
+     */
+    private function c_generate_invoice()
+    {
+    }
+
+    /**
+     * generate report pdf
+     */
+    private function c_generate_report_pdf()
+    {
+
+    }
+
+    /**
+     *generate report .docx
+     */
+    private function c_generate_report_docx()
+    {
+
+    }
+
+    /**
+     *auto sending email attaching invoice to student
+     */
+    private function c_sending_mail()
+    {
+    }
+
+
 }

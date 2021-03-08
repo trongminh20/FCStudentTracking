@@ -9,7 +9,7 @@ include "v_masterPage_sidebar.php";
       <div class="col-xs-12">
         <h2 style="padding-top: 10px">Prior to Practice Education</h2>
         <!--Form starts-->
-        <form action="?action=c_add_ppes" method="POST">
+        <form class="col-lg-8" action="?action=c_add_ppes" method="POST">
             <div class="form-group">
                 <label for="student_id">Student ID</label><br>
                 <input type="number" name="student_id" placeholder="Enter student ID" required="required">
