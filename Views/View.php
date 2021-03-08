@@ -138,13 +138,16 @@ class View
         foreach($arr as $k => $v){
             echo "<tr>";
             echo "<td>$k</td>";
-            if($v == 1){
-                echo "<td>Yes</td>";
-            }else if( $v == false){
-                echo "<td>No</td>";
-            }else if($v == NULL){
+            if($v == NULL){
                 echo "<td>Not Available</td>";
-            }else {
+            }else if(gettype($v) == "array"){
+                echo "<td>";
+                foreach($v as $d){
+                    echo $d.", " ;
+                }
+                echo "</td>";
+            }
+            else {
                 echo "<td>$v</td>";
             }
             echo "</tr>";
