@@ -10,19 +10,23 @@ include "v_masterPage_sidebar.php";
         <div class="col-xs-12">
             <h2 style="padding-top: 70px">Admission Prior to Start Date</h2>
             <!--Form starts-->
-            <form action="" method="">
+            <form action="?action=c_add_apsds" method="POST">
+                <div class="form-group">
+                    <label for="student_id">STUDENT ID</label>
+                    <input type="number" name="student_id" value="" required="required">
+                </div>
             	<!--photo id radio button-->
             	<div class="form-group" style="padding-top: 20px">
                     <label for="photoID">Photo ID:</label>
                     <div name="photo_id" id="photoID" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="photo_id" id="photoID" type="radio"/> YES
+                                <input name="photo_id" id="photoID" value="yes" type="radio"/> YES
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="photo_id" id="photoID" type="radio"/> NO
+                                <input name="photo_id" id="photoID" value="no" type="radio"/> NO
                             </label>
                         </div>
                     </div>
@@ -43,12 +47,12 @@ include "v_masterPage_sidebar.php";
                     <div name="app_Essay" id="appEssay" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="app_essay" id="appEssay" type="radio"/> YES
+                                <input name="app_essay" id="appEssay" value="yes" type="radio"/> YES
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="app_essay" id="appEssay" type="radio"/> NO
+                                <input name="app_essay" id="appEssay" value="no" type="radio"/> NO
                             </label>
                         </div>
                     </div>
@@ -56,7 +60,7 @@ include "v_masterPage_sidebar.php";
                 <!--reference letters notes-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="refLetters">Character Reference Letters:</label>
-                    <input type="text" name="refer_letters" class="form-control" id="refLetters"/>
+                    <input type="text" name="refer_letter" class="form-control" id="refLetters"/>
                 </div>
                 <!--resume radio button-->
             	  <div class="form-group" style="padding-top: 20px">
@@ -64,12 +68,12 @@ include "v_masterPage_sidebar.php";
                     <div name="resume" id="resume" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="resume" value="received" id="resume" type="radio"/> Received
+                                <input name="resume" id="resume" value="yes" type="radio"/> YES
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="resume" value="not received" id="resume" type="radio"/> Not received
+                                <input name="resume" id="resume" value="no" type="radio"/> NO
                             </label>
                         </div>
                     </div>
@@ -102,7 +106,7 @@ include "v_masterPage_sidebar.php";
               <!--intro to massage completed notes -->
           		<div class="form-group" style="padding-top: 20px"> 
           			<label for="introToMassageComp">Intro of Massage Course Completed:</label>
-                    <input type="text" name="intro_To_Massage_Comp" class="form-control" id="introToMassageComp"/>
+                    <input type="text" name="intro_msg_complete" class="form-control" id="introToMassageComp"/>
           		</div>
           		<!--welcome letter radio button-->
             	<div class="form-group" style="padding-top: 20px">
@@ -110,12 +114,12 @@ include "v_masterPage_sidebar.php";
                     <div name="welcome_Letter" id="welcomeLetter" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="welcome_Letter" id="welcomeLetter" type="radio"/> YES
+                                <input name="welcome_Letter" id="welcomeLetter" value="yes" type="radio"/> YES
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="welcome_Letter" id="welcomeLetter" type="radio"/> NO
+                                <input name="welcome_Letter" id="welcomeLetter" value="no" type="radio"/> NO
                             </label>
                         </div>
                     </div>
@@ -123,12 +127,12 @@ include "v_masterPage_sidebar.php";
               <!--english test result notes -->
           		<div class="form-group" style="padding-top: 20px"> 
           			<label for="engTestResult">English Test Result:</label>
-                    <input type="text" name="eng_Test_Result" class="form-control" id="engTestResult"/>
+                    <input type="text" name="eng_test_result" class="form-control" id="engTestResult"/>
           		</div>
           		<!--CRC result notes -->
           		<div class="form-group" style="padding-top: 20px"> 
           			<label for="CRCResult">CRC Result:</label>
-                    <input type="text" name="CRC_Result" class="form-control" id="CRCResult"/>
+                    <input type="text" name="crc_result" class="form-control" id="CRCResult"/>
               </div>
               <!--medical notes radio button-->
             	<div class="form-group" style="padding-top: 20px">
@@ -136,14 +140,13 @@ include "v_masterPage_sidebar.php";
                     <div name="medical_Notes" id="medicalNotes" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="medical_Notes" id="medicalNotes" value= "received and clear" type="radio"/>
-                                Received and Clear
+                                <input name="medical_notes" id="medicalNotes" value="yes" type="radio"/> YES
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="medical_Notes" id="medicalNotes" value="not received" type="radio"/>
-                                Not received
+
+                                <input name="medical_notes" id="medicalNotes" value="no" type="radio"/> NO
                             </label>
                         </div>
                     </div>
@@ -151,7 +154,7 @@ include "v_masterPage_sidebar.php";
               <!--interview date & time -->
           		<div class="form-group" style="padding-top: 20px"> 
             		<label class="control-label" for="interviewDateandTime">Interview Date & Time:</label>
-            		<input type="datetime-local" class="form-control" id="interviewDateandTime" name="interview_Date_and_Time"/>
+            		<input type="datetime-local" class="form-control" id="interviewDateandTime" name="interview_date"/>
           		</div>
           		<!--interview approved radio button-->
             	<div class="form-group" style="padding-top: 20px">
@@ -159,12 +162,12 @@ include "v_masterPage_sidebar.php";
                     <div name="interview_Approved" id="interviewApproved" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="interview_Approved" id="interviewApproved" type="radio"/> YES
+                                <input name="interview_approved" id="interviewApproved" value="yes" type="radio"/> YES
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="interview_Approved" id="interviewApproved" type="radio"/> NO
+                                <input name="interview_approved" id="interviewApproved" value="no" type="radio"/> NO
                             </label>
                         </div>
                     </div>
@@ -172,66 +175,61 @@ include "v_masterPage_sidebar.php";
               <!--high school diploma & transcript notes -->
           		<div class="form-group" style="padding-top: 20px"> 
           			<label for="diplomaAndTranscript">High School Diploma & Transcript (Or Above):</label>
-                    <input type="text" name="diploma_And_Transcript" class="form-control" id="diplomaAndTranscript"/>
+                    <input type="text" name="dips_and_trans" class="form-control" id="diplomaAndTranscript"/>
               </div>
               <!--student email -->
           		<div class="form-group" style="padding-top: 20px"> 
           			<label for="stuEmail">Student Email:</label>
-                    <input type="text" name="stu_Email" class="form-control" id="stuEmail"/>
+                    <input type="text" name="stu_email" class="form-control" id="stuEmail"/>
           		</div>
-          		<!--student number -->
-          		<div class="form-group" style="padding-top: 20px"> 
-          			<label for="stuNumber">Student Number:</label>
-                    <input type="text" name="stu_Number" class="form-control" id="stuNumber"/>
-          		</div>
-          		<!--letter of acceptance date-->
           		<div class="form-group" style="padding-top: 20px"> 
             		<label class="control-label" for="acceptLetterDate">Letter of Acceptance Issued Date:</label>
-            		<input type="datetime-local" class="form-control" id="acceptLetterDate" name="accept_Letter_Date"/>
+            		<input type="datetime-local" class="form-control" id="acceptLetterDate" name="accept_letter_date"/>
           		</div>
           		<!--enrollment contract notes -->
           		<div class="form-group" style="padding-top: 20px"> 
           			<label for="enrollContract">Enrollment Contract:</label>
-                    <input type="text" name="enroll_Contract" class="form-control" id="enrollContract"/>
+                    <input type="text" name="enroll_contract" class="form-control" id="enrollContract"/>
           		</div>
           		<!--Handbooks notes -->
           		<div class="form-group" style="padding-top: 20px">
                     <label for="HandbooksNotes">Student Handbooks:</label>
-                    <textarea type="text" class="form-control" name="Handbooks_Notes" id="HandbooksNotes" rows="5"></textarea>
+                    <textarea type="text" class="form-control" name="handbook_notes" id="HandbooksNotes"
+                              rows="5"></textarea>
               </div>
               <!--payment options-->
           		<div class="form-group" style="padding-top: 20px">
             		<label for="payOptions">Payment Options:</label>
-              		<select class="form-control" name="pay_Options" id="payOptions" onChange="check();">
-                		<option value="studentAidBC">Student Aid BC</option>
-                		<option value="fullPayment">Full Payment</option>
-                		<option value="monthlyPayment">Monthly Payment</option>
-                		<option value="paymentPlan">Payment Plan</option>
-                		<option value="others">Others</option>
+              		<select class="form-control" name="pay_option" id="payOptions" onChange="check();">
+                		<option value="Student Aid BC">Student Aid BC</option>
+                		<option value="Full Payment">Full Payment</option>
+                		<option value="Monthly Payment">Monthly Payment</option>
+                		<option value="Payment Plan">Payment Plan</option>
+                		<option value="Others">Others</option>
               		</select>
                   <div id="otherPayOptions" style="display:none; padding-top: 10px">
                     <label>Enter Payment Method:
-                      <input type="text" id="otherInput" class="form-control"></input>
+                      <input type="text" id="otherInput" name='pay_option' class="form-control">
                     </label>
                   </div>
           		</div>
           		<!--ackmowledgement & agreemtnt form received date-->
           		<div class="form-group" style="padding-top: 20px"> 
             		<label class="control-label" for="ackAndAgrForm">Ackmowledgement & Agreemtnt Form Received Date:</label>
-            		<input type="datetime-local" class="form-control" id="ackAndAgrForm" name="ack_And_Agr_Form"/>
+            		<input type="datetime-local" class="form-control" id="ackAndAgrForm" name="ack_and_agr"/>
           		</div>
           		<!--student id card issued radio button-->
             	<div class="form-group" style="padding-top: 20px">
                     <label for="stuID">Student ID Card Issued:</label>
-                    <div name="stu_ID" id="stuID" class="row" style="padding-top: 10px">
+                    <div id="stuID" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="stu_ID" id="stuID" type="radio"/> YES
+                                <input name="received_card" id="stuID" value="yes" type="radio"/> YES
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="stu_ID" id="stuID" type="radio"/> NO
+                                <input name="receive_card" id="stuID" value="no" type="radio"/> NO
                             </label>
                         </div>
                     </div>
@@ -239,17 +237,18 @@ include "v_masterPage_sidebar.php";
               <!--RMT students material muulti select-->
 				      <div class="form-group" style="padding-top: 20px">
                 <label for="rmtStuMaterials">RMT Student Learning Materials:</label>
-                <select class="form-control" name="rmt_Stu_Materials" id="rmtStuMaterials" multiple>
-                    <option>Sheet Set</option>
-                    <option>Laptop/Electronic Learning Support</option>
-                    <option>Goniometer</option>
-                    <option>Oil Holster</option>
-                    <option>Bottle</option>
+                <select class="form-control" name="rmt_stu_materials[]" id="rmtStuMaterials" multiple>
+                    <option value="Sheet Set">Sheet Set</option>
+                    <option value="Laptop or Learning Support">Laptop/Electronic Learning Support</option>
+                    <option value="Goniometer">Goniometer</option>
+                    <option value="Oil Holster">Oil Holster</option>
+                    <option value="Bottle">Bottle</option>
                 </select>
 				      </div>
 				      <!--submit button-->
             	<div class="form-group" style="padding-top: 20px; padding-bottom: 10px">
-              		<button type="submit" class="btn btn-primary">Submit</button>
+              		<input type="submit" name='add_apsds' value='ADD' class="btn
+              		btn-primary">
             	</div>
             </form>
         </div>

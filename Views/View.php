@@ -128,7 +128,7 @@ class View
     }
 
     public function display_as_table_single_row($table, $data, Model $model){
-        $arr = $model -> select($table, $data);
+        $arr = $model -> select_single_row($table, $data);
         if($table == 'apsds' || $table == 'ppes' || $table == 'graduations'){
             if(isset($arr['student_id'])){
                 unset($arr['student_id']);
@@ -138,13 +138,16 @@ class View
         foreach($arr as $k => $v){
             echo "<tr>";
             echo "<td>$k</td>";
-            if($v == 1){
-                echo "<td>Yes</td>";
-            }else if( $v == false){
-                echo "<td>No</td>";
-            }else if($v == NULL){
+            if($v == NULL){
                 echo "<td>Not Available</td>";
-            }else {
+            }else if(gettype($v) == "array"){
+                echo "<td>";
+                foreach($v as $d){
+                    echo $d.", " ;
+                }
+                echo "</td>";
+            }
+            else {
                 echo "<td>$v</td>";
             }
             echo "</tr>";

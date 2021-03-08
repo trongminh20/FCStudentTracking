@@ -103,9 +103,9 @@ class Model
         return $type;
     }
 
-    function select_by_id($table, $id)
+    function select_by_id($table, $data)
     {
-        return $this->db->select_by_id($table, $id);
+        return $this->db->select_by_id($table, $data);
     }
 
     /**
@@ -140,7 +140,7 @@ class Model
      * @param $data is an array [columns => value]
      * @return mixed
      */
-    function select($table, $data){
+    function select_single_row($table, $data){
         return $this->db->select($table, $data);
     }
 

@@ -47,12 +47,9 @@ class Database
      * @param $id
      * @return array
      */
-    public function select_by_id($table, $id)
+    public function select_by_id($table, $data)
     {
-        $query = "SELECT * FROM $table WHERE id = ?";
-        $stm = $this->pdo->prepare($query);
-        $stm->execute([$id]);
-        return $stm->fetch(PDO::FETCH_ASSOC);
+        $this->select($table,$data);
     }
 
     /**

@@ -100,7 +100,7 @@ class Controller
         header("Location:?action=v_user_manage");
     }
 
-    private function c_update_info(Model $model)
+    private function c_update_user_info(Model $model)
     {
         $data = $_POST;
         unset($data['edit']);
@@ -137,18 +137,18 @@ class Controller
     {
         $username = $_POST['username'];
 
-        $check = $model->select('employees',['username' => $username]);
-        if($check){
+        $check = $model->select_single_row('employees', ['username' => $username]);
+        if ($check) {
             $request = new Request($username, 'Reset password');
 
-        $model->request_reset_password($request);
+            $model->request_reset_password($request);
 
-        $_SESSION['error'] = 'YOU REQUEST HAS SENT';
+            $_SESSION['error'] = 'YOU REQUEST HAS SENT';
 
-        header("Location:?action=v_login");
-        }else{
+            header("Location:?action=v_login");
+        } else {
             $_SESSION['forget_password'] = 'YOUR USERNAME IS NOT VALID';
-                   header("Location:?action=v_forgot_password");
+            header("Location:?action=v_forgot_password");
 
         }
 
@@ -208,4 +208,34 @@ class Controller
     {
     }
 
+    private function c_add_apsds(Model $model)
+    {
+        if (isset($_POST['add_apsds'])) {
+            $data = $_POST;
+            $data['rmt_stu_materials'] = implode(", ", $data['rmt_stu_materials']);
+            unset($data['add_apsds']);
+            $model->insert('apsds', $data);
+            header("Location:?action=v_admPriorToStartDate_form");
+        }
+    }
+
+    private function c_add_ppe(Model $model)
+    {
+        if (isset($_POST['add_ppes'])) {
+            $data = $_POST;
+            unset($data['add_ppes']);
+            $model->insert('ppes', $data);
+            header("Location:?action=v_priorToPracticeEducation_form");
+        }
+    }
+
+    private function c_add_grad(Model $model)
+    {
+        if (isset($_POST['add_grad'])) {
+            $data = $_POST;
+            unset($data['add_grad']);
+            $model->insert('graduations', $data);
+            header("Location:?action=v_graduation_form");
+        }
+    }
 }
