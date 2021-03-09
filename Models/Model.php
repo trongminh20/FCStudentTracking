@@ -24,6 +24,7 @@ class Model
         return $this->db->select_user($username);
     }
 
+
     /**
      * return data for function display_as_table in view
      * @param $table

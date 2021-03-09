@@ -47,7 +47,7 @@ class Controller
             $success = $model->sign_in($username, $password);
 
             if ($success == 1) {
-                $data = $model->select_user('employees',['username'=>$username]);
+                $data = $model->select_user($username);
                 if ($data['admin'] == 1) {
                     $user = new Admin();
                 } else if ($data['admin'] == 0) {
