@@ -6,13 +6,17 @@
     <title>First College Management</title>
     <link rel="stylesheet" href="css/css_reset.css"/>
     <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/master_page.css"/>
     <link rel="stylesheet" href="css/w3.css"/>
     <!-- jQuery CDN -->
     <script src="js/jquery-1.12.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <!--Custom JS-->
+    <script src="js/javascript.js"></script>
 </head>
 
 <!-- Header Section -->
@@ -30,9 +34,12 @@
 
         </div>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div style="float: left; padding: 10px;">
-                <input type="text" placeholder="Search..">
-                <button type="button" class="btn btn-light">GO!</button>
+
+            <div style="float: left; padding: 13px;">
+                <form class="search-form" action="?action=c_search" method="POST" style="flex-grow: 1">
+                    <input type="text" placeholder="@student name OR #student id" name="keyword">
+                    <input type="submit" name="search" class="btn btn-light" value="GO!">
+                </form>
             </div>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown top-menu-item">

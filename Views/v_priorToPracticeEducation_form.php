@@ -1,103 +1,113 @@
 <?php
+include "v_masterPage_header.php";
+include "v_masterPage_sidebar.php";
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Prior to Practice Education Form</title>
-    <link rel="stylesheet" href="css/css_reset.css"/>
-    <!-- Bootstrap CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-</head>
 
 <!-- Prior to Practice Education Section -->
-<body style="background-color: #f2f2f2">
-  <div class="container" style="padding-top: 20px">
-    <div class="row" style="background-color: white; border-radius: 10px !important">
+  <div class="container" id="mainContent" style="padding-top: 20px">
+    <div class="row">
       <div class="col-xs-12">
-        <h2 style="text-align: center; padding-top: 10px">Prior to Practice Education</h2>
-        <form action="" method="">
+        <h2 style="padding-top: 10px">Prior to Practice Education</h2>
+        <!--Form starts-->
+        <form class="col-lg-8" action="?action=c_add_ppes" method="POST">
+            <div class="form-group">
+                <label for="student_id">Student ID</label><br>
+                <input type="number" name="student_id" placeholder="Enter student ID" required="required">
+            </div>
+          <!--name tag -->
           <div class="form-group" style="padding-top: 20px">
-            <div class="col-sm-6">
-              <label for="nameTag">Name Tag:</label>
-                <div id="nameTag" class="row" style="padding-top: 10px">
+              <label for="NameTag">Name Tag:</label>
+                <div id="NameTag" name="name_tag" class="row" style="padding-top: 10px">
                   <div class="col-sm-6">
                     <label class="radio-inline">
-                    <input name="y-or-n" id="yes" value="yes" type="radio"/> YES</label>
+                    <input name="name_tag" id="NameTag" value="yes" type="radio"/> YES</label>
                   </div>
                   <div class="col-sm-6">
                     <label class="radio-inline">
-                    <input name="y-or-n" id="no" value="no" type="radio"/> NO</label>
+                    <input name="name_tag" id="NameTag" value="no" type="radio"/> NO</label>
                   </div>
                 </div>
-            </div>
           </div>
+          <!--clinic shirt size-->
           <div class="form-group" style="padding-top: 20px">
-            <label for="clinicShirtSize">Clinic Shirt Size:</label>
-              <select class="form-control" id="clinicShirtSize">
-                <option>Extra Small</option>
-                <option>Small</option>
-                <option>Medium</option>
-                <option>Large</option>
-                <option>Extra Large</option>
+            <label for="ClinicShirtSize">Clinic Shirt Size:</label>
+              <select class="form-control" name="clinic_shirt_size" id="ClinicShirtSize">
+                <option value="Extra Small">Extra Small</option>
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+                <option value="Extra Large">Extra Large</option>
               </select>  
           </div>
+          <!--shirt order date-->
           <div class="form-group" style="padding-top: 20px"> 
             <label class="control-label" for="shirtOrderDate">Order Date:</label>
-            <input class="form-control" id="shirtOrderDate" name="shirtOrderDate" placeholder="MM/DD/YYYY" type="text"/>
+            <input type="date" class="form-control" name="order_date" id="ShirtOrderDate" name="shirt_Order_Date"/>
           </div>
+          <!--pick up date-->
           <div class="form-group" style="padding-top: 20px"> 
             <label class="control-label" for="pickUpDate">Pick-up Date:</label>
-            <input class="form-control" id="pickUpDate" name="pickUpDate" placeholder="MM/DD/YYYY" type="text"/>
+            <input type="date" class="form-control" id="PickUpDate" name="pickup_date"/>
           </div>
+          <!--first aid & cpr date & time -->
           <div class="form-group" style="padding-top: 20px"> 
-            <label class="control-label" for="first-aid&CPR_date&time">First Aid & CPR Date & Time:</label>
-            <input class="form-control" id="first-aid&CPR_date&time" name="first-aid&CPR_date&time" placeholder="MM/DD/YYYY 00:00" type="text"/>
+            <label class="control-label" for="FirstAidandCPRDateandTime">First Aid & CPR Date & Time:</label>
+            <input type="datetime-local" class="form-control" id="FirstAidandCPRDateandTime" name="fa_and_cpr_dt"/>
           </div>
+          <!--first aid & cpr location & contact -->
           <div class="form-group" style="padding-top: 20px">
-            <label for="first-aid&CPR_loc&contact">First Aid & CPR Location & Contact: </label>
-            <textarea class="form-control" id="first-aid&CPR_loc&contact" rows="3"></textarea>
+            <label for="FirstAidandCPRLocandContact">First Aid & CPR Location & Contact: </label>
+            <textarea type="text" class="form-control" id="FirstAidandCPRLocandContact" name="fa_and_cpr_contact"
+                      rows="3"></textarea>
           </div>
+          <!--certificate of first aid & cpr received date-->
           <div class="form-group" style="padding-top: 20px">
-            <label for="certificateReceiveMark">Certificate Receive Mark:</label>
-            <input type="mark" class="form-control" id="certificateReceiveMark"/>
+            <label for="CertificateReceiveDate">Certificate of First Aid & CPR Receive Date:</label>
+            <input type="date" class="form-control" id="CertificateReceiveDate" name="cert_fa_cpr_receive"/>
           </div>
+          <!--handbook receive date-->
           <div class="form-group" style="padding-top: 20px"> 
-            <label class="control-label" for="hankbookReceiveDate">Hankbook Receive Date:</label>
-            <input class="form-control" id="hankbookReceiveDate" name="hankbookReceiveDate" placeholder="MM/DD/YYYY" type="text"/>
+            <label class="control-label" for="HankbookReceiveDate">Hankbook Receive Date:</label>
+            <input type="date" class="form-control" id="HankbookReceiveDate" name="handbook_receive"/>
           </div>
+          <!--acknowledgement and agreement form signed -->
           <div class="form-group" style="padding-top: 20px">
-            <div class="col-sm-6">
-              <label for="acknowledgement&agreement_signed">Acknowledgement and Agreement Form Signed:</label>
-                <div id="acknowledgement&agreement_signed" class="row" style="padding-top: 10px">
-                  <div class="col-sm-6">
-                    <label class="radio-inline">
-                    <input name="y-or-n" id="yes" value="yes" type="radio"/> YES</label>
-                  </div>
-                  <div class="col-sm-6">
-                    <label class="radio-inline">
-                    <input name="y-or-n" id="no" value="no" type="radio"/> NO</label>
-                  </div>
+            <label for="AcknowledgementAndAgreementSigned">Acknowledgement and Agreement Form Signed:</label>
+              <div id="AcknowledgementAndAgreementSigned" class="row" style="padding-top: 10px">
+                <div class="col-sm-6">
+                  <label class="radio-inline">
+                  <input name="ack_and_agr" id="AcknowledgementAndAgreementSigned" value="yes" type="radio"/>
+                      YES</label>
+                 </div>
+                <div class="col-sm-6">
+                  <label class="radio-inline">
+                  <input name="ack_and_agr" id="AcknowledgementAndAgreementSigned" value="no" type="radio"/>
+                      NO</label>
                 </div>
-            </div>
+              </div>
+          </div>
+          <!--medical file received-->
             <div class="form-group" style="padding-top: 20px">
-            <div class="col-sm-6">
-              <label for="medicalFileReceived">Medical File (Vaccinations) Received:</label>
-                <div id="acknowledgement&medicalFileReceived" class="row" style="padding-top: 10px">
+              <label for="AcknowledgementAndMedicalFileReceived">Medical File (Vaccinations) Received:</label>
+                <div name="acknowledgement_And_Medical_File_Received" id="AcknowledgementAndMedicalFileReceived" class="row" style="padding-top: 10px">
                   <div class="col-sm-6">
                     <label class="radio-inline">
-                    <input name="y-or-n" id="yes" value="yes" type="radio"/> YES</label>
+                    <input name="medical_file" id="AcknowledgementAndMedicalFileReceived" value="yes" type="radio"/>
+                        YES</label>
                   </div>
                   <div class="col-sm-6">
                     <label class="radio-inline">
-                    <input name="y-or-n" id="no" value="no" type="radio"/> NO</label>
+                    <input name="medical_file" id="AcknowledgementAndMedicalFileReceived" value="no" type="radio"/>
+                        NO</label>
                   </div>
                 </div>
             </div>
+            <!--submit button-->
             <div class="form-group" style="padding-top: 20px; padding-bottom: 10px">
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <input type="submit" name="add_ppes" class="btn btn-primary" value="ADD">
             </div>
         </form>
       </div>
     </div>
   </div>
-</body>
+  
