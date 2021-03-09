@@ -1,26 +1,23 @@
 <?php
 include "v_masterPage_header.php";
+?>
 
-?>
-<?php
-include "v_masterPage_sidebar.php";
-?>
 
 <div class="container" style="padding-top: 20px">
     <div class="row">
         <div class="col-xs-12">
-            <h2 style="text-align: center; padding-top: 10px">Enrollment Brief Summary</h2>
+            <h2 style="padding-top: 10px">Enrollment Brief Summary</h2>
             <!--Form starts-->
             <form action="" method="">
                 <!--phone number-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="phone">Contact Number:</label>
-                    <input name="phone" class="form-control" id="phone"/>
+                    <input type="text" name="phone" class="form-control" id="phone"/>
                 </div>
                 <!--email-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="Email">Email Address:</label>
-                    <input name="Email" class="form-control" id="email"/>
+                    <input type="text" name="Email" class="form-control" id="email"/>
                 </div>
                 <!--dom or int student radio button-->
                 <div class="form-group" style="padding-top: 20px">
@@ -28,12 +25,12 @@ include "v_masterPage_sidebar.php";
                     <div name="Dom_OR_Int" id="DomORInt" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="Dom_OR_Int" id="DomORInt" type="radio"/> Domestic
+                                <input name="Dom_OR_Int" id="DomORInt" value="domestic" type="radio"/> Domestic
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="Dom_OR_Int" id="DomORInt" type="radio"/> International
+                                <input name="Dom_OR_Int" id="DomORInt" value="international" type="radio"/> International
                             </label>
                         </div>
                     </div>
@@ -41,7 +38,7 @@ include "v_masterPage_sidebar.php";
                 <!--enrollment notes-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="emrollmentNotes">Emrollment Notes:</label>
-                    <textarea class="form-control" name="Enroll_Notes" id="emrollmentNotes" rows="5"></textarea>
+                    <textarea type="text" class="form-control" name="Enroll_Notes" id="emrollmentNotes" rows="5"></textarea>
                 </div>
                 <!--submit button-->
                 <div class="form-group" style="padding-top: 20px">

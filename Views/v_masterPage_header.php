@@ -15,6 +15,8 @@
     <!-- jQuery CDN -->
     <script src="js/jquery-1.12.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <!--Custom JS-->
+    <script src="js/javascript.js"></script>
 </head>
 
 <!-- Header Section -->
@@ -32,9 +34,10 @@
 
         </div>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div style="float: left; padding: 10px;">
-                <form action="?action=v_search_res" method="POST">
-                    <input type="text" placeholder="Search.." name="keyword">
+
+            <div style="float: left; padding: 13px;">
+                <form class="search-form" action="?action=c_search" method="POST" style="flex-grow: 1">
+                    <input type="text" placeholder="@student name OR #student id" name="keyword">
                     <input type="submit" name="search" class="btn btn-light" value="GO!">
                 </form>
             </div>

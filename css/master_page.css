@@ -281,12 +281,13 @@ a.article, a.article:hover {
 /* ---------------------------------------------------
     FOOTER STYLE
 ----------------------------------------------------- */
-.footer {
-   position: fixed;
+.footer{
+   /*position: fixed;
    left: 0;
-   bottom: 0;
+   bottom: 0;*/
    width: 100%;
    background-color: white;
    color: #212529;
-   text-align: center;
+   text-align: left;
 }
+

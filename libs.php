@@ -12,5 +12,5 @@
     require_once "Models/m_session.php";
     require_once "Models/m_student.php";
     require_once "Models/m_requirement.php";
-
+    require_once "Views/v_form.php";
     require_once "src/fpdf.php";

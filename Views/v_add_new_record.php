@@ -7,13 +7,7 @@ include "v_masterPage_sidebar.php";
 
 <div id="mainContent">
     <h4>add new records</h4>
-    <?php
-    $studentTrackingTable = $model->get_type('studenttracking');
-    $view->display_form("","form","Student Tracking table","","",'studenttracking',$model);
-    ?>
-
-    <?php
-    $studentTable = $model->get_type('students');
-    $view->display_form("","form","Student table","","",'students',$model);
-    ?>
+    <a href="?action=v_priorToPracticeEducation_form">Add practice to education </a><br>
+    <a href="?action=v_admPriorToStartDate_form">Add admission Prior to Start Date </a><br>
+    <a href="?action=v_graduation_form">Add graduation </a><br>
 </div>

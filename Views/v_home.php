@@ -4,6 +4,7 @@ include "v_masterPage_header.php";
 <?php
 include "v_masterPage_sidebar.php";
 ?>
+
  <div id="mainContent">
     <table>
         <tr>
@@ -21,4 +22,11 @@ include "v_masterPage_sidebar.php";
             <td><?=$_SESSION['user']['email']?></td>
         </tr>
     </table>
+
+     <?php
+     if($_SESSION['user']['admin'] == 1) {
+         $view->display_as_table_multi_rows("requestsTable", "table", 'requests', [], $model);
+     }
+     ?>
  </div>
+
