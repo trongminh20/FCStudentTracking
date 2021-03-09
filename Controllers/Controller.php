@@ -7,7 +7,7 @@ class Controller
     {
     }
 
-    public function index($dr, $model)
+    public function index($dr, Model $model)
     {
         $action = $dr[0];
         switch ($action) {
@@ -22,7 +22,7 @@ class Controller
         }
     }
 
-    function c_search($model)
+    private function c_search(Model $model)
     {
         $keyword = $_POST['keyword'];
         if ($keyword[0] == '@' || $keyword[0] == '#') {
@@ -35,7 +35,7 @@ class Controller
 
     }
 
-    private function c_login($model)
+    private function c_login(Model $model)
     {
         if (isset($_POST['submit'])) {
             $username = $_POST['username'];
@@ -60,7 +60,9 @@ class Controller
                 $user->set_role($data['admin']);
 
                 // assign User's information from database -> $_SESSION
+                $_SESSION['session_id'] = rand(1000, 9999);
                 $_SESSION['user'] = $user->to_array();
+                $_SESSION['login'] = date('Y-m-d H:i:s');
                 header("Location:?action=v_home");
             } else {
                 $_SESSION['error'] = 'invalid password or username';
@@ -69,14 +71,28 @@ class Controller
         }
     }
 
-    private function c_add_user($model)
+    private function c_logout(Model $model)
     {
-        $id = $_POST['ID'];
-        $username = $_POST['Username'];
-        $password = $_POST['Password'];
-        $email = $_POST['Email'];
-        $phone = $_POST['Phone'];
-        $department = $_POST['Department'];
+        if (isset($_POST['logout'])) {
+            $data = ['session_id' => $_SESSION['session_id'],
+                'user_id' => $_SESSION['user']['id'],
+                'created' => $_SESSION['login'],
+                'logout' => date('Y-m-d H:i:s')
+            ];
+            $model->insert('sessions', $data);
+            session_destroy();
+            header("Location:?action=v_logout");
+        }
+    }
+
+    private function c_add_user(Model $model)
+    {
+        $id = $_POST['id'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
+        $department = $_POST['department'];
 
         $user = new Employee();
         $user->Employee($id, $username, $password, $email, $phone, $department);
@@ -84,7 +100,7 @@ class Controller
         header("Location:?action=v_user_manage");
     }
 
-    private function c_update_info($model)
+    private function c_update_user_info(Model $model)
     {
         $data = $_POST;
         unset($data['edit']);
@@ -93,7 +109,7 @@ class Controller
         header("Location:?action=v_user_manage");
     }
 
-    private function c_change_pass($model)
+    private function c_change_pass(Model $model)
     {
         $newPass = $_POST['new_pass'];
         $_SESSION['user']['password'] = $newPass;
@@ -109,7 +125,7 @@ class Controller
         header("Location:?action=v_change_password");
     }
 
-    private function c_delete_user($model)
+    private function c_delete_user(Model $model)
     {
         $model->delete('requests', 'username', $_POST['Username']);
         $model->delete('employees', 'ID', $_POST['ID']);
@@ -117,44 +133,109 @@ class Controller
         header("Location:?action=v_user_manage");
     }
 
-    private function c_forgot_password($model)
+    private function c_forgot_password(Model $model)
     {
         $username = $_POST['username'];
 
-        $check = $model->select_user($username);
+        $check = $model->select_single_row('employees', ['username' => $username]);
+        if ($check) {
+            $request = new Request($username, 'Reset password');
 
-        $request = new Request($username, 'Reset password');
+            $model->request_reset_password($request);
 
-        $model->request_reset_password($request);
+            $_SESSION['error'] = 'YOU REQUEST HAS SENT';
 
-        $_SESSION['error'] = 'YOU REQUEST HAS SENT';
+            header("Location:?action=v_login");
+        } else {
+            $_SESSION['forget_password'] = 'YOUR USERNAME IS NOT VALID';
+            header("Location:?action=v_forgot_password");
 
-        header("Location:?action=v_login");
+        }
+
     }
 
-    private function c_reset_pass($model)
+    private function c_reset_pass(Model $model)
     {
-        $id = $_POST['ID'];
+        $id = $_POST['id'];
 
-        $data = ['Password' => $_POST['Phone']];
+        $data = ['password' => $_POST['phone']];
 
         $model->change_info('employees', $data, $id);
 
-        $_SESSION['manage_info'] = $_POST['Username'] . "'s password has been reseted to phone number ";
+        $_SESSION['manage_info'] = $_POST['Username'] . "'s password has been reset to phone number ";
 
         header("Location:?action=v_user_manage");
     }
 
-    private function pdf_generator()
+    private function c_to_report(Model $model)
     {
-
+        $id = $_POST['stu_id'];
+        $programId = $_POST['prog_id'];
+        $_SESSION['student'] = [ 'stu_id' => $id,
+            'prog_id' => $programId ];
+        header("Location:?action=v_report");
     }
 
-    private function c_logout()
+     private function c_add_apsds(Model $model)
     {
-        if (isset($_POST['logout'])) {
-            session_destroy();
-            header("Location:?action=v_logout");
+        if (isset($_POST['add_apsds'])) {
+            $data = $_POST;
+            $data['rmt_stu_materials'] = implode(", ", $data['rmt_stu_materials']);
+            unset($data['add_apsds']);
+            $model->insert('apsds', $data);
+            header("Location:?action=v_admPriorToStartDate_form");
         }
     }
+
+    private function c_add_ppe(Model $model)
+    {
+        if (isset($_POST['add_ppes'])) {
+            $data = $_POST;
+            unset($data['add_ppes']);
+            $model->insert('ppes', $data);
+            header("Location:?action=v_priorToPracticeEducation_form");
+        }
+    }
+
+    private function c_add_grad(Model $model)
+    {
+        if (isset($_POST['add_grad'])) {
+            $data = $_POST;
+            unset($data['add_grad']);
+            $model->insert('graduations', $data);
+            header("Location:?action=v_graduation_form");
+        }
+    }
+
+    /**
+     *generate pdf for invoice
+     */
+    private function c_generate_invoice()
+    {
+    }
+
+    /**
+     * generate report pdf
+     */
+    private function c_generate_report_pdf()
+    {
+
+    }
+
+    /**
+     *generate report .docx
+     */
+    private function c_generate_report_docx()
+    {
+
+    }
+
+    /**
+     *auto sending email attaching invoice to student
+     */
+    private function c_sending_mail()
+    {
+    }
+
+
 }

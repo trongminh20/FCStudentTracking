@@ -99,8 +99,8 @@ class View
      * @param $listOfUnsetCols an array of the cols that won't be displayed
      * @param $model is the current Model
      */
-    public function display_as_table($id = "", $class = "",
-                                     $table, $listOfUnsetCols, $model)
+    public function display_as_table_multi_rows($id = "", $class = "",
+                                                $table, $listOfUnsetCols, $model)
     {
         $count = 0;
         $data = $model->select_displayed_data($table, $listOfUnsetCols);
@@ -127,6 +127,33 @@ class View
         echo "</table><br>";
     }
 
+    public function display_as_table_single_row($table, $data, Model $model){
+        $arr = $model -> select_single_row($table, $data);
+        if($table == 'apsds' || $table == 'ppes' || $table == 'graduations'){
+            if(isset($arr['student_id'])){
+                unset($arr['student_id']);
+            }
+        }
+        echo "<table>";
+        foreach($arr as $k => $v){
+            echo "<tr>";
+            echo "<td>$k</td>";
+            if($v == NULL){
+                echo "<td>Not Available</td>";
+            }else if(gettype($v) == "array"){
+                echo "<td>";
+                foreach($v as $d){
+                    echo $d.", " ;
+                }
+                echo "</td>";
+            }
+            else {
+                echo "<td>$v</td>";
+            }
+            echo "</tr>";
+        }
+        echo "</table>";
+    }
     /**
      * auto generate a table with Edit and Delete buttons
      * @param string $id

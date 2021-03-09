@@ -47,13 +47,10 @@ class Database
      * @param $id
      * @return array
      */
-    public function select_by_id($table, $id)
-    {
-        $query = "SELECT * FROM $table WHERE id = ?";
-        $stm = $this->pdo->prepare($query);
-        $stm->execute([$id]);
-        return $stm->fetch(PDO::FETCH_ASSOC);
-    }
+//    public function select_by_id($table, $data)
+//    {
+//        $this->select($table,$data);
+//    }
 
     /**
      * check if the user existed
@@ -94,7 +91,7 @@ class Database
      * @param $data as an Array that we got from toArray()
      * @return false|string
      */
-    function insert($table, $data)
+    function insert_single_row($table, $data)
     {
         //key from array
         $fields = array_keys($data);
@@ -146,18 +143,25 @@ class Database
      */
     function delete($table, $col, $val)
     {
-
         $query = "DELETE FROM " . $table . " WHERE $col = ?";
         $stm = $this->pdo->prepare($query);
         $stm->execute([$val]);
-
     }
-    function select($table, $keywords){
-        $cols = array_keys($keywords);
-        $vals = array_values($keywords);
+
+    /**
+     * select single rows
+     * @param $table
+     * @param $data is formatted as [column name => value]
+     * @return mixed
+     */
+    function select($table, $data){
+        $cols = array_keys($data);
+
+        $vals = array_values($data);
+
         $marks = "";
 
-        for($i = 0; $i < count($keywords); $i++){
+        for($i = 0; $i < count($data); $i++){
             $marks .= $cols[$i]." = ?";
         }
         $query = "SELECT * FROM $table WHERE ". $marks;
@@ -165,7 +169,6 @@ class Database
         $stm = $this->pdo->prepare($query);
         $stm->execute($vals);
         return $stm->fetch(PDO::FETCH_ASSOC);
-//        return $query;
     }
 
     /**
