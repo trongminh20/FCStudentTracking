@@ -155,20 +155,29 @@ class Database
      * @return mixed
      */
     function select($table, $data){
-        $cols = array_keys($data);
+        if($data == NULL){
+            $query = "SELECT * FROM ".$table;
 
-        $vals = array_values($data);
+            $stm = $this->pdo->prepare($query);
+            $stm->execute();
+            return $stm->fetchAll(PDO::FETCH_ASSOC);
+        }else {
 
-        $marks = "";
+            $cols = array_keys($data);
 
-        for($i = 0; $i < count($data); $i++){
-            $marks .= $cols[$i]." = ?";
+            $vals = array_values($data);
+
+            $marks = "";
+
+            for ($i = 0; $i < count($data); $i++) {
+                $marks .= $cols[$i] . " = ?";
+            }
+            $query = "SELECT * FROM $table WHERE " . $marks;
+
+            $stm = $this->pdo->prepare($query);
+            $stm->execute($vals);
+            return $stm->fetchAll(PDO::FETCH_ASSOC);
         }
-        $query = "SELECT * FROM $table WHERE ". $marks;
-
-        $stm = $this->pdo->prepare($query);
-        $stm->execute($vals);
-        return $stm->fetch(PDO::FETCH_ASSOC);
     }
 
     /**

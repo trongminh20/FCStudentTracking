@@ -99,61 +99,83 @@ class View
      * @param $listOfUnsetCols an array of the cols that won't be displayed
      * @param $model is the current Model
      */
-    public function display_as_table_multi_rows($id = "", $class = "",
-                                                $table, $listOfUnsetCols, $model)
+//    public function display_as_table_multi_rows($id = "", $class = "",
+//                                                $table, $listOfUnsetCols, $model)
+//    {
+//        $count = 0;
+//        $data = $model->select_displayed_data($table, $listOfUnsetCols);
+//        echo "<table id='$id' class='$class'>";
+//
+//        foreach ($data as $d) {
+//            echo "<tr>";
+//            foreach ($d as $key => $vals) {
+//                if ($count < count($d)) {
+//                    echo "<td>$key</td>";
+//                } else {
+//                    echo "<td></td>";
+//                }
+//                $count += 1;
+//            }
+//            echo "</tr><tr>";
+//
+//            foreach ($d as $key => $vals) {
+//                echo "<td>$vals</td>";
+//            }
+//            echo "</tr>";
+//        }
+//
+//        echo "</table><br>";
+//    }
+//
+    public function display_as_table_multi_rows($id = "", $class = "", $data)
     {
         $count = 0;
-        $data = $model->select_displayed_data($table, $listOfUnsetCols);
-        echo "<table id='$id' class='$class'>";
-
-        foreach ($data as $d) {
+        echo "<table>";
+        foreach ($data as $d):
             echo "<tr>";
-            foreach ($d as $key => $vals) {
+            foreach ($d as $k => $v):
                 if ($count < count($d)) {
-                    echo "<td>$key</td>";
-                } else {
-                    echo "<td></td>";
+                    echo "<td>" . $k . "</td>";
                 }
-                $count += 1;
-            }
+                $count++;
+            endforeach;
             echo "</tr><tr>";
-
-            foreach ($d as $key => $vals) {
-                echo "<td>$vals</td>";
+            foreach ($d as $k => $v) {
+                echo "<td>" . $v . "</td>";
             }
             echo "</tr>";
-        }
-
-        echo "</table><br>";
+        endforeach;
+        echo "</table>";
     }
 
-    public function display_as_table_single_row($table, $data, Model $model){
-        $arr = $model -> select_single_row($table, $data);
-        if($table == 'apsds' || $table == 'ppes' || $table == 'graduations'){
-            if(isset($arr['student_id'])){
+    public function display_as_table_single_row($table, $data, Model $model)
+    {
+        $arr = $model->select($table, $data);
+        if ($table == 'apsds' || $table == 'ppes' || $table == 'graduations') {
+            if (isset($arr['student_id'])) {
                 unset($arr['student_id']);
             }
         }
         echo "<table>";
-        foreach($arr as $k => $v){
+        foreach ($arr as $k => $v) {
             echo "<tr>";
             echo "<td>$k</td>";
-            if($v == NULL){
+            if ($v == NULL) {
                 echo "<td>Not Available</td>";
-            }else if(gettype($v) == "array"){
+            } else if (gettype($v) == "array") {
                 echo "<td>";
-                foreach($v as $d){
-                    echo $d.", " ;
+                foreach ($v as $d) {
+                    echo $d . ", ";
                 }
                 echo "</td>";
-            }
-            else {
+            } else {
                 echo "<td>$v</td>";
             }
             echo "</tr>";
         }
         echo "</table>";
     }
+
     /**
      * auto generate a table with Edit and Delete buttons
      * @param string $id

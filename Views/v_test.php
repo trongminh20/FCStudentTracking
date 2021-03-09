@@ -1,11 +1,4 @@
 <?php
-//print_r($_POST);
 
-if(isset($_POST['add_ppes'])){
-    $data = $_POST;
-    unset($data['add_ppes']);
-    foreach($data as $k => $v ):
-        echo $k ." => " . $v."<br>";
-    endforeach;
-    $database -> insert_single_row('ppes',$data );
-}
+$data = $model -> select('requests',NULL);
+$view->display_as_table_multi_rows("","",$data);

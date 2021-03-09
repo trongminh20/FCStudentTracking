@@ -140,7 +140,7 @@ class Model
      * @param $data is an array [columns => value]
      * @return mixed
      */
-    function select_single_row($table, $data){
+    function select($table, $data){
         return $this->db->select($table, $data);
     }
 

@@ -130,9 +130,9 @@ class Controller
 
     private function c_delete_user(Model $model)
     {
-        $model->delete('requests', 'username', $_POST['Username']);
-        $model->delete('employees', 'ID', $_POST['ID']);
-        $_SESSION['manage_info'] = $_POST['Username'] . " has been deleted";
+        $model->delete('requests', 'username', $_POST['username']);
+        $model->delete('employees', 'id', $_POST['id']);
+        $_SESSION['manage_info'] = $_POST['username'] . " has been deleted";
         header("Location:?action=v_user_manage");
     }
 
