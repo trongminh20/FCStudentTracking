@@ -7,7 +7,6 @@ $number = $database->select_count('invoice');
 ?>
 <div id="mainContent">
     <form class="" id="" action="?action=v_generate_invoice" method="POST">
-
         <table class="table">
             <thead>
             <tr>
@@ -17,7 +16,6 @@ $number = $database->select_count('invoice');
                     (PAID)
                 </td>
                 <td></td>
-
                 <td>Date: <?= date('d-m-Y') ?></td>
             </tr>
             <tr>
@@ -65,7 +63,8 @@ $number = $database->select_count('invoice');
                     ();">
                 </td>
                 <td>
-                    <input id='' class='total' type='number' name='total[]' value='' onchange="calculate_total();" readonly>
+                    <input id='' class='total' type='number' name='total[]' value='' onchange="calculate_total();"
+                           readonly>
                 </td>
             </tr>
             <tr>
@@ -82,7 +81,8 @@ $number = $database->select_count('invoice');
                     ();">
                 </td>
                 <td>
-                    <input id='' class='total' type='number' name='total[]' value='' onchange="calculate_total();" readonly>
+                    <input id='' class='total' type='number' name='total[]' value='' onchange="calculate_total();"
+                           readonly>
                 </td>
             </tr>
             <tr>
@@ -98,7 +98,8 @@ $number = $database->select_count('invoice');
                     ();">
                 </td>
                 <td>
-                    <input id='' class='total' type='number' name='total[]' value='' onchange="calculate_total();" readonly>
+                    <input id='' class='total' type='number' name='total[]' value='' onchange="calculate_total();"
+                           readonly>
                 </td>
             </tr>
             <tr>
@@ -114,7 +115,8 @@ $number = $database->select_count('invoice');
                     ();">
                 </td>
                 <td>
-                    <input id='' class='total' type='number' name='total[]' value='' onchange="calculate_total();" readonly>
+                    <input id='' class='total' type='number' name='total[]' value='' onchange="calculate_total();"
+                           readonly>
                 </td>
             </tr>
             </tbody>
@@ -173,7 +175,6 @@ $number = $database->select_count('invoice');
             qty = 0;
             price = 0;
             total = 0;
-
         });
     }
 </script>

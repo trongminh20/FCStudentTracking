@@ -6,7 +6,9 @@ include "v_masterPage_sidebar.php";
 ?>
 
  <div id="mainContent">
-    <table>
+    <?php
+    ?>
+     <table>
         <tr>
             <td>
                 <img src="images/img_avatar.png" alt="logo" width="300px" height="300px">
@@ -25,8 +27,16 @@ include "v_masterPage_sidebar.php";
 
      <?php
      if($_SESSION['user']['admin'] == 1) {
-         $view->display_as_table_multi_rows("requestsTable", "table", 'requests', [], $model);
+         $data = $model -> select('requests',NULL);
+         $view->display_as_table("requestsTable","", $data);
      }
+     ?>
+
+     <?php
+        $data = $model -> select('sessions', ['user_id' => $_SESSION['user']['id']]);
+
+        $view-> display_as_table('sessions', ['user_id' => $_SESSION['user']['id']],$model);
+
      ?>
  </div>
 

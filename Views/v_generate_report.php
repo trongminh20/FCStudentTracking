@@ -3,7 +3,7 @@
 
 $studentID = $_POST['stu_id'];
 $programID = $_POST['prog_id'];
-$data = $model->select_single_row('students', ['id' => $studentID]);
+$data = $model->select('students', ['id' => $studentID]);
 ?>
 <table>
     <thead>
@@ -48,7 +48,7 @@ $data = $model->select_single_row('students', ['id' => $studentID]);
 </table><br>
 
 <?php
-$data = $model->select_single_row('apsds', ['student_id' => $studentID]);
+$data = $model->select('apsds', ['student_id' => $studentID]);
 ?>
 <table>
     <thead>
@@ -169,7 +169,7 @@ $data = $model->select_single_row('apsds', ['student_id' => $studentID]);
 </table><br>
 
 <?php
-$ppes= $model->select_single_row('ppes', ['student_id' => $studentID]);
+$ppes= $model->select('ppes', ['student_id' => $studentID]);
 ?>
 <table>
     <thead>
@@ -225,7 +225,7 @@ $ppes= $model->select_single_row('ppes', ['student_id' => $studentID]);
     </tbody>
 </table><br>
 <?php
-$grad = $model->select_single_row('graduations', ['student_id' => $studentID]);
+$grad = $model->select('graduations', ['student_id' => $studentID]);
 ?>
 <table>
     <thead>

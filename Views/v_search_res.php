@@ -34,7 +34,6 @@ unset($_SESSION['search_result']);
         </tr>
         </thead>
         <tbody>
-
         <tr>
             <td><?= $students['id'] ?></td>
             <td><?= $students['prog_id'] ?></td>
