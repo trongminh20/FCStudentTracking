@@ -13,13 +13,14 @@ include "v_masterPage_sidebar.php";
 				<div class="form-group" style="padding-top: 20px">
             		<label for="selectSection">Select Section to Insert:</label>
             		<select class="form-control" name="select_Section" id="selectSection">
+            			<option value="Enrollment Brief Summary">Enrollment Brief Summary</option>
                 		<option value="Admission Prior to Start Date">Admission Prior to Start Date</option>
                 		<option value="Prior to Practice Education">Prior to Practice Education</option>
                 		<option value="Graduation">Graduation</option>
+                		<option value="Payment Tracking">Payment Tracking</option>
             		</select>
-            		<div class="form-group" style="padding-top: 20px; padding-bottom: 10px">
-                		<input type="submit" name='add_record' value='ADD' class="btn
-              		btn-primary">
+            		<div class="form-group" style="padding-top: 20px">
+                		<input type="submit" name='add_record' value='Submit' class="btn btn-primary">
             		</div>
 				</div>
 			</form>
@@ -28,10 +29,8 @@ include "v_masterPage_sidebar.php";
 </div>
 
 
-
-?>
-
+<!--
     <a href="?action=v_priorToPracticeEducation_form">Add practice to education </a><br>
     <a href="?action=v_admPriorToStartDate_form">Add admission Prior to Start Date </a><br>
     <a href="?action=v_graduation_form">Add graduation </a><br>
-</div>
+-->
