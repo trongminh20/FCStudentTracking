@@ -33,9 +33,9 @@ include "v_masterPage_sidebar.php";
      ?>
 
      <?php
-        $data = $model -> select_single_row('sessions', ['user_id' => $_SESSION['user']['id']]);
+        $data = $model -> select('sessions', ['user_id' => $_SESSION['user']['id']]);
 
-        $view-> display_as_table_single_row('sessions', ['user_id' => $_SESSION['user']['id']],$model);
+        $view-> display_as_table('sessions', ['user_id' => $_SESSION['user']['id']],$model);
 
      ?>
  </div>
