@@ -88,69 +88,30 @@ class View
         echo "</form>";
     }
 
-    /**
-     * Display data from the chosen table with wanted columns
-     * @param string $id
-     * @param string $class
-     * @param $table the chosen table
-     * @param $listOfUnsetCols an array of the cols that won't be displayed
-     * @param $model is the current Model
-     */
-    public function display_as_table_multi_rows($id = "", $class = "",
-                                                $table, $listOfUnsetCols, $model)
+
+
+    public function display_as_table($id = "", $class = "", $data)
     {
         $count = 0;
-        $data = $model->select_displayed_data($table, $listOfUnsetCols);
-        echo "<table id='$id' class='$class'>";
-
-        foreach ($data as $d) {
-            echo "<tr>";
-            foreach ($d as $key => $vals) {
-                if ($count < count($d)) {
-                    echo "<td>$key</td>";
-                } else {
-                    echo "<td></td>";
-                }
-                $count += 1;
-            }
-            echo "</tr><tr>";
-
-            foreach ($d as $key => $vals) {
-                echo "<td>$vals</td>";
-            }
-            echo "</tr>";
-        }
-
-        echo "</table><br>";
-    }
-
-    public function display_as_table_single_row($table, $data, Model $model){
-        $arr = $model -> select_single_row($table, $data);
-        if($table == 'apsds' || $table == 'ppes' || $table == 'graduations'){
-            if(isset($arr['student_id'])){
-                unset($arr['student_id']);
-            }
-        }
         echo "<table>";
-        foreach($arr as $k => $v){
+        foreach ($data as $d):
             echo "<tr>";
-            echo "<td>$k</td>";
-            if($v == NULL){
-                echo "<td>Not Available</td>";
-            }else if(gettype($v) == "array"){
-                echo "<td>";
-                foreach($v as $d){
-                    echo $d.", " ;
+            foreach ($d as $k => $v):
+                if ($count < count($d)) {
+                    echo "<td>" . $k . "</td>";
                 }
-                echo "</td>";
-            }
-            else {
-                echo "<td>$v</td>";
+                $count++;
+            endforeach;
+            echo "</tr><tr>";
+            foreach ($d as $k => $v) {
+                echo "<td>" . $v . "</td>";
             }
             echo "</tr>";
-        }
+        endforeach;
         echo "</table>";
     }
+
+
     /**
      * auto generate a table with Edit and Delete buttons
      * @param string $id
@@ -164,7 +125,6 @@ class View
                                                      $actionForReset, $data)
     {
         $count = 0;
-
         echo "<table id='$id' class='$class'>";
         //display table header
         foreach ($data as $d) {
@@ -178,7 +138,6 @@ class View
                 $count += 1;
             }
             echo "</tr><tr>";
-
             //display table content
             foreach ($d as $key => $vals) {
                 echo "<td>$vals</td>";

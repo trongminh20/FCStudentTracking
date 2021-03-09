@@ -6,9 +6,12 @@ class Controller
     public function __construct()
     {
     }
-
+    private function set_time(){
+        date_default_timezone_set('Canada/Pacific');
+    }
     public function index($dr, Model $model)
     {
+        $this->set_time();
         $action = $dr[0];
         switch ($action) {
             case 'v':
@@ -135,7 +138,7 @@ class Controller
     {
         $username = $_POST['username'];
 
-        $check = $model->select_single_row('employees', ['username' => $username]);
+        $check = $model->select('employees', ['username' => $username]);
         if ($check) {
             $request = new Request($username, 'Reset password');
 
