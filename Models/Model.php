@@ -103,10 +103,6 @@ class Model
         return $type;
     }
 
-//    function select_by_id($table, $data)
-//    {
-//        return $this->db->select_by_id($table, $data);
-//    }
 
     /**
      * get type of columns of a table from database

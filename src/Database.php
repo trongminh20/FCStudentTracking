@@ -41,16 +41,6 @@ class Database
         return $stm->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    /**
-     * get one record from a existing table with specific ID
-     * @param $table
-     * @param $id
-     * @return array
-     */
-//    public function select_by_id($table, $data)
-//    {
-//        $this->select($table,$data);
-//    }
 
     /**
      * check if the user existed
@@ -66,12 +56,14 @@ class Database
         return $stm->rowCount();
     }
 
-    function select_count($table){
+    function select_count($table)
+    {
         $query = "SELECT DISTINCT COUNT(*) FROM $table";
         $stm = $this->pdo->prepare($query);
         $res = $stm->execute();
         return $res;
     }
+
     /**
      * not include pasword
      * @param $username
@@ -130,7 +122,7 @@ class Database
         $stm = $this->pdo->prepare($query);
         try {
             $stm->execute($vals);
-        }catch(PDOException $e){
+        } catch (PDOException $e) {
             echo $e->errorInfo;
         }
     }
@@ -154,26 +146,21 @@ class Database
      * @param $data is formatted as [column name => value]
      * @return mixed
      */
-    function select($table, $data){
-        if($data == NULL){
-            $query = "SELECT * FROM ".$table;
-
+    function select($table, $data)
+    {
+        if ($data == NULL) {
+            $query = "SELECT * FROM " . $table;
             $stm = $this->pdo->prepare($query);
             $stm->execute();
             return $stm->fetchAll(PDO::FETCH_ASSOC);
-        }else {
-
+        } else {
             $cols = array_keys($data);
-
             $vals = array_values($data);
-
             $marks = "";
-
             for ($i = 0; $i < count($data); $i++) {
                 $marks .= $cols[$i] . " = ?";
             }
             $query = "SELECT * FROM $table WHERE " . $marks;
-
             $stm = $this->pdo->prepare($query);
             $stm->execute($vals);
             return $stm->fetchAll(PDO::FETCH_ASSOC);
