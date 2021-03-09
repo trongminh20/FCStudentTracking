@@ -1,3 +1,6 @@
+drop database fc_student_tracking;
+create database fc_student_tracking;
+use fc_student_tracking;
 
 CREATE TABLE students
 (
@@ -111,7 +114,7 @@ CREATE TABLE ppes
     cert_fa_cpr_receive DATE,
     handbook_receive    DATE,
     ack_and_agr         VARCHAR(3),
-    medical_file        VARCHAR(3),
+    medical_file        VARCHAR(3)
 );
 
 CREATE TABLE graduations
