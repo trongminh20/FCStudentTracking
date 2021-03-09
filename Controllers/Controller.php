@@ -6,9 +6,12 @@ class Controller
     public function __construct()
     {
     }
-
+    private function set_time(){
+        date_default_timezone_set('Canada/Pacific');
+    }
     public function index($dr, Model $model)
     {
+        $this->set_time();
         $action = $dr[0];
         switch ($action) {
             case 'v':
@@ -44,19 +47,18 @@ class Controller
             $success = $model->sign_in($username, $password);
 
             if ($success == 1) {
-                $data = $model->select_user($username);
-
+                $data = $model->select_single_row('employees',['username'=>$username]);
                 if ($data['admin'] == 1) {
                     $user = new Admin();
                 } else if ($data['admin'] == 0) {
                     $user = new Employee();
                 }
 
-                $user->set_id($data['ID']);
-                $user->set_username($data['Username']);
-                $user->set_email($data['Email']);
-                $user->set_phone_number($data['Phone']);
-                $user->set_department($data['Department']);
+                $user->set_id($data['id']);
+                $user->set_username($data['username']);
+                $user->set_email($data['email']);
+                $user->set_phone_number($data['phone']);
+                $user->set_department($data['department']);
                 $user->set_role($data['admin']);
 
                 // assign User's information from database -> $_SESSION
@@ -104,7 +106,6 @@ class Controller
     {
         $data = $_POST;
         unset($data['edit']);
-
         $model->change_info('employees', $data, $data['ID']);
         header("Location:?action=v_user_manage");
     }
@@ -127,9 +128,9 @@ class Controller
 
     private function c_delete_user(Model $model)
     {
-        $model->delete('requests', 'username', $_POST['Username']);
-        $model->delete('employees', 'ID', $_POST['ID']);
-        $_SESSION['manage_info'] = $_POST['Username'] . " has been deleted";
+        $model->delete('requests', 'username', $_POST['username']);
+        $model->delete('employees', 'id', $_POST['id']);
+        $_SESSION['manage_info'] = $_POST['username'] . " has been deleted";
         header("Location:?action=v_user_manage");
     }
 
@@ -137,7 +138,7 @@ class Controller
     {
         $username = $_POST['username'];
 
-        $check = $model->select_single_row('employees', ['username' => $username]);
+        $check = $model->select('employees', ['username' => $username]);
         if ($check) {
             $request = new Request($username, 'Reset password');
 
@@ -149,9 +150,7 @@ class Controller
         } else {
             $_SESSION['forget_password'] = 'YOUR USERNAME IS NOT VALID';
             header("Location:?action=v_forgot_password");
-
         }
-
     }
 
     private function c_reset_pass(Model $model)
