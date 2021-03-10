@@ -7,6 +7,7 @@ include "v_masterPage_sidebar.php";
 
  <div id="mainContent">
     <?php
+    print_r($_SESSION['user'])
     ?>
      <table>
         <tr>
@@ -14,7 +15,8 @@ include "v_masterPage_sidebar.php";
                 <img src="images/img_avatar.png" alt="logo" width="300px" height="300px">
             </td>
             </tr>
-        <tr>
+
+         <tr>
             <td><?=$_SESSION['user']['username']?></td>
         </tr>
         <tr>

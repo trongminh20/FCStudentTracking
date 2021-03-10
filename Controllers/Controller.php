@@ -6,9 +6,12 @@ class Controller
     public function __construct()
     {
     }
-    private function set_time(){
+
+    private function set_time()
+    {
         date_default_timezone_set('Canada/Pacific');
     }
+
     public function index($dr, Model $model)
     {
         $this->set_time();
@@ -156,8 +159,9 @@ class Controller
     private function c_reset_pass(Model $model)
     {
         $id = $_POST['id'];
-
-        $data = ['password' => $_POST['phone']];
+        $number = rand(11, 99);
+        $newPass = $id . $number;
+        $data = ['password' => $newPass];
 
         $model->change_info('employees', $data, $id);
 
@@ -170,12 +174,12 @@ class Controller
     {
         $id = $_POST['stu_id'];
         $programId = $_POST['prog_id'];
-        $_SESSION['student'] = [ 'stu_id' => $id,
-            'prog_id' => $programId ];
+        $_SESSION['student'] = ['stu_id' => $id,
+            'prog_id' => $programId];
         header("Location:?action=v_report");
     }
 
-     private function c_add_apsds(Model $model)
+    private function c_add_apsds(Model $model)
     {
         if (isset($_POST['add_apsds'])) {
             $data = $_POST;
@@ -229,12 +233,6 @@ class Controller
 
     }
 
-    /**
-     *auto sending email attaching invoice to student
-     */
-    private function c_sending_mail()
-    {
-    }
 
-
+    
 }
