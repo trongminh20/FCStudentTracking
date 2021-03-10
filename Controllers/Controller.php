@@ -213,6 +213,31 @@ class Controller
         }
     }
 
+    private function c_invoice()
+    {
+        $data = $_POST;
+        $number = $data['number'];
+        $date = date('d-m-Y');
+        $billto = $data['billTo'];
+        $program = $data['program'];
+        $note = $data['note'];
+
+//array data
+        $quantity = $data['quantity'];
+        $description = $data['description'];
+        $unitPrice = $data['unitPrice'];
+        $total = $data['total'];
+        $subtotal = $data['subtotal'];
+        $footer = "Thank you for your choosing First College and Welcome!";
+        if (isset($_POST['preview'])) {
+            include("Views/v_preview_invoice.php");
+            exit();
+        } else if (isset($_POST['generate'])) {
+            include("Views/v_generate_invoice.php");
+            exit();
+        }
+    }
+
     /**
      *generate pdf for invoice
      */
@@ -237,5 +262,4 @@ class Controller
     }
 
 
-    
 }

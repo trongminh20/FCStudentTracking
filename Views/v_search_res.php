@@ -5,7 +5,7 @@ include "v_masterPage_header.php";
 include "v_masterPage_sidebar.php";
 
 
-$students = ((isset($_SESSION['search_result'])) ? $_SESSION['search_result'] : NULL);
+$students = ((isset($_SESSION['search_result'])) ? $_SESSION['search_result'] : []);
 unset($_SESSION['search_result']);
 
 ?>
@@ -34,7 +34,9 @@ unset($_SESSION['search_result']);
         </tr>
         </thead>
         <tbody>
-        <?php for ($i = 0; $i < count($students); $i++):
+        <?php
+
+            for ($i = 0; $i < count($students); $i++):
             ?>
             <tr>
                 <td><?= $students[$i]['id'] ?></td>
@@ -48,16 +50,16 @@ unset($_SESSION['search_result']);
                 <td><?= $students[$i]['admin_status'] ?></td>
                 <td>
                     <form action="?action=c_to_report" method="POST">
-                        <input type="hidden" name='stu_id' value="<?= $students['id']; ?>">
-                        <input type="hidden" name='prog_id' value="<?= $students['prog_id']; ?>">
+                        <input type="hidden" name='stu_id' value="<?= $students[$i]['id']; ?>">
+                        <input type="hidden" name='prog_id' value="<?= $students[$i]['prog_id']; ?>">
                         <input type="submit" name="submit" value="Report">
                     </form>
                 </td>
             </tr>
         <?php
         endfor;
+
         ?>
->>>>>>> origin/minhphan
         </tbody>
     </table>
 </div>

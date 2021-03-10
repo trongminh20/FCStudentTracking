@@ -1,21 +1,5 @@
 <?php
 
-$data = $_POST;
-
-
-$number = $data['number'];
-$date = date('d-m-Y');
-$billto = $data['billTo'];
-$program = $data['program'];
-$note = $data['note'];
-
-//array data
-$quantity = $data['quantity'];
-$description = $data['description'];
-$unitPrice = $data['unitPrice'];
-$total = $data['total'];
-$subtotal = $data['subtotal'];
-$footer = "Thank you for your choosing First College and Welcome!";
 
 $pdf = new FPDF();
 //basic initilize
@@ -88,20 +72,6 @@ $pdf->Cell(50, 10, "");
 $pdf->Cell(50, 10, "");
 $pdf->Cell(50, 10, "Welcome");
 
-if(isset($_POST['preview'])){
-    $pdf->Output("", $number . ".pdf", true);
-}
-elseif (isset($_POST['generate'])) {
-    $pdf->Output( "D","invoices/".$number . ".pdf", true);
-    $pdf->Output( "F","invoices/".$number . ".pdf", true);
 
-    if(isset($data['send_to_student'])) {
-        Mail::$toAddress = $data['student_email'];
-        Mail::$content = "<h1>This is testing email from invoice</h1>";
-        Mail::$attachment = "invoices/" . $number . ".pdf";
-        Mail::send_mail();
-    }
-    header("location:?action=v_invoice");
-}
-
+$pdf->Output("", $number . ".pdf", true);
 

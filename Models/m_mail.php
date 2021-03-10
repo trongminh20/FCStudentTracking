@@ -1,6 +1,8 @@
 <?php
 class Mail{
-
+    public static $toAddress;
+    public static $attachment;
+    public static $content;
     /**
      * sending email =
      * @param $to
@@ -11,7 +13,7 @@ class Mail{
      * @return bool
      * @throws phpmailerException
      */
-    public static function send_mail($to, $content)
+    public static function send_mail()
     {
 
         $mail = new PHPMailer();
@@ -30,9 +32,10 @@ class Mail{
         $mail->SetFrom('invoice.firstcollege@gmail.com');
         $mail->FromName = "First College";
         $mail->Subject = "Student Invoice";
-        $mail->MsgHTML($content);
+        $mail->MsgHTML(self::$content);
 
-        $mail->AddAddress($to, "");
+        $mail->AddAddress(self::$toAddress, "");
+        $mail->AddAttachment(self::$attachment);
         if (!$mail->Send()) {
             $_SESSION['mail_sending_error'] = $mail->ErrorInfo;
             exit();
