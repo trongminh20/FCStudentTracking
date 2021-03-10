@@ -35,9 +35,9 @@
         </div>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div style="float: left; padding: 13px;">
-                <form class="search-form" action="?action=c_search" method="POST" style="flex-grow: 1">
-                    <input type="text" placeholder="@student name OR #student id" name="keyword">
-                    <input type="submit" name="search" class="btn btn-light" value="GO!">
+                <form class="form-inline" action="?action=c_search" method="POST">
+                    <input class="form-control mr-sm-2" type="search" placeholder="@student name OR #student id" name="keyword" style="width:430px !important;">
+                    <button class="btn btn-outline-success my-2 my-sm-0" name="search" type="submit" value="Search">Search</button>
                 </form>
             </div>
             <ul class="nav navbar-nav navbar-right">
