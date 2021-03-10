@@ -6,15 +6,14 @@ include "v_masterPage_sidebar.php";
 ?>
 
  <div id="mainContent">
-    <?php
-    ?>
      <table>
         <tr>
             <td>
                 <img src="images/img_avatar.png" alt="logo" width="300px" height="300px">
             </td>
             </tr>
-        <tr>
+
+         <tr>
             <td><?=$_SESSION['user']['username']?></td>
         </tr>
         <tr>
@@ -26,6 +25,7 @@ include "v_masterPage_sidebar.php";
     </table>
 
      <?php
+     echo "<h3>Received Requests</h3>";
      if($_SESSION['user']['admin'] == 1) {
          $data = $model -> select('requests',NULL);
          $view->display_as_table("requestsTable","", $data);
@@ -33,9 +33,10 @@ include "v_masterPage_sidebar.php";
      ?>
 
      <?php
-        $data = $model -> select_single_row('sessions', ['user_id' => $_SESSION['user']['id']]);
 
-        $view-> display_as_table_single_row('sessions', ['user_id' => $_SESSION['user']['id']],$model);
+//        $data = $model -> select('sessions', ['user_id' => $_SESSION['user']['id']]);
+//
+//        $view-> display_as_table('sessions', ['user_id' => $_SESSION['user']['id']]);
 
      ?>
  </div>

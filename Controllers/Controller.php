@@ -6,9 +6,12 @@ class Controller
     public function __construct()
     {
     }
-    private function set_time(){
+
+    private function set_time()
+    {
         date_default_timezone_set('Canada/Pacific');
     }
+
     public function index($dr, Model $model)
     {
         $this->set_time();
@@ -47,19 +50,22 @@ class Controller
             $success = $model->sign_in($username, $password);
 
             if ($success == 1) {
-                $data = $model->select_single_row('employees',['username'=>$username]);
-                if ($data['admin'] == 1) {
+                $data = $model->select_user($username);
+
+                if ($data[0]['admin'] == 1) {
+
                     $user = new Admin();
-                } else if ($data['admin'] == 0) {
+                } else if ($data[0]['admin'] == 0) {
                     $user = new Employee();
                 }
 
-                $user->set_id($data['id']);
-                $user->set_username($data['username']);
-                $user->set_email($data['email']);
-                $user->set_phone_number($data['phone']);
-                $user->set_department($data['department']);
-                $user->set_role($data['admin']);
+                $user->set_id($data[0]['id']);
+                $user->set_username($data[0]['username']);
+                $user->set_email($data[0]['email']);
+                $user->set_phone_number($data[0]['phone']);
+                $user->set_department($data[0]['department']);
+                $user->set_role($data[0]['admin']);
+
 
                 // assign User's information from database -> $_SESSION
                 $_SESSION['session_id'] = rand(1000, 9999);
@@ -156,8 +162,9 @@ class Controller
     private function c_reset_pass(Model $model)
     {
         $id = $_POST['id'];
-
-        $data = ['password' => $_POST['phone']];
+        $number = rand(11, 99);
+        $newPass = $id . $number;
+        $data = ['password' => $newPass];
 
         $model->change_info('employees', $data, $id);
 
@@ -170,12 +177,12 @@ class Controller
     {
         $id = $_POST['stu_id'];
         $programId = $_POST['prog_id'];
-        $_SESSION['student'] = [ 'stu_id' => $id,
-            'prog_id' => $programId ];
+        $_SESSION['student'] = ['stu_id' => $id,
+            'prog_id' => $programId];
         header("Location:?action=v_report");
     }
 
-     private function c_add_apsds(Model $model)
+    private function c_add_apsds(Model $model)
     {
         if (isset($_POST['add_apsds'])) {
             $data = $_POST;
@@ -206,6 +213,31 @@ class Controller
         }
     }
 
+    private function c_invoice()
+    {
+        $data = $_POST;
+        $number = $data['number'];
+        $date = date('d-m-Y');
+        $billto = $data['billTo'];
+        $program = $data['program'];
+        $note = $data['note'];
+
+//array data
+        $quantity = $data['quantity'];
+        $description = $data['description'];
+        $unitPrice = $data['unitPrice'];
+        $total = $data['total'];
+        $subtotal = $data['subtotal'];
+        $footer = "Thank you for your choosing First College and Welcome!";
+        if (isset($_POST['preview'])) {
+            include("Views/v_preview_invoice.php");
+            exit();
+        } else if (isset($_POST['generate'])) {
+            include("Views/v_generate_invoice.php");
+            exit();
+        }
+    }
+
     /**
      *generate pdf for invoice
      */
@@ -227,13 +259,6 @@ class Controller
     private function c_generate_report_docx()
     {
 
-    }
-
-    /**
-     *auto sending email attaching invoice to student
-     */
-    private function c_sending_mail()
-    {
     }
 
 
