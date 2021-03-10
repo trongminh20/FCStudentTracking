@@ -12,12 +12,12 @@ unset($_SESSION['search_result']);
 
 <div id='mainContent'>
     <h5 style="color:#8b0000;"><?php
-            if(isset($_SESSION['search_error'])){
-                echo $_SESSION['search_error'];
-                unset($_SESSION['search_error']);
-            }else{
-                echo "";
-            }
+        if (isset($_SESSION['search_error'])) {
+            echo $_SESSION['search_error'];
+            unset($_SESSION['search_error']);
+        } else {
+            echo "";
+        }
         ?></h5>
     <table class="table">
         <thead>
@@ -34,24 +34,30 @@ unset($_SESSION['search_result']);
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td><?= $students['id'] ?></td>
-            <td><?= $students['prog_id'] ?></td>
-            <td><?= $students['name'] ?></td>
-            <td><?= $students['phone'] ?></td>
-            <td><?= $students['email'] ?></td>
-            <td><?= $students['address'] ?></td>
-            <td><?= $students['dom_or_int'] ?></td>
-            <td><?= $students['enroll_notes'] ?></td>
-            <td><?= $students['admin_status'] ?></td>
-            <td>
-                <form action="?action=c_to_report" method="POST">
-                    <input type="hidden" name='stu_id' value="<?= $students['id']; ?>">
-                    <input type="hidden" name='prog_id' value="<?= $students['prog_id']; ?>">
-                    <input type="submit" name="submit" value="Report">
-                </form>
-            </td>
-        </tr>
+        <?php for ($i = 0; $i < count($students); $i++):
+            ?>
+            <tr>
+                <td><?= $students[$i]['id'] ?></td>
+                <td><?= $students[$i]['prog_id'] ?></td>
+                <td><?= $students[$i]['name'] ?></td>
+                <td><?= $students[$i]['phone'] ?></td>
+                <td><?= $students[$i]['email'] ?></td>
+                <td><?= $students[$i]['address'] ?></td>
+                <td><?= $students[$i]['dom_or_int'] ?></td>
+                <td><?= $students[$i]['enroll_notes'] ?></td>
+                <td><?= $students[$i]['admin_status'] ?></td>
+                <td>
+                    <form action="?action=c_to_report" method="POST">
+                        <input type="hidden" name='stu_id' value="<?= $students['id']; ?>">
+                        <input type="hidden" name='prog_id' value="<?= $students['prog_id']; ?>">
+                        <input type="submit" name="submit" value="Report">
+                    </form>
+                </td>
+            </tr>
+        <?php
+        endfor;
+        ?>
+>>>>>>> origin/minhphan
         </tbody>
     </table>
 </div>
