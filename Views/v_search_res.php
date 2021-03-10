@@ -36,15 +36,15 @@ unset($_SESSION['search_result']);
         <tbody>
 
         <tr>
-            <td><?= $students['id'] ?></td>
-            <td><?= $students['prog_id'] ?></td>
-            <td><?= $students['name'] ?></td>
-            <td><?= $students['phone'] ?></td>
-            <td><?= $students['email'] ?></td>
-            <td><?= $students['address'] ?></td>
-            <td><?= $students['dom_or_int'] ?></td>
-            <td><?= $students['enroll_notes'] ?></td>
-            <td><?= $students['admin_status'] ?></td>
+            <td><?= $students[0]['id'] ?></td>
+            <td><?= $students[0]['prog_id'] ?></td>
+            <td><?= $students[0]['name'] ?></td>
+            <td><?= $students[0]['phone'] ?></td>
+            <td><?= $students[0]['email'] ?></td>
+            <td><?= $students[0]['address'] ?></td>
+            <td><?= $students[0]['dom_or_int'] ?></td>
+            <td><?= $students[0]['enroll_notes'] ?></td>
+            <td><?= $students[0]['admin_status'] ?></td>
             <td>
                 <form action="?action=c_to_report" method="POST">
                     <input type="hidden" name='stu_id' value="<?= $students['id']; ?>">
