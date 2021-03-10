@@ -88,7 +88,6 @@ $pdf->Cell(50, 10, "");
 $pdf->Cell(50, 10, "");
 $pdf->Cell(50, 10, "Welcome");
 
-
 $pdf->Output("", $number . ".pdf", true);
 
 
