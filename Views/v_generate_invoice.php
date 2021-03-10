@@ -47,7 +47,7 @@ align-items: center;">
             <td></td>
             <td></td>
             <td id="logo">
-                <?="<img src='" . $conf['INVOICE_INFO']['logo'] . "' width='300px' height='200px'>";?>
+                <?="<img src='" . $conf['INVOICE_INFO']['logo'] . "' width='150px' height='100px'>";?>
             </td>
         </tr>
     </table>
@@ -119,7 +119,7 @@ align-items: center;">
     </table>
 
     <div>
-        Thank you for your choosing First College and Welcome!
+        Thank you for choosing First College and Welcome!
     </div>
 
 </div>

@@ -8,7 +8,7 @@ class Form
     public function __construct($class, $id, $action, $method, $formName)
     {
         echo "<h3>" . $formName . "</h3>";
-        echo "<form class='" . $class . "' id='" . $id . "' action='" . $action . "' method='" . $method . "'>";
+        echo "<form class='" . $class . "' id='" . $id . "' action='?action=" . $action . "' method='" . $method . "'>";
     }
 
     /**

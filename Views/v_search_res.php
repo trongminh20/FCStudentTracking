@@ -4,15 +4,14 @@ include "v_masterPage_header.php";
 <?php
 include "v_masterPage_sidebar.php";
 
-if (isset($_SESSION['search_result'])) {
-    $students = $_SESSION['search_result'];
-} else {
-    $students = NULL;
-}
+
+$students = ((isset($_SESSION['search_result'])) ? $_SESSION['search_result'] : NULL);
+unset($_SESSION['search_result']);
+
 ?>
 
 <div id='mainContent'>
-    <h5 style="color:darkred;"><?php
+    <h5 style="color:#8b0000;"><?php
             if(isset($_SESSION['search_error'])){
                 echo $_SESSION['search_error'];
                 unset($_SESSION['search_error']);
@@ -37,19 +36,19 @@ if (isset($_SESSION['search_result'])) {
         <tbody>
 
         <tr>
-            <td><?= $students['ID'] ?></td>
-            <td><?= $students['Prog_ID'] ?></td>
-            <td><?= $students['Name'] ?></td>
-            <td><?= $students['Phone'] ?></td>
-            <td><?= $students['Email'] ?></td>
-            <td><?= $students['Address'] ?></td>
-            <td><?= $students['Dom_OR_Int'] ?></td>
-            <td><?= $students['Enroll_Notes'] ?></td>
-            <td><?= $students['Admin_Status'] ?></td>
+            <td><?= $students['id'] ?></td>
+            <td><?= $students['prog_id'] ?></td>
+            <td><?= $students['name'] ?></td>
+            <td><?= $students['phone'] ?></td>
+            <td><?= $students['email'] ?></td>
+            <td><?= $students['address'] ?></td>
+            <td><?= $students['dom_or_int'] ?></td>
+            <td><?= $students['enroll_notes'] ?></td>
+            <td><?= $students['admin_status'] ?></td>
             <td>
-                <form action="?action=v_report" method="POST">
-                    <input type="hidden" name='stuID' value="<?= $students['ID']; ?>">
-                    <input type="hidden" name='progID' value="<?= $students['Prog_ID']; ?>">
+                <form action="?action=c_to_report" method="POST">
+                    <input type="hidden" name='stu_id' value="<?= $students['id']; ?>">
+                    <input type="hidden" name='prog_id' value="<?= $students['prog_id']; ?>">
                     <input type="submit" name="submit" value="Report">
                 </form>
             </td>

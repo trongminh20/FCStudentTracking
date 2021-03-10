@@ -93,286 +93,286 @@ INSERT INTO StudentTracking VALUES
 
 INSERT INTO StudentTracking VALUES
 (101, 3789001, 'Yes');
-
--- Insert 5 rows of data into apsds table
-INSERT INTO apsds VALUES
-(
-	3789000, 
- 	TRUE,
- 	'Received and signed',
- 	'Received with Invoice',
-	TRUE,
- 	'Received one',
-	TRUE,
-	'2021-06-11 08:00:00',
-	'Received with Invoice',
-	TRUE,
-	NULL,
- 	90,
-	'Received and clear',
-	NULL,
-	'2021-06-12',
-	NULL,
-	'Transcript received',
-	'jack.kerwin@fcstudent.ca',
-	NULL,
-	'Received but not signed',
-	NULL,
-	'StudentAidBC',
- 	NULL,
- 	NULL,
-	NULL
-);
-
-INSERT INTO apsds VALUES
-(
-	3789001, 
- 	TRUE,
- 	'Received and signed',
- 	'Received with Invoice',
-	TRUE,
- 	'Received two',
-	TRUE,
-	'2020-12-17 08:00:00',
-	'Received with Invoice',
-	TRUE,
-	'Completed at DT location',
- 	NULL,
-	'Received and clear',
-	TRUE,
-	'2020-12-17',
-	TRUE,
-	'Transcript received',
-	'abigail.sloan@fcstudent.ca',
-	'2020-12-19',
-	'Received and signed',
-	'Received and signed',
-	'StudentAidBC',
- 	'2020-12-19',
- 	TRUE,
-	'Sheet, oil bottle, laptop'
-);
-
-INSERT INTO apsds VALUES
-(
-	3789002, 
- 	FALSE,
- 	'Received not signed',
- 	'Received with Invoice',
-	TRUE,
- 	'Received one',
-	NULL,
-	'2021-06-12 16:00:00',
-	'Received with Invoice',
-	TRUE,
-	NULL,
- 	88,
-	'Received and clear',
-	NULL,
-	'2021-06-13',
-	NULL,
-	'Diploma received',
-	'norman.dreger@fcstudent.ca',
-	NULL,
-	'Received and signed',
-	NULL,
-	'Monthly payment',
- 	NULL,
- 	NULL,
-	NULL
-);
-
-INSERT INTO apsds VALUES
-(
-	3789003, 
- 	TRUE,
- 	'Received and signed',
- 	'Received with Invoice',
-	TRUE,
- 	'Received two',
-	TRUE,
-	'2020-12-17 08:00:00',
-	'Received with Invoice',
-	TRUE,
-	'Completed at DT location',
- 	NULL,
-	'Received and clear',
-	TRUE,
-	'2020-12-18',
-	TRUE,
-	'Diploma received',
-	'alec.bryson@fcstudent.ca',
-	'2020-12-19',
-	'Received and signed',
-	'Received and signed',
-	'Payment plan',
- 	'2020-12-19',
- 	TRUE,
-	'Sheet, oil bottle, laptop, holster'
-);
-
-INSERT INTO apsds VALUES
-(
-	3789004, 
- 	FALSE,
- 	'Received and signed',
- 	'Received with Invoice',
-	TRUE,
- 	'Received one',
-	NULL,
-	'2021-06-11 08:00:00',
-	'Received with Invoice',
-	FALSE,
-	NULL,
- 	NULL,
-	'Received and clear',
-	NULL,
-	'2021-06-12',
-	NULL,
-	'Diploma received',
-	'alec.bryson@fcstudent.ca',
-	NULL,
-	'Received but not signed',
-	NULL,
-	'StudentAidBC',
- 	NULL,
- 	NULL,
-	NULL
-);
-
---Insert 5 rows of data into ppes table
-INSERT INTO ppes VALUES
-(
-	3789000, 
- 	NULL,
- 	'1634 Harvey Ave, Kelowna, BC V1Y 6G2',
- 	NULL,
- 	NULL,
- 	NULL,
- 	NULL,
- 	NULL,
- 	NULL,
- 	NULL,
- 	NULL
-);
-
-INSERT INTO ppes VALUES
-(
-	3789001, 
- 	'Small',
- 	'1634 Harvey Ave, Kelowna, BC V1Y 6G2',
- 	NULL,
- 	'2020-12-16',
- 	'2021-01-11',
- 	'2020-12-14 11:00:00',
- 	'2020-12-15',
- 	'2020-12-16',
- 	TRUE,
- 	TRUE
-);
-
-INSERT INTO ppes VALUES
-(
-	3789002, 
- 	NULL,
- 	'1634 Harvey Ave, Kelowna, BC V1Y 6G2',
- 	NULL,
- 	NULL,
- 	NULL,
- 	NULL,
- 	NULL,
- 	NULL,
- 	NULL,
- 	NULL
-);
-
-INSERT INTO ppes VALUES
-(
-	3789003, 
- 	'Large',
- 	'1634 Harvey Ave, Kelowna, BC V1Y 6G2',
- 	NULL,
- 	'2020-12-16',
- 	'2021-01-11',
- 	'2020-12-14 11:00:00',
- 	'2020-12-15',
- 	'2020-12-16',
- 	TRUE,
- 	TRUE
-);
-
-INSERT INTO ppes VALUES
-(
-	3789004, 
- 	NULL,
- 	'1634 Harvey Ave, Kelowna, BC V1Y 6G2',
- 	NULL,
- 	NULL,
- 	NULL,
- 	NULL,
- 	NULL,
- 	NULL,
- 	NULL,
- 	NULL
-);
-
---Insert 5 rows of data into graduations table
-INSERT INTO graduations VALUES
-(
-	3789000, 
- 	NULL,
- 	NULL,
- 	NULL,
- 	NULL,
- 	NULL,
- 	NULL,
- 	NULL
-);
-
-INSERT INTO graduations VALUES
-(
-	3789001, 
- 	TRUE,
- 	TRUE,
- 	TRUE,
- 	TRUE,
- 	'2021-05-10',
- 	TRUE,
- 	'Got a job offer from Lotus Massage Therapy clinic'
-);
-
-INSERT INTO graduations VALUES
-(
-	3789002, 
- 	NULL,
- 	NULL,
- 	NULL,
- 	NULL,
- 	NULL,
- 	NULL,
- 	NULL
-);
-
-INSERT INTO graduations VALUES
-(
-	3789003, 
- 	TRUE,
- 	TRUE,
- 	TRUE,
- 	TRUE,
- 	'2021-03-15',
- 	TRUE,
- 	'Got a job offer from Lackshore Massage Therapy clinic'
-);
-
-INSERT INTO graduations VALUES
-(
-	3789004, 
- 	NULL,
- 	NULL,
- 	NULL,
- 	NULL,
- 	NULL,
- 	NULL,
- 	NULL
-);
+--
+-- -- Insert 5 rows of data into apsds table
+-- INSERT INTO apsds VALUES
+-- (
+-- 	3789000,
+--  	TRUE,
+--  	'Received and signed',
+--  	'Received with Invoice',
+-- 	TRUE,
+--  	'Received one',
+-- 	TRUE,
+-- 	'2021-06-11 08:00:00',
+-- 	'Received with Invoice',
+-- 	TRUE,
+-- 	NULL,
+--  	90,
+-- 	'Received and clear',
+-- 	NULL,
+-- 	'2021-06-12',
+-- 	NULL,
+-- 	'Transcript received',
+-- 	'jack.kerwin@fcstudent.ca',
+-- 	NULL,
+-- 	'Received but not signed',
+-- 	NULL,
+-- 	'StudentAidBC',
+--  	NULL,
+--  	NULL,
+-- 	NULL
+-- );
+--
+-- INSERT INTO apsds VALUES
+-- (
+-- 	3789001,
+--  	TRUE,
+--  	'Received and signed',
+--  	'Received with Invoice',
+-- 	TRUE,
+--  	'Received two',
+-- 	TRUE,
+-- 	'2020-12-17 08:00:00',
+-- 	'Received with Invoice',
+-- 	TRUE,
+-- 	'Completed at DT location',
+--  	NULL,
+-- 	'Received and clear',
+-- 	TRUE,
+-- 	'2020-12-17',
+-- 	TRUE,
+-- 	'Transcript received',
+-- 	'abigail.sloan@fcstudent.ca',
+-- 	'2020-12-19',
+-- 	'Received and signed',
+-- 	'Received and signed',
+-- 	'StudentAidBC',
+--  	'2020-12-19',
+--  	TRUE,
+-- 	'Sheet, oil bottle, laptop'
+-- );
+--
+-- INSERT INTO apsds VALUES
+-- (
+-- 	3789002,
+--  	FALSE,
+--  	'Received not signed',
+--  	'Received with Invoice',
+-- 	TRUE,
+--  	'Received one',
+-- 	NULL,
+-- 	'2021-06-12 16:00:00',
+-- 	'Received with Invoice',
+-- 	TRUE,
+-- 	NULL,
+--  	88,
+-- 	'Received and clear',
+-- 	NULL,
+-- 	'2021-06-13',
+-- 	NULL,
+-- 	'Diploma received',
+-- 	'norman.dreger@fcstudent.ca',
+-- 	NULL,
+-- 	'Received and signed',
+-- 	NULL,
+-- 	'Monthly payment',
+--  	NULL,
+--  	NULL,
+-- 	NULL
+-- );
+--
+-- INSERT INTO apsds VALUES
+-- (
+-- 	3789003,
+--  	TRUE,
+--  	'Received and signed',
+--  	'Received with Invoice',
+-- 	TRUE,
+--  	'Received two',
+-- 	TRUE,
+-- 	'2020-12-17 08:00:00',
+-- 	'Received with Invoice',
+-- 	TRUE,
+-- 	'Completed at DT location',
+--  	NULL,
+-- 	'Received and clear',
+-- 	TRUE,
+-- 	'2020-12-18',
+-- 	TRUE,
+-- 	'Diploma received',
+-- 	'alec.bryson@fcstudent.ca',
+-- 	'2020-12-19',
+-- 	'Received and signed',
+-- 	'Received and signed',
+-- 	'Payment plan',
+--  	'2020-12-19',
+--  	TRUE,
+-- 	'Sheet, oil bottle, laptop, holster'
+-- );
+--
+-- INSERT INTO apsds VALUES
+-- (
+-- 	3789004,
+--  	FALSE,
+--  	'Received and signed',
+--  	'Received with Invoice',
+-- 	TRUE,
+--  	'Received one',
+-- 	NULL,
+-- 	'2021-06-11 08:00:00',
+-- 	'Received with Invoice',
+-- 	FALSE,
+-- 	NULL,
+--  	NULL,
+-- 	'Received and clear',
+-- 	NULL,
+-- 	'2021-06-12',
+-- 	NULL,
+-- 	'Diploma received',
+-- 	'alec.bryson@fcstudent.ca',
+-- 	NULL,
+-- 	'Received but not signed',
+-- 	NULL,
+-- 	'StudentAidBC',
+--  	NULL,
+--  	NULL,
+-- 	NULL
+-- );
+--
+-- --Insert 5 rows of data into ppes table
+-- INSERT INTO ppes VALUES
+-- (
+-- 	3789000,
+--  	NULL,
+--  	'1634 Harvey Ave, Kelowna, BC V1Y 6G2',
+--  	NULL,
+--  	NULL,
+--  	NULL,
+--  	NULL,
+--  	NULL,
+--  	NULL,
+--  	NULL,
+--  	NULL
+-- );
+--
+-- INSERT INTO ppes VALUES
+-- (
+-- 	3789001,
+--  	'Small',
+--  	'1634 Harvey Ave, Kelowna, BC V1Y 6G2',
+--  	NULL,
+--  	'2020-12-16',
+--  	'2021-01-11',
+--  	'2020-12-14 11:00:00',
+--  	'2020-12-15',
+--  	'2020-12-16',
+--  	TRUE,
+--  	TRUE
+-- );
+--
+-- INSERT INTO ppes VALUES
+-- (
+-- 	3789002,
+--  	NULL,
+--  	'1634 Harvey Ave, Kelowna, BC V1Y 6G2',
+--  	NULL,
+--  	NULL,
+--  	NULL,
+--  	NULL,
+--  	NULL,
+--  	NULL,
+--  	NULL,
+--  	NULL
+-- );
+--
+-- INSERT INTO ppes VALUES
+-- (
+-- 	3789003,
+--  	'Large',
+--  	'1634 Harvey Ave, Kelowna, BC V1Y 6G2',
+--  	NULL,
+--  	'2020-12-16',
+--  	'2021-01-11',
+--  	'2020-12-14 11:00:00',
+--  	'2020-12-15',
+--  	'2020-12-16',
+--  	TRUE,
+--  	TRUE
+-- );
+--
+-- INSERT INTO ppes VALUES
+-- (
+-- 	3789004,
+--  	NULL,
+--  	'1634 Harvey Ave, Kelowna, BC V1Y 6G2',
+--  	NULL,
+--  	NULL,
+--  	NULL,
+--  	NULL,
+--  	NULL,
+--  	NULL,
+--  	NULL,
+--  	NULL
+-- );
+--
+-- --Insert 5 rows of data into graduations table
+-- INSERT INTO graduations VALUES
+-- (
+-- 	3789000,
+--  	NULL,
+--  	NULL,
+--  	NULL,
+--  	NULL,
+--  	NULL,
+--  	NULL,
+--  	NULL
+-- );
+--
+-- INSERT INTO graduations VALUES
+-- (
+-- 	3789001,
+--  	TRUE,
+--  	TRUE,
+--  	TRUE,
+--  	TRUE,
+--  	'2021-05-10',
+--  	TRUE,
+--  	'Got a job offer from Lotus Massage Therapy clinic'
+-- );
+--
+-- INSERT INTO graduations VALUES
+-- (
+-- 	3789002,
+--  	NULL,
+--  	NULL,
+--  	NULL,
+--  	NULL,
+--  	NULL,
+--  	NULL,
+--  	NULL
+-- );
+--
+-- INSERT INTO graduations VALUES
+-- (
+-- 	3789003,
+--  	TRUE,
+--  	TRUE,
+--  	TRUE,
+--  	TRUE,
+--  	'2021-03-15',
+--  	TRUE,
+--  	'Got a job offer from Lackshore Massage Therapy clinic'
+-- );
+--
+-- INSERT INTO graduations VALUES
+-- (
+-- 	3789004,
+--  	NULL,
+--  	NULL,
+--  	NULL,
+--  	NULL,
+--  	NULL,
+--  	NULL,
+--  	NULL
+-- );

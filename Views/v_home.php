@@ -25,7 +25,7 @@ include "v_masterPage_sidebar.php";
 
      <?php
      if($_SESSION['user']['admin'] == 1) {
-         $view->display_as_table("requestsTable", "table", 'requests', [], $model);
+         $view->display_as_table_multi_rows("requestsTable", "table", 'requests', [], $model);
      }
      ?>
 
