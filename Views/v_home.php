@@ -6,9 +6,6 @@ include "v_masterPage_sidebar.php";
 ?>
 
  <div id="mainContent">
-    <?php
-    print_r($_SESSION['user'])
-    ?>
      <table>
         <tr>
             <td>
