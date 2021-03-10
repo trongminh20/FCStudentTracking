@@ -89,18 +89,18 @@ $pdf->Cell(50, 10, "");
 $pdf->Cell(50, 10, "Welcome");
 
 if(isset($_POST['preview'])){
-        $pdf->Output("", $number . ".pdf", true);
-
+    $pdf->Output("", $number . ".pdf", true);
 }
 elseif (isset($_POST['generate'])) {
+    $pdf->Output( "D","invoices/".$number . ".pdf", true);
     $pdf->Output( "F","invoices/".$number . ".pdf", true);
+
     if(isset($data['send_to_student'])) {
         Mail::$toAddress = $data['student_email'];
         Mail::$content = "<h1>This is testing email from invoice</h1>";
         Mail::$attachment = "invoices/" . $number . ".pdf";
         Mail::send_mail();
     }
-
     header("location:?action=v_invoice");
 }
 
