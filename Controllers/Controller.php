@@ -6,9 +6,12 @@ class Controller
     public function __construct()
     {
     }
-
+    private function set_time(){
+        date_default_timezone_set('Canada/Pacific');
+    }
     public function index($dr, Model $model)
     {
+        $this->set_time();
         $action = $dr[0];
         switch ($action) {
             case 'v':
@@ -127,9 +130,9 @@ class Controller
 
     private function c_delete_user(Model $model)
     {
-        $model->delete('requests', 'username', $_POST['Username']);
-        $model->delete('employees', 'ID', $_POST['ID']);
-        $_SESSION['manage_info'] = $_POST['Username'] . " has been deleted";
+        $model->delete('requests', 'username', $_POST['username']);
+        $model->delete('employees', 'id', $_POST['id']);
+        $_SESSION['manage_info'] = $_POST['username'] . " has been deleted";
         header("Location:?action=v_user_manage");
     }
 
@@ -137,7 +140,7 @@ class Controller
     {
         $username = $_POST['username'];
 
-        $check = $model->select_single_row('employees', ['username' => $username]);
+        $check = $model->select('employees', ['username' => $username]);
         if ($check) {
             $request = new Request($username, 'Reset password');
 

@@ -1,126 +1,94 @@
 <?php
+
 $data = $_POST;
+
+
 $number = $data['number'];
+$date = date('d-m-Y');
 $billto = $data['billTo'];
 $program = $data['program'];
 $note = $data['note'];
+
+//array data
 $quantity = $data['quantity'];
 $description = $data['description'];
 $unitPrice = $data['unitPrice'];
 $total = $data['total'];
 $subtotal = $data['subtotal'];
+$footer = "Thank you for your choosing First College and Welcome!";
 
-?>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>First College Management</title>
-    <link rel="stylesheet" href="css/css_reset.css"/>
-    <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/master_page.css"/>
-    <link rel="stylesheet" href="css/w3.css"/>
-    <!-- jQuery CDN -->
-    <script src="js/jquery-1.12.0.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-<style>
+$pdf = new FPDF();
+//basic initilize
+$pdf->AddPage();
+$pdf->SetFont('Arial', '', 14);
+$pdf->SetFillColor(224, 235, 255);
 
-</style>
-</head>
-<body>
-<div id="invoiceContent" style="margin: auto; display: flex; flex-direction: column; justify-content: space-around;
-align-items: center;">
-    <table class="table" id="pageHeader">
-        <tr>
-            <td id="mainInfo">
-                <?= $conf['INVOICE_INFO']['name'];?> <br>
-                <?= $conf['INVOICE_INFO']['address'];?><br>
-                <?= $conf['INVOICE_INFO']['city'];?><br>
-                Tel: <?= $conf['INVOICE_INFO']['tel'];?><br>
-                Fax: <?= $conf['INVOICE_INFO']['fax'];?><br>
-                Email: <?= $conf['INVOICE_INFO']['email']; ?><br>
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td id="logo">
-                <?="<img src='" . $conf['INVOICE_INFO']['logo'] . "' width='150px' height='100px'>";?>
-            </td>
-        </tr>
-    </table>
-    <table class="table">
-        <thead>
-        <tr style="background-color: #2e6da4;color:white; height: 50px;">
-            <td>
-                INVOICE NUMBER <?=$number?>(PAID)
-            </td>
-            <td></td>
+$pdf->Cell(50, 20, $conf['INVOICE_INFO']['name']);
+$pdf->Ln(6);
+$pdf->Cell(50, 20, $conf['INVOICE_INFO']['address']);
+$pdf->Ln(6);
+$pdf->Cell(50, 20, $conf['INVOICE_INFO']['city']);
+$pdf->Ln(6);
+$pdf->Cell(50, 20, "Tel:" . $conf['INVOICE_INFO']['tel']);
+$pdf->Ln(6);
+$pdf->Cell(50, 20, "Fax:" . $conf['INVOICE_INFO']['fax']);
+$pdf->Ln(6);
+$pdf->Cell(50, 20, "Email:" . $conf['INVOICE_INFO']['email']);
+$pdf->Ln(5);
 
-            <td><?=date("d-m-Y")?></td>
-        </tr>
-            <td>BILL TO</td>
-            <td>PROGRAM</td>
-            <td>NOTE</td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>
-                <?=$billto;?>
-            </td>
-            <td>
-                <?=$program;?>
-            </td>
-            <td>
-                <?=$note;?>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+$pdf->Image("images/logo.png", 120, 6, 70, 50);
+$pdf->Ln(30);
+$pdf->Cell(50, 10, 'Invoice Number', 0, 0, "C", true);
+$pdf->Cell(20, 10, $number, 0, 0, "", true);
+$pdf->Cell(50, 10, '(PAID)', 0, 0, "", true);
+$pdf->Cell(30, 10, 'Date:', 0, 0, "", true);
+$pdf->Cell(30, 10, $date, 0, 0, "", true);
+$pdf->Ln(20);
+$pdf->Cell(60, 10, "Bill To", 0, 0, 'C', 'true');
+$pdf->Cell(60, 10, "Program", 0, 0, 'C', 'true');
+$pdf->Cell(60, 10, "Note", 0, 0, 'C', 'true');
+$pdf->Ln();
+$pdf->Cell(60, 10, $billto, 0, 0, 'C');
+$pdf->Cell(60, 10, $program, 0, 0, 'C');
+$pdf->Cell(60, 10, $note, 0, 0, 'C');
+$pdf->Ln();
 
-    <table class="table" id="invoice_table">
-        <thead>
-        <tr style="background-color: #2e6da4;color:white; height: 50px;">
-            <td>Quantity</td>
-            <td>Description</td>
-            <td>Unit Price</td>
-            <td>Total</td>
-        </tr>
-        </thead>
-        <tbody>
-        <?php
-        for ($i = 0; $i < count($quantity); $i++) {
-            echo "<tr>";
-            echo "<td>$quantity[$i]</td>";
-            echo "<td>$description[$i]</td>";
-            echo "<td>$unitPrice[$i]</td>";
-            echo "<td>$total[$i]</td>";
-            echo "</tr>";
-        }
-        ?>
-        <tbody>
-        <tfoot>
-        <tr>
-            <td></td>
-            <td></td>
-            <td>SUBTOTAL</td>
-            <td><?=array_sum($total)?></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td>TOTAL</td>
-            <td><?=array_sum($total)?></td>
-        </tr>
-        </tfoot>
-    </table>
+//beginning of table
+$pdf->Cell(45, 10, "Quantity", 0, 0, 'C', 'true');
+$pdf->Cell(45, 10, "Description", 0, 0, 'C', 'true');
+$pdf->Cell(45, 10, "Unit Price", 0, 0, 'C', 'true');
+$pdf->Cell(45, 10, "Total", 0, 0, 'C', 'true');
+$pdf->Ln();
 
-    <div>
-        Thank you for choosing First College and Welcome!
-    </div>
+for ($i = 0; $i < count($quantity); $i++) {
+    $pdf->Cell(50, 10, $quantity[$i], 0, 0, 'C');
+    $pdf->Cell(50, 10, $description[$i], 0, 0, 'C');
+    $pdf->Cell(50, 10, $unitPrice[$i], 0, 0, 'C');
+    $pdf->Cell(50, 10, $total[$i], 0, 0, 'C');
+    $pdf->Ln();
+}
 
-</div>
-</body>
+$pdf->Cell(50, 10, "");
+$pdf->Cell(50, 10, "");
+$pdf->Cell(50, 10, "Subtotoal:");
+$pdf->Cell(50, 10, array_sum($total), 0, 0, 'C');
+$pdf->Ln();
+$pdf->Cell(50, 10, "");
+$pdf->Cell(50, 10, "");
+$pdf->Cell(50, 10, "Total:");
+$pdf->Cell(50, 10, array_sum($total), 0, 0, 'C');
+$pdf->Ln();
+
+$pdf->Cell(50, 10, "");
+$pdf->Cell(50, 10, "");
+$pdf->Cell(50, 10, "Thank you for your choosing First College,");
+$pdf->Ln();
+
+$pdf->Cell(50, 10, "");
+$pdf->Cell(50, 10, "");
+$pdf->Cell(50, 10, "Welcome");
+
+
+$pdf->Output("", $number . ".pdf", true);
+
+

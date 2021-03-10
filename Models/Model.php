@@ -103,10 +103,6 @@ class Model
         return $type;
     }
 
-//    function select_by_id($table, $data)
-//    {
-//        return $this->db->select_by_id($table, $data);
-//    }
 
     /**
      * get type of columns of a table from database
@@ -140,7 +136,7 @@ class Model
      * @param $data is an array [columns => value]
      * @return mixed
      */
-    function select_single_row($table, $data){
+    function select($table, $data){
         return $this->db->select($table, $data);
     }
 
