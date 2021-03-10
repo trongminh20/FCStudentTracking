@@ -17,3 +17,4 @@ require_once "Views/v_form.php";
 require_once "src/fpdf.php";
 require_once 'src/class.phpmailer.php';
 require_once 'src/class.smtp.php';
+require_once "Models/m_mail.php";

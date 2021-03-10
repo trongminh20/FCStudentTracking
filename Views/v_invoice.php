@@ -144,11 +144,19 @@ $number = $database->select_count('invoice');
                 </td>
             </tr>
             </tfoot>
-
+            <tr>
+                <td>
+                    <input type="email" name="student_email" id="studentEmail" placeholder="Enter student's
+                    email" style="display: none"><br>
+                    <label for="sendEmail"><input class="" id="sendEmail" type="checkbox"
+                                                  name="send_to_student"
+                                                  value="yes" onclick="add_email();">Send to this student</label>
+                </td>
+            </tr>
         </table>
-        <input id="" class="btn btn-primary" type="submit" name="preview" value="Preview">
-        <input id="" class="btn btn-primary" type="submit" name="Generate" value="Generate">
 
+        <input id="" class="btn btn-primary" type="submit" name="preview" value="Preview">
+        <input id="" class="btn btn-primary" type="submit" name="generate" value="Generate">
     </form>
 </div>
 <script>
@@ -162,6 +170,18 @@ $number = $database->select_count('invoice');
             "<td><input id='' class='total' type='number' name='total[]' value=''onchange='calculate_total();' " +
             "readonly></td>"
             + "</tr>";
+    }
+
+    function add_email() {
+        var checkbox = document.getElementById('sendEmail');
+        var studentEmail = document.getElementById('studentEmail');
+
+        if (checkbox.checked == true) {
+            studentEmail.style.display = "block";
+        } else {
+            studentEmail.style.display = "none";
+
+        }
     }
 
     function calculate_total() {
