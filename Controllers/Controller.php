@@ -48,19 +48,18 @@ class Controller
 
             if ($success == 1) {
                 $data = $model->select_user($username);
-
-                if ($data['admin'] == 1) {
+                if ($data[0]['admin'] == 1) {
                     $user = new Admin();
-                } else if ($data['admin'] == 0) {
+                } else if ($data[0]['admin'] == 0) {
                     $user = new Employee();
                 }
 
-                $user->set_id($data['ID']);
-                $user->set_username($data['Username']);
-                $user->set_email($data['Email']);
-                $user->set_phone_number($data['Phone']);
-                $user->set_department($data['Department']);
-                $user->set_role($data['admin']);
+                $user->set_id($data[0]['id']);
+                $user->set_username($data[0]['username']);
+                $user->set_email($data[0]['email']);
+                $user->set_phone_number($data[0]['phone']);
+                $user->set_department($data[0]['department']);
+                $user->set_role($data[0]['admin']);
 
                 // assign User's information from database -> $_SESSION
                 $_SESSION['session_id'] = rand(1000, 9999);
