@@ -19,6 +19,11 @@ class Model
     {
         return $this->db->log_in($user, $pass);
     }
+        function select_user($username)
+    {
+        return $this->db->select('employees',['username'=>$username]);
+    }
+
 
     /**
      * return data for function display_as_table in view

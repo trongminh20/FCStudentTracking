@@ -6,9 +6,12 @@ class Controller
     public function __construct()
     {
     }
-    private function set_time(){
+
+    private function set_time()
+    {
         date_default_timezone_set('Canada/Pacific');
     }
+
     public function index($dr, Model $model)
     {
         $this->set_time();
@@ -48,18 +51,25 @@ class Controller
 
             if ($success == 1) {
                 $data = $model->select_user($username);
+
                 if ($data['admin'] == 1) {
+
+
+                if ($data[0]['admin'] == 1) {
+
+
                     $user = new Admin();
-                } else if ($data['admin'] == 0) {
+                } else if ($data[0]['admin'] == 0) {
                     $user = new Employee();
                 }
 
-                $user->set_id($data['id']);
-                $user->set_username($data['username']);
-                $user->set_email($data['email']);
-                $user->set_phone_number($data['phone']);
-                $user->set_department($data['department']);
-                $user->set_role($data['admin']);
+                $user->set_id($data[0]['id']);
+                $user->set_username($data[0]['username']);
+                $user->set_email($data[0]['email']);
+                $user->set_phone_number($data[0]['phone']);
+                $user->set_department($data[0]['department']);
+                $user->set_role($data[0]['admin']);
+
 
                 // assign User's information from database -> $_SESSION
                 $_SESSION['session_id'] = rand(1000, 9999);
@@ -156,8 +166,9 @@ class Controller
     private function c_reset_pass(Model $model)
     {
         $id = $_POST['id'];
-
-        $data = ['password' => $_POST['phone']];
+        $number = rand(11, 99);
+        $newPass = $id . $number;
+        $data = ['password' => $newPass];
 
         $model->change_info('employees', $data, $id);
 
@@ -170,12 +181,12 @@ class Controller
     {
         $id = $_POST['stu_id'];
         $programId = $_POST['prog_id'];
-        $_SESSION['student'] = [ 'stu_id' => $id,
-            'prog_id' => $programId ];
+        $_SESSION['student'] = ['stu_id' => $id,
+            'prog_id' => $programId];
         header("Location:?action=v_report");
     }
 
-     private function c_add_apsds(Model $model)
+    private function c_add_apsds(Model $model)
     {
         if (isset($_POST['add_apsds'])) {
             $data = $_POST;
@@ -186,7 +197,7 @@ class Controller
         }
     }
 
-    private function c_add_ppe(Model $model)
+    private function c_add_ppes(Model $model)
     {
         if (isset($_POST['add_ppes'])) {
             $data = $_POST;
@@ -206,35 +217,35 @@ class Controller
         }
     }
 
-    /**
-     *generate pdf for invoice
-     */
-    private function c_generate_invoice()
-    {
-    }
-
-    /**
-     * generate report pdf
-     */
-    private function c_generate_report_pdf()
-    {
+    private function c_add_student(Model $model){
+        $data = $_POST;
+        unset($data['submit']);
+        $model -> insert('students', $data);
 
     }
 
-    /**
-     *generate report .docx
-     */
-    private function c_generate_report_docx()
-    {
+    private function c_add_pament(Model $model){}
 
-    }
-
-    /**
-     *auto sending email attaching invoice to student
-     */
-    private function c_sending_mail()
-    {
-    }
+   private function c_add_new_record(Model $model){
+        if(isset($_POST['select_section'])){
+           $case = $_POST['select_section'];
+           if($case === 'Enrollment Brief Summary') {
+               header("location:?action=v_enrollmentBriefSummary_form");
+           }
+           if($case === 'Admission Prior to Start Date') {
+               header("location:?action=v_admPriorToStartDate_form");
+           }
+           if($case === 'Prior to Practice Education') {
+               header("location:?action=v_priorToPracticeEducation_form");
+           }
+           if($case === 'Graduation') {
+               header("location:?action=v_graduation_form");
+           }
+           if($case === 'Payment Tracking') {
+               header("location:?action=v_paymentTracking_form");
+           }
+        }
+   }
 
 
 }
