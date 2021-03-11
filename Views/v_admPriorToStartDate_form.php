@@ -79,24 +79,45 @@ include "v_masterPage_sidebar.php";
                         </div>
                     </div>
                 </div>
-                <!--intro to massage date & time -->
+                <!--intro to massage date & time day 1 -->
                 <div class="form-group" style="padding-top: 20px">
-                    <label class="control-label" for="introOfMsg">Intro of Massage Course Date & Time:</label>
-                    <div name="intro_of_msg" id="introOfMsg" class="row" style="padding-top: 10px">
+                    <label class="control-label" for="introOfMsgDay1">Intro of Massage Course Day One:</label>
+                    <div name="intro_of_msg" id="introOfMsgDay1" class="row" style="padding-top: 10px">
                         <!---from_datetimePicker-->
                         <div class="col-sm-6">
-                            <label class="control-label" id="introOfMsgFrom">From:</label>
+                            <label class="control-label" id="introOfMsgDay1From">From:</label>
                         </div>
                         <div class="col-sm-6">
-                            <input type="datetime-local" class="form-control" name="intro_of_msg_from"
-                                   id="introOfMsgFrom">
+                            <input type="datetime-local" class="form-control" name="intro_of_msg_day1_from"
+                                   id="introOfMsgDay1From">
                         </div>
                         <!---to_datetimePicker-->
                         <div class="col-sm-6" style="padding-top: 10px">
-                            <label class="control-label" id="introOfMsgTo">To:</label>
+                            <label class="control-label" id="introOfMsgDay1To">To:</label>
                         </div>
                         <div class="col-sm-6" style="padding-top: 10px">
-                            <input type="datetime-local" class="form-control" name="intro_of_msg_to" id="introOfMsgTo">
+                            <input type="datetime-local" class="form-control" name="intro_of_msg_day1_to" id="introOfMsgDay1To">
+                        </div>
+                    </div>
+                </div>
+                <!--intro to massage date & time day 2 -->
+                <div class="form-group" style="padding-top: 20px">
+                    <label class="control-label" for="introOfMsgDay2">Intro of Massage Course Day Two:</label>
+                    <div name="intro_of_msg" id="introOfMsgDay2" class="row" style="padding-top: 10px">
+                        <!---from_datetimePicker-->
+                        <div class="col-sm-6">
+                            <label class="control-label" id="introOfMsgDay2From">From:</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="datetime-local" class="form-control" name="intro_of_msg_day2_from"
+                                   id="introOfMsgDay2From">
+                        </div>
+                        <!---to_datetimePicker-->
+                        <div class="col-sm-6" style="padding-top: 10px">
+                            <label class="control-label" id="introOfMsgDay2To">To:</label>
+                        </div>
+                        <div class="col-sm-6" style="padding-top: 10px">
+                            <input type="datetime-local" class="form-control" name="intro_of_msg_day2_to" id="introOfMsgDay2To">
                         </div>
                     </div>
                 </div>
@@ -186,7 +207,7 @@ include "v_masterPage_sidebar.php";
                 </div>
                 <div class="form-group" style="padding-top: 20px">
                     <label class="control-label" for="acceptLetterDate">Letter of Acceptance Issued Date:</label>
-                    <input type="datetime-local" class="form-control" id="acceptLetterDate" name="accept_letter_date"/>
+                    <input type="date" class="form-control" id="acceptLetterDate" name="accept_letter_date"/>
                 </div>
                 <!--enrollment contract notes -->
                 <div class="form-group" style="padding-top: 20px">
@@ -219,7 +240,7 @@ include "v_masterPage_sidebar.php";
                 <div class="form-group" style="padding-top: 20px">
                     <label class="control-label" for="ackAndAgrForm">Ackmowledgement & Agreemtnt Form Received
                         Date:</label>
-                    <input type="datetime-local" class="form-control" id="ackAndAgrForm" name="ack_and_agr"/>
+                    <input type="date" class="form-control" id="ackAndAgrForm" name="ack_and_agr"/>
                 </div>
                 <!--student id card issued radio button-->
                 <div class="form-group" style="padding-top: 20px">
@@ -243,7 +264,7 @@ include "v_masterPage_sidebar.php";
                     <div style="color:red; font-size:10px;">
                         <p>To choose multiple values:</p>
                         <ul>
-                            <li>hold <strong>Ctr</strong> key if you are using Windows</li>
+                            <li>hold <strong>Ctrl</strong> key if you are using Windows</li>
                             <li>hold <strong>Command</strong> key if you are using Macbook</li>
                         </ul>
                     </div>
