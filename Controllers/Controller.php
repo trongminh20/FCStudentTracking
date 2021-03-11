@@ -193,7 +193,7 @@ class Controller
         }
     }
 
-    private function c_add_ppe(Model $model)
+    private function c_add_ppes(Model $model)
     {
         if (isset($_POST['add_ppes'])) {
             $data = $_POST;
@@ -213,53 +213,35 @@ class Controller
         }
     }
 
-    private function c_invoice()
-    {
+    private function c_add_student(Model $model){
         $data = $_POST;
-        $number = $data['number'];
-        $date = date('d-m-Y');
-        $billto = $data['billTo'];
-        $program = $data['program'];
-        $note = $data['note'];
+        unset($data['submit']);
+        $model -> insert('students', $data);
 
-//array data
-        $quantity = $data['quantity'];
-        $description = $data['description'];
-        $unitPrice = $data['unitPrice'];
-        $total = $data['total'];
-        $subtotal = $data['subtotal'];
-        $footer = "Thank you for your choosing First College and Welcome!";
-        if (isset($_POST['preview'])) {
-            include("Views/v_preview_invoice.php");
-            exit();
-        } else if (isset($_POST['generate'])) {
-            include("Views/v_generate_invoice.php");
-            exit();
+    }
+
+    private function c_add_pament(Model $model){}
+
+   private function c_add_new_record(Model $model){
+        if(isset($_POST['select_section'])){
+           $case = $_POST['select_section'];
+           if($case === 'Enrollment Brief Summary') {
+               header("location:?action=v_enrollmentBriefSummary_form");
+           }
+           if($case === 'Admission Prior to Start Date') {
+               header("location:?action=v_admPriorToStartDate_form");
+           }
+           if($case === 'Prior to Practice Education') {
+               header("location:?action=v_priorToPracticeEducation_form");
+           }
+           if($case === 'Graduation') {
+               header("location:?action=v_graduation_form");
+           }
+           if($case === 'Payment Tracking') {
+               header("location:?action=v_paymentTracking_form");
+           }
         }
-    }
-
-    /**
-     *generate pdf for invoice
-     */
-    private function c_generate_invoice()
-    {
-    }
-
-    /**
-     * generate report pdf
-     */
-    private function c_generate_report_pdf()
-    {
-
-    }
-
-    /**
-     *generate report .docx
-     */
-    private function c_generate_report_docx()
-    {
-
-    }
+   }
 
 
 }
