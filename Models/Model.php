@@ -66,7 +66,7 @@ class Model
 
     function select_user($username)
     {
-        return $this->db->select_user($username);
+        return $this->db->select('employees',['username'=>$username]);
     }
 
     function delete($table, $col, $val)

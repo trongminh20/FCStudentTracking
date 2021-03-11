@@ -52,9 +52,6 @@ class Controller
             if ($success == 1) {
                 $data = $model->select_user($username);
 
-                if ($data['admin'] == 1) {
-
-
                 if ($data[0]['admin'] == 1) {
 
 
