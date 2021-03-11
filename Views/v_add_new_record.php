@@ -9,10 +9,10 @@ include "v_masterPage_sidebar.php";
     <h4>Add New Student Records</h4>
     <div class="row">
         <div class="col-xs-12">
-    		<form class="col-lg-8" action="" method="POST">
+    		<form class="col-lg-8" action="?action=c_add_new_record" method="POST">
 				<div class="form-group" style="padding-top: 20px">
             		<label for="selectSection">Select Section to Insert:</label>
-            		<select class="form-control" name="select_Section" id="selectSection">
+            		<select class="form-control" name="select_section" id="selectSection">
             			<option value="Enrollment Brief Summary">Enrollment Brief Summary</option>
                 		<option value="Admission Prior to Start Date">Admission Prior to Start Date</option>
                 		<option value="Prior to Practice Education">Prior to Practice Education</option>
