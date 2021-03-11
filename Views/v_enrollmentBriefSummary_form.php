@@ -1,22 +1,27 @@
 <?php
 include "v_masterPage_header.php";
 ?>
+<?php
+include "v_masterPage_sidebar.php";
+?>
 
-
-<div class="container" style="padding-top: 20px">
+<!-- Enrollment Brief Summary Section -->
+<div class="container" id="mainContent" style="padding-top: 20px">
     <div class="row">
         <div class="col-xs-12">
             <h2 style="padding-top: 10px">Enrollment Brief Summary</h2>
-            <div class="form-group" style="padding-top: 20px">
+            <!--Form starts-->
+            <form action="?action=c_add_student" method="POST">
+                <!--name-->
+                <div class="form-group" style="padding-top: 20px">
                     <label for="phone">Name:</label>
                     <input type="text" name="name" class="form-control" id="phone"/>
                 </div>
-             <div class="form-group" style="padding-top: 20px">
+                <!--id-->
+                <div class="form-group" style="padding-top: 20px">
                     <label for="phone">Student Id</label>
                     <input type="text" name="name" class="form-control" id="phone"/>
                 </div>
-            <!--Form starts-->
-            <form action="?action=c_add_student" method="POST">
                 <!--phone number-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="phone">Contact Number:</label>

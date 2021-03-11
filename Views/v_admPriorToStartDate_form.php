@@ -6,11 +6,12 @@ include "v_masterPage_sidebar.php";
 ?>
 
 <div class="container" id="mainContent" style="padding-top: 20px">
-    <h2>Admission Prior to Start Date</h2>
     <div class="row">
         <div class="col-xs-12">
+            <h2 style="padding-top: 10px">Admission Prior to Start Date</h2>
             <!--Form starts-->
             <form class="col-lg-8" action="?action=c_add_apsds" method="POST">
+                <!--id-->
                 <div class="form-group">
                     <label for="student_id">STUDENT ID</label><br>
                     <input class="form-control" type="number" name="student_id" value="" required="required">
