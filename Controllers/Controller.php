@@ -193,7 +193,7 @@ class Controller
         }
     }
 
-    private function c_add_ppe(Model $model)
+    private function c_add_ppes(Model $model)
     {
         if (isset($_POST['add_ppes'])) {
             $data = $_POST;
