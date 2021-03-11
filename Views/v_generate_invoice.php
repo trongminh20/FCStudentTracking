@@ -2,7 +2,6 @@
 
 $data = $_POST;
 
-
 $number = $data['number'];
 $date = date('d-m-Y');
 $billto = $data['billTo'];
@@ -64,19 +63,19 @@ for ($i = 0; $i < count($quantity); $i++) {
     $pdf->Cell(50, 10, $quantity[$i], 0, 0, 'C');
     $pdf->Cell(50, 10, $description[$i], 0, 0, 'C');
     $pdf->Cell(50, 10, $unitPrice[$i], 0, 0, 'C');
-    $pdf->Cell(50, 10, $total[$i], 0, 0, 'C');
+    $pdf->Cell(50, 10, "$ " . $total[$i], 0, 0, 'C');
     $pdf->Ln();
 }
 
 $pdf->Cell(50, 10, "");
 $pdf->Cell(50, 10, "");
 $pdf->Cell(50, 10, "Subtotoal:");
-$pdf->Cell(50, 10, array_sum($total), 0, 0, 'C');
+$pdf->Cell(50, 10, "$ ".array_sum($total), 0, 0, 'C');
 $pdf->Ln();
 $pdf->Cell(50, 10, "");
 $pdf->Cell(50, 10, "");
 $pdf->Cell(50, 10, "Total:");
-$pdf->Cell(50, 10, array_sum($total), 0, 0, 'C');
+$pdf->Cell(50, 10, "$ ".array_sum($total), 0, 0, 'C');
 $pdf->Ln();
 
 $pdf->Cell(50, 10, "");
