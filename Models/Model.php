@@ -58,6 +58,12 @@ class Model
      * @param $table
      * @param $id
      */
+
+    function select_user($username)
+    {
+        return $this->db->select_user($username);
+    }
+
     function delete($table, $col, $val)
     {
         $this->db->delete($table, $col, $val);
