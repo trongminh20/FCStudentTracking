@@ -217,7 +217,7 @@ class Controller
         $data = $_POST;
         unset($data['submit']);
         $model -> insert('students', $data);
-
+        header("Location:?action=v_enrollmentBriefSummary_form");
     }
 
     private function c_add_pament(Model $model){}
