@@ -193,7 +193,7 @@ class Controller
         }
     }
 
-    private function c_add_ppe(Model $model)
+    private function c_add_ppes(Model $model)
     {
         if (isset($_POST['add_ppes'])) {
             $data = $_POST;
@@ -212,6 +212,15 @@ class Controller
             header("Location:?action=v_graduation_form");
         }
     }
+
+    private function c_add_student(Model $model){
+        $data = $_POST;
+        unset($data['submit']);
+        $model -> insert('students', $data);
+
+    }
+
+    private function c_add_pament(Model $model){}
 
    private function c_add_new_record(Model $model){
         if(isset($_POST['select_section'])){

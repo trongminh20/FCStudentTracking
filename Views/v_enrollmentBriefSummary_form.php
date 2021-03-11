@@ -7,8 +7,16 @@ include "v_masterPage_header.php";
     <div class="row">
         <div class="col-xs-12">
             <h2 style="padding-top: 10px">Enrollment Brief Summary</h2>
+            <div class="form-group" style="padding-top: 20px">
+                    <label for="phone">Name:</label>
+                    <input type="text" name="name" class="form-control" id="phone"/>
+                </div>
+             <div class="form-group" style="padding-top: 20px">
+                    <label for="phone">Student Id</label>
+                    <input type="text" name="name" class="form-control" id="phone"/>
+                </div>
             <!--Form starts-->
-            <form action="" method="">
+            <form action="?action=c_add_student" method="POST">
                 <!--phone number-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="phone">Contact Number:</label>
@@ -17,12 +25,12 @@ include "v_masterPage_header.php";
                 <!--email-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="Email">Email Address:</label>
-                    <input type="text" name="Email" class="form-control" id="email"/>
+                    <input type="text" name="email" class="form-control" id="email"/>
                 </div>
                 <!--dom or int student radio button-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="DomORInt">Domestic OR International:</label>
-                    <div name="Dom_OR_Int" id="DomORInt" class="row" style="padding-top: 10px">
+                    <div id="DomORInt" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
                             <label class="radio-inline">
                                 <input name="Dom_OR_Int" id="DomORInt" value="domestic" type="radio"/> Domestic
@@ -42,7 +50,8 @@ include "v_masterPage_header.php";
                 </div>
                 <!--submit button-->
                 <div class="form-group" style="padding-top: 20px">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <input class="btn btn-primary" id="btnAddNewStudent" type="submit" name="submit" value ='Add new
+                    Student'>
                 </div>
             </form>
         </div>

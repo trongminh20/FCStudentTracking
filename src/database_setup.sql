@@ -104,7 +104,7 @@ CREATE TABLE ppes
     student_id          INT,
     name_tag            VARCHAR(3),
     clinic_shirt_size   VARCHAR(30),
-    order_size          DATE,
+    order_date          DATE,
     pickup_date         DATE,
     fa_and_cpr_dt       DATETIME,
     fa_and_cpr_contact  VARCHAR(100),
