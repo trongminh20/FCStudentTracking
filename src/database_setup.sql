@@ -77,7 +77,6 @@ CREATE TABLE apsds
     app_essay          VARCHAR(3),
     refer_letter       VARCHAR(50),
     resume             VARCHAR(3),
---     fee_paid_inv       VARCHAR(50),
     intro_of_msg_from  DATETIME,
     intro_of_msg_to    DATETIME,
     intro_fee          VARCHAR(100),
