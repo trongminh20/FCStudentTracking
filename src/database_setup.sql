@@ -1,4 +1,3 @@
-
 CREATE TABLE students
 (
     id           INT PRIMARY KEY,
@@ -132,14 +131,14 @@ CREATE TABLE ppes
 
 CREATE TABLE graduations
 (
-    student_id               INT,
-    tuition_paid             VARCHAR(3),
-    official_transcript       VARCHAR(3),
-    completion_letter VARCHAR(3),
-    signed_diploma    VARCHAR(3),
-    exam_date                DATETIME,
-    T2202A                   VARCHAR(3),
-    employment               VARCHAR(200)
+    student_id          INT,
+    tuition_paid        VARCHAR(3),
+    official_transcript VARCHAR(3),
+    completion_letter   VARCHAR(3),
+    signed_diploma      VARCHAR(3),
+    exam_date           DATETIME,
+    T2202A              VARCHAR(3),
+    employment          VARCHAR(200)
 );
 
 CREATE TABLE invoice
@@ -149,6 +148,29 @@ CREATE TABLE invoice
     date    DATE,
     total   INT,
     note    VARCHAR(100)
+);
+
+CREATE TABLE payment_tracking
+(
+    student_id    INT,
+    domestic      VARCHAR(3),
+    international VARCHAR(3),
+    app_fee       INT,
+    intro_msg_fee INT,
+    materials_fee INT,
+    textbook_fee  INT,
+    admin_fee     INT,
+    1st_payment   INT,
+    2nd_payment   INT,
+    3rd_payment   INT,
+    4th_payment   INT,
+    5th_payment   INT,
+    6th_payment   INT,
+    7th_payment   INT,
+    8th_payment   INT,
+    9th_payment   INT,
+    10th_payment  INT,
+    total         INT
 );
 
 CREATE TABLE intro_msg_detail
@@ -231,4 +253,8 @@ ALTER TABLE graduations
     ADD CONSTRAINT grad_stu_unq
         UNIQUE (student_id);
 
+ALTER TABLE payment_tracking
+    ADD CONSTRAINT pay_stu_fk
+        FOREIGN KEY (student_id)
+            REFERENCES students (id);
 

@@ -31,6 +31,6 @@ include "v_masterPage_sidebar.php";
          $view->display_as_table("requestsTable","", $data);
      }
      ?>
-     
+
  </div>
 
