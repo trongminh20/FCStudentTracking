@@ -6,15 +6,33 @@ include "v_masterPage_sidebar.php";
 ?>
 
 <div class="container" id="mainContent" style="padding-top: 20px">
-    <h2>Admission Prior to Start Date</h2>
     <div class="row">
         <div class="col-xs-12">
+            <h2 style="padding-top: 10px">Admission Prior to Start Date</h2>
+
             <!--Form starts-->
             <form class="col-lg-8" action="?action=c_add_apsds" method="POST">
+                <!--id-->
                 <div class="form-group">
                     <label for="student_id">STUDENT ID</label><br>
                     <input class="form-control" type="number" name="student_id" value="" required="required">
                 </div>
+
+                <div class="form-group" style="padding-top: 20px">
+                    <label for="phone">Program ID</label>
+                    <select class="form-control" id="programID" value="">
+                        <option>-- Select one --</option>
+                        <?php
+                        $options = $model->select('programs', NULL);
+                        foreach ($options as $op):
+                            ?>
+                            <option values="<?= $op['id'] ?>"><?= $op['id'] . " -- " . $op['prog_name'] ?></option>
+                        <?php
+                        endforeach;
+                        ?>
+                    </select>
+                </div>
+
                 <!--photo id radio button-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="photoID">Photo ID:</label>
@@ -78,24 +96,47 @@ include "v_masterPage_sidebar.php";
                         </div>
                     </div>
                 </div>
-                <!--intro to massage date & time -->
+                <!--intro to massage date & time day 1 -->
                 <div class="form-group" style="padding-top: 20px">
-                    <label class="control-label" for="introOfMsg">Intro of Massage Course Date & Time:</label>
-                    <div name="intro_of_msg" id="introOfMsg" class="row" style="padding-top: 10px">
+                    <label class="control-label" for="introOfMsgDay1">Intro of Massage Course Day One:</label>
+                    <div name="intro_of_msg" id="introOfMsgDay1" class="row" style="padding-top: 10px">
                         <!---from_datetimePicker-->
                         <div class="col-sm-6">
-                            <label class="control-label" id="introOfMsgFrom">From:</label>
+                            <label class="control-label" id="introOfMsgDay1From">From:</label>
                         </div>
                         <div class="col-sm-6">
-                            <input type="datetime-local" class="form-control" name="intro_of_msg_from"
-                                   id="introOfMsgFrom">
+                            <input type="datetime-local" class="form-control" name="intro_of_msg_day1_from"
+                                   id="introOfMsgDay1From">
                         </div>
                         <!---to_datetimePicker-->
                         <div class="col-sm-6" style="padding-top: 10px">
-                            <label class="control-label" id="introOfMsgTo">To:</label>
+                            <label class="control-label" id="introOfMsgDay1To">To:</label>
                         </div>
                         <div class="col-sm-6" style="padding-top: 10px">
-                            <input type="datetime-local" class="form-control" name="intro_of_msg_to" id="introOfMsgTo">
+                            <input type="datetime-local" class="form-control" name="intro_of_msg_day1_to"
+                                   id="introOfMsgDay1To">
+                        </div>
+                    </div>
+                </div>
+                <!--intro to massage date & time day 2 -->
+                <div class="form-group" style="padding-top: 20px">
+                    <label class="control-label" for="introOfMsgDay2">Intro of Massage Course Day Two:</label>
+                    <div name="intro_of_msg" id="introOfMsgDay2" class="row" style="padding-top: 10px">
+                        <!---from_datetimePicker-->
+                        <div class="col-sm-6">
+                            <label class="control-label" id="introOfMsgDay2From">From:</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="datetime-local" class="form-control" name="intro_of_msg_day2_from"
+                                   id="introOfMsgDay2From">
+                        </div>
+                        <!---to_datetimePicker-->
+                        <div class="col-sm-6" style="padding-top: 10px">
+                            <label class="control-label" id="introOfMsgDay2To">To:</label>
+                        </div>
+                        <div class="col-sm-6" style="padding-top: 10px">
+                            <input type="datetime-local" class="form-control" name="intro_of_msg_day2_to"
+                                   id="introOfMsgDay2To">
                         </div>
                     </div>
                 </div>
@@ -185,7 +226,7 @@ include "v_masterPage_sidebar.php";
                 </div>
                 <div class="form-group" style="padding-top: 20px">
                     <label class="control-label" for="acceptLetterDate">Letter of Acceptance Issued Date:</label>
-                    <input type="datetime-local" class="form-control" id="acceptLetterDate" name="accept_letter_date"/>
+                    <input type="date" class="form-control" id="acceptLetterDate" name="accept_letter_date"/>
                 </div>
                 <!--enrollment contract notes -->
                 <div class="form-group" style="padding-top: 20px">
@@ -202,6 +243,7 @@ include "v_masterPage_sidebar.php";
                 <div class="form-group" style="padding-top: 20px">
                     <label for="payOptions">Payment Options:</label>
                     <select class="form-control" name="pay_option" id="payOptions" onChange="check();">
+                        <option disabled selected value> -- select an option --</option>
                         <option value="Student Aid BC">Student Aid BC</option>
                         <option value="Full Payment">Full Payment</option>
                         <option value="Monthly Payment">Monthly Payment</option>
@@ -218,7 +260,7 @@ include "v_masterPage_sidebar.php";
                 <div class="form-group" style="padding-top: 20px">
                     <label class="control-label" for="ackAndAgrForm">Ackmowledgement & Agreemtnt Form Received
                         Date:</label>
-                    <input type="datetime-local" class="form-control" id="ackAndAgrForm" name="ack_and_agr"/>
+                    <input type="date" class="form-control" id="ackAndAgrForm" name="ack_and_agr"/>
                 </div>
                 <!--student id card issued radio button-->
                 <div class="form-group" style="padding-top: 20px">
@@ -242,7 +284,7 @@ include "v_masterPage_sidebar.php";
                     <div style="color:red; font-size:10px;">
                         <p>To choose multiple values:</p>
                         <ul>
-                            <li>hold <strong>Ctr</strong> key if you are using Windows</li>
+                            <li>hold <strong>Ctrl</strong> key if you are using Windows</li>
                             <li>hold <strong>Command</strong> key if you are using Macbook</li>
                         </ul>
                     </div>

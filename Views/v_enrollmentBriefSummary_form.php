@@ -1,22 +1,42 @@
 <?php
 include "v_masterPage_header.php";
+include "v_masterPage_sidebar.php";
+
 ?>
 
-
-<div class="container" style="padding-top: 20px">
+<div class="container" id="mainContent" style="padding-top: 20px">
     <div class="row">
         <div class="col-xs-12">
             <h2 style="padding-top: 10px">Enrollment Brief Summary</h2>
-            <div class="form-group" style="padding-top: 20px">
-                    <label for="phone">Name:</label>
-                    <input type="text" name="name" class="form-control" id="phone"/>
-                </div>
-             <div class="form-group" style="padding-top: 20px">
-                    <label for="phone">Student Id</label>
-                    <input type="text" name="name" class="form-control" id="phone"/>
-                </div>
             <!--Form starts-->
             <form action="?action=c_add_student" method="POST">
+                <div class="form-group" style="padding-top: 20px">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" class="form-control" id="studentName"/>
+                </div>
+                <div class="form-group" style="padding-top: 20px">
+                    <label for="birthdate">Date of Birth:</label>
+                    <input type="date" name="birthdate" class="form-control" id="birthdate"/>
+                </div>
+                <!--id-->
+                <div class="form-group" style="padding-top: 20px">
+                    <label for="phone">Student Id</label>
+                    <input type="number" name="id" class="form-control" id="studentID"/>
+                </div>
+             <div class="form-group" style="padding-top: 20px">
+                    <label for="phone">Program ID</label>
+                    <select name="prog_id" class="form-control" id="programID">
+                        <option>-- Select one --</option>
+                        <?php
+                            $options = $model -> select('programs', NULL);
+                            foreach($options as $op):
+                        ?>
+                            <option values="<?=$op['id']?>"><?=$op['id']." -- ".$op['prog_name']?></option>
+                        <?php
+                            endforeach;
+                        ?>
+                    </select>
+                </div>
                 <!--phone number-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="phone">Contact Number:</label>
@@ -24,8 +44,12 @@ include "v_masterPage_header.php";
                 </div>
                 <!--email-->
                 <div class="form-group" style="padding-top: 20px">
-                    <label for="Email">Email Address:</label>
+                    <label for="Email">Email:</label>
                     <input type="text" name="email" class="form-control" id="email"/>
+                </div>
+                <div class="form-group" style="padding-top: 20px">
+                    <label for="Email">Address:</label>
+                    <input type="text" name="address" class="form-control" id="address"/>
                 </div>
                 <!--dom or int student radio button-->
                 <div class="form-group" style="padding-top: 20px">
@@ -46,7 +70,12 @@ include "v_masterPage_header.php";
                 <!--enrollment notes-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="emrollmentNotes">Emrollment Notes:</label>
-                    <textarea type="text" class="form-control" name="Enroll_Notes" id="emrollmentNotes" rows="5"></textarea>
+                    <textarea type="text" class="form-control" name="enroll_notes" id="emrollmentNotes"
+                              rows="5"></textarea>
+                </div>
+                <div class="form-group" style="padding-top: 20px">
+                    <label for="phone">Admission Status</label>
+                    <input type="text" name="admin_status" class="form-control" id="phone"/>
                 </div>
                 <!--submit button-->
                 <div class="form-group" style="padding-top: 20px">

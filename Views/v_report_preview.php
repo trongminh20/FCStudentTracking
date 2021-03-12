@@ -1,5 +1,5 @@
 <?php
-$student = $apsds = $ppes = $payment = "";
+$student = $apsds = $ppes = $inputPayment = "";
 //print_r($_POST);
 $student_id = $_POST['stu_id'];
 $student_prog = $_POST['prog_id'];
@@ -17,7 +17,7 @@ if (isset($_POST['include'])) {
             $ppes = 'ppes';
         }
         if ($_POST['include'][$i] === 'payment') {
-            $payment = 'payment';
+            $inputPayment = 'payment';
         }
     }
 }
@@ -31,11 +31,15 @@ if ($student != "") {
     $ebs_data = $model->select('students', ['id' => $student_id]);
     $detail = $ebs_data[0];
     //start section
-    $report->Cell(50, 10, 'Student Name:');
+    $report->Cell(50, 10, 'Student Name');
     $report->Cell(50, 10, $detail['name'], "", "", "", false);
     $report->Ln();
 //Start Summary Section
-    $report->Cell(50, 10, 'Enrollment Brief Summary');
+    $report->Cell(100, 10, 'Enrollment Brief Summary', "", "", "C", true);
+    $report->Ln();
+    $report->Cell(50, 10, 'Date of Birth');
+
+    $report->Cell(50, 10, $detail['birthdate'], "", "", "", false);
     $report->Ln();
     $report->Cell(60, 10, 'Contact number');
     $report->Cell(50, 10, $detail['phone'], "", "", "", false);
@@ -59,7 +63,7 @@ if ($student != "") {
 }
 if ($apsds != "") {
     $apsds_data = $model->select('apsds', ['student_id' => $student_id]);
-    $report->Cell(50, 10, 'Admission Prior to Start Date');
+    $report->Cell(100, 10, 'Admission Prior to Start Date', "", "", "C", true);
     $report->Ln();
 
     if (!empty($apsds_data)) {
@@ -172,40 +176,40 @@ if ($apsds != "") {
 if ($ppes != "") {
     $ppes_data = $model->select('ppes', ['student_id' => $student_id]);
 
-    $report->Cell(60, 10, 'Prior to Practice Education',"", "", "", true);
+    $report->Cell(100, 10, 'Prior to Practice Education', "", "", "C", true);
     $report->Ln();
 
     if (!empty($ppes_data)) {
         $detail = $ppes_data[0];
 
-        $report->Cell(60, 10, 'Name tag');
+        $report->Cell(100, 10, 'Name tag');
         $report->Cell(50, 10, $detail['name_tag'], "", "", "", false);
         $report->Ln();
-        $report->Cell(60, 10, 'Clinic Shirt size');
+        $report->Cell(100, 10, 'Clinic Shirt size');
         $report->Cell(50, 10, $detail['clinic_shirt_size'], "", "", "", false);
         $report->Ln();
-        $report->Cell(60, 10, 'Order date');
+        $report->Cell(100, 10, 'Order date');
         $report->Cell(50, 10, $detail['order_date'], "", "", "", false);
         $report->Ln();
-        $report->Cell(60, 10, 'Pick-up Date');
+        $report->Cell(100, 10, 'Pick-up Date');
         $report->Cell(50, 10, $detail['pickup_date'], "", "", "", false);
         $report->Ln();
-        $report->Cell(60, 10, 'First Aid & CPR Date & Time');
+        $report->Cell(100, 10, 'First Aid & CPR Date & Time');
         $report->Cell(50, 10, $detail['fa_and_cpr_dt'], "", "", "", false);
         $report->Ln();
-        $report->Cell(60, 10, 'First Aid & CPR Location & Contact');
+        $report->Cell(100, 10, 'First Aid & CPR Location & Contact');
         $report->Cell(50, 10, $detail['fa_and_cpr_contact'], "", "", "", false);
         $report->Ln();
-        $report->Cell(60, 10, 'Certificate of First Aid & CPR Receive Date');
+        $report->Cell(100, 10, 'Certificate of First Aid & CPR Receive Date');
         $report->Cell(50, 10, $detail['cert_fa_cpr_receive'], "", "", "", false);
         $report->Ln();
-        $report->Cell(60, 10, 'Hankbook Receive Date');
+        $report->Cell(100, 10, 'Hankbook Receive Date');
         $report->Cell(50, 10, $detail['handbook_receive'], "", "", "", false);
         $report->Ln();
-        $report->Cell(60, 10, 'Acknowledgement and Agreement Form Signed');
+        $report->Cell(100, 10, 'Acknowledgement and Agreement Form');
         $report->Cell(50, 10, $detail['ack_and_agr'], "", "", "", false);
         $report->Ln();
-        $report->Cell(60, 10, 'Medical File (Vaccinations) Received');
+        $report->Cell(100, 10, 'Medical File (Vaccinations) Received');
         $report->Cell(50, 10, $detail['medical_file'], "", "", "", false);
         $report->Ln();
     } else {
@@ -213,22 +217,48 @@ if ($ppes != "") {
         $report->Ln();
     }
 }
-if ($payment != "") {
-    $payment_data = $model->select('payments', ['student_id' => $student_id]);
+if ($inputPayment != "") {
+    $payment_data = $model->select('payment_tracking', ['student_id' => $student_id]);
 
-    $report->Cell(50, 10, 'Payment Tracking');
-
+    $report->Cell(100, 10, 'Payment Tracking', "", "", "C", true);
     $report->Ln();
-
     if (!empty($payment_data)) {
         $detail = $payment_data[0];
+        $report->Cell(60, 10, "1st_payment");
+        $report->Ln();
+        $report->Cell(60, 10, "2nd_payment");
+        $report->Ln();
+        $report->Cell(60, 10, "3rd_payment");
+        $report->Ln();
+        $report->Cell(60, 10, "4th_payment");
+        $report->Ln();
+        $report->Cell(60, 10, "5th_payment");
+        $report->Ln();
+        $report->Cell(60, 10, "6th_payment");
+        $report->Ln();
+        $report->Cell(60, 10, "7th_payment");
+        $report->Ln();
+        $report->Cell(60, 10, "8th_payment");
+        $report->Ln();
+        $report->Cell(60, 10, "9th_payment");
+        $report->Ln();
+        $report->Cell(60, 10, "10th_payment");
+        $report->Ln();
+        $report->Cell(60, 10, "total");
+        $report->Ln();
 
     } else {
         $report->Cell(60, 10, 'Not available');
         $report->Ln();
     }
 }
-$report->Output();
+if (isset($_POST['preview'])) {
+    $report->Output("", $student_id . "_report.pdf");
+} else if (isset($_POST['generate'])) {
+    $report->Output("D", $student_id . "_report.pdf");
+    $_SESSION['report_info'] = "The report has been generated";
+//    header("Location:?action=v_report");
+}
 
 
 

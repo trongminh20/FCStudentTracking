@@ -213,35 +213,42 @@ class Controller
         }
     }
 
-    private function c_add_student(Model $model){
+    private function c_add_student(Model $model)
+    {
         $data = $_POST;
         unset($data['submit']);
-        $model -> insert('students', $data);
-
+        $model->insert('students', $data);
+        header("Location:?action=v_enrollmentBriefSummary_form");
     }
 
-    private function c_add_pament(Model $model){}
+    private function c_add_payment(Model $model)
+    {
+        $data = $_POST;
+        unset($data['submit']);
+        $model -> insert('payment_tracking', $data);
+    }
 
-   private function c_add_new_record(Model $model){
-        if(isset($_POST['select_section'])){
-           $case = $_POST['select_section'];
-           if($case === 'Enrollment Brief Summary') {
-               header("location:?action=v_enrollmentBriefSummary_form");
-           }
-           if($case === 'Admission Prior to Start Date') {
-               header("location:?action=v_admPriorToStartDate_form");
-           }
-           if($case === 'Prior to Practice Education') {
-               header("location:?action=v_priorToPracticeEducation_form");
-           }
-           if($case === 'Graduation') {
-               header("location:?action=v_graduation_form");
-           }
-           if($case === 'Payment Tracking') {
-               header("location:?action=v_paymentTracking_form");
-           }
+    private function c_add_new_record(Model $model)
+    {
+        if (isset($_POST['select_section'])) {
+            $case = $_POST['select_section'];
+            if ($case === 'Enrollment Brief Summary') {
+                header("location:?action=v_enrollmentBriefSummary_form");
+            }
+            if ($case === 'Admission Prior to Start Date') {
+                header("location:?action=v_admPriorToStartDate_form");
+            }
+            if ($case === 'Prior to Practice Education') {
+                header("location:?action=v_priorToPracticeEducation_form");
+            }
+            if ($case === 'Graduation') {
+                header("location:?action=v_graduation_form");
+            }
+            if ($case === 'Payment Tracking') {
+                header("location:?action=v_paymentTracking_form");
+            }
         }
-   }
+    }
 
 
 }

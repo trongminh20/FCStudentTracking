@@ -32,12 +32,5 @@ include "v_masterPage_sidebar.php";
      }
      ?>
 
-     <?php
-
-//        $data = $model -> select('sessions', ['user_id' => $_SESSION['user']['id']]);
-//
-//        $view-> display_as_table('sessions', ['user_id' => $_SESSION['user']['id']]);
-
-     ?>
  </div>
 

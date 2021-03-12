@@ -12,8 +12,23 @@ include "v_masterPage_sidebar.php";
         <form class="col-lg-8" action="?action=c_add_ppes" method="POST">
             <div class="form-group">
                 <label for="student_id">Student ID</label><br>
-                <input type="number" name="student_id" placeholder="Enter student ID" required="required">
+                <input class="form-control" type="number" name="student_id" placeholder="Enter student ID"
+                       required="required">
             </div>
+             <div class="form-group" style="padding-top: 20px">
+                    <label for="phone">Program ID</label>
+                    <select class="form-control" id="programID" value="">
+                        <option>-- Select one --</option>
+                        <?php
+                        $options = $model->select('programs', NULL);
+                        foreach ($options as $op):
+                            ?>
+                            <option values="<?= $op['id'] ?>"><?= $op['id'] . " -- " . $op['prog_name'] ?></option>
+                        <?php
+                        endforeach;
+                        ?>
+                    </select>
+                </div>
           <!--name tag -->
           <div class="form-group" style="padding-top: 20px">
               <label for="NameTag">Name Tag:</label>
