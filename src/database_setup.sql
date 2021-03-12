@@ -3,6 +3,7 @@ CREATE TABLE students
     id           INT PRIMARY KEY,
     prog_id      VARCHAR(5),
     name         VARCHAR(50),
+    birthdate      DATE,
     phone        VARCHAR(15),
     email        VARCHAR(50),
     address      VARCHAR(50),

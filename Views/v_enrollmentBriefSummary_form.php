@@ -3,11 +3,6 @@ include "v_masterPage_header.php";
 include "v_masterPage_sidebar.php";
 
 ?>
-<?php
-include "v_masterPage_sidebar.php";
-?>
-
-
 
 <div class="container" id="mainContent" style="padding-top: 20px">
     <div class="row">
@@ -16,8 +11,12 @@ include "v_masterPage_sidebar.php";
             <!--Form starts-->
             <form action="?action=c_add_student" method="POST">
                 <div class="form-group" style="padding-top: 20px">
-                    <label for="phone">Name:</label>
+                    <label for="name">Name:</label>
                     <input type="text" name="name" class="form-control" id="studentName"/>
+                </div>
+                <div class="form-group" style="padding-top: 20px">
+                    <label for="birthdate">Date of Birth:</label>
+                    <input type="date" name="birthdate" class="form-control" id="birthdate"/>
                 </div>
                 <!--id-->
                 <div class="form-group" style="padding-top: 20px">
@@ -26,7 +25,17 @@ include "v_masterPage_sidebar.php";
                 </div>
              <div class="form-group" style="padding-top: 20px">
                     <label for="phone">Program ID</label>
-                    <input type="text" name="prog_id" class="form-control" id="programID"/>
+                    <select name="prog_id" class="form-control" id="programID">
+                        <option>-- Select one --</option>
+                        <?php
+                            $options = $model -> select('programs', NULL);
+                            foreach($options as $op):
+                        ?>
+                            <option values="<?=$op['id']?>"><?=$op['id']." -- ".$op['prog_name']?></option>
+                        <?php
+                            endforeach;
+                        ?>
+                    </select>
                 </div>
                 <!--phone number-->
                 <div class="form-group" style="padding-top: 20px">
