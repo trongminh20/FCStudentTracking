@@ -9,8 +9,11 @@ unset($_SESSION['student']);
 ?>
 
 <div id="mainContent">
+
     <?php
-    $form = new Form('form-group col-lg-8', "reportForm", "v_report_preview", "POST", "Creating Report");
+    echo ((isset($_SESSION['report_info']) ? $_SESSION['report_info'] : ""));
+    unset($_SESSION['report_info']);
+    $form = new Form('form-group col-lg-8', "reportForm", "v_report_preview", "POST", "Creating Report", '_blank');
 
     $form::start_fieldset(['id' => 'id', 'class' => '']);
     $form::add_legend(['id' => "", 'value' => "Student Information"]);
