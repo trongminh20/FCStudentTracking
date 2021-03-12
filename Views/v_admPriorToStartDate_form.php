@@ -9,6 +9,7 @@ include "v_masterPage_sidebar.php";
     <div class="row">
         <div class="col-xs-12">
             <h2 style="padding-top: 10px">Admission Prior to Start Date</h2>
+
             <!--Form starts-->
             <form class="col-lg-8" action="?action=c_add_apsds" method="POST">
                 <!--id-->
@@ -16,6 +17,22 @@ include "v_masterPage_sidebar.php";
                     <label for="student_id">STUDENT ID</label><br>
                     <input class="form-control" type="number" name="student_id" value="" required="required">
                 </div>
+
+                <div class="form-group" style="padding-top: 20px">
+                    <label for="phone">Program ID</label>
+                    <select class="form-control" id="programID" value="">
+                        <option>-- Select one --</option>
+                        <?php
+                        $options = $model->select('programs', NULL);
+                        foreach ($options as $op):
+                            ?>
+                            <option values="<?= $op['id'] ?>"><?= $op['id'] . " -- " . $op['prog_name'] ?></option>
+                        <?php
+                        endforeach;
+                        ?>
+                    </select>
+                </div>
+
                 <!--photo id radio button-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="photoID">Photo ID:</label>
@@ -96,7 +113,8 @@ include "v_masterPage_sidebar.php";
                             <label class="control-label" id="introOfMsgDay1To">To:</label>
                         </div>
                         <div class="col-sm-6" style="padding-top: 10px">
-                            <input type="datetime-local" class="form-control" name="intro_of_msg_day1_to" id="introOfMsgDay1To">
+                            <input type="datetime-local" class="form-control" name="intro_of_msg_day1_to"
+                                   id="introOfMsgDay1To">
                         </div>
                     </div>
                 </div>
@@ -117,7 +135,8 @@ include "v_masterPage_sidebar.php";
                             <label class="control-label" id="introOfMsgDay2To">To:</label>
                         </div>
                         <div class="col-sm-6" style="padding-top: 10px">
-                            <input type="datetime-local" class="form-control" name="intro_of_msg_day2_to" id="introOfMsgDay2To">
+                            <input type="datetime-local" class="form-control" name="intro_of_msg_day2_to"
+                                   id="introOfMsgDay2To">
                         </div>
                     </div>
                 </div>
@@ -224,7 +243,7 @@ include "v_masterPage_sidebar.php";
                 <div class="form-group" style="padding-top: 20px">
                     <label for="payOptions">Payment Options:</label>
                     <select class="form-control" name="pay_option" id="payOptions" onChange="check();">
-                        <option disabled selected value> -- select an option -- </option>
+                        <option disabled selected value> -- select an option --</option>
                         <option value="Student Aid BC">Student Aid BC</option>
                         <option value="Full Payment">Full Payment</option>
                         <option value="Monthly Payment">Monthly Payment</option>
