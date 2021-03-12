@@ -224,6 +224,7 @@ include "v_masterPage_sidebar.php";
                 <div class="form-group" style="padding-top: 20px">
                     <label for="payOptions">Payment Options:</label>
                     <select class="form-control" name="pay_option" id="payOptions" onChange="check();">
+                        <option disabled selected value> -- select an option -- </option>
                         <option value="Student Aid BC">Student Aid BC</option>
                         <option value="Full Payment">Full Payment</option>
                         <option value="Monthly Payment">Monthly Payment</option>
