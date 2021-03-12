@@ -31,16 +31,6 @@ include "v_masterPage_sidebar.php";
          $view->display_as_table("requestsTable","", $data);
      }
      ?>
-
-<<<<<<< HEAD
-=======
-     <?php
-
-//        $data = $model -> select('sessions', ['user_id' => $_SESSION['user']['id']]);
-//
-//        $view-> display_as_table('sessions', ['user_id' => $_SESSION['user']['id']]);
-
-     ?>
->>>>>>> 1bbbd435d9e88602e2507a1e2805de234bbd624c
+     
  </div>
 
