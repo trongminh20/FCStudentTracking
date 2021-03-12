@@ -12,42 +12,17 @@ include "v_masterPage_sidebar.php";
             <!--form starts-->
     		<form class="col-lg-8" action="?action=c_add_new_record" method="POST">
                 <!--select program-->
-                <div class="form-group" style="padding-top: 20px">
-                    <label for="selectProgram">Select Program:</label>
-                    <select class="form-control" name="select_program" id="selectProgram" onChange="selectPro();">
+                <div class="form-group" id="rmt" style="padding-top: 20px;">
+                    <label for="selectSection">Select Section to Insert:</label>
+                    <select class="form-control" name="select_section" id="selectSection">
                         <option disabled selected value> -- select an option -- </option>
-                        <option value="rmt">Registered Massage Therapy</option>
-                        <option value="hca">Health Care Assistant</option>
-                        <option value="csw">Community Support Worker</option>
-                        <option value="bk">Bookkeeping</option>
-                        <option value="da">Data Analystic</option>
+                        <option value="Enrollment Brief Summary">Enrollment Brief Summary</option>
+                        <option value="Admission Prior to Start Date">Admission Prior to Start Date</option>
+                        <option value="Prior to Practice Education">Prior to Practice Education</option>
+                        <option value="Graduation">Graduation</option>
+                        <option value="Payment Tracking">Payment Tracking</option>
                     </select>
-                    <!--RMT forms-->
-                    <div class="form-group" id="rmt" style="padding-top: 20px;">
-                        <label for="selectSectionRMT">Select Section to Insert:</label>
-                        <select class="form-control" name="select_section_rmt" id="selectSectionRMT">
-                            <option disabled selected value> -- select an option -- </option>
-                            <option value="Enrollment Brief Summary">Enrollment Brief Summary</option>
-                            <option value="Admission Prior to Start Date">Admission Prior to Start Date</option>
-                            <option value="Prior to Practice Education">Prior to Practice Education</option>
-                            <option value="Graduation">Graduation</option>
-                            <option value="Payment Tracking">Payment Tracking</option>
-                        </select>
-                    </div>
-                    <!--HCA forms-->
-                    <div class="form-group" id="hca" style="display: none">
-                        <label for="selectSectionHCA">Select Section to Insert:</label>
-                        <select class="form-control" name="select_section_hca" id="selectSectionHCA">
-                            <option disabled selected value> -- select an option -- </option>
-                            <option value="Enrollment Brief Summary">Enrollment Brief Summary</option>
-                            <option value="Admission Prior to Start Date">Admission Prior to Start Date</option>
-                            <option value="Prior to Practice Education">Prior to Practice Education</option>
-                            <option value="Graduation">Graduation</option>
-                            <option value="Payment Tracking">Payment Tracking</option>
-                        </select>
-                    </div>
                 </div>
-
                 <div class="form-group">
                     <input type="submit" name='add_record' value='Submit' class="btn btn-primary">
                 </div>

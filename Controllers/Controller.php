@@ -223,8 +223,8 @@ class Controller
     private function c_add_pament(Model $model){}
 
    private function c_add_new_record(Model $model){
-        if(isset($_POST['select_section_rmt'])){
-           $case = $_POST['select_section_rmt'];
+        if(isset($_POST['select_section'])){
+           $case = $_POST['select_section'];
            if($case === 'Enrollment Brief Summary') {
                header("location:?action=v_enrollmentBriefSummary_form");
            }
