@@ -34,7 +34,6 @@ class View
      */
     public function display_customized_form($id, $class, $inputList, $formMethod, $formAction, $formName)
     {
-
         $form = new Form($id, $class, $formMethod, $formAction, $formName);
         for ($i = 0; $i < count($inputList); $i++) {
             foreach ($inputList[$i] as $key => $val) {
@@ -48,7 +47,6 @@ class View
                 if ($key == 'selection') $form::add_selection($val);
             }
         }
-
         $form::end_form();
     }
 
