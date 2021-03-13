@@ -219,6 +219,10 @@ include "v_masterPage_sidebar.php";
                         NO</label>
                   </div>
                 </div>
+
+                <div class="form-group" style="padding-top: 20px; padding-bottom: 10px">
+              <input type="submit" name="add_ppes" class="btn btn-primary" value="ADD">
+            </div>
             </form>
         </div>
     </div>
