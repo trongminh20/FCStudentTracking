@@ -218,7 +218,7 @@ include "v_masterPage_sidebar.php";
                     <input name="medical_file" id="MedicalFileReceived" value="no" type="radio"/>
                         NO</label>
                   </div>
-                </div>
+<!--                </div>-->
             </form>
         </div>
     </div>
