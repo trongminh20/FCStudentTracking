@@ -14,13 +14,13 @@ include "v_masterPage_sidebar.php";
             <form class="col-lg-8" action="?action=c_add_apsds" method="POST">
                 <!--id-->
                 <div class="form-group">
-                    <label for="student_id">STUDENT ID</label><br>
+                    <label for="student_id">Student ID</label><br>
                     <input class="form-control" type="number" name="student_id" value="" required="required">
                 </div>
 
                 <div class="form-group" style="padding-top: 20px">
                     <label for="phone">Program ID</label>
-                    <select class="form-control" id="programID" value="">
+                    <select class="form-control" id="programID" value="" onChange="">
                         <option>-- Select one --</option>
                         <?php
                         $options = $model->select('programs', NULL);
@@ -60,7 +60,7 @@ include "v_masterPage_sidebar.php";
                     <input type="text" name="app_fee" class="form-control" id="appFee"/>
                 </div>
                 <!--application essay radio button-->
-                <div class="form-group" style="padding-top: 20px">
+                <div class="form-group" style="padding-top: 20px; display: none">
                     <label for="appEssay">Application Essay:</label>
                     <div id="appEssay" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">

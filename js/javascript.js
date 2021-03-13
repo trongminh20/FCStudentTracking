@@ -8,7 +8,7 @@ function check() {
     }
 }
 
-/*choose between programs*/
+/*choose between programs
 function selectPro(){
 	var elem = document.getElementById("selectProgram");
    	if(elem.value == 'rmt'){
@@ -17,4 +17,4 @@ function selectPro(){
     	document.getElementById("rmt").style.display = 'none';
    }
 } 
-
+*/
