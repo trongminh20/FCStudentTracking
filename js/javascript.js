@@ -1,14 +1,14 @@
 /*choose between payment methods*/
 function check() {
     var elem = document.getElementById("payOptions");
-    if (elem.value == 'others') {
+    if (elem.value == 'Others') {
         document.getElementById("otherPayOptions").style.display = 'block';
     } else {
         document.getElementById("otherPayOptions").style.display = 'none';
     }
 }
 
-/*choose between programs*/
+/*choose between programs
 function selectPro(){
 	var elem = document.getElementById("selectProgram");
    	if(elem.value == 'rmt'){
@@ -17,4 +17,4 @@ function selectPro(){
     	document.getElementById("rmt").style.display = 'none';
    }
 } 
-
+*/
