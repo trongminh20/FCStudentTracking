@@ -108,28 +108,148 @@ include "v_masterPage_sidebar.php";
                         </div>
                     </div>
                 </div>
-                <!--medical file received-->
-                <div class="form-group" style="padding-top: 20px">
-                    <label for="AcknowledgementAndMedicalFileReceived">Medical File (Vaccinations) Received:</label>
-                    <div name="acknowledgement_And_Medical_File_Received" id="AcknowledgementAndMedicalFileReceived"
-                         class="row" style="padding-top: 10px">
-                        <div class="col-sm-6">
-                            <label class="radio-inline">
-                                <input name="medical_file" id="AcknowledgementAndMedicalFileReceived" value="yes"
-                                       type="radio"/>
-                                YES</label>
-                        </div>
-                        <div class="col-sm-6">
-                            <label class="radio-inline">
-                                <input name="medical_file" id="AcknowledgementAndMedicalFileReceived" value="no"
-                                       type="radio"/>
-                                NO</label>
-                        </div>
-                    </div>
+          </div>
+          <!--clinic shirt size-->
+          <div class="form-group" style="padding-top: 20px">
+            <label for="ClinicShirtSize">Clinic Shirt Size:</label>
+              <select class="form-control" name="clinic_shirt_size" id="ClinicShirtSize">
+                <option value="Extra Small">Extra Small</option>
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+                <option value="Extra Large">Extra Large</option>
+              </select>  
+          </div>
+          <!--shirt order date-->
+          <div class="form-group" style="padding-top: 20px"> 
+            <label class="control-label" for="shirtOrderDate">Order Date:</label>
+            <input type="date" class="form-control" name="order_date" id="ShirtOrderDate" name="shirt_Order_Date"/>
+          </div>
+          <!--pick up date-->
+          <div class="form-group" style="padding-top: 20px"> 
+            <label class="control-label" for="pickUpDate">Pick-up Date:</label>
+            <input type="date" class="form-control" id="PickUpDate" name="pickup_date"/>
+          </div>
+          <!--first aid & cpr date & time -->
+          <div class="form-group" style="padding-top: 20px"> 
+            <label class="control-label" for="FirstAidandCPRDateandTime">First Aid & CPR Date & Time:</label>
+            <input type="datetime-local" class="form-control" id="FirstAidandCPRDateandTime" name="fa_and_cpr_dt"/>
+          </div>
+          <!--first aid & cpr location & contact -->
+          <div class="form-group" style="padding-top: 20px">
+            <label for="FirstAidandCPRLocandContact">First Aid & CPR Location & Contact: </label>
+            <textarea type="text" class="form-control" id="FirstAidandCPRLocandContact" name="fa_and_cpr_contact"
+                      rows="3"></textarea>
+          </div>
+          <!--certificate of first aid & cpr received date-->
+          <div class="form-group" style="padding-top: 20px">
+            <label for="FirstAidandCPRCertificateReceiveDate">Certificate of First Aid & CPR Receive Date:</label>
+            <input type="date" class="form-control" id="FirstAidandCPRCertificateReceiveDate" name="cert_fa_cpr_receive"/>
+          </div>
+          <!--foodsafe date & time (need to add to db)-->
+          <div class="form-group" style="padding-top: 20px"> 
+            <label class="control-label" for="foodsafeDateandTime">FoodSafe Date & Time:</label>
+            <input type="datetime-local" class="form-control" id="foodsafeDateandTime" name="foodsafe_dt"/>
+          </div>
+          <!--foodsafe location & contact (need to add to db)-->
+          <div class="form-group" style="padding-top: 20px">
+            <label for="foodsafeLocandContact">FoodSafe Location & Contact: </label>
+            <textarea type="text" class="form-control" id="foodsafeLocandContact" name="foodsafe_contact"
+                      rows="3"></textarea>
+          </div>
+          <!--certificate of foodsafe received date (need to add to db)-->
+          <div class="form-group" style="padding-top: 20px">
+            <label for="foodsafeCertificateReceiveDate">Certificate of FoodSafe Receive Date:</label>
+            <input type="date" class="form-control" id="foodsafeCertificateReceiveDate" name="cert_foodsafe_receive"/>
+          </div>
+          <!--asist training date & time (need to add to db)-->
+          <div class="form-group" style="padding-top: 20px"> 
+            <label class="control-label" for="asistTrainingDateandTime">ASIST Training Date & Time:</label>
+            <input type="datetime-local" class="form-control" id="asistTrainingDateandTime" name="asist_tra_dt"/>
+          </div>
+          <!--asist training location & contact (need to add to db)-->
+          <div class="form-group" style="padding-top: 20px">
+            <label for="asistTrainingLocandContact">ASIST Training Location & Contact: </label>
+            <textarea type="text" class="form-control" id="asistTrainingLocandContact" name="asist_tra_contact"
+                      rows="3"></textarea>
+          </div>
+          <!--certificate of asist training received date (need to add to db)-->
+          <div class="form-group" style="padding-top: 20px">
+            <label for="asistTrainingCertificateReceiveDate">Certificate of ASIST Training Receive Date:</label>
+            <input type="date" class="form-control" id="asistTrainingCertificateReceiveDate" name="cert_asist_tra_receive"/>
+          </div>
+          <!--siva training date & time (need to add to db)-->
+          <div class="form-group" style="padding-top: 20px"> 
+            <label class="control-label" for="sivaTrainingDateandTime">SIVA Training Date & Time:</label>
+            <input type="datetime-local" class="form-control" id="sivaTrainingDateandTime" name="siva_tra_dt"/>
+          </div>
+          <!--siva training location & contact (need to add to db)-->
+          <div class="form-group" style="padding-top: 20px">
+            <label for="sivaTrainingLocandContact">SIVA Training Location & Contact: </label>
+            <textarea type="text" class="form-control" id="sivaTrainingLocandContact" name="siva_tra_contact"
+                      rows="3"></textarea>
+          </div>
+          <!--certificate of siva training received date (need to add to db)-->
+          <div class="form-group" style="padding-top: 20px">
+            <label for="sivaTrainingCertificateReceiveDate">Certificate of SIVA Training Receive Date:</label>
+            <input type="date" class="form-control" id="sivaTrainingCertificateReceiveDate" name="cert_siva_tra_receive"/>
+          </div>
+          <!--CRC received date (need to add to db)-->
+          <div class="form-group" style="padding-top: 20px">
+            <label for="crcReceiveDate">Criminal Record Check Receive Date:</label>
+            <input type="date" class="form-control" id="crcReceiveDate" name="crc_receive"/>
+          </div>
+          <!--SPECO radio button (need to add to db)-->
+          <div class="form-group" style="padding-top: 20px">
+            <label for="speco">SPECO:</label>
+              <div id="speco" class="row" style="padding-top: 10px">
+                <div class="col-sm-6">
+                  <label class="radio-inline">
+                  <input name="speco" id="speco" value="yes" type="radio"/>
+                      YES</label>
+                 </div>
+                <div class="col-sm-6">
+                  <label class="radio-inline">
+                  <input name="speco" id="speco" value="no" type="radio"/>
+                      NO</label>
                 </div>
-                <!--submit button-->
-                <div class="form-group" style="padding-top: 20px; padding-bottom: 10px">
-                    <input type="submit" name="add_ppes" class="btn btn-primary" value="ADD">
+              </div>
+          </div>
+          <!--clinic handbook receive date (changed name)-->
+          <div class="form-group" style="padding-top: 20px"> 
+            <label class="control-label" for="ClinicHankbookReceiveDate">Clinic Hankbook Receive Date:</label>
+            <input type="date" class="form-control" id="ClinicHankbookReceiveDate" name="cli_handbook_receive"/>
+          </div>
+          <!--clinic acknowledgement and agreement form signed (changed name)-->
+          <div class="form-group" style="padding-top: 20px">
+            <label for="ClinicAckAndAgrFormSigned">Acknowledgement and Agreement Form Signed:</label>
+              <div id="ClinicAckAndAgrFormSigned" class="row" style="padding-top: 10px">
+                <div class="col-sm-6">
+                  <label class="radio-inline">
+                  <input name="cli_ack_and_agr" id="ClinicAckAndAgrFormSigned" value="yes" type="radio"/>
+                      YES</label>
+                 </div>
+                <div class="col-sm-6">
+                  <label class="radio-inline">
+                  <input name="cli_ack_and_agr" id="ClinicAckAndAgrFormSigned" value="no" type="radio"/>
+                      NO</label>
+                </div>
+              </div>
+          </div>
+          <!--medical file received radio button-->
+            <div class="form-group" style="padding-top: 20px">
+              <label for="MedicalFileReceived">Medical File (Vaccinations) Received:</label>
+                <div name="Medical_File_Received" id="MedicalFileReceived" class="row" style="padding-top: 10px">
+                  <div class="col-sm-6">
+                    <label class="radio-inline">
+                    <input name="medical_file" id="MedicalFileReceived" value="yes" type="radio"/>
+                        YES</label>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="radio-inline">
+                    <input name="medical_file" id="MedicalFileReceived" value="no" type="radio"/>
+                        NO</label>
+                  </div>
                 </div>
             </form>
         </div>

@@ -118,7 +118,7 @@ include "v_masterPage_sidebar.php";
                         </div>
                     </div>
                 </div>
-                <!--intro to massage date & time day 2 -->
+                <!--intro to massage date & time day 2 (Need to add to db)-->
                 <div class="form-group" style="padding-top: 20px">
                     <label class="control-label" for="introOfMsgDay2">Intro of Massage Course Day Two:</label>
                     <div name="intro_of_msg" id="introOfMsgDay2" class="row" style="padding-top: 10px">
@@ -168,8 +168,30 @@ include "v_masterPage_sidebar.php";
                 </div>
                 <!--english test result notes -->
                 <div class="form-group" style="padding-top: 20px">
-                    <label for="engTestResult">English Test Result:</label>
+                    <label for="engTestResult">English Test Result (For Non-English Speaker):</label>
                     <input type="text" name="eng_test_result" class="form-control" id="engTestResult"/>
+                </div>
+                <!--english language competency self-declaration form (Need to add to db)-->
+                <div class="form-group" style="padding-top: 20px">
+                    <label for="engComForm">English Language Competency Self-Declaration Form:</label>
+                    <div name="eng_com_form" id="engComForm" class="row" style="padding-top: 10px">
+                        <div class="col-sm-6">
+                            <label class="radio-inline">
+                                <input name="eng_com_form" id="engComForm" value="yes" type="radio"/> YES
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="radio-inline">
+
+                                <input name="eng_com_form" id="engComForm" value="no" type="radio"/> NO
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!--high school diploma & transcript notes -->
+                <div class="form-group" style="padding-top: 20px">
+                    <label for="diplomaAndTranscript">High School Diploma & Transcript (Or Above):</label>
+                    <input type="text" name="dips_and_trans" class="form-control" id="diplomaAndTranscript"/>
                 </div>
                 <!--CRC result notes -->
                 <div class="form-group" style="padding-top: 20px">
@@ -214,16 +236,12 @@ include "v_masterPage_sidebar.php";
                         </div>
                     </div>
                 </div>
-                <!--high school diploma & transcript notes -->
-                <div class="form-group" style="padding-top: 20px">
-                    <label for="diplomaAndTranscript">High School Diploma & Transcript (Or Above):</label>
-                    <input type="text" name="dips_and_trans" class="form-control" id="diplomaAndTranscript"/>
-                </div>
                 <!--student email -->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="stuEmail">Student Email:</label>
                     <input type="text" name="stu_email" class="form-control" id="stuEmail"/>
                 </div>
+                <!--letter of acceptance issue date-->
                 <div class="form-group" style="padding-top: 20px">
                     <label class="control-label" for="acceptLetterDate">Letter of Acceptance Issued Date:</label>
                     <input type="date" class="form-control" id="acceptLetterDate" name="accept_letter_date"/>
@@ -233,11 +251,27 @@ include "v_masterPage_sidebar.php";
                     <label for="enrollContract">Enrollment Contract:</label>
                     <input type="text" name="enroll_contract" class="form-control" id="enrollContract"/>
                 </div>
-                <!--Handbooks notes -->
+                <!--Student & Program Handbooks notes (changed name)-->
                 <div class="form-group" style="padding-top: 20px">
-                    <label for="HandbooksNotes">Student Handbooks:</label>
-                    <textarea type="text" class="form-control" name="handbook_notes" id="HandbooksNotes"
+                    <label for="StudentProgramHandbooksNotes">Student & Program Handbooks:</label>
+                    <textarea type="text" class="form-control" name="stu_prog_handbook_notes" id="StudentProgramHandbooksNotes"
                               rows="5"></textarea>
+                </div>
+                <!--Student ackmowledgement & agreemtnt form received date (changed name)-->
+                <div class="form-group" style="padding-top: 20px">
+                    <label class="control-label" for="stuAckAndAgrForm">Ackmowledgement & Agreement Form Received
+                        Date:</label>
+                    <input type="date" class="form-control" id="stuAckAndAgrForm" name="stu_ack_and_agr"/>
+                </div>
+                <!--photography waiver form receive date (Need to add to db)-->
+                <div class="form-group" style="padding-top: 20px">
+                    <label class="control-label" for="photoWaiverDate">Photography Waiver Form Receive Date:</label>
+                    <input type="date" class="form-control" id="photoWaiverDate" name="photo_waiver_date"/>
+                </div>
+                <!--self-declaration of health notice receive date (Need to add to db)-->
+                <div class="form-group" style="padding-top: 20px">
+                    <label class="control-label" for="healthCheckDate">Self-Declaration of Health Notice Receive Date:</label>
+                    <input type="date" class="form-control" id="healthCheckDate" name="health_check_date"/>
                 </div>
                 <!--payment options-->
                 <div class="form-group" style="padding-top: 20px">
@@ -255,12 +289,6 @@ include "v_masterPage_sidebar.php";
                             <input type="text" id="otherInput" name='pay_option' class="form-control">
                         </label>
                     </div>
-                </div>
-                <!--ackmowledgement & agreemtnt form received date-->
-                <div class="form-group" style="padding-top: 20px">
-                    <label class="control-label" for="ackAndAgrForm">Ackmowledgement & Agreemtnt Form Received
-                        Date:</label>
-                    <input type="date" class="form-control" id="ackAndAgrForm" name="ack_and_agr"/>
                 </div>
                 <!--student id card issued radio button-->
                 <div class="form-group" style="padding-top: 20px">
