@@ -96,38 +96,6 @@ include "v_masterPage_sidebar.php";
             <label for="foodsafeCertificateReceiveDate">Certificate of FoodSafe Receive Date:</label>
             <input type="date" class="form-control" id="foodsafeCertificateReceiveDate" name="cert_foodsafe_receive"/>
           </div>
-          <!--asist training date & time (need to add to db)-->
-          <div class="form-group" style="padding-top: 20px"> 
-            <label class="control-label" for="asistTrainingDateandTime">ASIST Training Date & Time:</label>
-            <input type="datetime-local" class="form-control" id="asistTrainingDateandTime" name="asist_tra_dt"/>
-          </div>
-          <!--asist training location & contact (need to add to db)-->
-          <div class="form-group" style="padding-top: 20px">
-            <label for="asistTrainingLocandContact">ASIST Training Location & Contact: </label>
-            <textarea type="text" class="form-control" id="asistTrainingLocandContact" name="asist_tra_contact"
-                      rows="3"></textarea>
-          </div>
-          <!--certificate of asist training received date (need to add to db)-->
-          <div class="form-group" style="padding-top: 20px">
-            <label for="asistTrainingCertificateReceiveDate">Certificate of ASIST Training Receive Date:</label>
-            <input type="date" class="form-control" id="asistTrainingCertificateReceiveDate" name="cert_asist_tra_receive"/>
-          </div>
-          <!--siva training date & time (need to add to db)-->
-          <div class="form-group" style="padding-top: 20px"> 
-            <label class="control-label" for="sivaTrainingDateandTime">SIVA Training Date & Time:</label>
-            <input type="datetime-local" class="form-control" id="sivaTrainingDateandTime" name="siva_tra_dt"/>
-          </div>
-          <!--siva training location & contact (need to add to db)-->
-          <div class="form-group" style="padding-top: 20px">
-            <label for="sivaTrainingLocandContact">SIVA Training Location & Contact: </label>
-            <textarea type="text" class="form-control" id="sivaTrainingLocandContact" name="siva_tra_contact"
-                      rows="3"></textarea>
-          </div>
-          <!--certificate of siva training received date (need to add to db)-->
-          <div class="form-group" style="padding-top: 20px">
-            <label for="sivaTrainingCertificateReceiveDate">Certificate of SIVA Training Receive Date:</label>
-            <input type="date" class="form-control" id="sivaTrainingCertificateReceiveDate" name="cert_siva_tra_receive"/>
-          </div>
           <!--CRC received date (need to add to db)-->
           <div class="form-group" style="padding-top: 20px">
             <label for="crcReceiveDate">Criminal Record Check Receive Date:</label>

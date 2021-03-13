@@ -60,7 +60,7 @@ include "v_masterPage_sidebar.php";
                     <input type="text" name="app_fee" class="form-control" id="appFee"/>
                 </div>
                 <!--application essay radio button-->
-                <div class="form-group" style="padding-top: 20px; display: none">
+                <div class="form-group" style="padding-top: 20px;">
                     <label for="appEssay">Application Essay:</label>
                     <div id="appEssay" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
