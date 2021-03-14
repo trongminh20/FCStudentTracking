@@ -19,14 +19,14 @@ include "v_masterPage_sidebar.php";
                     <label for="phone">Program ID:</label>
                     <select class="form-control" id="programID" value="">
                         <option>-- Select one --</option>
-                        <?php
-                        $options = $model->select('programs', NULL);
-                        foreach ($options as $op):
-                            ?>
+<?php
+$options = $model->select('programs', NULL);
+foreach ($options as $op):
+?>
                             <option values="<?= $op['id'] ?>"><?= $op['id'] . " -- " . $op['prog_name'] ?></option>
-                        <?php
-                        endforeach;
-                        ?>
+<?php
+  endforeach;
+?>
                     </select>
                 </div>
           <!--name tag -->
@@ -52,20 +52,20 @@ include "v_masterPage_sidebar.php";
                 <option value="Medium">Medium</option>
                 <option value="Large">Large</option>
                 <option value="Extra Large">Extra Large</option>
-              </select>  
+              </select>
           </div>
           <!--shirt order date-->
-          <div class="form-group" style="padding-top: 20px"> 
+          <div class="form-group" style="padding-top: 20px">
             <label class="control-label" for="shirtOrderDate">Order Date:</label>
             <input type="date" class="form-control" name="order_date" id="ShirtOrderDate" name="shirt_Order_Date"/>
           </div>
           <!--pick up date-->
-          <div class="form-group" style="padding-top: 20px"> 
+          <div class="form-group" style="padding-top: 20px">
             <label class="control-label" for="pickUpDate">Pick-up Date:</label>
             <input type="date" class="form-control" id="PickUpDate" name="pickup_date"/>
           </div>
           <!--first aid & cpr date & time -->
-          <div class="form-group" style="padding-top: 20px"> 
+          <div class="form-group" style="padding-top: 20px">
             <label class="control-label" for="FirstAidandCPRDateandTime">First Aid & CPR Date & Time:</label>
             <input type="datetime-local" class="form-control" id="FirstAidandCPRDateandTime" name="fa_and_cpr_dt"/>
           </div>
@@ -81,7 +81,7 @@ include "v_masterPage_sidebar.php";
             <input type="date" class="form-control" id="FirstAidandCPRCertificateReceiveDate" name="cert_fa_cpr_receive"/>
           </div>
           <!--foodsafe date & time (need to add to db)-->
-          <div class="form-group" style="padding-top: 20px"> 
+          <div class="form-group" style="padding-top: 20px">
             <label class="control-label" for="foodsafeDateandTime">FoodSafe Date & Time:</label>
             <input type="datetime-local" class="form-control" id="foodsafeDateandTime" name="foodsafe_dt"/>
           </div>
@@ -117,7 +117,7 @@ include "v_masterPage_sidebar.php";
               </div>
           </div>
           <!--clinic handbook receive date (changed name)-->
-          <div class="form-group" style="padding-top: 20px"> 
+          <div class="form-group" style="padding-top: 20px">
             <label class="control-label" for="ClinicHankbookReceiveDate">Clinic Hankbook Receive Date:</label>
             <input type="date" class="form-control" id="ClinicHankbookReceiveDate" name="cli_handbook_receive"/>
           </div>
@@ -161,4 +161,4 @@ include "v_masterPage_sidebar.php";
       </div>
     </div>
   </div>
-  
+
