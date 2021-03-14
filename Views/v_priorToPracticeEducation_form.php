@@ -19,14 +19,14 @@ include "v_masterPage_sidebar.php";
                     <label for="phone">Program ID</label>
                     <select class="form-control" id="programID" value="">
                         <option>-- Select one --</option>
-                        <?php
-                        $options = $model->select('programs', NULL);
-                        foreach ($options as $op):
-                            ?>
+<?php
+$options = $model->select('programs', NULL);
+foreach ($options as $op):
+?>
                             <option values="<?= $op['id'] ?>"><?= $op['id'] . " -- " . $op['prog_name'] ?></option>
-                        <?php
-                        endforeach;
-                        ?>
+<?php
+  endforeach;
+?>
                     </select>
                 </div>
           <!--name tag -->
@@ -162,4 +162,4 @@ include "v_masterPage_sidebar.php";
       </div>
     </div>
   </div>
-  
+
