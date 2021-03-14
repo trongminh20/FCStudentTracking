@@ -27,7 +27,7 @@ include "v_masterPage_sidebar.php";
                             $options = $model -> select('programs', NULL);
                             foreach($options as $op):
                         ?>
-                            <option values="<?=$op['id']?>"><?=$op['id']." -- ".$op['prog_name']?></option>
+                            <option value="<?=$op['id']?>"><?=$op['id']." -- ".$op['prog_name']?></option>
                         <?php
                             endforeach;
                         ?>
