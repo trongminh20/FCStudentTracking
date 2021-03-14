@@ -2,13 +2,10 @@
 
 class Form
 {
-
-
-
-    public function __construct($class, $id, $action, $method, $formName)
+    public function __construct($class, $id, $action, $method, $formName,$target="")
     {
         echo "<h3>" . $formName . "</h3>";
-        echo "<form class='" . $class . "' id='" . $id . "' action='?action=" . $action . "' method='" . $method . "'>";
+        echo "<form class='" . $class . "' id='" . $id . "' action='?action=" . $action . "' method='" . $method . "' target='".$target."'>";
     }
 
     /**
@@ -82,28 +79,30 @@ class Form
     public static function start_fieldset($fieldsetAttributes)
     {
         $fieldset = "<fieldset ";
-        foreach ($fieldsetAttributes as $att => $value){
-                $fieldset .= " " . $att. "='" . $value . "'";
-
+        foreach ($fieldsetAttributes as $att => $value) {
+            $fieldset .= " " . $att . "='" . $value . "'";
         }
         $fieldset .= "'>";
         echo $fieldset;
     }
-    public static function end_fieldset(){
+
+    public static function end_fieldset()
+    {
         echo "</fieldset>";
     }
 
     public static function add_legend($attributes)
     {
         $legend = "<legend ";
-        foreach ($attributes as $key => $val){
-            if($key != 'value') {
+        foreach ($attributes as $key => $val) {
+            if ($key != 'value') {
                 $legend .= " " . $key . " =' " . $val . "'>";
             }
         }
-        $legend.= $attributes['value']."</legend>";
+        $legend .= $attributes['value'] . "</legend>";
         echo $legend;
     }
+
     public static function end_form()
     {
         echo "</form>";

@@ -9,8 +9,11 @@ unset($_SESSION['student']);
 ?>
 
 <div id="mainContent">
+
     <?php
-    $form = new Form('form-group col-lg-8', "reportForm", "v_generate_report", "POST", "Creating Report");
+    echo ((isset($_SESSION['report_info']) ? $_SESSION['report_info'] : ""));
+    unset($_SESSION['report_info']);
+    $form = new Form('form-group col-lg-8', "reportForm", "v_report_preview", "POST", "Creating Report", '_blank');
 
     $form::start_fieldset(['id' => 'id', 'class' => '']);
     $form::add_legend(['id' => "", 'value' => "Student Information"]);
@@ -43,7 +46,7 @@ unset($_SESSION['student']);
     $form::add_input(['id' => 'checkbox4', 'value' => "graduation",'name' => "include[]" ,'type' => 'checkbox']);
     $form::add_label(['for' => 'checkbox4', 'label' => 'Graduation']);
     echo "<br>";
-    $form::add_input(['id' => 'checkbox5', 'value' => "payment_tracking",'name'=>"include[]", 'type' => 'checkbox']);
+    $form::add_input(['id' => 'checkbox5', 'value' => "payment",'name'=>"include[]", 'type' => 'checkbox']);
     $form::add_label(['for' => 'checkbox5', 'label' => 'Payment Tracking']);
     $form::end_fieldset();
 

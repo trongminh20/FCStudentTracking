@@ -1,13 +1,14 @@
 <?php
 include "v_masterPage_header.php";
+include "v_masterPage_sidebar.php";
 ?>
 
-<div class="container" style="padding-top: 20px">
+<div class="container" id="mainContent" style="padding-top: 20px">
     <div class="row">
         <div class="col-xs-12">
             <h2 style="padding-top: 10px">Payment Tracking</h2>
             <!--Form starts-->
-            <form action="" method="">
+            <form action="?action=c_add_payment" method="POST">
             	<!--choose student type-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="DomORInt">Domestic OR International:</label>
@@ -128,7 +129,7 @@ include "v_masterPage_header.php";
 				</div>
 				<!--submit button-->
                 <div class="form-group" style="padding-top: 20px">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    input 
                 </div>
             </form>
         </div>

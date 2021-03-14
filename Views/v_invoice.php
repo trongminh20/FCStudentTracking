@@ -6,8 +6,7 @@ include "v_masterPage_sidebar.php";
 $number = $database->select_count('invoice');
 ?>
 <div id="mainContent">
-    <form class="" id="" action="?action=v_generate_invoice" method="POST">
-
+    <form class="" id="" action="?action=v_generate_invoice" method="POST" target="_blank">
         <table class="table">
             <thead>
             <tr>
@@ -17,7 +16,6 @@ $number = $database->select_count('invoice');
                     (PAID)
                 </td>
                 <td></td>
-
                 <td>Date: <?= date('d-m-Y') ?></td>
             </tr>
             <tr>
@@ -65,7 +63,8 @@ $number = $database->select_count('invoice');
                     ();">
                 </td>
                 <td>
-                    <input id='' class='total' type='number' name='total[]' value='' onchange="calculate_total();" readonly>
+                    <input id='' class='total' type='number' name='total[]' value='' onchange="calculate_total();"
+                           readonly>
                 </td>
             </tr>
             <tr>
@@ -82,7 +81,8 @@ $number = $database->select_count('invoice');
                     ();">
                 </td>
                 <td>
-                    <input id='' class='total' type='number' name='total[]' value='' onchange="calculate_total();" readonly>
+                    <input id='' class='total' type='number' name='total[]' value='' onchange="calculate_total();"
+                           readonly>
                 </td>
             </tr>
             <tr>
@@ -98,7 +98,8 @@ $number = $database->select_count('invoice');
                     ();">
                 </td>
                 <td>
-                    <input id='' class='total' type='number' name='total[]' value='' onchange="calculate_total();" readonly>
+                    <input id='' class='total' type='number' name='total[]' value='' onchange="calculate_total();"
+                           readonly>
                 </td>
             </tr>
             <tr>
@@ -114,13 +115,14 @@ $number = $database->select_count('invoice');
                     ();">
                 </td>
                 <td>
-                    <input id='' class='total' type='number' name='total[]' value='' onchange="calculate_total();" readonly>
+                    <input id='' class='total' type='number' name='total[]' value='' onchange="calculate_total();"
+                           readonly>
                 </td>
             </tr>
             </tbody>
             <tr>
                 <td>
-                    <input type="button" id="addMoreRow" onclick="add_fields();" value="Add more row">
+                    <input type="button" id="addMoreRow" onclick="add_input_fields();" value="Add more row">
                 </td>
             </tr>
             <tfoot>
@@ -142,15 +144,24 @@ $number = $database->select_count('invoice');
                 </td>
             </tr>
             </tfoot>
-
+            <tr>
+                <td>
+                    <input type="email" name="student_email" id="studentEmail" placeholder="Enter student's email"
+                           style="display: none"><br>
+                    <label for="sendEmail"><input class="" id="sendEmail" type="checkbox"
+                                                  name="send_to_student"
+                                                  value="yes" onclick="add_email_input();">  Send to this
+                        student</label>
+                </td>
+            </tr>
         </table>
-        <input id="" class="btn btn-primary" type="submit" name="preview" value="Preview">
-        <input id="" class="btn btn-primary" type="submit" name="Generate" value="Generate">
 
+        <input id="" class="btn btn-primary" type="submit" name="preview" value="Preview">
+        <input id="" class="btn btn-primary" type="submit" name="generate" value="Generate">
     </form>
 </div>
 <script>
-    function add_fields() {
+    function add_input_fields() {
         var loc = document.getElementById("invoice_table").getElementsByTagName('tbody')[0].insertRow(-1).innerHTML = "<tr>" +
             "<td><input id='' class='quantity' type='number' name='quantity[]' value='' onchange='calculate_total();" +
             "'></td>" +
@@ -160,6 +171,18 @@ $number = $database->select_count('invoice');
             "<td><input id='' class='total' type='number' name='total[]' value=''onchange='calculate_total();' " +
             "readonly></td>"
             + "</tr>";
+    }
+
+    function add_email_input() {
+        var checkbox = document.getElementById('sendEmail');
+        var studentEmail = document.getElementById('studentEmail');
+
+        if (checkbox.checked == true) {
+            studentEmail.style.display = "block";
+        } else {
+            studentEmail.style.display = "none";
+
+        }
     }
 
     function calculate_total() {
@@ -173,7 +196,6 @@ $number = $database->select_count('invoice');
             qty = 0;
             price = 0;
             total = 0;
-
         });
     }
 </script>

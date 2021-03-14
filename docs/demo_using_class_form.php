@@ -22,4 +22,4 @@ $listOfUnsetCols // is the list of cols that we dont want to display,
 // for example, in the table Employees, I dont want to display column password, so
 $listOfUnsetCols = ['password'];
 
-$table = $view->display_as_table_multi_rows($id, $class,$table, $listOfUnsetCols,$model);
+$table = $view->display_as_table($id, $class,$table, $listOfUnsetCols,$model);
