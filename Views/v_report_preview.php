@@ -257,7 +257,6 @@ if (isset($_POST['preview'])) {
 } else if (isset($_POST['generate'])) {
     $report->Output("D", $student_id . "_report.pdf");
     $_SESSION['report_info'] = "The report has been generated";
-//    header("Location:?action=v_report");
 }
 
 

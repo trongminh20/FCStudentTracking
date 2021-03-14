@@ -6,7 +6,7 @@ include "v_masterPage_sidebar.php";
 $number = $database->select_count('invoice');
 ?>
 <div id="mainContent">
-    <form class="" id="" action="?action=v_generate_invoice" method="POST" target="_blank">
+    <form class="" id="" action="?action=v_invoice_generate" method="POST" target="_blank">
         <table class="table">
             <thead>
             <tr>
