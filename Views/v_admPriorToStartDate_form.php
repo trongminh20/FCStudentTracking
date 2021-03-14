@@ -20,13 +20,13 @@ include "v_masterPage_sidebar.php";
 
                 <div class="form-group" style="padding-top: 20px">
                     <label for="phone">Program ID:</label>
-                    <select class="form-control" id="programID" value="" onChange="">
+                    <select class="form-control" id="programID" onChange="">
                         <option>-- Select one --</option>
                         <?php
                         $options = $model->select('programs', NULL);
                         foreach ($options as $op):
                             ?>
-                            <option values="<?= $op['id'] ?>"><?= $op['id'] . " -- " . $op['prog_name'] ?></option>
+                            <option value="<?= $op['id'] ?>"><?= $op['id'] . " -- " . $op['prog_name'] ?></option>
                         <?php
                         endforeach;
                         ?>
