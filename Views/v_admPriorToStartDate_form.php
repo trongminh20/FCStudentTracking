@@ -14,12 +14,12 @@ include "v_masterPage_sidebar.php";
             <form class="col-lg-8" action="?action=c_add_apsds" method="POST">
                 <!--id-->
                 <div class="form-group">
-                    <label for="student_id">Student ID</label><br>
+                    <label for="student_id">Student ID:</label><br>
                     <input class="form-control" type="number" name="student_id" value="" required="required">
                 </div>
 
                 <div class="form-group" style="padding-top: 20px">
-                    <label for="phone">Program ID</label>
+                    <label for="phone">Program ID:</label>
                     <select class="form-control" id="programID" value="" onChange="">
                         <option>-- Select one --</option>
                         <?php
@@ -169,7 +169,7 @@ include "v_masterPage_sidebar.php";
                 <!--english test result notes -->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="engTestResult">English Test Result (For Non-English Speaker):</label>
-                    <input type="text" name="eng_test_result" class="form-control" id="engTestResult"/>
+                    <input type="number" name="eng_test_result" class="form-control" id="engTestResult"/>
                 </div>
                 <!--english language competency self-declaration form (Need to add to db)-->
                 <div class="form-group" style="padding-top: 20px">

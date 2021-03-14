@@ -11,11 +11,12 @@ include "v_masterPage_sidebar.php";
         <h2 style="padding-top: 10px">Graduation</h2>
         <!--Form starts-->
         <form action="?action=c_add_grad" method="POST">
+          <div class="form-group">
+              <label for="student_id">Student ID:</label><br>
+              <input class="form-control" type="number" name="student_id" placeholder="Enter student ID"
+                       required="required">
+          </div>
           <!--tuition paid in full radio button-->
-            <div class="form-group">
-                <label for="student_id">Student ID</label><br>
-                <input type="number" name="student_id" placeholder="Enter student ID" required="required">
-            </div>
           <div class="form-group" style="padding-top: 20px">
               <label for="tuitionPaid">Tuition Paid in Full:</label>
                 <div name="tuition_Paid" id="tuitionPaid" class="row" style="padding-top: 10px">
@@ -96,8 +97,8 @@ include "v_masterPage_sidebar.php";
             <textarea type="text" class="form-control" name="employment" id="employmentFollowUp" rows="5"></textarea>
           </div>
           <!--submit button-->
-          <div class="form-group" style="padding-top: 20px">
-              <input type="submit" name="add_grad" value="Add Data">
+          <div class="form-group" style="padding-top: 20px; padding-bottom: 10px">
+              <input type="submit" name="add_grad" class="btn btn-primary" value="ADD">
           </div>
       </form>
     </div>
