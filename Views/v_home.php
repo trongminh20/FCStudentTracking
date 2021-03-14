@@ -4,14 +4,16 @@ include "v_masterPage_header.php";
 <?php
 include "v_masterPage_sidebar.php";
 ?>
+
  <div id="mainContent">
-    <table>
+     <table>
         <tr>
             <td>
                 <img src="images/img_avatar.png" alt="logo" width="300px" height="300px">
             </td>
             </tr>
-        <tr>
+
+         <tr>
             <td><?=$_SESSION['user']['username']?></td>
         </tr>
         <tr>
@@ -23,12 +25,12 @@ include "v_masterPage_sidebar.php";
     </table>
 
      <?php
+     echo "<h3>Received Requests</h3>";
      if($_SESSION['user']['admin'] == 1) {
-         $view->display_as_table("requestsTable", "table", 'requests', [], $model);
+         $data = $model -> select('requests',NULL);
+         $view->display_as_table("requestsTable","", $data);
      }
      ?>
 
-     <?php
-
-     ?>
  </div>
+

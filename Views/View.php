@@ -34,7 +34,6 @@ class View
      */
     public function display_customized_form($id, $class, $inputList, $formMethod, $formAction, $formName)
     {
-
         $form = new Form($id, $class, $formMethod, $formAction, $formName);
         for ($i = 0; $i < count($inputList); $i++) {
             foreach ($inputList[$i] as $key => $val) {
@@ -48,7 +47,6 @@ class View
                 if ($key == 'selection') $form::add_selection($val);
             }
         }
-
         $form::end_form();
     }
 
@@ -91,41 +89,28 @@ class View
     }
 
 
-    /**
-     * Display data from the chosen table with wanted columns
-     * @param string $id
-     * @param string $class
-     * @param $table the chosen table
-     * @param $listOfUnsetCols an array of the cols that won't be displayed
-     * @param $model is the current Model
-     */
-    public function display_as_table($id = "", $class = "",
-                                     $table, $listOfUnsetCols, $model)
+
+    public function display_as_table($id = "", $class = "", $data)
     {
         $count = 0;
-        $data = $model->select_displayed_data($table, $listOfUnsetCols);
-        echo "<table id='$id' class='$class'>";
-
-        foreach ($data as $d) {
+        echo "<table>";
+        foreach ($data as $d):
             echo "<tr>";
-            foreach ($d as $key => $vals) {
+            foreach ($d as $k => $v):
                 if ($count < count($d)) {
-                    echo "<td>$key</td>";
-                } else {
-                    echo "<td></td>";
+                    echo "<td>" . $k . "</td>";
                 }
-                $count += 1;
-            }
+                $count++;
+            endforeach;
             echo "</tr><tr>";
-
-            foreach ($d as $key => $vals) {
-                echo "<td>$vals</td>";
+            foreach ($d as $k => $v) {
+                echo "<td>" . $v . "</td>";
             }
             echo "</tr>";
-        }
-
-        echo "</table><br>";
+        endforeach;
+        echo "</table>";
     }
+
 
     /**
      * auto generate a table with Edit and Delete buttons
@@ -140,7 +125,6 @@ class View
                                                      $actionForReset, $data)
     {
         $count = 0;
-
         echo "<table id='$id' class='$class'>";
         //display table header
         foreach ($data as $d) {
@@ -154,7 +138,6 @@ class View
                 $count += 1;
             }
             echo "</tr><tr>";
-
             //display table content
             foreach ($d as $key => $vals) {
                 echo "<td>$vals</td>";

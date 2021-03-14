@@ -19,11 +19,11 @@ class Model
     {
         return $this->db->log_in($user, $pass);
     }
-
-    function select_user($username)
+        function select_user($username)
     {
-        return $this->db->select_user($username);
+        return $this->db->select('employees',['username'=>$username]);
     }
+
 
     /**
      * return data for function display_as_table in view
@@ -34,6 +34,7 @@ class Model
     function select_displayed_data($table, $unsetCols)
     {
         $data = $this->db->select_multiple($table);
+
         for ($i = 0; $i < count($data); $i++) {
             foreach ($data[$i] as $k => $v) {
                 foreach ($unsetCols as $c) {
@@ -43,7 +44,6 @@ class Model
                 }
             }
         }
-
         return $data;
     }
 
@@ -55,7 +55,7 @@ class Model
     function create_user($table, User $user)
     {
         $data = $user->to_array();
-        $this->db->insert($table, $data);
+        $this->db->insert_single_row($table, $data);
     }
 
     /**
@@ -74,7 +74,7 @@ class Model
      */
     function request_reset_password(Request $request)
     {
-        $this->db->insert('requests', $request->to_array());
+        $this->db->insert_single_row('requests', $request->to_array());
     }
 
     /**
@@ -103,10 +103,6 @@ class Model
         return $type;
     }
 
-    function select_by_id($table, $id)
-    {
-        return $this->db->select_by_id($table, $id);
-    }
 
     /**
      * get type of columns of a table from database
@@ -118,15 +114,33 @@ class Model
         return $this->db->get_type($table);
     }
 
+    /**
+     * search on table students with ID or Username
+     * @param $keyword is a string
+     * @return mixed
+     */
     function search_student($keyword)
     {
         if ($keyword[0] == '@') {
             $username = ltrim($keyword, '@');
-            $keyword = ['Name' => $username];
+            $keyword = ['name' => $username];
         } else if ($keyword[0] == '#') {
             $id = ltrim($keyword, '#');
             $keyword = ['id' => $id];
         }
-        return $this->db->select('Students', $keyword);
+        return $this->db->select('students', $keyword);
+    }
+
+    /**
+     * @param $table
+     * @param $data is an array [columns => value]
+     * @return mixed
+     */
+    function select($table, $data){
+        return $this->db->select($table, $data);
+    }
+
+    function insert($table, $data){
+        $this->db->insert_single_row($table, $data);
     }
 }

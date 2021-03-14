@@ -1,15 +1,9 @@
-DROP
-DATABASE fc_student_tracking;
-CREATE
-DATABASE fc_student_tracking;
-USE
-fc_student_tracking;
-
 CREATE TABLE students
 (
     id           INT PRIMARY KEY,
     prog_id      VARCHAR(5),
     name         VARCHAR(50),
+    birthdate      DATE,
     phone        VARCHAR(15),
     email        VARCHAR(50),
     address      VARCHAR(50),
@@ -74,60 +68,78 @@ CREATE TABLE requests
 );
 
 
+CREATE TABLE invoices
+(
+    number INT PRIMARY KEY,
+    bill_to VARCHAR(50),
+    date    DATE,
+    total   INT,
+    note    VARCHAR(100)
+);
+
+CREATE TABLE graduation(
+    tuition paid in full,
+    official student transcript,
+    official comleteion letter
+
+);
+
+
 CREATE TABLE apsds
 (
     student_id         INT,
-    photo_id           BOOLEAN,
+    photo_id           VARCHAR(3),
     app_form           VARCHAR(50),
     app_fee            VARCHAR(50),
-    app_essay          VARCHAR(30),
+    app_essay          VARCHAR(3),
     refer_letter       VARCHAR(50),
-    resume             VARCHAR(20),
-    intro_of_msg       DATE,
-    fee_paid_inv       VARCHAR(50),
-    w_letter_sent      BOOLEAN,
-    completed          VARCHAR(30),
-    eng_test_res       INT,
-    crc                VARCHAR(50),
-    medical_note       VARCHAR(20),
-    interview          DATE,
-    approved           BOOLEAN,
-    diploma_and_trans  VARCHAR(50),
+    resume             VARCHAR(3),
+    intro_of_msg_from  DATETIME,
+    intro_of_msg_to    DATETIME,
+    intro_fee          VARCHAR(100),
+    intro_msg_complete VARCHAR(100),
+    welcome_letter     VARCHAR(3),
+    eng_test_result    INT,
+    crc_result         VARCHAR(50),
+    medical_notes      VARCHAR(3),
+    interview_date     DATETIME,
+    interview_approved VARCHAR(3),
+    dips_and_trans     VARCHAR(50),
     stu_email          VARCHAR(50),
-    accept_letter_date DATE,
+    accept_letter_date DATETIME,
     enroll_contract    VARCHAR(50),
-    handbook_notes     VARCHAR(5),
-    payment_option     VARCHAR(50),
-    ack_and_agr        DATE,
-    receive_card       BOOLEAN,
-    rmt_stu_matt       VARCHAR(100)
+    handbook_notes     VARCHAR(300),
+    pay_option         VARCHAR(50),
+    ack_and_agr        DATETIME,
+    received_card      VARCHAR(3),
+    rmt_stu_materials  VARCHAR(100)
 );
 
 CREATE TABLE ppes
 (
-    student_id         INT,
-    clinic_shirt_size  VARCHAR(30),
-    first_aid_loc      VARCHAR(100),
-    first_aid_contact  VARCHAR(50),
-    order_date         DATE,
-    pickup_date        DATE,
-    first_aid_and_cpr  DATETIME,
-    cert_mark_received DATE,
-    handbook_received  DATE,
-    ack_and_agr        BOOLEAN,
-    medical_file       BOOLEAN
+    student_id          INT,
+    name_tag            VARCHAR(3),
+    clinic_shirt_size   VARCHAR(30),
+    order_date          DATE,
+    pickup_date         DATE,
+    fa_and_cpr_dt       DATETIME,
+    fa_and_cpr_contact  VARCHAR(100),
+    cert_fa_cpr_receive DATE,
+    handbook_receive    DATE,
+    ack_and_agr         VARCHAR(3),
+    medical_file        VARCHAR(3)
 );
 
 CREATE TABLE graduations
 (
-    student_id        INT,
-    tuition_paid      BOOLEAN,
-    transcript        BOOLEAN,
-    completion_letter BOOLEAN,
-    signed_diploma    BOOLEAN,
-    exam_date         DATETIME,
-    T2202A            BOOLEAN,
-    employment        VARCHAR(200)
+    student_id          INT,
+    tuition_paid        VARCHAR(3),
+    official_transcript VARCHAR(3),
+    completion_letter   VARCHAR(3),
+    signed_diploma      VARCHAR(3),
+    exam_date           DATETIME,
+    T2202A              VARCHAR(3),
+    employment          VARCHAR(200)
 );
 
 CREATE TABLE invoice
@@ -137,6 +149,38 @@ CREATE TABLE invoice
     date    DATE,
     total   INT,
     note    VARCHAR(100)
+);
+
+CREATE TABLE payment_tracking
+(
+    student_id    INT,
+    domestic      VARCHAR(3),
+    international VARCHAR(3),
+    app_fee       INT,
+    intro_msg_fee INT,
+    materials_fee INT,
+    textbook_fee  INT,
+    admin_fee     INT,
+    1st_payment   INT,
+    2nd_payment   INT,
+    3rd_payment   INT,
+    4th_payment   INT,
+    5th_payment   INT,
+    6th_payment   INT,
+    7th_payment   INT,
+    8th_payment   INT,
+    9th_payment   INT,
+    10th_payment  INT,
+    total         INT
+);
+
+CREATE TABLE intro_msg_detail
+(
+    id            INT PRIMARY KEY,
+    from_date     DATETIME,
+    to_date       DATETIME,
+    intro_msg_fee VARCHAR(100),
+    intro_msg     VARCHAR(100)
 );
 
 
@@ -191,12 +235,27 @@ ALTER TABLE apsds
     ADD CONSTRAINT apsd_stu_fk
         FOREIGN KEY (student_id)
             REFERENCES Students (id);
+ALTER TABLE apsds
+    ADD CONSTRAINT apsd_stu_unq
+        UNIQUE (student_id);
 ALTER TABLE ppes
     ADD CONSTRAINT ppe_stu_fk
         FOREIGN KEY (student_id)
             REFERENCES Students (id);
+ALTER TABLE ppes
+    ADD CONSTRAINT ppes_stu_unq
+        UNIQUE (student_id);
+
 ALTER TABLE graduations
     ADD CONSTRAINT grad_stu_fk
         FOREIGN KEY (student_id)
             REFERENCES Students (id);
+ALTER TABLE graduations
+    ADD CONSTRAINT grad_stu_unq
+        UNIQUE (student_id);
+
+ALTER TABLE payment_tracking
+    ADD CONSTRAINT pay_stu_fk
+        FOREIGN KEY (student_id)
+            REFERENCES students (id);
 

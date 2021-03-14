@@ -15,6 +15,8 @@
     <!-- jQuery CDN -->
     <script src="js/jquery-1.12.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <!--Custom JS-->
+    <script src="js/javascript.js"></script>
 </head>
 
 <!-- Header Section -->
@@ -29,17 +31,16 @@
                     </a>
                 </h3>
             </div>
-
         </div>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div style="float: left; padding: 10px;">
-                <form action="?action=c_search" method="POST">
-                    <input class="" type="text" placeholder="@student name OR #student number"
-                           name="keyword">
-                    <input type="submit" name="search" class="btn btn-light" value="GO!">
-                </form>
-            </div>
+
             <ul class="nav navbar-nav navbar-right">
+                <div style="float: left; padding: 13px;">
+                    <form class="form-inline" action="?action=c_search" method="POST">
+                        <input class="form-control mr-sm-2" type="search" placeholder="@student name OR #student id" name="keyword" style="width:430px !important;">
+                        <button class="btn btn-outline-success my-2 my-sm-0" name="search" type="submit" value="Search">Search</button>
+                    </form>
+                </div>
                 <li class="dropdown top-menu-item">
                     <a href="#" class="dropdown-toggle profile waves-effect waves-light" data-toggle="dropdown"
                        aria-expanded="true" style="background: #ffffff;">

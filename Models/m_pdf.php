@@ -1,7 +1,11 @@
 <?php
 
 
-class PDF
+class PDF extends FPDF
 {
+    function header($imgLink ){
+        $this->images($imgLink, );
+
+    }
 
 }
