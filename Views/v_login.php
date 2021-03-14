@@ -1,6 +1,5 @@
 <?php
 include "v_header.php";
-
 ?>
 
 <div id="wrapper">

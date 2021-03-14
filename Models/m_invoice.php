@@ -1,27 +1,33 @@
 <?php
-class Invoice{
+
+class Invoice
+{
     private $number;
     private $billTo;
     private $total;
     private $date;
-    private $note;/**
- * Invoice constructor.
- * @param $number
- * @param $billTo
- * @param $total
- * @param $date
- * @param $note
- */public function Invoice( $number, $billTo, $total, $note)
-{
-    $this->set_number($number);
-    $this->billTo = $billTo;
-    $this->total = $total;
-    $this->set_date();
-    $this->note = $note;
-}
+    private $note;
 
-    public function __contruct(){}
+    /**
+     * Invoice constructor.
+     * @param $number
+     * @param $billTo
+     * @param $total
+     * @param $date
+     * @param $note
+     */
+    public function Invoice($number, $billTo, $total, $note)
+    {
+        $this->set_number($number);
+        $this->billTo = $billTo;
+        $this->total = $total;
+        $this->set_date();
+        $this->note = $note;
+    }
 
+    public function __contruct()
+    {
+    }
 
 
     /**
@@ -37,7 +43,7 @@ class Invoice{
      */
     public function set_number($number)
     {
-        $this->number = date('ymd').$number ;
+        $this->number = date('ymd') . $number;
     }
 
     /**
@@ -105,13 +111,14 @@ class Invoice{
         $this->note = $note;
     }
 
-    public function to_array(){
+    public function to_array()
+    {
         return [
-                'number' => $this->get_number(),
-                'bill_to'=>$this->get_bill_to(),
-                'date'   =>$this->get_date(),
-                'total'  => $this->get_total(),
-                'note'   => $this->get_note()
+            'number' => $this->get_number(),
+            'bill_to' => $this->get_bill_to(),
+            'date' => $this->get_date(),
+            'total' => $this->get_total(),
+            'note' => $this->get_note()
         ];
     }
 

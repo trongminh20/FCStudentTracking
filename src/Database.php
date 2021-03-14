@@ -41,19 +41,6 @@ class Database
         return $stm->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    /**
-     * get one record from a existing table with specific ID
-     * @param $table
-     * @param $id
-     * @return array
-     */
-    public function select_by_id($table, $id)
-    {
-        $query = "SELECT * FROM $table WHERE id = ?";
-        $stm = $this->pdo->prepare($query);
-        $stm->execute([$id]);
-        return $stm->fetch(PDO::FETCH_ASSOC);
-    }
 
     /**
      * check if the user existed
@@ -69,24 +56,26 @@ class Database
         return $stm->rowCount();
     }
 
-    function select_count($table){
+    function select_count($table)
+    {
         $query = "SELECT DISTINCT COUNT(*) FROM $table";
         $stm = $this->pdo->prepare($query);
         $res = $stm->execute();
         return $res;
     }
+
     /**
      * not include pasword
      * @param $username
      * @return mixed
      */
-    public function select_user($username)
-    {
-        $query = "SELECT ID, Username, Phone, Email, Department, admin  FROM employees WHERE username = ?";
-        $stm = $this->pdo->prepare($query);
-        $stm->execute([$username]);
-        return $stm->fetch(PDO::FETCH_ASSOC);
-    }
+//    public function select_user($username)
+//    {
+//        $query = "SELECT ID, Username, Phone, Email, Department, admin  FROM employees WHERE username = ?";
+//        $stm = $this->pdo->prepare($query);
+//        $stm->execute([$username]);
+//        return $stm->fetch(PDO::FETCH_ASSOC);
+//    }
 
     /**
      * Insert one record into existing table in database
@@ -94,7 +83,7 @@ class Database
      * @param $data as an Array that we got from toArray()
      * @return false|string
      */
-    function insert($table, $data)
+    function insert_single_row($table, $data)
     {
         //key from array
         $fields = array_keys($data);
@@ -133,7 +122,7 @@ class Database
         $stm = $this->pdo->prepare($query);
         try {
             $stm->execute($vals);
-        }catch(PDOException $e){
+        } catch (PDOException $e) {
             echo $e->errorInfo;
         }
     }
@@ -146,26 +135,36 @@ class Database
      */
     function delete($table, $col, $val)
     {
-
         $query = "DELETE FROM " . $table . " WHERE $col = ?";
         $stm = $this->pdo->prepare($query);
         $stm->execute([$val]);
-
     }
-    function select($table, $keywords){
-        $cols = array_keys($keywords);
-        $vals = array_values($keywords);
-        $marks = "";
 
-        for($i = 0; $i < count($keywords); $i++){
-            $marks .= $cols[$i]." = ?";
+    /**
+     * select single rows
+     * @param $table
+     * @param $data is formatted as [column name => value]
+     * @return mixed
+     */
+    function select($table, $data)
+    {
+        if ($data == NULL) {
+            $query = "SELECT * FROM " . $table;
+            $stm = $this->pdo->prepare($query);
+            $stm->execute();
+            return $stm->fetchAll(PDO::FETCH_ASSOC);
+        } else {
+            $cols = array_keys($data);
+            $vals = array_values($data);
+            $marks = "";
+            for ($i = 0; $i < count($data); $i++) {
+                $marks .= $cols[$i] . " = ?";
+            }
+            $query = "SELECT * FROM $table WHERE " . $marks;
+            $stm = $this->pdo->prepare($query);
+            $stm->execute($vals);
+            return $stm->fetchAll(PDO::FETCH_ASSOC);
         }
-        $query = "SELECT * FROM $table WHERE ". $marks;
-
-        $stm = $this->pdo->prepare($query);
-        $stm->execute($vals);
-        return $stm->fetch(PDO::FETCH_ASSOC);
-//        return $query;
     }
 
     /**
