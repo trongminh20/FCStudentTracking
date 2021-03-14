@@ -11,12 +11,12 @@ include "v_masterPage_sidebar.php";
         <!--Form starts-->
         <form class="col-lg-8" action="?action=c_add_ppes" method="POST">
             <div class="form-group">
-                <label for="student_id">Student ID</label><br>
+                <label for="student_id">Student ID:</label><br>
                 <input class="form-control" type="number" name="student_id" placeholder="Enter student ID"
                        required="required">
             </div>
              <div class="form-group" style="padding-top: 20px">
-                    <label for="phone">Program ID</label>
+                    <label for="phone">Program ID:</label>
                     <select class="form-control" id="programID" value="">
                         <option>-- Select one --</option>
 <?php
@@ -45,7 +45,7 @@ foreach ($options as $op):
           </div>
           <!--clinic shirt size-->
           <div class="form-group" style="padding-top: 20px">
-            <label for="ClinicShirtSize">Clinic Shirt Size:</label>
+            <label for="ClinicShirtSize">Clinic/Uniform Shirt Size:</label>
               <select class="form-control" name="clinic_shirt_size" id="ClinicShirtSize">
                 <option value="Extra Small">Extra Small</option>
                 <option value="Small">Small</option>
@@ -96,11 +96,10 @@ foreach ($options as $op):
             <label for="foodsafeCertificateReceiveDate">Certificate of FoodSafe Receive Date:</label>
             <input type="date" class="form-control" id="foodsafeCertificateReceiveDate" name="cert_foodsafe_receive"/>
           </div>
-          <!--CRC received date (need to add to db)-->
+          <!--CRC notes (need to add to db)-->
           <div class="form-group" style="padding-top: 20px">
-            <label for="crcReceiveDate">Criminal Record Check Receive Date:</label>
-            <input type="date" class="form-control" id="crcReceiveDate" name="crc_receive"/>
-          </div>
+            <label for="crcNotes">Criminal Record Check (CRC): </label>
+            <input type="text" class="form-control" id="crcNotes" name="crc_notes"></input>
           <!--SPECO radio button (need to add to db)-->
           <div class="form-group" style="padding-top: 20px">
             <label for="speco">SPECO:</label>

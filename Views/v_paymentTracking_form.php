@@ -30,6 +30,11 @@ include "v_masterPage_sidebar.php";
             		<label class="control-label" for="applicationFee">Application Fee:</label>
             		<input type="number" class="form-control" id="applicationFee" name="application_Fee" placeholder="$"/>
           		</div>
+                <!--scholarships OR subsidy-->
+                <div class="form-group" style="padding-top: 20px"> 
+                    <label class="control-label" for="scholarships">Scholarships OR Subsidy:</label>
+                    <input type="number" class="form-control" id="scholarships" name="scholarships" placeholder="$"/>
+                </div>
           		<!--intro to massage fee-->
           		<div class="form-group" style="padding-top: 20px"> 
             		<label class="control-label" for="introToMassageFee">Intro to Massage Fee:</label>
@@ -127,9 +132,19 @@ include "v_masterPage_sidebar.php";
                         </div>
                     </div>
 				</div>
+                <!--total-->
+                <div class="form-group" style="padding-top: 20px"> 
+                    <label class="control-label" for="total">Total:</label>
+                    <input type="number" class="form-control" id="total" name="total" placeholder="$"/>
+                </div>
+                <!--remaining payment-->
+                <div class="form-group" style="padding-top: 20px"> 
+                    <label class="control-label" for="remainingPayment">Remaining Payment:</label>
+                    <input type="number" class="form-control" id="remainingPayment" name="remaining_payment" placeholder="$"/>
+                </div>
 				<!--submit button-->
-                <div class="form-group" style="padding-top: 20px">
-                    input 
+                <div class="form-group" style="padding-top: 20px; padding-bottom: 10px">
+                    <input type="submit" name="add_grad" class="btn btn-primary" value="ADD">
                 </div>
             </form>
         </div>
