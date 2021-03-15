@@ -4,18 +4,18 @@ include "v_masterPage_sidebar.php";
 ?>
 
 <!-- Prior to Practice Education Section -->
-  <div class="container" id="mainContent" style="padding-top: 20px">
+<div class="container" id="mainContent" style="padding-top: 20px">
     <div class="row">
-      <div class="col-xs-12">
-        <h2 style="padding-top: 10px">Prior to Practice Education</h2>
-        <!--Form starts-->
-        <form class="col-lg-8" action="?action=c_add_ppes" method="POST">
-            <div class="form-group">
-                <label for="student_id">Student ID:</label><br>
-                <input class="form-control" type="number" name="student_id" placeholder="Enter student ID"
-                       required="required">
-            </div>
-             <div class="form-group" style="padding-top: 20px">
+        <div class="col-xs-12">
+            <h2 style="padding-top: 10px">Prior to Practice Education</h2>
+            <!--Form starts-->
+            <form class="col-lg-8" action="?action=c_add_ppes" method="POST">
+                <div class="form-group">
+                    <label for="student_id">Student ID:</label><br>
+                    <input class="form-control" type="number" name="student_id" placeholder="Enter student ID"
+                           required="required">
+                </div>
+                <div class="form-group" style="padding-top: 20px">
                     <label for="phone">Program ID:</label>
                     <select class="form-control" id="programID">
                         <option>-- Select one --</option>

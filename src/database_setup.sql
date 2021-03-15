@@ -108,7 +108,11 @@ CREATE TABLE apsds
     pay_option             VARCHAR(50),
     ack_and_agr            DATETIME,
     received_card          VARCHAR(3),
-    rmt_stu_materials      VARCHAR(100)
+    rmt_stu_materials      VARCHAR(100),
+    photo_waiver_date   DATE,
+    health_check_date   DATE
+
+
 );
 
 CREATE TABLE ppes
