@@ -284,9 +284,9 @@ include "v_masterPage_sidebar.php";
                         <option value="Payment Plan">Payment Plan</option>
                         <option value="Others">Others</option>
                     </select>
-                    <div id="otherPayOptions" style="display:none; padding-top: 10px">
+                    <div id="otherOptionDiv" style="display:none;">
                         <label>Enter Payment Method:
-                            <input type="text" id="otherInput" name='pay_option' class="form-control">
+                            <input type="hidden" id="otherInput" class="form-control">
                         </label>
                     </div>
                 </div>
@@ -344,5 +344,7 @@ include "v_masterPage_sidebar.php";
             }
         });
     });
+
+
 </script>
 
