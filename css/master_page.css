@@ -170,6 +170,12 @@ a.article, a.article:hover {
 .form{
     width: 50%;
 }
+.form-group {
+    margin-bottom: 15px;
+}
+.form-groupRMT {
+    margin-bottom: 15px;
+}
 /*-----------------------------------------------------
     Export Button Style
 ------------------------------------------------------*/
@@ -234,6 +240,7 @@ a.article, a.article:hover {
     }
         
 }
+
 /* ---------------------------------------------------
     FOOTER STYLE
 ----------------------------------------------------- */

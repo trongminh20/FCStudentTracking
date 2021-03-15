@@ -20,13 +20,13 @@ include "v_masterPage_sidebar.php";
 
                 <div class="form-group" style="padding-top: 20px">
                     <label for="phone">Program ID:</label>
-                    <select class="form-control" id="programID" value="" onChange="">
+                    <select class="form-control" id="programID" value="";>
                         <option>-- Select one --</option>
                         <?php
                         $options = $model->select('programs', NULL);
                         foreach ($options as $op):
                             ?>
-                            <option values="<?= $op['id'] ?>"><?= $op['id'] . " -- " . $op['prog_name'] ?></option>
+                            <option value="<?= $op['id'] ?>"><?= $op['id'] . " -- " . $op['prog_name'] ?></option>
                         <?php
                         endforeach;
                         ?>
@@ -60,7 +60,7 @@ include "v_masterPage_sidebar.php";
                     <input type="text" name="app_fee" class="form-control" id="appFee"/>
                 </div>
                 <!--application essay radio button-->
-                <div class="form-group" style="padding-top: 20px;">
+                <div id="rmtOnlyApp" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
                     <label for="appEssay">Application Essay:</label>
                     <div id="appEssay" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
@@ -76,12 +76,12 @@ include "v_masterPage_sidebar.php";
                     </div>
                 </div>
                 <!--reference letters notes-->
-                <div class="form-group" style="padding-top: 20px">
+                <div id="rmtOnlyRef" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
                     <label for="refLetters">Character Reference Letters:</label>
                     <input type="text" name="refer_letter" class="form-control" id="refLetters"/>
                 </div>
                 <!--resume radio button-->
-                <div class="form-group" style="padding-top: 20px">
+                <div id="rmtOnlyRes" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
                     <label for="resume">Resume:</label>
                     <div name="resume" id="resume" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
@@ -97,7 +97,7 @@ include "v_masterPage_sidebar.php";
                     </div>
                 </div>
                 <!--intro to massage date & time day 1 -->
-                <div class="form-group" style="padding-top: 20px">
+                <div id="rmtOnlyIntro1" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
                     <label class="control-label" for="introOfMsgDay1">Intro of Massage Course Day One:</label>
                     <div name="intro_of_msg" id="introOfMsgDay1" class="row" style="padding-top: 10px">
                         <!---from_datetimePicker-->
@@ -119,7 +119,7 @@ include "v_masterPage_sidebar.php";
                     </div>
                 </div>
                 <!--intro to massage date & time day 2 (Need to add to db)-->
-                <div class="form-group" style="padding-top: 20px">
+                <div id="rmtOnlyIntro2" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
                     <label class="control-label" for="introOfMsgDay2">Intro of Massage Course Day Two:</label>
                     <div name="intro_of_msg" id="introOfMsgDay2" class="row" style="padding-top: 10px">
                         <!---from_datetimePicker-->
@@ -141,12 +141,12 @@ include "v_masterPage_sidebar.php";
                     </div>
                 </div>
                 <!--intro to massage fee notes-->
-                <div class="form-group" style="padding-top: 20px">
+                <div id="rmtOnlyIntroFee" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
                     <label for="introFee">Intro of Massage Fee with Paid Invoice:</label>
                     <input type="text" name="intro_Fee" class="form-control" id="introFee"/>
                 </div>
                 <!--intro to massage completed notes -->
-                <div class="form-group" style="padding-top: 20px">
+                <div id="rmtOnlyComp" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
                     <label for="introToMassageComp">Intro of Massage Course Completed:</label>
                     <input type="text" name="intro_msg_complete" class="form-control" id="introToMassageComp"/>
                 </div>
@@ -194,12 +194,12 @@ include "v_masterPage_sidebar.php";
                     <input type="text" name="dips_and_trans" class="form-control" id="diplomaAndTranscript"/>
                 </div>
                 <!--CRC result notes -->
-                <div class="form-group" style="padding-top: 20px">
+                <div id="rmtOnlyCRC" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
                     <label for="CRCResult">CRC Result:</label>
                     <input type="text" name="crc_result" class="form-control" id="CRCResult"/>
                 </div>
                 <!--medical notes radio button-->
-                <div class="form-group" style="padding-top: 20px">
+                <div id="rmtOnlyMed" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
                     <label for="medicalNotes">Medical Notes from Physician:</label>
                     <div name="medical_Notes" id="medicalNotes" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
@@ -216,12 +216,12 @@ include "v_masterPage_sidebar.php";
                     </div>
                 </div>
                 <!--interview date & time -->
-                <div class="form-group" style="padding-top: 20px">
+                <div id="rmtOnlyIntDate" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
                     <label class="control-label" for="interviewDateandTime">Interview Date & Time:</label>
                     <input type="datetime-local" class="form-control" id="interviewDateandTime" name="interview_date"/>
                 </div>
                 <!--interview approved radio button-->
-                <div class="form-group" style="padding-top: 20px">
+                <div id="rmtOnlyIntAppr" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
                     <label for="interviewApproved">Interview Approved:</label>
                     <div name="interview_Approved" id="interviewApproved" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
@@ -307,7 +307,7 @@ include "v_masterPage_sidebar.php";
                     </div>
                 </div>
                 <!--RMT students material muulti select-->
-                <div class="form-group" style="padding-top: 20px">
+                <div id="rmtOnlyMat" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
                     <label for="rmtStuMaterials">RMT Student Learning Materials:</label>
                     <div style="color:red; font-size:10px;">
                         <p>To choose multiple values:</p>
@@ -333,3 +333,16 @@ include "v_masterPage_sidebar.php";
         </div>
     </div>
 </div>
+<!--JS code show different section based on the program selection-->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#programID").on('change', function() {
+            if ( this.value == 'RMT'){
+                $(".form-groupRMT").show();
+            }else{
+                $(".form-groupRMT").hide();
+            }
+        });
+    });
+</script>
+

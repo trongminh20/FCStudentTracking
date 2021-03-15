@@ -16,6 +16,20 @@ include "v_masterPage_sidebar.php";
               <input class="form-control" type="number" name="student_id" placeholder="Enter student ID"
                        required="required">
           </div>
+          <div class="form-group" style="padding-top: 20px">
+                    <label for="phone">Program ID:</label>
+                    <select class="form-control" id="programID" value="">
+                        <option>-- Select one --</option>
+                        <?php
+                          $options = $model->select('programs', NULL);
+                          foreach ($options as $op):
+                        ?>
+                          <option value="<?= $op['id'] ?>"><?= $op['id'] . " -- " . $op['prog_name'] ?></option>
+                        <?php
+                          endforeach;
+                        ?>
+                    </select>
+                </div>
           <!--tuition paid in full radio button-->
           <div class="form-group" style="padding-top: 20px">
               <label for="tuitionPaid">Tuition Paid in Full:</label>
@@ -72,11 +86,6 @@ include "v_masterPage_sidebar.php";
                   </div>
                 </div>
           </div>
-          <!--board exam date-->
-          <div class="form-group" style="padding-top: 20px"> 
-            <label class="control-label" for="boardExamDate">Board Exam Date:</label>
-            <input type="datetime-local" class="form-control" name="exam_date" id="boardExamDate"/>
-          </div>
           <!--tax form issued radio button-->
           <div class="form-group" style="padding-top: 20px">
               <label for="copyOfT2202A">Copy of T2202A (Tax Form) Issued:</label>
@@ -91,6 +100,11 @@ include "v_masterPage_sidebar.php";
                   </div>
                 </div>
           </div>
+          <!--board exam date-->
+          <div id="rmtOnlyExamDt" class="form-group" style="padding-top: 20px; display: none;"> 
+            <label class="control-label" for="boardExamDate">Board Exam Date:</label>
+            <input type="datetime-local" class="form-control" name="exam_date" id="boardExamDate"/>
+          </div>
           <!--employment follow up notes-->
           <div class="form-group" style="padding-top: 20px">
             <label for="employmentFollowUp">Employment Follow Up:</label>
@@ -104,3 +118,15 @@ include "v_masterPage_sidebar.php";
     </div>
   </div>
 </div>
+<!--JS code show different section based on the program selection-->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#programID").on('change', function() {
+            if ( this.value == 'RMT'){
+                $("#rmtOnlyExamDt").show();
+            }else{
+                $("#rmtOnlyExamDt").hide();
+            }
+        });
+    });
+</script>
