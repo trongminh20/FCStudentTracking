@@ -14,24 +14,26 @@ include "v_masterPage_sidebar.php";
                     <label for="name">Name:</label>
                     <input type="text" name="name" class="form-control" id="studentName"/>
                 </div>
-                <div class="form-group" style="padding-top: 20px">
-                    <label for="birthdate">Date of Birth:</label>
-                    <input type="date" name="birthdate" class="form-control" id="birthdate"/>
-                </div>
                 <!--id-->
                 <div class="form-group" style="padding-top: 20px">
-                    <label for="phone">Student Id</label>
+                    <label for="phone">Student ID:</label>
                     <input type="number" name="id" class="form-control" id="studentID"/>
                 </div>
-             <div class="form-group" style="padding-top: 20px">
-                    <label for="phone">Program ID</label>
+                <!--cohort-->
+                <div class="form-group" style="padding-top: 20px">
+                    <label for="cohort">Cohort:</label>
+                    <input type="text" name="cohort" class="form-control" id="cohort"/>
+                </div>
+                <!--program id-->
+                <div class="form-group" style="padding-top: 20px">
+                    <label for="phone">Program ID:</label>
                     <select name="prog_id" class="form-control" id="programID">
                         <option>-- Select one --</option>
                         <?php
                             $options = $model -> select('programs', NULL);
                             foreach($options as $op):
                         ?>
-                            <option values="<?=$op['id']?>"><?=$op['id']." -- ".$op['prog_name']?></option>
+                            <option value="<?=$op['id']?>"><?=$op['id']." -- ".$op['prog_name']?></option>
                         <?php
                             endforeach;
                         ?>
@@ -41,6 +43,11 @@ include "v_masterPage_sidebar.php";
                 <div class="form-group" style="padding-top: 20px">
                     <label for="phone">Contact Number:</label>
                     <input type="text" name="phone" class="form-control" id="phone"/>
+                </div>
+                <!--DOB-->
+                <div class="form-group" style="padding-top: 20px">
+                    <label for="birthdate">Date of Birth:</label>
+                    <input type="date" name="birthdate" class="form-control" id="birthdate"/>
                 </div>
                 <!--email-->
                 <div class="form-group" style="padding-top: 20px">
@@ -74,7 +81,7 @@ include "v_masterPage_sidebar.php";
                               rows="5"></textarea>
                 </div>
                 <div class="form-group" style="padding-top: 20px">
-                    <label for="phone">Admission Status</label>
+                    <label for="phone">Admission Status:</label>
                     <input type="text" name="admin_status" class="form-control" id="phone"/>
                 </div>
                 <!--submit button-->

@@ -11,11 +11,26 @@ include "v_masterPage_sidebar.php";
         <h2 style="padding-top: 10px">Graduation</h2>
         <!--Form starts-->
         <form action="?action=c_add_grad" method="POST">
+          <div class="form-group">
+              <label for="student_id">Student ID:</label><br>
+              <input class="form-control" type="number" name="student_id" placeholder="Enter student ID"
+                       required="required">
+          </div>
+          <div class="form-group" style="padding-top: 20px">
+                    <label for="phone">Program ID:</label>
+                    <select class="form-control" id="programID">
+                        <option>-- Select one --</option>
+                        <?php
+                          $options = $model->select('programs', NULL);
+                          foreach ($options as $op):
+                        ?>
+                          <option value="<?= $op['id'] ?>"><?= $op['id'] . " -- " . $op['prog_name'] ?></option>
+                        <?php
+                          endforeach;
+                        ?>
+                    </select>
+                </div>
           <!--tuition paid in full radio button-->
-            <div class="form-group">
-                <label for="student_id">Student ID</label><br>
-                <input type="number" name="student_id" placeholder="Enter student ID" required="required">
-            </div>
           <div class="form-group" style="padding-top: 20px">
               <label for="tuitionPaid">Tuition Paid in Full:</label>
                 <div name="tuition_Paid" id="tuitionPaid" class="row" style="padding-top: 10px">
@@ -71,11 +86,6 @@ include "v_masterPage_sidebar.php";
                   </div>
                 </div>
           </div>
-          <!--board exam date-->
-          <div class="form-group" style="padding-top: 20px"> 
-            <label class="control-label" for="boardExamDate">Board Exam Date:</label>
-            <input type="datetime-local" class="form-control" name="exam_date" id="boardExamDate"/>
-          </div>
           <!--tax form issued radio button-->
           <div class="form-group" style="padding-top: 20px">
               <label for="copyOfT2202A">Copy of T2202A (Tax Form) Issued:</label>
@@ -90,16 +100,33 @@ include "v_masterPage_sidebar.php";
                   </div>
                 </div>
           </div>
+          <!--board exam date-->
+          <div id="rmtOnlyExamDt" class="form-group" style="padding-top: 20px; display: none;"> 
+            <label class="control-label" for="boardExamDate">Board Exam Date:</label>
+            <input type="datetime-local" class="form-control" name="exam_date" id="boardExamDate"/>
+          </div>
           <!--employment follow up notes-->
           <div class="form-group" style="padding-top: 20px">
             <label for="employmentFollowUp">Employment Follow Up:</label>
             <textarea type="text" class="form-control" name="employment" id="employmentFollowUp" rows="5"></textarea>
           </div>
           <!--submit button-->
-          <div class="form-group" style="padding-top: 20px">
-              <input type="submit" name="add_grad" value="Add Data">
+          <div class="form-group" style="padding-top: 20px; padding-bottom: 10px">
+              <input type="submit" name="add_grad" class="btn btn-primary" value="ADD">
           </div>
       </form>
     </div>
   </div>
 </div>
+<!--JS code show different section based on the program selection-->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#programID").on('change', function() {
+            if ( this.value == 'RMT'){
+                $("#rmtOnlyExamDt").show();
+            }else{
+                $("#rmtOnlyExamDt").hide();
+            }
+        });
+    });
+</script>
