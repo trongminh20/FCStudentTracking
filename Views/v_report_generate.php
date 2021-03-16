@@ -223,10 +223,10 @@ if ($ppes != "") {
         $report->Cell(50, 10, $detail['cert_fa_cpr_receive'], "", "", "", false);
         $report->Ln();
         $report->Cell(100, 10, 'Hankbook Receive Date');
-        $report->Cell(50, 10, $detail['handbook_receive'], "", "", "", false);
+        $report->Cell(50, 10, $detail['cli_handbook_receive'], "", "", "", false);
         $report->Ln();
         $report->Cell(100, 10, 'Acknowledgement and Agreement Form');
-        $report->Cell(50, 10, $detail['ack_and_agr'], "", "", "", false);
+        $report->Cell(50, 10, $detail['cli_ack_and_agr'], "", "", "", false);
         $report->Ln();
         $report->Cell(100, 10, 'Medical File (Vaccinations) Received');
         $report->Cell(50, 10, $detail['medical_file'], "", "", "", false);
