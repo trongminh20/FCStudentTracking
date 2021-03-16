@@ -33,7 +33,7 @@
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            
+
             <ul class="nav navbar-nav navbar-right">
                 <div style="float: left; padding: 13px;">
                     <form class="form-inline" action="?action=c_search" method="POST">

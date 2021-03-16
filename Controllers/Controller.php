@@ -67,7 +67,6 @@ class Controller
                 $user->set_department($data[0]['department']);
                 $user->set_role($data[0]['admin']);
 
-
                 // assign User's information from database -> $_SESSION
                 $_SESSION['session_id'] = rand(1000, 9999);
                 $_SESSION['user'] = $user->to_array();
@@ -187,8 +186,11 @@ class Controller
     {
         if (isset($_POST['add_apsds'])) {
             $data = $_POST;
-            $data['rmt_stu_materials'] = implode(", ", $data['rmt_stu_materials']);
+            if (isset($data['rmt_stu_materials'])) {
+                $data['rmt_stu_materials'] = implode(", ", $data['rmt_stu_materials']);
+            }
             unset($data['add_apsds']);
+            $data = $this->alter_null($data);
             $model->insert('apsds', $data);
             header("Location:?action=v_admPriorToStartDate_form");
         }
@@ -199,6 +201,7 @@ class Controller
         if (isset($_POST['add_ppes'])) {
             $data = $_POST;
             unset($data['add_ppes']);
+            $data = $this->alter_null($data);
             $model->insert('ppes', $data);
             header("Location:?action=v_priorToPracticeEducation_form");
         }
@@ -214,35 +217,67 @@ class Controller
         }
     }
 
-    private function c_add_student(Model $model){
+    private function c_add_student(Model $model)
+    {
         $data = $_POST;
         unset($data['submit']);
-        $model -> insert('students', $data);
-
+        $model->insert('students', $data);
+        header("Location:?action=v_enrollmentBriefSummary_form");
     }
 
-    private function c_add_pament(Model $model){}
+    private
+    function c_add_payment(Model $model)
+    {
+        $data = $_POST;
+        unset($data['submit']);
+        $model->insert('payment_tracking', $data);
+    }
 
-   private function c_add_new_record(Model $model){
-        if(isset($_POST['select_section'])){
-           $case = $_POST['select_section'];
-           if($case === 'Enrollment Brief Summary') {
-               header("location:?action=v_enrollmentBriefSummary_form");
-           }
-           if($case === 'Admission Prior to Start Date') {
-               header("location:?action=v_admPriorToStartDate_form");
-           }
-           if($case === 'Prior to Practice Education') {
-               header("location:?action=v_priorToPracticeEducation_form");
-           }
-           if($case === 'Graduation') {
-               header("location:?action=v_graduation_form");
-           }
-           if($case === 'Payment Tracking') {
-               header("location:?action=v_paymentTracking_form");
-           }
+    private
+    function c_add_new_record(Model $model)
+    {
+        if (isset($_POST['select_section'])) {
+            $case = $_POST['select_section'];
+            if ($case === 'Enrollment Brief Summary') {
+                header("location:?action=v_enrollmentBriefSummary_form");
+            }
+            if ($case === 'Admission Prior to Start Date') {
+                header("location:?action=v_admPriorToStartDate_form");
+            }
+            if ($case === 'Prior to Practice Education') {
+                header("location:?action=v_priorToPracticeEducation_form");
+            }
+            if ($case === 'Graduation') {
+                header("location:?action=v_graduation_form");
+            }
+            if ($case === 'Payment Tracking') {
+                header("location:?action=v_paymentTracking_form");
+            }
         }
-   }
+    }
 
+    /**
+     * replacing an empty with NULL for inserting into db
+     * @param $data
+     * @return mixed
+     */
+    private function alter_null($data)
+    {
+        $d = $data;
+        $arrOfNulls = array();
+        foreach ($d as $k => $v) {
+            if (empty($d[$k])) {
+                array_push($arrOfNulls, $k);
+            }
+        }
+        for ($i = 0; $i < count($arrOfNulls); $i++) {
+            foreach ($d as $k => $v) {
+                if ($k == $arrOfNulls[$i]) {
+                    $d[$k] = NULL;
+                }
+            }
+        }
+        return $d;
+    }
 
 }

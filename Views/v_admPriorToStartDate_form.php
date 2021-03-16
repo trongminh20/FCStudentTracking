@@ -6,15 +6,33 @@ include "v_masterPage_sidebar.php";
 ?>
 
 <div class="container" id="mainContent" style="padding-top: 20px">
-    <h2>Admission Prior to Start Date</h2>
     <div class="row">
         <div class="col-xs-12">
+            <h2 style="padding-top: 10px">Admission Prior to Start Date</h2>
+
             <!--Form starts-->
             <form class="col-lg-8" action="?action=c_add_apsds" method="POST">
+                <!--id-->
                 <div class="form-group">
-                    <label for="student_id">STUDENT ID</label><br>
+                    <label for="student_id">Student ID:</label><br>
                     <input class="form-control" type="number" name="student_id" value="" required="required">
                 </div>
+
+                <div class="form-group" style="padding-top: 20px">
+                    <label for="phone">Program ID:</label>
+                    <select class="form-control" id="programID">
+                        <option>-- Select one --</option>
+                        <?php
+                        $options = $model->select('programs', NULL);
+                        foreach ($options as $op):
+                            ?>
+                            <option value="<?= $op['id'] ?>"><?= $op['id'] . " -- " . $op['prog_name'] ?></option>
+                        <?php
+                        endforeach;
+                        ?>
+                    </select>
+                </div>
+
                 <!--photo id radio button-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="photoID">Photo ID:</label>
@@ -42,7 +60,7 @@ include "v_masterPage_sidebar.php";
                     <input type="text" name="app_fee" class="form-control" id="appFee"/>
                 </div>
                 <!--application essay radio button-->
-                <div class="form-group" style="padding-top: 20px">
+                <div id="rmtOnlyApp" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
                     <label for="appEssay">Application Essay:</label>
                     <div id="appEssay" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
@@ -58,12 +76,12 @@ include "v_masterPage_sidebar.php";
                     </div>
                 </div>
                 <!--reference letters notes-->
-                <div class="form-group" style="padding-top: 20px">
+                <div id="rmtOnlyRef" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
                     <label for="refLetters">Character Reference Letters:</label>
                     <input type="text" name="refer_letter" class="form-control" id="refLetters"/>
                 </div>
                 <!--resume radio button-->
-                <div class="form-group" style="padding-top: 20px">
+                <div id="rmtOnlyRes" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
                     <label for="resume">Resume:</label>
                     <div name="resume" id="resume" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
@@ -78,34 +96,57 @@ include "v_masterPage_sidebar.php";
                         </div>
                     </div>
                 </div>
-                <!--intro to massage date & time -->
-                <div class="form-group" style="padding-top: 20px">
-                    <label class="control-label" for="introOfMsg">Intro of Massage Course Date & Time:</label>
-                    <div name="intro_of_msg" id="introOfMsg" class="row" style="padding-top: 10px">
+                <!--intro to massage date & time day 1 -->
+                <div id="rmtOnlyIntro1" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
+                    <label class="control-label" for="introOfMsgDay1">Intro of Massage Course Day One:</label>
+                    <div name="intro_of_msg" id="introOfMsgDay1" class="row" style="padding-top: 10px">
                         <!---from_datetimePicker-->
                         <div class="col-sm-6">
-                            <label class="control-label" id="introOfMsgFrom">From:</label>
+                            <label class="control-label" id="introOfMsgDay1From">From:</label>
                         </div>
                         <div class="col-sm-6">
-                            <input type="datetime-local" class="form-control" name="intro_of_msg_from"
-                                   id="introOfMsgFrom">
+                            <input type="datetime-local" class="form-control" name="intro_of_msg_day1_from"
+                                   id="introOfMsgDay1From">
                         </div>
                         <!---to_datetimePicker-->
                         <div class="col-sm-6" style="padding-top: 10px">
-                            <label class="control-label" id="introOfMsgTo">To:</label>
+                            <label class="control-label" id="introOfMsgDay1To">To:</label>
                         </div>
                         <div class="col-sm-6" style="padding-top: 10px">
-                            <input type="datetime-local" class="form-control" name="intro_of_msg_to" id="introOfMsgTo">
+                            <input type="datetime-local" class="form-control" name="intro_of_msg_day1_to"
+                                   id="introOfMsgDay1To">
+                        </div>
+                    </div>
+                </div>
+                <!--intro to massage date & time day 2 (Need to add to db)-->
+                <div id="rmtOnlyIntro2" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
+                    <label class="control-label" for="introOfMsgDay2">Intro of Massage Course Day Two:</label>
+                    <div name="intro_of_msg" id="introOfMsgDay2" class="row" style="padding-top: 10px">
+                        <!---from_datetimePicker-->
+                        <div class="col-sm-6">
+                            <label class="control-label" id="introOfMsgDay2From">From:</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="datetime-local" class="form-control" name="intro_of_msg_day2_from"
+                                   id="introOfMsgDay2From">
+                        </div>
+                        <!---to_datetimePicker-->
+                        <div class="col-sm-6" style="padding-top: 10px">
+                            <label class="control-label" id="introOfMsgDay2To">To:</label>
+                        </div>
+                        <div class="col-sm-6" style="padding-top: 10px">
+                            <input type="datetime-local" class="form-control" name="intro_of_msg_day2_to"
+                                   id="introOfMsgDay2To">
                         </div>
                     </div>
                 </div>
                 <!--intro to massage fee notes-->
-                <div class="form-group" style="padding-top: 20px">
+                <div id="rmtOnlyIntroFee" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
                     <label for="introFee">Intro of Massage Fee with Paid Invoice:</label>
                     <input type="text" name="intro_Fee" class="form-control" id="introFee"/>
                 </div>
                 <!--intro to massage completed notes -->
-                <div class="form-group" style="padding-top: 20px">
+                <div id="rmtOnlyComp" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
                     <label for="introToMassageComp">Intro of Massage Course Completed:</label>
                     <input type="text" name="intro_msg_complete" class="form-control" id="introToMassageComp"/>
                 </div>
@@ -127,16 +168,38 @@ include "v_masterPage_sidebar.php";
                 </div>
                 <!--english test result notes -->
                 <div class="form-group" style="padding-top: 20px">
-                    <label for="engTestResult">English Test Result:</label>
-                    <input type="text" name="eng_test_result" class="form-control" id="engTestResult"/>
+                    <label for="engTestResult">English Test Result (For Non-English Speaker):</label>
+                    <input type="number" name="eng_test_result" class="form-control" id="engTestResult"/>
+                </div>
+                <!--english language competency self-declaration form (Need to add to db)-->
+                <div class="form-group" style="padding-top: 20px">
+                    <label for="engComForm">English Language Competency Self-Declaration Form:</label>
+                    <div name="eng_com_form" id="engComForm" class="row" style="padding-top: 10px">
+                        <div class="col-sm-6">
+                            <label class="radio-inline">
+                                <input name="eng_com_form" id="engComForm" value="yes" type="radio"/> YES
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="radio-inline">
+
+                                <input name="eng_com_form" id="engComForm" value="no" type="radio"/> NO
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!--high school diploma & transcript notes -->
+                <div class="form-group" style="padding-top: 20px">
+                    <label for="diplomaAndTranscript">High School Diploma & Transcript (Or Above):</label>
+                    <input type="text" name="dips_and_trans" class="form-control" id="diplomaAndTranscript"/>
                 </div>
                 <!--CRC result notes -->
-                <div class="form-group" style="padding-top: 20px">
+                <div id="rmtOnlyCRC" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
                     <label for="CRCResult">CRC Result:</label>
                     <input type="text" name="crc_result" class="form-control" id="CRCResult"/>
                 </div>
                 <!--medical notes radio button-->
-                <div class="form-group" style="padding-top: 20px">
+                <div id="rmtOnlyMed" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
                     <label for="medicalNotes">Medical Notes from Physician:</label>
                     <div name="medical_Notes" id="medicalNotes" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
@@ -153,12 +216,12 @@ include "v_masterPage_sidebar.php";
                     </div>
                 </div>
                 <!--interview date & time -->
-                <div class="form-group" style="padding-top: 20px">
+                <div id="rmtOnlyIntDate" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
                     <label class="control-label" for="interviewDateandTime">Interview Date & Time:</label>
                     <input type="datetime-local" class="form-control" id="interviewDateandTime" name="interview_date"/>
                 </div>
                 <!--interview approved radio button-->
-                <div class="form-group" style="padding-top: 20px">
+                <div id="rmtOnlyIntAppr" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
                     <label for="interviewApproved">Interview Approved:</label>
                     <div name="interview_Approved" id="interviewApproved" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
@@ -173,52 +236,59 @@ include "v_masterPage_sidebar.php";
                         </div>
                     </div>
                 </div>
-                <!--high school diploma & transcript notes -->
-                <div class="form-group" style="padding-top: 20px">
-                    <label for="diplomaAndTranscript">High School Diploma & Transcript (Or Above):</label>
-                    <input type="text" name="dips_and_trans" class="form-control" id="diplomaAndTranscript"/>
-                </div>
                 <!--student email -->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="stuEmail">Student Email:</label>
                     <input type="text" name="stu_email" class="form-control" id="stuEmail"/>
                 </div>
+                <!--letter of acceptance issue date-->
                 <div class="form-group" style="padding-top: 20px">
                     <label class="control-label" for="acceptLetterDate">Letter of Acceptance Issued Date:</label>
-                    <input type="datetime-local" class="form-control" id="acceptLetterDate" name="accept_letter_date"/>
+                    <input type="date" class="form-control" id="acceptLetterDate" name="accept_letter_date"/>
                 </div>
                 <!--enrollment contract notes -->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="enrollContract">Enrollment Contract:</label>
                     <input type="text" name="enroll_contract" class="form-control" id="enrollContract"/>
                 </div>
-                <!--Handbooks notes -->
+                <!--Student & Program Handbooks notes (changed name)-->
                 <div class="form-group" style="padding-top: 20px">
-                    <label for="HandbooksNotes">Student Handbooks:</label>
-                    <textarea type="text" class="form-control" name="handbook_notes" id="HandbooksNotes"
+                    <label for="StudentProgramHandbooksNotes">Student & Program Handbooks:</label>
+                    <textarea type="text" class="form-control" name="stu_prog_handbook_notes" id="StudentProgramHandbooksNotes"
                               rows="5"></textarea>
+                </div>
+                <!--Student ackmowledgement & agreemtnt form received date (changed name)-->
+                <div class="form-group" style="padding-top: 20px">
+                    <label class="control-label" for="stuAckAndAgrForm">Ackmowledgement & Agreement Form Received
+                        Date:</label>
+                    <input type="date" class="form-control" id="stuAckAndAgrForm" name="stu_ack_and_agr"/>
+                </div>
+                <!--photography waiver form receive date (Need to add to db)-->
+                <div class="form-group" style="padding-top: 20px">
+                    <label class="control-label" for="photoWaiverDate">Photography Waiver Form Receive Date:</label>
+                    <input type="date" class="form-control" id="photoWaiverDate" name="photo_waiver_date"/>
+                </div>
+                <!--self-declaration of health notice receive date (Need to add to db)-->
+                <div class="form-group" style="padding-top: 20px">
+                    <label class="control-label" for="healthCheckDate">Self-Declaration of Health Notice Receive Date:</label>
+                    <input type="date" class="form-control" id="healthCheckDate" name="health_check_date"/>
                 </div>
                 <!--payment options-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="payOptions">Payment Options:</label>
                     <select class="form-control" name="pay_option" id="payOptions" onChange="check();">
+                        <option disabled selected value> -- select an option --</option>
                         <option value="Student Aid BC">Student Aid BC</option>
                         <option value="Full Payment">Full Payment</option>
                         <option value="Monthly Payment">Monthly Payment</option>
                         <option value="Payment Plan">Payment Plan</option>
                         <option value="Others">Others</option>
                     </select>
-                    <div id="otherPayOptions" style="display:none; padding-top: 10px">
+                    <div id="otherOptionDiv" style="display:none;">
                         <label>Enter Payment Method:
-                            <input type="text" id="otherInput" name='pay_option' class="form-control">
+                            <input type="text" id="otherInput" class="form-control">
                         </label>
                     </div>
-                </div>
-                <!--ackmowledgement & agreemtnt form received date-->
-                <div class="form-group" style="padding-top: 20px">
-                    <label class="control-label" for="ackAndAgrForm">Ackmowledgement & Agreemtnt Form Received
-                        Date:</label>
-                    <input type="datetime-local" class="form-control" id="ackAndAgrForm" name="ack_and_agr"/>
                 </div>
                 <!--student id card issued radio button-->
                 <div class="form-group" style="padding-top: 20px">
@@ -237,12 +307,12 @@ include "v_masterPage_sidebar.php";
                     </div>
                 </div>
                 <!--RMT students material muulti select-->
-                <div class="form-group" style="padding-top: 20px">
+                <div id="rmtOnlyMat" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
                     <label for="rmtStuMaterials">RMT Student Learning Materials:</label>
                     <div style="color:red; font-size:10px;">
                         <p>To choose multiple values:</p>
                         <ul>
-                            <li>hold <strong>Ctr</strong> key if you are using Windows</li>
+                            <li>hold <strong>Ctrl</strong> key if you are using Windows</li>
                             <li>hold <strong>Command</strong> key if you are using Macbook</li>
                         </ul>
                     </div>
@@ -263,3 +333,18 @@ include "v_masterPage_sidebar.php";
         </div>
     </div>
 </div>
+<!--JS code show different section based on the program selection-->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#programID").on('change', function() {
+            if ( this.value == 'RMT'){
+                $(".form-groupRMT").show();
+            }else{
+                $(".form-groupRMT").hide();
+            }
+        });
+    });
+
+
+</script>
+

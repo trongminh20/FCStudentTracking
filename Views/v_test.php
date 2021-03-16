@@ -1,8 +1,11 @@
-
 <?php
-Mail::$toAddress = 'trongminh20@gmail.com';
-Mail::$content = "<h1>This is testing email from invoice</h1>";
+$data = $model ->select('apsds', ['student_id'=> 3789000]);
+
+$arr = explode(",",$data[0]['rmt_stu_materials']);
+
+$arrSrc = ["Sheet Set", 'Laptop or Learning Support', 'Goniometer', 'Oil Holster', 'Bottle'];
 
 
-Mail::send_mail();
-
+//print_r($arr);
+echo $data[0]['rmt_stu_materials'];
+echo strpos($data[0]['rmt_stu_materials'],"Laptop or Learning Support");
