@@ -286,7 +286,7 @@ include "v_masterPage_sidebar.php";
                     </select>
                     <div id="otherOptionDiv" style="display:none;">
                         <label>Enter Payment Method:
-                            <input type="hidden" id="otherInput" class="form-control">
+                            <input type="text" id="otherInput" class="form-control">
                         </label>
                     </div>
                 </div>
