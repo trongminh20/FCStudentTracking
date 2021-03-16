@@ -264,48 +264,37 @@ if ($inputPayment != "") {
         $report->Ln();
         $report->Cell(60, 10, "1st_payment");
         $report->Cell(60, 10, $detail['1st_payment']);
-
         $report->Ln();
         $report->Cell(60, 10, "2nd_payment");
         $report->Cell(60, 10, $detail['2nd_payment']);
-
         $report->Ln();
         $report->Cell(60, 10, "3rd_payment");
         $report->Cell(60, 10, $detail['3rd_payment']);
-
         $report->Ln();
         $report->Cell(60, 10, "4th_payment");
         $report->Cell(60, 10, $detail['4th_payment']);
-
         $report->Ln();
         $report->Cell(60, 10, "5th_payment");
         $report->Cell(60, 10, $detail['5th_payment']);
-
         $report->Ln();
         $report->Cell(60, 10, "6th_payment");
         $report->Cell(60, 10, $detail['6th_payment']);
-
         $report->Ln();
         $report->Cell(60, 10, "7th_payment");
         $report->Cell(60, 10, $detail['7th_payment']);
-
         $report->Ln();
         $report->Cell(60, 10, "8th_payment");
         $report->Cell(60, 10, $detail['8th_payment']);
-
         $report->Ln();
         $report->Cell(60, 10, "9th_payment");
         $report->Cell(60, 10, $detail['9th_payment']);
-
         $report->Ln();
         $report->Cell(60, 10, "10th_payment");
         $report->Cell(60, 10, $detail['10th_payment']);
-
         $report->Ln();
         $report->Cell(60, 10, "total");
         $report->Cell(60, 10, $detail['total']);
         $report->Ln();
-
     } else {
         $report->Cell(60, 10, 'Not available');
         $report->Ln();
