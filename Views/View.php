@@ -61,13 +61,12 @@ class View
      * @param $model current Model
      */
     public function display_table_to_form($id = "", $class = "",
-                                          $fieldSet, $action = "",
-                                          $method = "", $table, $model)
+                                          $action = "", $method = "",
+                                          $table, $model)
     {
         $data = $model->get_type($table);
         echo "<form class='$class' id='$id' method='$method' action='?action=$action'>";
         echo "<filedset>";
-        echo "<legend>$fieldSet</legend>";
         foreach ($data as $k => $v) {
             echo "<label>$k</label>";
             if (strpos($v, 'int') !== false) {
@@ -84,7 +83,6 @@ class View
             echo "<input class='form-control' type='$type' name = '$k' placeholder='$k' required='required'><br>";
         }
         echo "<input class='btn btn-primary' type='submit' name='submit' value='submit'>";
-        echo "</filedset>";
         echo "</form>";
     }
 

@@ -161,6 +161,7 @@ CREATE TABLE payment_tracking
     domestic      VARCHAR(3),
     international VARCHAR(3),
     app_fee       INT,
+    scholarships    INT,
     intro_msg_fee INT,
     materials_fee INT,
     textbook_fee  INT,
