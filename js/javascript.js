@@ -8,8 +8,9 @@ function check(){
             document.getElementById("otherOptionDiv").setAttribute("style","display=block;")
             document.getElementById("otherInput").setAttributeNode(name);
         }else{
-            document.getElementById("otherOptionDiv").style.display = "none";
 
+            document.getElementById("otherOptionDiv").style.display = "none";
+            document.getElementById("otherInput").name= "";
         }
     }
 
