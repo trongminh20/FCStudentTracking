@@ -1,8 +1,13 @@
 <?php
-class Mail{
+
+class Mail
+{
     public static $toAddress;
     public static $attachment;
     public static $content;
+    public static $fromAddress;
+    public static $fromPwd;
+
     /**
      * sending email =
      * @param $to
@@ -26,10 +31,10 @@ class Mail{
         $mail->Host = 'smtp.gmail.com';
         $mail->Port = 587;
 
-        $mail->Username = 'invoice.firstcollege@gmail.com';
-        $mail->Password = 'FCstudenttracking';
+        $mail->Username = self::$fromAddress;//'invoice.firstcollege@gmail.com';
+        $mail->Password = self::$fromPwd;
 
-        $mail->SetFrom('invoice.firstcollege@gmail.com');
+        $mail->SetFrom('no-reply');
         $mail->FromName = "First College";
         $mail->Subject = "Student Invoice";
         $mail->MsgHTML(self::$content);

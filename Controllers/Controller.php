@@ -164,11 +164,17 @@ class Controller
         $number = rand(11, 99);
         $newPass = $id . $number;
         $data = ['password' => $newPass];
-
+        $content = "<h3>Your password has been reset:</h3><br>".
+            "<ul><li>Your new password is: $newPass</li></ul>".
+            "<h3>Please change your password immediately once you logged in successfully.</h3>";
         $model->change_info('employees', $data, $id);
 
-        $_SESSION['manage_info'] = $_POST['Username'] . "'s password has been reset to phone number ";
-
+        Mail::$fromAddress = "";
+        Mail::$fromPwd = "";//"password";
+        Mail::$toAddress = $_POST['email'];
+        Mail::$content =  $content;
+        $_SESSION['manage_info'] = $_POST['username'] . "'s password has been reset to phone number ";
+        Mail::send_mail();
         header("Location:?action=v_user_manage");
     }
 

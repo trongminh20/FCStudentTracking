@@ -95,6 +95,8 @@ elseif (isset($_POST['generate'])) {
     $pdf->Output( "F","invoices/".$number . ".pdf", true);
 
     if(isset($data['send_to_student'])) {
+        Mail::$fromAddress = "invoice.firstcollege@gmail.com";
+        Mail::$fromPwd = 'FCstudenttracking';
         Mail::$toAddress = $data['student_email'];
         Mail::$content = "<h1>This is testing email from invoice</h1>";
         Mail::$attachment = "invoices/" . $number . ".pdf";

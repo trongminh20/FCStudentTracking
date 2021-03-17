@@ -49,12 +49,7 @@ unset($_SESSION['student']);
     $form::add_input(['id' => 'checkbox5', 'value' => "payment",'name'=>"include[]", 'type' => 'checkbox']);
     $form::add_label(['for' => 'checkbox5', 'label' => 'Payment Tracking']);
     $form::end_fieldset();
-
-    $form::start_fieldset(['id' => 'id', 'class' => 'class']);
-    $form::add_legend(['id' => "", 'value' => "Export to:"]);
-    $form::add_selection(['att' => ['id' => '', 'class' => '', 'name' => 'filetype'], 'options' => ['.docx', '.pdf']]);
-    $form::end_fieldset();
-
+    
     $form::add_input(['class' => 'btn btn-primary', 'name' => 'preview', 'type' => 'submit', 'value' => 'preview']);
     $form::add_input(['class' => 'btn btn-primary', 'name' => 'generate', 'type' => 'submit', 'value' => 'generate']);
 
