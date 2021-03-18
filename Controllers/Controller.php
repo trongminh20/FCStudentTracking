@@ -54,6 +54,7 @@ class Controller
 
                 if ($data[0]['admin'] == 1) {
 
+
                     $user = new Admin();
                 } else if ($data[0]['admin'] == 0) {
                     $user = new Employee();
@@ -164,11 +165,17 @@ class Controller
         $number = rand(11, 99);
         $newPass = $id . $number;
         $data = ['password' => $newPass];
-
+        $content = "<h3>Your password has been reset:</h3><br>".
+            "<ul><li>Your new password is: $newPass</li></ul>".
+            "<h3>Please change your password immediately once you logged in successfully.</h3>";
         $model->change_info('employees', $data, $id);
 
-        $_SESSION['manage_info'] = $_POST['Username'] . "'s password has been reset to phone number ";
-
+        Mail::$fromAddress = "";
+        Mail::$fromPwd = "";//"password";
+        Mail::$toAddress = $_POST['email'];
+        Mail::$content =  $content;
+        $_SESSION['manage_info'] = $_POST['username'] . "'s password has been reset to phone number ";
+        Mail::send_mail();
         header("Location:?action=v_user_manage");
     }
 
@@ -224,16 +231,14 @@ class Controller
         header("Location:?action=v_enrollmentBriefSummary_form");
     }
 
-    private
-    function c_add_payment(Model $model)
+    private function c_add_payment(Model $model)
     {
         $data = $_POST;
         unset($data['submit']);
         $model->insert('payment_tracking', $data);
     }
 
-    private
-    function c_add_new_record(Model $model)
+    private function c_add_new_record(Model $model)
     {
         if (isset($_POST['select_section'])) {
             $case = $_POST['select_section'];
@@ -255,6 +260,9 @@ class Controller
         }
     }
 
+    private function c_update_record(){
+
+    }
     /**
      * replacing an empty with NULL for inserting into db
      * @param $data

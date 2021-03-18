@@ -21,8 +21,10 @@ include "v_masterPage_sidebar.php";
 
 
     <?php
+    echo "<h3>Add new User</h3>";
     $addInfo = $model->get_type("employees");
 
-    $view->display_table_to_form("formAddUser", " form form_add_user", "Adding new Employee", "c_add_user", "POST", 'employees',$model);
+    $view->display_table_to_form("formAddUser", " form form_add_user", "c_add_user",  "POST", 'employees',
+        $model);
     ?>
 </div>

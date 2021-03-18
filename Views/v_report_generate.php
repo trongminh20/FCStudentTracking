@@ -226,7 +226,7 @@ if ($ppes != "") {
         $report->Cell(50, 10, $detail['cli_handbook_receive'], "", "", "", false);
         $report->Ln();
         $report->Cell(100, 10, 'Acknowledgement and Agreement Form');
-        $report->Cell(50, 10, $detail['cli_ ack_and_agr'], "", "", "", false);
+        $report->Cell(50, 10, $detail['cli_ack_and_agr'], "", "", "", false);
         $report->Ln();
         $report->Cell(100, 10, 'Medical File (Vaccinations) Received');
         $report->Cell(50, 10, $detail['medical_file'], "", "", "", false);
