@@ -65,19 +65,6 @@ class Database
     }
 
     /**
-     * not include pasword
-     * @param $username
-     * @return mixed
-     */
-//    public function select_user($username)
-//    {
-//        $query = "SELECT ID, Username, Phone, Email, Department, admin  FROM employees WHERE username = ?";
-//        $stm = $this->pdo->prepare($query);
-//        $stm->execute([$username]);
-//        return $stm->fetch(PDO::FETCH_ASSOC);
-//    }
-
-    /**
      * Insert one record into existing table in database
      * @param $table
      * @param $data as an Array that we got from toArray()

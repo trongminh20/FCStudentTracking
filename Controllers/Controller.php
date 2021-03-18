@@ -230,16 +230,14 @@ class Controller
         header("Location:?action=v_enrollmentBriefSummary_form");
     }
 
-    private
-    function c_add_payment(Model $model)
+    private function c_add_payment(Model $model)
     {
         $data = $_POST;
         unset($data['submit']);
         $model->insert('payment_tracking', $data);
     }
 
-    private
-    function c_add_new_record(Model $model)
+    private function c_add_new_record(Model $model)
     {
         if (isset($_POST['select_section'])) {
             $case = $_POST['select_section'];
@@ -261,6 +259,9 @@ class Controller
         }
     }
 
+    private function c_update_record(){
+
+    }
     /**
      * replacing an empty with NULL for inserting into db
      * @param $data
