@@ -153,6 +153,7 @@ CREATE TABLE `graduations` (
 
 LOCK TABLES `graduations` WRITE;
 /*!40000 ALTER TABLE `graduations` DISABLE KEYS */;
+INSERT INTO `graduations` VALUES (3789000,'yes','yes','yes','yes','2021-03-23 12:33:00','yes','trtnrla');
 /*!40000 ALTER TABLE `graduations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -294,6 +295,7 @@ CREATE TABLE `ppes` (
   `cert_fa_cpr_receive` date DEFAULT NULL,
   `foodsafe_dt` datetime DEFAULT NULL,
   `cert_foodsafe_receive` date DEFAULT NULL,
+  `crc_notes` varchar(200) DEFAULT NULL,
   `crc_receive` date DEFAULT NULL,
   `speco` varchar(3) DEFAULT NULL,
   `cli_handbook_receive` date DEFAULT NULL,
@@ -311,6 +313,7 @@ CREATE TABLE `ppes` (
 
 LOCK TABLES `ppes` WRITE;
 /*!40000 ALTER TABLE `ppes` DISABLE KEYS */;
+INSERT INTO `ppes` VALUES (3789000,'yes','Extra Small',NULL,NULL,'2021-03-23 12:22:00','this is testing','2021-03-23',NULL,NULL,NULL,NULL,'yes',NULL,NULL,NULL,NULL),(3789001,'yes','Small','2021-03-24','2021-03-24','2021-03-24 12:25:00','test','2021-03-23',NULL,NULL,NULL,NULL,NULL,'2021-03-24','no','yes',NULL);
 /*!40000 ALTER TABLE `ppes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -405,8 +408,7 @@ CREATE TABLE `sessions` (
   `created` datetime DEFAULT NULL,
   `logout` datetime DEFAULT NULL,
   PRIMARY KEY (`session_id`),
-  KEY `session_fk` (`user_id`),
-  CONSTRAINT `session_fk` FOREIGN KEY (`user_id`) REFERENCES `employees` (`id`)
+  KEY `session_fk` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -416,6 +418,7 @@ CREATE TABLE `sessions` (
 
 LOCK TABLES `sessions` WRITE;
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
+INSERT INTO `sessions` VALUES (4067,1000,'2021-03-16 12:10:27','2021-03-16 12:33:04'),(5571,3789111,'2021-03-16 21:12:07','2021-03-16 21:12:45'),(6642,1000,'2021-03-16 20:32:43','2021-03-16 21:12:00'),(6858,3789111,'2021-03-16 21:12:52','2021-03-16 21:13:01');
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -490,4 +493,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-03-16 11:58:31
+-- Dump completed on 2021-03-16 23:15:12
