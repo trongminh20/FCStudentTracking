@@ -31,7 +31,7 @@ class Controller
     private function c_search(Model $model)
     {
         $keyword = $_POST['keyword'];
-        if ($keyword[0] == '@' || $keyword[0] == '#') {
+        if ($keyword[0] == '@' || $keyword[0] == '#' || $keyword[0] == '!') {
             $_SESSION['search_result'] = $model->search_student($keyword);
             header("Location:?action=v_search_res");
         } else {

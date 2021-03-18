@@ -127,6 +127,9 @@ class Model
         } else if ($keyword[0] == '#') {
             $id = ltrim($keyword, '#');
             $keyword = ['id' => $id];
+        }else if($keyword[0] == '!'){
+            $prog = ltrim($keyword,'!');
+            $keyword = ['prog_id' => $prog];
         }
         return $this->db->select('students', $keyword);
     }
