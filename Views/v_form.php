@@ -2,7 +2,16 @@
 
 class Form
 {
-    public function __construct($class, $id, $action, $method, $formName,$target="")
+    /**
+     * Form constructor.
+     * @param $class
+     * @param $id
+     * @param $action
+     * @param $method
+     * @param $formName
+     * @param string $target
+     */
+    public function __construct($class, $id, $action, $method, $formName, $target="")
     {
         echo "<h3>" . $formName . "</h3>";
         echo "<form class='" . $class . "' id='" . $id . "' action='?action=" . $action . "' method='" . $method . "' target='".$target."'>";
