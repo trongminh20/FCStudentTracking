@@ -1,8 +1,8 @@
 <?php
-include "v_masterPage_header.php";
+//include "v_masterPage_header.php";
 ?>
 <?php
-include "v_masterPage_sidebar.php";
+//include "v_masterPage_sidebar.php";
 ?>
 
 <div class="container">
