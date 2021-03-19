@@ -39,16 +39,16 @@ include "v_masterPage_sidebar.php";
                         </div>
                         <hr>
                         <!--phone number-->
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <h6 class="mb-0">Office Number</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary" style="padding-top:
-                            7px"><?php
-                                echo $_SESSION['user']['office_number'];
-                                ?></div>
-                        </div>
-                        <hr>
+<!--                        <div class="row">-->
+<!--                            <div class="col-sm-3">-->
+<!--                                <h6 class="mb-0">Office Number</h6>-->
+<!--                            </div>-->
+<!--                            <div class="col-sm-9 text-secondary" style="padding-top:-->
+<!--                            7px">--><?php
+//                                echo $_SESSION['user']['office_number'];
+//                                ?><!--</div>-->
+<!--                        </div>-->
+<!--                        <hr>-->
                         <!--mobile-->
                         <div class="row">
                             <div class="col-sm-3">

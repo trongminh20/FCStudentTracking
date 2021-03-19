@@ -22,14 +22,13 @@ class User{
      * @param string $email
      * @param string $phoneNumber
      */
-    public function User($id, $username, $password, $email= "", $phoneNumber="", $department, $officeNumber){
+    public function User($id, $username, $password, $email= "", $phoneNumber="", $department){
         $this->id = $id;
         $this->username = $username;
         $this->password = SHA1($password);
         $this->email = $email;
         $this->phoneNumber = $phoneNumber;
         $this->department = $department;
-        $this->officeNumber = $officeNumber;
     }
 
     /**
@@ -76,22 +75,22 @@ class User{
     function change_phone_number($pNumber){
         $this->phoneNumber = $pNumber;
     }
+//
+//    /**
+//     * @param mixed $officeNumber
+//     */
+//    public function set_office_number($officeNumber)
+//    {
+//        $this->officeNumber = $officeNumber;
+//    }
 
-    /**
-     * @param mixed $officeNumber
-     */
-    public function set_office_number($officeNumber)
-    {
-        $this->officeNumber = $officeNumber;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function get_office_number()
-    {
-        return $this->officeNumber;
-    }
+//    /**
+//     * @return mixed
+//     */
+//    public function get_office_number()
+//    {
+//        return $this->officeNumber;
+//    }
 
     /**this function is used for testing
      * @return string

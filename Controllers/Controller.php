@@ -57,7 +57,7 @@ class Controller
                 $user->set_username($data[0]['username']);
                 $user->set_email($data[0]['email']);
                 $user->set_phone_number($data[0]['phone']);
-                $user -> set_office_number($data[0]['office_number']);
+//                $user -> set_office_number($data[0]['office_number']);// deleted
                 $user->set_department($data[0]['department']);
                 $user->set_role($data[0]['admin']);
                 // assign User's information from database -> $_SESSION
