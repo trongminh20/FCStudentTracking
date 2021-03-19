@@ -38,6 +38,13 @@ CREATE TABLE employees
     admin      INT
 );
 
+CREATE TABLE empInfo
+(
+    emp_id     INT,
+    fullname   VARCHAR(100),
+    role       VARCHAR(100)
+);
+
 CREATE TABLE fees
 (
     id        INT PRIMARY KEY,
@@ -198,6 +205,11 @@ ALTER TABLE Students
     ADD CONSTRAINT Students_FK
         FOREIGN KEY (prog_id)
             REFERENCES Programs (id);
+
+ALTER TABLE empInfo
+    ADD CONSTRAINT employee_FK
+        FOREIGN KEY (emp_id)
+            REFERENCES Employees (id);
 
 ALTER TABLE Students
     ADD CHECK (dom_or_int IN ('Domestic', 'International'));

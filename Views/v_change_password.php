@@ -4,7 +4,7 @@ include "v_masterPage_header.php";
 <?php
 include "v_masterPage_sidebar.php";
 ?>
-<div id="mainContent">
+<div id="mainContent" style="margin-left:50px;">
     <h3> Enter your new passowrd </h3>
     <?php
         if(!empty($_SESSION['change_password_announce'])){

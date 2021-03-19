@@ -5,7 +5,7 @@ include "v_masterPage_header.php";
 include "v_masterPage_sidebar.php";
 ?>
 
-<div class="container" id="mainContent">
+<div class="container" id="mainContent" style="margin-left:50px;">
     <h4>Add New Student Record</h4>
     <div class="row">
         <div class="col-xs-12">

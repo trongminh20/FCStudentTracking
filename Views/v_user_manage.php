@@ -4,7 +4,7 @@ include "v_masterPage_header.php";
 <?php
 include "v_masterPage_sidebar.php";
 ?>
-<div id="mainContent">
+<div id="mainContent" style="margin-left:50px;">
     <h1>USER MANAGEMENT INTERFACE</h1>
 
     <?php
@@ -21,7 +21,7 @@ include "v_masterPage_sidebar.php";
 
 
     <?php
-    echo "<h3>Add new User</h3>";
+    echo "<h3>Add New User</h3>";
     $addInfo = $model->get_type("employees");
 
     $view->display_table_to_form("formAddUser", " form form_add_user", "c_add_user",  "POST", 'employees',
