@@ -7,7 +7,7 @@ include "v_masterPage_sidebar.php";
 
 <div class="container">
     <div id="mainContent">
-        <div class="row gutters-sm">we
+        <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
                 <div class="card">
                     <div class="card-body">
@@ -46,7 +46,7 @@ include "v_masterPage_sidebar.php";
                             <div class="col-sm-9 text-secondary" style="padding-top:
                             7px"><?php
                                 echo $_SESSION['user']['office_number'];
-                            ?></div>
+                                ?></div>
                         </div>
                         <hr>
                         <!--mobile-->
@@ -73,8 +73,9 @@ include "v_masterPage_sidebar.php";
                     <div class="card-body">
                         <p class="d-flex align-items-center mb-3">
                             <?php
-                            echo "<h3>Received Requests</h3>";
                             if ($_SESSION['user']['admin'] == 1) {
+                                echo "<h3>Received Requests</h3>";
+
                                 $data = $model->select('requests', NULL);
                                 $view->display_as_table("requestsTable", "", $data);
                             }
