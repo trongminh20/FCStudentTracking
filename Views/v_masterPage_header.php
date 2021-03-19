@@ -50,7 +50,10 @@
                     <ul class="dropdown-menu" style="padding: 10px;">
                         <li id="username"><a href="#" style="background: #ffffff;"><i
                                         class="glyphicon glyphicon-user"></i>
-                                <?= $_SESSION['user']['username'] ?>
+                                <?php
+                                    $fname = $model -> select('emp_info',['eid' => $_SESSION['user']['id']]);
+                                    echo $fname[0]['fname'];
+                                ?>
                                 (<?= ($_SESSION['user']['admin'] == 1) ? 'admin' : 'Emp' ?>)
                             </a></li>
                         <li class="divider"></li>

@@ -57,12 +57,16 @@ class Controller
                 $user->set_username($data[0]['username']);
                 $user->set_email($data[0]['email']);
                 $user->set_phone_number($data[0]['phone']);
+//                $user->set_office_number($data[0]['office_number']);
+                $user -> set_office_number($data[0]['office_number']);
                 $user->set_department($data[0]['department']);
                 $user->set_role($data[0]['admin']);
                 // assign User's information from database -> $_SESSION
                 $_SESSION['session_id'] = rand(1000, 9999);
                 $_SESSION['user'] = $user->to_array();
                 $_SESSION['login'] = date('Y-m-d H:i:s');
+
+//                print_r($_SESSION['user']);
                 header("Location:?action=v_home");
             } else {
                 $_SESSION['error'] = 'invalid password or username';
