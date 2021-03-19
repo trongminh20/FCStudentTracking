@@ -100,6 +100,7 @@ elseif (isset($_POST['generate'])) {
         Mail::$toAddress = $data['student_email'];
         Mail::$content = "<h1>This is testing email from invoice</h1>";
         Mail::$attachment = "invoices/" . $number . ".pdf";
+        Mail::$subject = 'Student Invoice';
         Mail::send_mail();
     }
     header("location:?action=v_invoice");

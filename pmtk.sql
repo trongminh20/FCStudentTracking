@@ -29,6 +29,8 @@ CREATE TABLE `payment_tracking` (
   `intro_to_message_fee` int(11) DEFAULT NULL,
   `course_materials_fee` int(11) DEFAULT NULL,
   `textbook_fee` int(11) DEFAULT NULL,
+  `dom_or_int` varchar(15) DEFAULT NULL,
+  `scholarships` int(11) DEFAULT NULL,
   `admin_fee` int(11) DEFAULT NULL,
   `1st_payment` int(11) DEFAULT NULL,
   `2nd_payment` int(11) DEFAULT NULL,
@@ -41,8 +43,6 @@ CREATE TABLE `payment_tracking` (
   `9th_payment` int(11) DEFAULT NULL,
   `10th_payment` int(11) DEFAULT NULL,
   `total` int(11) DEFAULT NULL,
-  `dom_or_int` varchar(15) DEFAULT NULL,
-  `scholarships` int(11) DEFAULT NULL,
   `remaining_payment` int(11) DEFAULT NULL,
   KEY `pay_stu_fk` (`student_id`),
   CONSTRAINT `pay_stu_fk` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`)

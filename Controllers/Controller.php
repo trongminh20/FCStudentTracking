@@ -169,10 +169,11 @@ class Controller
             "<h3>Please change your password immediately once you logged in successfully.</h3>";
         $model->change_info('employees', $data, $id);
 
-        Mail::$fromAddress = "";
-        Mail::$fromPwd = "";//"password";
+        Mail::$fromAddress = "info.firstcollege@gmail.com";
+        Mail::$fromPwd = "FCstudenttracking";//"password";
         Mail::$toAddress = $_POST['email'];
         Mail::$content =  $content;
+        Mail::$subject = 'Password has been reset';
         $_SESSION['manage_info'] = $_POST['username'] . "'s password has been reset to phone number ";
         Mail::send_mail();
         header("Location:?action=v_user_manage");
