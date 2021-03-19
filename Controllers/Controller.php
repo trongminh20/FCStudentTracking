@@ -235,11 +235,11 @@ class Controller
     private function c_add_payment(Model $model)
     {
         $data = $_POST;
-        unset($data['submit']);
+        unset($data['add_payment_tracking']);
         $data = $this->alter_null($data);
 
         $model->insert('payment_tracking', $data);
-                header("Location:?action=v_payment_tracking_form");
+                header("Location:?action=v_paymentTracking_form");
 
     }
 
