@@ -217,6 +217,7 @@ class Controller
         if (isset($_POST['add_grad'])) {
             $data = $_POST;
             unset($data['add_grad']);
+            $data = $this->alter_null($data);
             $model->insert('graduations', $data);
             header("Location:?action=v_graduation_form");
         }
@@ -226,6 +227,7 @@ class Controller
     {
         $data = $_POST;
         unset($data['submit']);
+        $data = $this->alter_null($data);
         $model->insert('students', $data);
         header("Location:?action=v_enrollmentBriefSummary_form");
     }
@@ -234,7 +236,11 @@ class Controller
     {
         $data = $_POST;
         unset($data['submit']);
+        $data = $this->alter_null($data);
+
         $model->insert('payment_tracking', $data);
+                header("Location:?action=v_payment_tracking_form");
+
     }
 
     private function c_add_new_record(Model $model)

@@ -57,7 +57,8 @@ include "v_masterPage_sidebar.php";
           		<!--intro to massage fee-->
           		<div id="rmtOnlyIntroPay" class="form-group" style="padding-top: 20px; display: none;"> 
             		<label class="control-label" for="introToMassageFee">Intro to Massage Fee:</label>
-            		<input type="number" class="form-control" id="introToMassageFee" name="intro_To_Massage_Fee" placeholder="$"/>
+            		<input type="number" class="form-control" id="introToMassageFee" name="intro_to_message_fee"
+                           placeholder="$"/>
           		</div>
           		<!--course materials fee-->
           		<div class="form-group" style="padding-top: 20px"> 
