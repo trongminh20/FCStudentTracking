@@ -95,10 +95,13 @@ class Controller
         $email = $_POST['email'];
         $phone = $_POST['phone'];
         $department = $_POST['department'];
+        $fname = $_POST['fname'];
+        $role = $_POST['role'];
 
         $user = new Employee();
         $user->Employee($id, $username, $password, $email, $phone, $department);
         $model->create_user('employees', $user);
+        $model ->add_user_info('emp_info', ['eid'=>$id, 'fname' => $fname, 'role' => $role]);
         header("Location:?action=v_user_manage");
     }
 

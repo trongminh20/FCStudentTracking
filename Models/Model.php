@@ -53,7 +53,9 @@ class Model
         $data = $user->to_array();
         $this->db->insert_single_row($table, $data);
     }
-
+    function add_user_info($table, $arr){
+        $this->db->insert_single_row($table, $arr);
+    }
     /**
      * Function delete user for admin
      * @param $table
