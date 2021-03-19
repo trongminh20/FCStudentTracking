@@ -20,7 +20,7 @@ include "v_masterPage_sidebar.php";
 
                 <div class="form-group" style="padding-top: 20px">
                     <label for="phone">Program ID:</label>
-                    <select class="form-control" id="programID">
+                    <select class="form-control" name= "prog_id" id="programID">
                         <option>-- Select one --</option>
                         <?php
                         $options = $model->select('programs', NULL);

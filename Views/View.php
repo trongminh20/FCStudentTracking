@@ -177,4 +177,15 @@ class View
         echo "</table><br>";
     }
 
+    function replace_label($src, $data){
+        $res = [];
+        foreach($data as $k => $v){
+            foreach($src as $key => $val){
+                if($v == $val){
+                    array_push($res, $key);
+                }
+            }
+        }
+        return $res;
+    }
 }
