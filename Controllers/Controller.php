@@ -38,7 +38,6 @@ class Controller
             $_SESSION['search_error'] = "You has entered invalid keyword's format";
             header("Location:?action=v_search_res");
         }
-
     }
 
     private function c_login(Model $model)
@@ -46,26 +45,20 @@ class Controller
         if (isset($_POST['submit'])) {
             $username = $_POST['username'];
             $password = $_POST['password'];
-
             $success = $model->sign_in($username, $password);
-
             if ($success == 1) {
                 $data = $model->select_user($username);
-
                 if ($data[0]['admin'] == 1) {
-
                     $user = new Admin();
                 } else if ($data[0]['admin'] == 0) {
                     $user = new Employee();
                 }
-
                 $user->set_id($data[0]['id']);
                 $user->set_username($data[0]['username']);
                 $user->set_email($data[0]['email']);
                 $user->set_phone_number($data[0]['phone']);
                 $user->set_department($data[0]['department']);
                 $user->set_role($data[0]['admin']);
-
                 // assign User's information from database -> $_SESSION
                 $_SESSION['session_id'] = rand(1000, 9999);
                 $_SESSION['user'] = $user->to_array();
@@ -146,11 +139,8 @@ class Controller
         $check = $model->select('employees', ['username' => $username]);
         if ($check) {
             $request = new Request($username, 'Reset password');
-
             $model->request_reset_password($request);
-
             $_SESSION['error'] = 'YOU REQUEST HAS SENT';
-
             header("Location:?action=v_login");
         } else {
             $_SESSION['forget_password'] = 'YOUR USERNAME IS NOT VALID';
@@ -164,15 +154,15 @@ class Controller
         $number = rand(11, 99);
         $newPass = $id . $number;
         $data = ['password' => $newPass];
-        $content = "<h3>Your password has been reset:</h3><br>".
-            "<ul><li>Your new password is: $newPass</li></ul>".
+        $content = "<h3>Your password has been reset:</h3><br>" .
+            "<ul><li>Your new password is: $newPass</li></ul>" .
             "<h3>Please change your password immediately once you logged in successfully.</h3>";
         $model->change_info('employees', $data, $id);
 
         Mail::$fromAddress = "info.firstcollege@gmail.com";
         Mail::$fromPwd = "FCstudenttracking";//"password";
         Mail::$toAddress = $_POST['email'];
-        Mail::$content =  $content;
+        Mail::$content = $content;
         Mail::$subject = 'Password has been reset';
         $_SESSION['manage_info'] = $_POST['username'] . "'s password has been reset to phone number ";
         Mail::send_mail();
@@ -240,7 +230,7 @@ class Controller
         $data = $this->alter_null($data);
 
         $model->insert('payment_tracking', $data);
-                header("Location:?action=v_paymentTracking_form");
+        header("Location:?action=v_paymentTracking_form");
 
     }
 
@@ -266,9 +256,11 @@ class Controller
         }
     }
 
-    private function c_update_record(){
+    private function c_update_record()
+    {
 
     }
+
     /**
      * replacing an empty with NULL for inserting into db
      * @param $data
