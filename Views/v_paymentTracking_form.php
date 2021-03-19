@@ -3,7 +3,7 @@ include "v_masterPage_header.php";
 include "v_masterPage_sidebar.php";
 ?>
 
-<div class="container" id="mainContent" style="padding-top: 20px">
+<div class="container" id="mainContent" style="padding-top: 20px; margin-left:50px;">
     <div class="row">
         <div class="col-xs-12">
             <h2 style="padding-top: 10px">Payment Tracking</h2>
@@ -31,15 +31,15 @@ include "v_masterPage_sidebar.php";
             	<!--choose student type-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="DomORInt">Domestic OR International:</label>
-                    <div name="Dom_OR_Int" id="DomORInt" class="row" style="padding-top: 10px">
+                    <div name="dom_or_int" id="DomORInt" class="row" style="padding-top: 10px">
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="Dom_OR_Int" id="DomORInt" value="domestic" type="radio"/> Domestic
+                                <input name="dom_or_int" id="DomORInt" value="domestic" type="radio"/> Domestic
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="Dom_OR_Int" id="DomORInt" value="international" type="radio"/> International
+                                <input name="dom_or_int" id="DomORInt" value="international" type="radio"/> International
                             </label>
                         </div>
                     </div>
@@ -47,7 +47,7 @@ include "v_masterPage_sidebar.php";
                 <!--application fee-->
                 <div class="form-group" style="padding-top: 20px"> 
             		<label class="control-label" for="applicationFee">Application Fee:</label>
-            		<input type="number" class="form-control" id="applicationFee" name="application_Fee" placeholder="$"/>
+            		<input type="number" class="form-control" id="applicationFee" name="application_fee" placeholder="$"/>
           		</div>
                 <!--scholarships OR subsidy-->
                 <div class="form-group" style="padding-top: 20px"> 
@@ -57,14 +57,12 @@ include "v_masterPage_sidebar.php";
           		<!--intro to massage fee-->
           		<div id="rmtOnlyIntroPay" class="form-group" style="padding-top: 20px; display: none;"> 
             		<label class="control-label" for="introToMassageFee">Intro to Massage Fee:</label>
-            		<input type="number" class="form-control" id="introToMassageFee" name="intro_to_message_fee"
-                           placeholder="$"/>
+            		<input type="number" class="form-control" id="introToMassageFee" name="intro_to_message_fee" placeholder="$"/>
           		</div>
           		<!--course materials fee-->
           		<div class="form-group" style="padding-top: 20px"> 
             		<label class="control-label" for="courseMaterialsFee">Course Materials Fee:</label>
-            		<input type="number" class="form-control" id="courseMaterialsFee" name="course_materials_fee" 
-                           placeholder="$"/>
+            		<input type="number" class="form-control" id="courseMaterialsFee" name="course_materials_fee" placeholder="$"/>
           		</div>
           		<!--textbook fee-->
           		<div class="form-group" style="padding-top: 20px"> 

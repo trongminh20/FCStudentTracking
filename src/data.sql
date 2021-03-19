@@ -51,7 +51,7 @@ INSERT INTO Employees VALUES
 (1000, 'jessie.zhang', '250-718-6186', 'jessie.zhang@firstcollege.ca', 'IT Department', '123456789', 1);
 
 INSERT INTO Employees VALUES
-(1001, 'timothy.yang', '205-899-3790', 'timothy.yang@firstcollege.ca', 'Director Office', '123456789', 0);
+(1001, 'timothy.yang', '250-899-3790', 'timothy.yang@firstcollege.ca', 'Director Office', '123456789', 0);
 
 INSERT INTO Employees VALUES
 (1002, 'cecily.qiu', '250-859-8417', 'cecily.qiu@firstcollege.ca', 'Student Service Department', '123456789', 0);
@@ -61,6 +61,22 @@ INSERT INTO Employees VALUES
 
 INSERT INTO Employees VALUES
 (1004, 'sydney.stoltz', '250-718-8279', 'sydney.stoltz@firstcollege.ca', 'Student Service Department', '123456789', 0);
+
+-- Insert 5 rows of data into empInfo table
+INSERT INTO empInfo VALUES
+(1000, 'Jessie Zhang', 'IT Coordinator');
+
+INSERT INTO empInfo VALUES
+(1001, 'Timothy Yang', 'Director');
+
+INSERT INTO empInfo VALUES
+(1002, 'Cecily Qiu', 'Student Advisor');
+
+INSERT INTO empInfo VALUES
+(1003, 'Jason Zhong', 'President');
+
+INSERT INTO empInfo VALUES
+(1004, 'Sydney Stoltz', 'Admissions Advisor');
 
 -- Insert 5 rows of data into Requirements table
 INSERT INTO Requirements VALUES

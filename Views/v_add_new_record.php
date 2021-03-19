@@ -5,8 +5,8 @@ include "v_masterPage_header.php";
 include "v_masterPage_sidebar.php";
 ?>
 
-<div class="container" id="mainContent">
-    <h4>Add New Student Records</h4>
+<div class="container" id="mainContent" style="margin-left:50px;">
+    <h4>Add New Student Record</h4>
     <div class="row">
         <div class="col-xs-12">
             <!--form starts-->
@@ -30,7 +30,7 @@ include "v_masterPage_sidebar.php";
         </div>
     </div>
 
-    <h4>Update Existed record</h4>
+    <h4 style="padding-top: 20px;">Update Existing Record</h4>
     <div class="row">
         <div class="col-xs-12">
             <!--form starts-->
@@ -41,8 +41,8 @@ include "v_masterPage_sidebar.php";
                            required="required">
                 </div>
                 <!--select program-->
-                <div class="form-group" style="padding-top: 20px;">
-                    <label for="selectSection">Select Section to update:</label>
+                <div class="form-group" style="padding-top: 10px;">
+                    <label for="selectSection">Select Section to Update:</label>
                     <select class="form-control" name="select_section" id="selectSection">
                         <option disabled selected value> -- select an option --</option>
                         <option value="students">Enrollment Brief Summary</option>

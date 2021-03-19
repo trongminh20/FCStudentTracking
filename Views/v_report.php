@@ -8,7 +8,7 @@ $stuData = ((isset($_SESSION['student'])) ? $_SESSION['student'] : NULL);
 unset($_SESSION['student']);
 ?>
 
-<div id="mainContent">
+<div id="mainContent" style="margin-left:50px;">
 
     <?php
     echo ((isset($_SESSION['report_info']) ? $_SESSION['report_info'] : ""));

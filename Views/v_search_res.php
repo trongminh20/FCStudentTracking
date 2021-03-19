@@ -10,7 +10,7 @@ unset($_SESSION['search_result']);
 
 ?>
 
-<div id='mainContent'>
+<div id='mainContent' style="margin-left:50px;">
     <h5 style="color:#8b0000;"><?php
         if (isset($_SESSION['search_error'])) {
             echo $_SESSION['search_error'];

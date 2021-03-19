@@ -4,7 +4,7 @@ include "v_masterPage_sidebar.php";
 
 ?>
 
-<div class="container" id="mainContent" style="padding-top: 20px">
+<div class="container" id="mainContent" style="padding-top: 20px; margin-left:50px;">
     <div class="row">
         <div class="col-xs-12">
             <h2 style="padding-top: 10px">Enrollment Brief Summary</h2>
@@ -76,7 +76,7 @@ include "v_masterPage_sidebar.php";
                 </div>
                 <!--enrollment notes-->
                 <div class="form-group" style="padding-top: 20px">
-                    <label for="emrollmentNotes">Emrollment Notes:</label>
+                    <label for="emrollmentNotes">Enrollment Notes:</label>
                     <textarea type="text" class="form-control" name="enroll_notes" id="emrollmentNotes"
                               rows="5"></textarea>
                 </div>
@@ -86,8 +86,7 @@ include "v_masterPage_sidebar.php";
                 </div>
                 <!--submit button-->
                 <div class="form-group" style="padding-top: 20px">
-                    <input class="btn btn-primary" id="btnAddNewStudent" type="submit" name="submit" value ='Add new
-                    Student'>
+                    <input class="btn btn-primary" id="btnAddNewStudent" type="submit" name="submit" value ='Add new Student'>
                 </div>
             </form>
         </div>

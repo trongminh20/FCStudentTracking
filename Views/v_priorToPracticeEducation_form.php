@@ -4,7 +4,7 @@ include "v_masterPage_sidebar.php";
 ?>
 
 <!-- Prior to Practice Education Section -->
-<div class="container" id="mainContent" style="padding-top: 20px">
+<div class="container" id="mainContent" style="padding-top: 20px; margin-left:50px;">
     <div class="row">
         <div class="col-xs-12">
             <h2 style="padding-top: 10px">Prior to Practice Education</h2>
