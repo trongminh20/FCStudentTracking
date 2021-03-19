@@ -2,7 +2,7 @@
 include "v_tech_nav.php";
 ?>
 <div id="main-container">
-    <div class="content" id="ResetPass">
+    <div class="content" id="resetPassword">
         <h1> Reset Password </h1>
         <p> 1. Click on the 'Forgot your password?' link on the login page </p>
         <img src="images/ResetPass1.jpg" alt="Reset Password Step 1">
@@ -10,13 +10,13 @@ include "v_tech_nav.php";
         <p> 2. Enter your username and click submit </p>
 
         <p> 3. Admin will review your request for a password reset and send an email containing your new password within 2 business days </p>
-    <div class="content" id="item1">
+    <div class="content" id="changePassword">
         <h1>CHANGE PASSWORD</h1>
         <br>
         <p>This function allows user to change password.</p>
         <br>
     </div>
-    <div class="content" id="item2">
+    <div class="content" id="">
         <h2>PROCEDURE</h2>
         <br>
         <p>1. Press user icon <img src="images/user.png" alt="user_icon"> on the upper right-hand corner of the website.</p>
@@ -34,14 +34,14 @@ include "v_tech_nav.php";
         <p>5. Message "Your password has been changed" will appear confirming change password was successful.</p>
         <br><br>
     </div>
-    <div class="content" id="item1">
+    <div class="content" id="search">
         <h1>SEARCH</h1> 
         <br><br>      
         <p> This function allows user to search for student record by entering student ID or student name.
         </p>
         <br>
     </div>
-    <div class="content" id="item2">
+    <div class="content" id="">
         <h2> PROCEDURE </h2>
         <br>
         <p> 1. Go to search box.</p>
@@ -56,7 +56,7 @@ include "v_tech_nav.php";
         <br>
     </div> 
 
-    <div class="content" id="GenerateInvoice">
+    <div class="content" id="generateInvoice">
         <h1> Generate Invoice </h1>
         <p> 1. Navigate to the 'Generate Invoice' page under the 'Export Documents' tab in the navigation bar </p>
         <img src="images/GenerateInvoice1.jpg" alt="Generate Invoice Step 1">

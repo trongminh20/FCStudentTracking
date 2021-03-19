@@ -58,18 +58,16 @@ $labels = [
     'Acknowledgement and Agreement Form Signed' => 'cli_ack_and_agr',
     'Medical File (Vaccinations) Received'      => 'medical_file',
     'Criminal Record Check (CRC)' => 'crc_notes',
-    'FoodSafe Location & Contact' => 'foodsafe_contact'
+    'FoodSafe Location & Contact' => 'foodsafe_contact',
     //grad
+'Tuition Paid in Full' =>'tuition_paid',
+'Official Student Transcript Issued'=>'official_transcript',
+'Official Completion Letter Issued'=>'completion_letter',
+'Copy of signed Diploma Issued'=>'signed_diploma',
+'Board Exam Date'=>'exam_date',
+'Copy of T2202A (Tax Form) Issued' =>'T2202A',
+'Employment Follow Up'=>'employment',
 
-    student_id
-prog_id
-tuition_paid
-official_transcript
-completion_letter
-signed_diploma
-exam_date
-T2202A
-employment
 
 ];
 
