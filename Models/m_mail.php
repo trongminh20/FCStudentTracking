@@ -7,6 +7,7 @@ class Mail
     public static $content;
     public static $fromAddress;
     public static $fromPwd;
+    public static $subject;
 
     /**
      * sending email =
@@ -36,7 +37,7 @@ class Mail
 
         $mail->SetFrom('no-reply');
         $mail->FromName = "First College";
-        $mail->Subject = "Student Invoice";
+        $mail->Subject = self::$subject;
         $mail->MsgHTML(self::$content);
 
         $mail->AddAddress(self::$toAddress, "");

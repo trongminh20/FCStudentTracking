@@ -84,63 +84,63 @@ include "v_masterPage_sidebar.php";
                             <label name="1st_payment" id="1stPayment" class="control-label">1st Payment:</label>
                         </div>
                         <div class="col-sm-6">
-    						<input type="number" class="form-control" name="1st_Payment" id="1stPayment" placeholder="$">
+    						<input type="number" class="form-control" name="1st_payment" id="1stPayment" placeholder="$">
                         </div>
                         <!--2nd payment-->
                         <div class="col-sm-6" style="padding-top: 10px">
                             <label name="2nd_payment" id="2ndPayment" class="control-label">2nd Payment:</label>
                         </div>
                         <div class="col-sm-6" style="padding-top: 10px">
-    						<input type="number" class="form-control" name="2nd_Payment" id="2ndPayment" placeholder="$">
+    						<input type="number" class="form-control" name="2nd_payment" id="2ndPayment" placeholder="$">
                         </div>
                         <!--3rd payment-->
                         <div class="col-sm-6" style="padding-top: 10px">
                             <label name="3rd_payment" id="3rdPayment" class="control-label">3rd Payment:</label>
                         </div>
                         <div class="col-sm-6" style="padding-top: 10px">
-    						<input type="number" class="form-control" name="3rd_Payment" id="3rdPayment" placeholder="$">
+    						<input type="number" class="form-control" name="3rd_payment" id="3rdPayment" placeholder="$">
                         </div>
                         <!--4th payment-->
                         <div class="col-sm-6" style="padding-top: 10px">
                             <label name="4th_payment" id="4thPayment" class="control-label">4th Payment:</label>
                         </div>
                         <div class="col-sm-6" style="padding-top: 10px">
-    						<input type="number" class="form-control" name="4th_Payment" id="4thPayment" placeholder="$">
+    						<input type="number" class="form-control" name="4th_payment" id="4thPayment" placeholder="$">
                         </div>
                         <!--5th payment-->
                         <div class="col-sm-6" style="padding-top: 10px">
                             <label name="5th_payment" id="5thPayment" class="control-label">5th Payment:</label>
                         </div>
                         <div class="col-sm-6" style="padding-top: 10px">
-    						<input type="number" class="form-control" name="5th_Payment" id="5thPayment" placeholder="$">
+    						<input type="number" class="form-control" name="5th_payment" id="5thPayment" placeholder="$">
                         </div>
                         <!--6th payment-->
                         <div class="col-sm-6" style="padding-top: 10px">
                             <label name="6th_payment" id="6thPayment" class="control-label">6th Payment:</label>
                         </div>
                         <div class="col-sm-6" style="padding-top: 10px">
-    						<input type="number" class="form-control" name="6th_Payment" id="6thPayment" placeholder="$">
+    						<input type="number" class="form-control" name="6th_payment" id="6thPayment" placeholder="$">
                         </div>
                         <!--7th payment-->
                         <div class="col-sm-6" style="padding-top: 10px">
                             <label name="7th_payment" id="7thPayment" class="control-label">7th Payment:</label>
                         </div>
                         <div class="col-sm-6" style="padding-top: 10px">
-    						<input type="number" class="form-control" name="7th_Payment" id="7thPayment" placeholder="$">
+    						<input type="number" class="form-control" name="7th_payment" id="7thPayment" placeholder="$">
                         </div>
                         <!--8th payment-->
                         <div class="col-sm-6" style="padding-top: 10px">
                             <label name="8th_payment" id="8thPayment" class="control-label">8th Payment:</label>
                         </div>
                         <div class="col-sm-6" style="padding-top: 10px">
-    						<input type="number" class="form-control" name="8th_Payment" id="8thPayment" placeholder="$">
+    						<input type="number" class="form-control" name="8th_payment" id="8thPayment" placeholder="$">
                         </div>
                         <!--9th payment-->
                         <div class="col-sm-6" style="padding-top: 10px">
                             <label name="9th_payment" id="9thPayment" class="control-label">9th Payment:</label>
                         </div>
                         <div class="col-sm-6" style="padding-top: 10px">
-    						<input type="number" class="form-control" name="9th_Payment" id="9thPayment" placeholder="$">
+    						<input type="number" class="form-control" name="9th_payment" id="9thPayment" placeholder="$">
                         </div>
                         <!--10th payment-->
                         <div class="col-sm-6" style="padding-top: 10px">

@@ -31,7 +31,7 @@ class Controller
     private function c_search(Model $model)
     {
         $keyword = $_POST['keyword'];
-        if ($keyword[0] == '@' || $keyword[0] == '#') {
+        if ($keyword[0] == '@' || $keyword[0] == '#' || $keyword[0] == '!') {
             $_SESSION['search_result'] = $model->search_student($keyword);
             header("Location:?action=v_search_res");
         } else {
@@ -169,10 +169,11 @@ class Controller
             "<h3>Please change your password immediately once you logged in successfully.</h3>";
         $model->change_info('employees', $data, $id);
 
-        Mail::$fromAddress = "";
-        Mail::$fromPwd = "";//"password";
+        Mail::$fromAddress = "info.firstcollege@gmail.com";
+        Mail::$fromPwd = "FCstudenttracking";//"password";
         Mail::$toAddress = $_POST['email'];
         Mail::$content =  $content;
+        Mail::$subject = 'Password has been reset';
         $_SESSION['manage_info'] = $_POST['username'] . "'s password has been reset to phone number ";
         Mail::send_mail();
         header("Location:?action=v_user_manage");
@@ -217,6 +218,7 @@ class Controller
         if (isset($_POST['add_grad'])) {
             $data = $_POST;
             unset($data['add_grad']);
+            $data = $this->alter_null($data);
             $model->insert('graduations', $data);
             header("Location:?action=v_graduation_form");
         }
@@ -226,6 +228,7 @@ class Controller
     {
         $data = $_POST;
         unset($data['submit']);
+        $data = $this->alter_null($data);
         $model->insert('students', $data);
         header("Location:?action=v_enrollmentBriefSummary_form");
     }
@@ -233,8 +236,12 @@ class Controller
     private function c_add_payment(Model $model)
     {
         $data = $_POST;
-        unset($data['submit']);
+        unset($data['add_payment_tracking']);
+        $data = $this->alter_null($data);
+
         $model->insert('payment_tracking', $data);
+                header("Location:?action=v_paymentTracking_form");
+
     }
 
     private function c_add_new_record(Model $model)
