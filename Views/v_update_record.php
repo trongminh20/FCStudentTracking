@@ -59,6 +59,18 @@ $labels = [
     'Medical File (Vaccinations) Received'      => 'medical_file',
     'Criminal Record Check (CRC)' => 'crc_notes',
     'FoodSafe Location & Contact' => 'foodsafe_contact'
+    //grad
+
+    student_id
+prog_id
+tuition_paid
+official_transcript
+completion_letter
+signed_diploma
+exam_date
+T2202A
+employment
+
 ];
 
 
