@@ -51,7 +51,9 @@
                         <li id="username"><a href="#" style="background: #ffffff;"><i
                                         class="glyphicon glyphicon-user"></i>
                                 <?php
+
                                     $fname= $model ->select('emp_info',['eid' => $_SESSION['user']['id']]);
+
                                     echo $fname[0]['fname'];
                                 ?>
                                 (<?= ($_SESSION['user']['admin'] == 1) ? 'admin' : 'Emp' ?>)

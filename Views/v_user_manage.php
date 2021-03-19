@@ -21,10 +21,32 @@ include "v_masterPage_sidebar.php";
 
 
     <?php
-    echo "<h3>Add New User</h3>";
-    $addInfo = $model->get_type("employees");
+//    echo "<h3>Add New User</h3>";
+//    $addInfo = $model->get_type("employees");
 
-    $view->display_table_to_form("formAddUser", " form form_add_user", "c_add_user",  "POST", 'employees',
-        $model);
+//    $view->display_table_to_form("formAddUser", " form form_add_user", "c_add_user",  "POST", 'employees',
+//        $model);
+    $labels = [
+            'Employee ID'=> 'id',
+            'Username' => 'username',
+            'Employee fullname' => 'fname',
+            'Phone number' => 'phone',
+            'Employee Email' => 'email',
+            'Department' => 'department',
+            'Password' => 'password',
+            'Administrator (1 for Yes, 0 for No)' => 'admin',
+            'Employee\'s role' => 'role'
+    ];
+    $form = new Form("form-group col-lg-8","","c_add_user","POST", 'Add new Employee',"");
+    foreach($labels as $k => $v){
+        $form->add_label(['for'=>'','label'=>$k]);
+        $form->add_input(['id' =>'',
+            'class' => 'form-control',
+            'name'=>$v,
+            'type'=>(($k == 'Password') ? 'password' : 'text')]);
+    }
+    echo "<br>";
+    $form ->add_input(['class'=>'btn btn-primary','type' => 'submit', 'name' => 'add_user', 'value'=>'Add User']);
+    $form ->end_form();
     ?>
 </div>

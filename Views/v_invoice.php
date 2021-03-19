@@ -3,7 +3,7 @@ include "v_masterPage_header.php";
 ?>
 <?php
 include "v_masterPage_sidebar.php";
-$number = $database->select_count('invoice');
+$number = $database->select_count('invoices');
 ?>
 <div id="mainContent" style="margin-left:50px;">
     <form class="" id="" action="?action=v_invoice_generate" method="POST" target="_blank">

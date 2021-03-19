@@ -245,16 +245,16 @@ if ($inputPayment != "") {
         $detail = $payment_data[0];
 
         $report->Cell(60, 10, "Application Fee");
-        $report->Cell(60, 10, $detail['app_fee']);
+        $report->Cell(60, 10, $detail['application_fee']);
         $report->Ln();
         $report->Cell(60, 10, "Scholarships OR Subsidy");
         $report->Cell(60, 10, $detail['scholarships']);
         $report->Ln();
         $report->Cell(60, 10, "Intro to Massage Fee");
-        $report->Cell(60, 10, $detail['intro_msg_fee']);
+        $report->Cell(60, 10, $detail['intro_to_message_fee']);
         $report->Ln();
         $report->Cell(60, 10, "Course Materials Fee");
-        $report->Cell(60, 10, $detail['material_fee']);
+        $report->Cell(60, 10, $detail['course_materials_fee']);
         $report->Ln();
         $report->Cell(60, 10, "Textbook Fee");
         $report->Cell(60, 10, $detail['textbook_fee']);
