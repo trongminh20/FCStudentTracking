@@ -101,15 +101,16 @@ class Controller
         $user = new Employee();
         $user->Employee($id, $username, $password, $email, $phone, $department);
         $model->create_user('employees', $user);
-        $model ->add_user_info('emp_info', ['eid'=>$id, 'fname' => $fname, 'role' => $role]);
+        $model->add_user_info('emp_info', ['eid' => $id, 'fname' => $fname, 'role' => $role]);
         header("Location:?action=v_user_manage");
     }
 
     private function c_update_user_info(Model $model)
     {
         $data = $_POST;
+        $id = ['id'=> $data['id']];
         unset($data['edit']);
-        $model->change_info('employees', $data, $data['ID']);
+        $model->change_info('employees', $data, $id);
         header("Location:?action=v_user_manage");
     }
 
@@ -117,7 +118,7 @@ class Controller
     {
         $newPass = $_POST['new_pass'];
         $_SESSION['user']['password'] = $newPass;
-        $id = $_SESSION['user']['id'];
+        $id = ['id'=>$_SESSION['user']['id']];
         $table = 'employees';
         $data = $_SESSION['user'];
         if (!empty($newPass)) {
@@ -155,7 +156,7 @@ class Controller
 
     private function c_reset_pass(Model $model)
     {
-        $id = $_POST['id'];
+        $id = ['id'=>$_POST['id']];
         $number = rand(11, 99);
         $newPass = $id . $number;
         $data = ['password' => $newPass];
@@ -261,8 +262,22 @@ class Controller
         }
     }
 
-    private function c_update_record()
+    private function c_update_record(Model $model)
     {
+        $data = $_POST;
+        $table = $data['table'];
+        if ($table == 'students') {
+            $id = ['id' => $data['id']];
+        } else {
+            $id = ['student_id' => $data['student_id']];
+        }
+        unset($data['table']);
+        unset($data['update_record']);
+         if (isset($data['rmt_stu_materials'])) {
+                $data['rmt_stu_materials'] = implode(", ", $data['rmt_stu_materials']);
+            }
+        $model->change_info($table, $data, $id);
+                 header("Location:?action=v_add_new_record");
 
     }
 

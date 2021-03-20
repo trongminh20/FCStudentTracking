@@ -116,15 +116,19 @@ class Database
         $fields = array_keys($data);
         $vals = array_values($data);
         $bind = "";
+        $cond ="";
         for ($i = 0; $i < count($fields); $i++) {
             $bind .= $fields[$i] . " = ?,";
         }
-        $query = "UPDATE $table SET " . rtrim($bind, ",") . " WHERE id = $id ";
+        foreach($id as $k => $v){
+            $cond .= $k ." = ". $v;
+        }
+        $query = "UPDATE $table SET " . rtrim($bind, ",") . " WHERE ".$cond ;
         $stm = $this->pdo->prepare($query);
         try {
             $stm->execute($vals);
         } catch (PDOException $e) {
-            echo $e->errorInfo;
+            echo $e->getMessage();
         }
     }
 
