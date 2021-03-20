@@ -337,7 +337,9 @@ include "v_masterPage_sidebar.php";
 <script type="text/javascript">
     $(document).ready(function(){
         $("#programID").on('change', function() {
-            if ( this.value == 'RMT'){
+            if(this.value == '--Select one--'){
+             $("input").prop('disable', true);
+            }else if ( this.value == 'RMT'){
                 $(".form-groupRMT").show();
             }else{
                 $(".form-groupRMT").hide();

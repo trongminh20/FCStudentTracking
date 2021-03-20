@@ -16,7 +16,7 @@ include "v_masterPage_sidebar.php";
                             <div class="mt-3">
                                 <h4><?= $fname[0]['fname'] ?></h4>
                                 <p><?= $_SESSION['user']['username'] ?></p>
-                                <p class="text-secondary mb-1">IT Coordinator</p>
+                                <p class="text-secondary mb-1"><?=$fname[0]['role']?></p>
                                 <p class="text-muted font-size-sm"><?= $_SESSION['user']['email'] ?></p>
                             </div>
                         </div>
