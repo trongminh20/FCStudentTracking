@@ -107,8 +107,8 @@ if ($table == 'students') {
 
         ?>
         <?php
-        $form = new Form("form-group col-lg-8", "", "v_test", "POST", "Update Record", "");
-        $form->add_input(['name'=>'table', 'value'=>$table, 'type'=>'hidden', 'readonly'=>'readonly']);
+        $form = new Form("form-group col-lg-8", "updateForm", "v_test", "POST", "Update Record", "");
+        $form->add_input(['name' => 'table', 'value' => $table, 'type' => 'hidden', 'id' => 'table', 'readonly' => 'readonly']);
         ?>
 
         <?php
@@ -130,8 +130,7 @@ if ($table == 'students') {
                     ?>
                     </select><?php
                 } else { //only students record is allowed to be updated
-                    $form->add_input(['class' => 'form-control', 'id'=>'programID', 'name' => $k, 'value' => $v, 'readonly' =>
-                        'readonly']);
+                    $form->add_input(['class' => 'form-control', 'id' => 'programID', 'name' => $k, 'value' => $v, 'readonly' => 'readonly']);
                 }
             } else if ($v == 'yes' || $v == 'no') {
                 if ($v === 'yes') {
@@ -158,7 +157,7 @@ if ($table == 'students') {
                 $options = ['Sheet Set', 'Laptop or Learning Support', 'Goniometer', 'Oil Holster', 'Bottle']; ?>
                 <select class='form-control' name='rmt_stu_materials[]' multiple>
                     <?php foreach ($options as $op) { ?>
-                        <option value="<?= $op ?>" <?php echo ((in_array($op, $selected)) ? "selected" : "") ?>>
+                        <option value="<?= $op ?>" <?php echo((in_array($op, $selected)) ? "selected" : "") ?>>
                             <?= $op ?>
                         </option>
                         <?php
@@ -176,26 +175,11 @@ if ($table == 'students') {
     ?>
 </div>
 
-<script>
-    <script type="text/javascript">
-    $(document).ready(function(){
-        $("#programID").on('change', function() {
-            if(this.value == '--Select one--'){
 
-            }
-            if ( this.value == 'RMT'){
-                $(".form-groupRMT").show();
-            }else{
-                $(".form-groupRMT").hide();
-            }
-        });
-    });
+<script type="text/javascript">
 
-    function form_display(){
-
-    }
 
 </script>
-</script>
+
 
 
