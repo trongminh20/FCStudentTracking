@@ -42,7 +42,7 @@ CREATE TABLE employees
     admin      INT
 );
 
-CREATE TABLE empInfo
+CREATE TABLE emp_info
 (
     emp_id     INT,
     fullname   VARCHAR(100),
@@ -210,7 +210,7 @@ ALTER TABLE Students
         FOREIGN KEY (prog_id)
             REFERENCES Programs (id);
 
-ALTER TABLE empInfo
+ALTER TABLE emp_info
     ADD CONSTRAINT employee_FK
         FOREIGN KEY (emp_id)
             REFERENCES Employees (id);
