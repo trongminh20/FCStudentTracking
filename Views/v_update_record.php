@@ -115,7 +115,6 @@ if ($table == 'students') {
         <?php
         foreach ($data as $k => $v) { // data from database
             $form->add_label(['class'=> $k,'for' => "", 'label' => array_search($k, $labels)]);
-//            echo "<br>";
             if ($k === 'prog_id') { // display list of programs
                 if ($table === 'students') {
                     ?>
@@ -170,7 +169,6 @@ if ($table == 'students') {
             } else {
                 $form->add_input(['class' => 'form-control', 'name' => $k, 'value' => $v]);
             }
-//            echo "<br>";
         }
         echo "<br>";
         $form->add_input(['class' => 'btn btn-primary', 'name' => 'update_record', 'value' => 'Save', 'type' => 'submit']);

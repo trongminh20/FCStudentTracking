@@ -37,11 +37,9 @@ const hiddenForNotRMT = [
         inputArr.forEach(function (e) {
             if (table == 'apsds' && rmt != "RMT") {
                 if (in_array(e.name, hiddenForNotRMT) == 1 || in_array(e.className, hiddenForNotRMT) == 1) {
-                    // e.style.display = "none";
-
                     e.remove();
                 }
-            }
+            }else if(table == 'ppes')
         });
     }
 
