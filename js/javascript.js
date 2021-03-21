@@ -13,7 +13,8 @@ function check(){
         }
     }
 /* for updating record*/
-const hiddenForNotRMT = ["app_essay",
+const hiddenForNotRMT = [
+        "app_essay",
         "refer_letter",
         "intro_of_msg_day1_from",
         "intro_of_msg_day1_to",
@@ -25,17 +26,20 @@ const hiddenForNotRMT = ["app_essay",
         "medical_notes",
         "interview_date",
         "interview_approve",
-        "rmt_stu_materials[]"
+        "rmt_stu_materials[]",
+        "rmt_stu_materials"
     ];
 
     function display() {
         var table = document.getElementById('table').value;
         var rmt = document.getElementById('programID').value;
-        var inputArr = document.querySelectorAll("input, select");
+        var inputArr = document.querySelectorAll("input, select,label");
         inputArr.forEach(function (e) {
             if (table == 'apsds' && rmt != "RMT") {
-                if (in_array(e.name, hiddenForNotRMT) == 1) {
-                    e.style.display = "none";
+                if (in_array(e.name, hiddenForNotRMT) == 1 || in_array(e.className, hiddenForNotRMT) == 1) {
+                    // e.style.display = "none";
+
+                    e.remove();
                 }
             }
         });

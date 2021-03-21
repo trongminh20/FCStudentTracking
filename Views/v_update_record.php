@@ -59,6 +59,7 @@ $labels = [
     'Medical File (Vaccinations) Received' => 'medical_file',
     'Criminal Record Check (CRC)' => 'crc_notes',
     'FoodSafe Location & Contact' => 'foodsafe_contact',
+    'Student & Program Handbooks'=>'stu_prog_handbook_notes',
     //grad
     'Tuition Paid in Full' => 'tuition_paid',
     'Official Student Transcript Issued' => 'official_transcript',
@@ -107,15 +108,15 @@ if ($table == 'students') {
 
         ?>
         <?php
-        $form = new Form("form-group col-lg-8", "updateForm", "v_test", "POST", "Update Record", "");
+        $form = new Form("form-group col-lg-8", "updateForm", "c_update_record", "POST", "Update Record", "");
         $form->add_input(['name' => 'table', 'value' => $table, 'type' => 'hidden', 'id' => 'table', 'readonly' => 'readonly']);
         ?>
 
         <?php
         foreach ($data as $k => $v) { // data from database
-            $form->add_label(['for' => "", 'label' => array_search($k, $labels)]);
-            echo "<br>";
-            if ($k === 'prog_id') {
+            $form->add_label(['class'=> $k,'for' => "", 'label' => array_search($k, $labels)]);
+//            echo "<br>";
+            if ($k === 'prog_id') { // display list of programs
                 if ($table === 'students') {
                     ?>
                     <select class='form-control' name='prog_id'>
@@ -134,22 +135,24 @@ if ($table == 'students') {
                 }
             } else if ($v == 'yes' || $v == 'no') {
                 if ($v === 'yes') {
+                    echo "<br>";
                     $form->add_input(['class' => 'form-check-input', 'name' => $k, 'value' => 'yes', 'type' =>
                         'radio', 'checked' =>
                         '']);
-                    $form->add_label(['for' => "", 'label' => 'YES', 'style' => 'padding-left:10px;']);
+                    $form->add_label(['class'=>$k,'for' => "", 'label' => 'YES', 'style' => 'padding-left:10px;']);
                     echo '<br>';
                     $form->add_input(['class' => 'form-check-input', 'name' => $k, 'value' => 'no', 'type' =>
                         'radio']);
-                    $form->add_label(['for' => "", 'label' => 'NO', 'style' => 'padding-left:10px;']);
+                    $form->add_label(['class'=>$k,'for' => "", 'label' => 'NO', 'style' => 'padding-left:10px;']);
                 } else {
+                    echo "<br>";
                     $form->add_input(['class' => 'form-check-input', 'name' => $k, 'value' => 'yes', 'type' =>
                         'radio']);
-                    $form->add_label(['for' => "", 'label' => 'YES', 'style' => 'padding-left:10px;']);
+                    $form->add_label(['class'=>$k,'for' => "", 'label' => 'YES', 'style' => 'padding-left:10px;']);
                     echo '<br>';
                     $form->add_input(['class' => 'form-check-input', 'name' => $k, 'value' => 'no', 'type' =>
                         'radio', 'checked' => 'checked']);
-                    $form->add_label(['for' => "", 'label' => 'NO', 'style' => 'padding-left:10px;']);
+                    $form->add_label([ 'class'=>$k,'for' => "", 'label' => 'NO', 'style' => 'padding-left:10px;']);
                 }
                 echo "<br>";
             } elseif ($k == 'rmt_stu_materials') {
@@ -167,8 +170,9 @@ if ($table == 'students') {
             } else {
                 $form->add_input(['class' => 'form-control', 'name' => $k, 'value' => $v]);
             }
-            echo "<br>";
+//            echo "<br>";
         }
+        echo "<br>";
         $form->add_input(['class' => 'btn btn-primary', 'name' => 'update_record', 'value' => 'Save', 'type' => 'submit']);
         $form->end_form();
     }

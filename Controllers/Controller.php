@@ -276,6 +276,7 @@ class Controller
          if (isset($data['rmt_stu_materials'])) {
                 $data['rmt_stu_materials'] = implode(", ", $data['rmt_stu_materials']);
             }
+         $data = $this->alter_null($data);
         $model->change_info($table, $data, $id);
                  header("Location:?action=v_add_new_record");
 

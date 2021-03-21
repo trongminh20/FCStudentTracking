@@ -10,4 +10,4 @@ print_r($data);
 unset($data['table']);
 unset($data['update_record']);
 
-$model ->change_info($table, $data, $id);
+//$controller ->c_update_record(Model);
