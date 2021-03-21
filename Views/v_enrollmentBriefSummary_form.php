@@ -86,9 +86,10 @@ include "v_masterPage_sidebar.php";
                 </div>
                 <!--submit button-->
                 <div class="form-group" style="padding-top: 20px">
-                    <input class="btn btn-primary" id="btnAddNewStudent" type="submit" name="submit" value ='Add new Student'>
+                    <input href="#" class="btn btn-primary" id="btnAddNewStudent" type="submit" name="submit" value ='Add new Student'>
                 </div>
             </form>
         </div>
     </div>
 </div>
+<!--add more record Modal-->

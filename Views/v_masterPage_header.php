@@ -72,14 +72,8 @@
                             <?php
                         }
                         ?>
-
                         <li>
-                            <form action="?action=c_logout" method="POST">
-                                <input type="submit" id="btnlogout" value="Log out" name="logout" class="btn
-                                btn-default
-                                       btn-flat"
-                                       style="background:#ef0707 ;Color:#fff;width:100%;"/>
-                            </form>
+                            <input href="#" type="submit" value="Log out" name="logout" class="btn btn-default btn-flat" style="background:#ef0707; Color:#fff; width:100%;" data-toggle="modal" data-target="#logoutModal"/>
                         </li>
                     </ul>
                 </li>
@@ -87,5 +81,25 @@
         </div>
     </div>
 </nav>
+<!--log out modal-->
+<div class="modal" id="logoutModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4>Log Out</h4>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to log-off?<br /></p>
+                <div class="actionsBtns">
+                    <form action="" method="">
+                        <input type="submit" id="btnlogout" class="btn btn-default btn-primary" value="Logout" />
+                        <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
