@@ -31,6 +31,11 @@ class Controller
     private function c_search(Model $model)
     {
         $keyword = $_POST['keyword'];
+        /*
+         * @ search for username
+         * # search for id number
+         * ! search for programID
+         * */
         if ($keyword[0] == '@' || $keyword[0] == '#' || $keyword[0] == '!') {
             $_SESSION['search_result'] = $model->search_student($keyword);
             header("Location:?action=v_search_res");
@@ -108,7 +113,7 @@ class Controller
     private function c_update_user_info(Model $model)
     {
         $data = $_POST;
-        $id = ['id'=> $data['id']];
+        $id = ['id' => $data['id']];
         unset($data['edit']);
         $model->change_info('employees', $data, $id);
         header("Location:?action=v_user_manage");
@@ -118,7 +123,7 @@ class Controller
     {
         $newPass = $_POST['new_pass'];
         $_SESSION['user']['password'] = $newPass;
-        $id = ['id'=>$_SESSION['user']['id']];
+        $id = ['id' => $_SESSION['user']['id']];
         $table = 'employees';
         $data = $_SESSION['user'];
         if (!empty($newPass)) {
@@ -156,7 +161,7 @@ class Controller
 
     private function c_reset_pass(Model $model)
     {
-        $id = ['id'=>$_POST['id']];
+        $id = ['id' => $_POST['id']];
         $number = rand(11, 99);
         $newPass = $id . $number;
         $data = ['password' => $newPass];
@@ -198,7 +203,7 @@ class Controller
         }
     }
 
-    private function c_add_ppes(Model $model)
+    private function c_add_ppes(Model $model): void
     {
         if (isset($_POST['add_ppes'])) {
             $data = $_POST;
@@ -209,7 +214,7 @@ class Controller
         }
     }
 
-    private function c_add_grad(Model $model)
+    private function c_add_grad(Model $model): void
     {
         if (isset($_POST['add_grad'])) {
             $data = $_POST;
@@ -220,7 +225,7 @@ class Controller
         }
     }
 
-    private function c_add_student(Model $model)
+    private function c_add_student(Model $model): void
     {
         $data = $_POST;
         unset($data['submit']);
@@ -229,7 +234,7 @@ class Controller
         header("Location:?action=v_enrollmentBriefSummary_form");
     }
 
-    private function c_add_payment(Model $model)
+    private function c_add_payment(Model $model): void
     {
         $data = $_POST;
         unset($data['add_payment_tracking']);
@@ -240,7 +245,7 @@ class Controller
 
     }
 
-    private function c_add_new_record(Model $model)
+    private function c_add_new_record(Model $model): void
     {
         if (isset($_POST['select_section'])) {
             $case = $_POST['select_section'];
@@ -262,7 +267,7 @@ class Controller
         }
     }
 
-    private function c_update_record(Model $model)
+    private function c_update_record(Model $model): void
     {
         $data = $_POST;
         $table = $data['table'];
@@ -273,12 +278,12 @@ class Controller
         }
         unset($data['table']);
         unset($data['update_record']);
-         if (isset($data['rmt_stu_materials'])) {
-                $data['rmt_stu_materials'] = implode(", ", $data['rmt_stu_materials']);
-            }
-         $data = $this->alter_null($data);
+        if (isset($data['rmt_stu_materials'])) {
+            $data['rmt_stu_materials'] = implode(", ", $data['rmt_stu_materials']);
+        }
+        $data = $this->alter_null($data);
         $model->change_info($table, $data, $id);
-                 header("Location:?action=v_add_new_record");
+        header("Location:?action=v_add_new_record");
 
     }
 
@@ -287,7 +292,7 @@ class Controller
      * @param $data
      * @return mixed
      */
-    private function alter_null($data)
+    private function alter_null($data): array
     {
         $d = $data;
         $arrOfNulls = array();

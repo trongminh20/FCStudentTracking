@@ -27,7 +27,9 @@ const hiddenForNotRMT = [
         "interview_date",
         "interview_approve",
         "rmt_stu_materials[]",
-        "rmt_stu_materials"
+        "rmt_stu_materials",
+        "employment",
+        "exam_date"
     ];
 
     function display() {
@@ -35,11 +37,11 @@ const hiddenForNotRMT = [
         var rmt = document.getElementById('programID').value;
         var inputArr = document.querySelectorAll("input, select,label");
         inputArr.forEach(function (e) {
-            if (table == 'apsds' && rmt != "RMT") {
+            if (rmt != "RMT") {
                 if (in_array(e.name, hiddenForNotRMT) == 1 || in_array(e.className, hiddenForNotRMT) == 1) {
                     e.remove();
                 }
-            }else if(table == 'ppes')
+            }
         });
     }
 
