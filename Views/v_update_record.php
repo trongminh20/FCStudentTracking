@@ -177,7 +177,7 @@ if ($table == 'students') {
 
 
 <script type="text/javascript">
-
+window.onload = function(){display()};
 
 </script>
 

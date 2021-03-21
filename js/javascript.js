@@ -8,7 +8,6 @@ function check(){
             document.getElementById("otherOptionDiv").setAttribute("style","display=block;")
             document.getElementById("otherInput").setAttributeNode(name);
         }else{
-
             document.getElementById("otherOptionDiv").style.display = "none";
             document.getElementById("otherInput").name= "";
         }
@@ -29,16 +28,10 @@ const hiddenForNotRMT = ["app_essay",
         "rmt_stu_materials[]"
     ];
 
-    window.onload = function () {
-        display();
-    };
-
     function display() {
         var table = document.getElementById('table').value;
         var rmt = document.getElementById('programID').value;
         var inputArr = document.querySelectorAll("input, select");
-        var attStyle = document.createAttribute('style');
-
         inputArr.forEach(function (e) {
             if (table == 'apsds' && rmt != "RMT") {
                 if (in_array(e.name, hiddenForNotRMT) == 1) {
