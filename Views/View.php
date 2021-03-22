@@ -157,7 +157,7 @@ class View
             foreach ($d as $k => $v) {
                 echo "<input type='hidden' name='$k' value='$v'>";
             }
-            echo " <input class='btn btn-danger' type='submit' name='delete_user' value='Delete'>";
+            echo " <input class='btn btn-danger' type='submit' onclick='if(!confirm(\"Are you sure to delete this user?\")) {return false }'  name='delete_user' value='Delete'>";
 
             echo "</form>";
 

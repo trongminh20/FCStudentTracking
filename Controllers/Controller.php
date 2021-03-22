@@ -148,7 +148,10 @@ class Controller
     private function c_delete_user(Model $model)
     {
         $model->delete('requests', 'username', $_POST['username']);
+        $model->delete('emp_info', 'eid', $_POST['id']);
+        $model->delete('sessions', 'user_id', $_POST['id']);
         $model->delete('employees', 'id', $_POST['id']);
+
         $_SESSION['manage_info'] = $_POST['username'] . " has been deleted";
         header("Location:?action=v_user_manage");
     }
@@ -173,7 +176,7 @@ class Controller
     {
         $id = ['id' => $_POST['id']];
         $number = rand(11, 99);
-        $newPass = $id . $number;
+        $newPass = $_POST['id'] . $number;
         $data = ['password' => $newPass];
         $content = "<h3>Your password has been reset:</h3><br>" .
             "<ul><li>Your new password is: $newPass</li></ul>" .

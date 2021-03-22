@@ -40,10 +40,8 @@ include "v_masterPage_sidebar.php";
     $form = new Form("form-group col-lg-8","","c_add_user","POST", 'Add new Employee',"");
     foreach($labels as $k => $v){
         $form->add_label(['for'=>'','label'=>$k]);
-        $form->add_input(['id' =>'',
-            'class' => 'form-control',
-            'name'=>$v,
-            'type'=>(($k == 'Password') ? 'password' : 'text')]);
+        $form->add_input(['id' =>'', 'class' => 'form-control', 'name'=>$v, 'type'=>(($k == 'Password') ? 'password'
+            : 'text')]);
     }
     echo "<br>";
     $form ->add_input(['class'=>'btn btn-primary','type' => 'submit', 'name' => 'add_user', 'value'=>'Add User']);
