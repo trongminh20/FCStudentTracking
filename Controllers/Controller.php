@@ -91,6 +91,16 @@ class Controller
             header("Location:?action=v_logout");
         }
     }
+    private function c_auto_logout(Model $model){
+        $data = ['session_id' => $_SESSION['session_id'],
+                'user_id' => $_SESSION['user']['id'],
+                'created' => $_SESSION['login'],
+                'logout' => date('Y-m-d H:i:s')
+            ];
+            $model->insert('sessions', $data);
+            session_destroy();
+            header("Location:?action=v_logout");
+    }
 
     private function c_add_user(Model $model)
     {

@@ -19,6 +19,9 @@
     <script src="js/bootstrap.min.js"></script>
     <!--Custom JS-->
     <script src="js/customizeJS.js"></script>
+    <script type="text/javascript">
+        window.onload = ()=>{setup();};
+    </script>
 </head>
 
 <!-- Header Section -->
@@ -77,7 +80,7 @@
                         ?>
 
                         <li>
-                            <form action="?action=c_logout" method="POST">
+                            <form action="?action=c_logout" method="GET">
                                 <input type="submit" id="btnlogout" value="Log out" name="logout" class="btn
                                 btn-default
                                        btn-flat"
