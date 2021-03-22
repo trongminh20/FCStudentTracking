@@ -21,6 +21,7 @@ var logoutTime;
 var warningTime;
 /*end global variables*/
 
+/* auto log out section */
 function setup() {
     document.addEventListener("onmousemove", reset_timer, false);
     document.addEventListener("wheel", reset_timer, false);
@@ -54,7 +55,7 @@ function show_warning(){
 function do_inactive() {
     window.location = "?action=c_auto_logout";
 }
-
+/* end of auto logout section*/
 /*choose between payment methods*/
 
 function check() {
