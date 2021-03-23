@@ -188,7 +188,7 @@ class Controller
         Mail::$toAddress = $_POST['email'];
         Mail::$content = $content;
         Mail::$subject = 'Password has been reset';
-        $_SESSION['manage_info'] = $_POST['username'] . "'s password has been reset to phone number ";
+        $_SESSION['manage_info'] = $_POST['username'] . "'s password has been reset, a message sent to user's email. ";
         Mail::send_mail();
         header("Location:?action=v_user_manage");
     }

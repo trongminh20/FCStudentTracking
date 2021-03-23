@@ -41,13 +41,13 @@ $labels = [
     'Email' => 'email',
     'Address' => 'address',
     'Cohor' => 'cohort',
-    'Name Tag' => 'name_tag',
-    'SPECO' => 'speco',
+    'Name Tag (Yes / No)' => 'name_tag',
+    'SPECO (Yes / No)' => 'speco',
     'Domestic or International' => 'dom_or_int',
     'Enrollment Notes' => 'enroll_notes',
     'Admission status' => 'admin_status',
     'Clinic/Uniform Shirt Size' => 'clinic_shirt_size',
-    'Order Date:' => 'order_date',
+    'Order Date' => 'order_date',
     'Pick-up Date' => 'pickup_date',
     'First Aid & CPR Date & Time' => 'fa_and_cpr_dt',
     'First Aid & CPR Location & Contact' => 'fa_and_cpr_contact',
@@ -174,12 +174,10 @@ if ($table == 'students') {
     ?>
 </div>
 
-
 <script type="text/javascript">
     window.onload = function () {
-        display()
+        display();
     };
-
 </script>
 
 
