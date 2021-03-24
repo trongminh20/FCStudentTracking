@@ -33,21 +33,21 @@ unset($_SESSION['student']);
  ?>
     <br>
     <?php
-    $form::add_input(['id' => 'checkbox2', 'value' => "apsds",'name'=>"include[]" ,'type' => 'checkbox']);
-    $form::add_label(['for' => 'checkbox1', 'label' => 'Admission Prior to Start Date']);
+    $form::add_input(['id' => 'apsds', 'value' => "apsds",'name'=>"include[]" ,'type' => 'checkbox']);
+    $form::add_label(['for' => 'apsds', 'label' => 'Admission Prior to Start Date']);
      ?>
     <br>
     <?php
-    $form::add_input(['id' => 'checkbox3', 'value' => "ppes",'name' => "include[]", 'type' => 'checkbox']);
-    $form::add_label(['for' => 'checkbox3', 'label' => 'Prior to Practice Education']);
+    $form::add_input(['id' => 'ppes', 'value' => "ppes",'name' => "include[]", 'type' => 'checkbox']);
+    $form::add_label(['for' => 'ppes', 'label' => 'Prior to Practice Education']);
     ?>
     <br>
     <?php
-    $form::add_input(['id' => 'checkbox4', 'value' => "graduation",'name' => "include[]" ,'type' => 'checkbox']);
-    $form::add_label(['for' => 'checkbox4', 'label' => 'Graduation']);
+    $form::add_input(['id' => 'graduation', 'value' => "graduations",'name' => "include[]" ,'type' => 'checkbox']);
+    $form::add_label(['for' => 'graduation', 'label' => 'Graduation']);
     echo "<br>";
-    $form::add_input(['id' => 'checkbox5', 'value' => "payment",'name'=>"include[]", 'type' => 'checkbox']);
-    $form::add_label(['for' => 'checkbox5', 'label' => 'Payment Tracking']);
+    $form::add_input(['id' => 'paymentTracking', 'value' => "payment_tracking",'name'=>"include[]", 'type' => 'checkbox']);
+    $form::add_label(['for' => 'paymentTracking', 'label' => 'Payment Tracking']);
     $form::end_fieldset();
 
     $form::add_input(['class' => 'btn btn-primary', 'name' => 'preview', 'type' => 'submit', 'value' => 'preview']);

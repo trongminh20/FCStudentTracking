@@ -60,7 +60,6 @@ $labels = [
     'Criminal Record Check (CRC)' => 'crc_notes',
     'FoodSafe Location & Contact' => 'foodsafe_contact',
     'Student & Program Handbooks' => 'stu_prog_handbook_notes',
-    //grad
     'Tuition Paid in Full(Yes /No)' => 'tuition_paid',
     'Official Student Transcript Issued (Yes / No))' => 'official_transcript',
     'Official Completion Letter Issued (Yes/No)' => 'completion_letter',
@@ -68,7 +67,6 @@ $labels = [
     'Board Exam Date' => 'exam_date',
     'Copy of T2202A (Tax Form) Issued (Yes / No)' => 'T2202A',
     'Employment Follow Up' => 'employment',
-    //payment tracking
     'Application Fee' => 'application_fee',
     'Intro to Massage Fee' => 'intro_to_message_fee',
     'Course Materials Fee' => 'course_materials_fee',
