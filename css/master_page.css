@@ -223,7 +223,13 @@ body{
 .shadow-none {
     box-shadow: none!important;
 }
-
+ table{
+     width: 100%;
+     font-size: 13px;
+ }
+ table >tr>td {
+    overflow: auto;
+ }
 /*-----------------------------------------------------
     Export Button Style
 ------------------------------------------------------*/
@@ -293,9 +299,6 @@ body{
     FOOTER STYLE
 ----------------------------------------------------- */
 .footer{
-   /*position: fixed;
-   left: 0;
-   bottom: 0;*/
    width: 100%;
    background-color: white;
    color: #212529;

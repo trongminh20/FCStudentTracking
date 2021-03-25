@@ -40,8 +40,6 @@ include "v_masterPage_sidebar.php";
                                  style="padding-top: 7px"><?= $fname[0]['fname'] ?></div>
                         </div>
                         <hr>
-                        <!--phone number-->
-                        <!--mobile-->
                         <div class="row">
                             <div class="col-sm-3">
                                 <h6 class="mb-0">Mobile</h6>

@@ -3,6 +3,7 @@
 <!DOCUMENT html>
 <html>
 <head>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/css_reset.css">
@@ -11,7 +12,7 @@
     <link rel="stylesheet" href="css/technical_document.css">
 </head>
 <body>
-    <div id="body-wrapper">
+<div id="body-wrapper">
     <nav id="nav-bar">
         <div id="page-title" class="nav-item">
             Student Tracking
@@ -24,5 +25,5 @@
             <li><a href="#generateInvoice" class="nav-link">Invoice Generating</a></li>
             <li><a href="?action=v_home" class="nav-link">Go To Dashboard</a></li>
         </ul>
-   </nav>
+    </nav>
 

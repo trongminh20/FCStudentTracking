@@ -87,7 +87,6 @@ class View
     }
 
 
-
     public function display_as_table($id = "", $class = "", $data)
     {
         $count = 0;
@@ -118,7 +117,8 @@ class View
      * @param $actionForDelete routes to controller or view for feature Delete information
      * @param $data
      */
-    public function show_table_with_manage_functions($id = "", $class = "",
+    public function show_table_with_manage_functions($id = "",
+                                                     $class ="",
                                                      $actionForEdit, $actionForDelete,
                                                      $actionForReset, $data)
     {
@@ -126,20 +126,20 @@ class View
         echo "<table id='$id' class='$class'>";
         //display table header
         foreach ($data as $d) {
+            echo "<thead>";
             echo "<tr>";
             foreach ($d as $key => $vals) {
                 if ($count < count($d)) {
-                    echo "<td>$key</td>";
-                } else {
-                    echo "<td></td>";
+                    echo "<th scope='col'>$key</th>";
                 }
                 $count += 1;
             }
             echo "</tr><tr>";
+            echo "</thead>";
+            echo "<tbody>";
             //display table content
             foreach ($d as $key => $vals) {
                 echo "<td>$vals</td>";
-
             }
             //information for Edit
             echo "<td>";
@@ -160,7 +160,6 @@ class View
             echo " <input class='btn btn-danger' type='submit' onclick='if(!confirm(\"Are you sure to delete this user?\")) {return false }'  name='delete_user' value='Delete'>";
 
             echo "</form>";
-
             echo "</td>";
             //information for Reset Password
             echo "<td>";
@@ -174,18 +173,21 @@ class View
             echo "</td>";
             echo "</tr>";
         }
+        echo "</tbody>";
         echo "</table><br>";
     }
 
-    function replace_label($src, $data){
-        $res = [];
-        foreach($data as $k => $v){
-            foreach($src as $key => $val){
-                if($v == $val){
-                    array_push($res, $key);
-                }
-            }
-        }
-        return $res;
-    }
+//    function replace_label($src, $data)
+//    {
+//        $res = [];
+//        foreach ($data as $k => $v) {
+//            foreach ($src as $key => $val) {
+//                if ($v == $val) {
+//                    array_push($res, $key);
+//                }
+//            }
+//        }
+//        return $res;
+//    }
+
 }

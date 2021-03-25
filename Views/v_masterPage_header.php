@@ -80,7 +80,7 @@
                         ?>
 
                         <li>
-                            <form action="?action=c_logout" method="GET">
+                            <form action="?action=c_logout" method="POST">
                                 <input type="submit" id="btnlogout" value="Log out" name="logout" class="btn
                                 btn-default
                                        btn-flat"

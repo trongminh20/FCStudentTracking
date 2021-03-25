@@ -24,7 +24,7 @@ class Controller
             case 'm':
                 return "Models/" . $dr . ".php";
             default:
-                return "404.php";
+                return "errors/404.php";
         }
     }
 
@@ -40,7 +40,7 @@ class Controller
             $_SESSION['search_result'] = $model->search_student($keyword);
             header("Location:?action=v_search_res");
         } else {
-            $_SESSION['search_error'] = "You has entered invalid keyword's format";
+            $_SESSION['search_error'] = "You have entered invalid keyword's format";
             header("Location:?action=v_search_res");
         }
     }
@@ -49,7 +49,7 @@ class Controller
     {
         if (isset($_POST['submit'])) {
             $username = $_POST['username'];
-            $password = $_POST['password'];
+            $password = SHA1($_POST['password']);
             $success = $model->sign_in($username, $password);
             if ($success == 1) {
                 $data = $model->select_user($username);
@@ -62,7 +62,6 @@ class Controller
                 $user->set_username($data[0]['username']);
                 $user->set_email($data[0]['email']);
                 $user->set_phone_number($data[0]['phone']);
-//                $user -> set_office_number($data[0]['office_number']);// deleted
                 $user->set_department($data[0]['department']);
                 $user->set_role($data[0]['admin']);
                 // assign User's information from database -> $_SESSION
@@ -91,32 +90,47 @@ class Controller
             header("Location:?action=v_logout");
         }
     }
-    private function c_auto_logout(Model $model){
+
+    private function c_auto_logout(Model $model)
+    {
         $data = ['session_id' => $_SESSION['session_id'],
-                'user_id' => $_SESSION['user']['id'],
-                'created' => $_SESSION['login'],
-                'logout' => date('Y-m-d H:i:s')
-            ];
-            $model->insert('sessions', $data);
-            session_destroy();
-            header("Location:?action=v_logout");
+            'user_id' => $_SESSION['user']['id'],
+            'created' => $_SESSION['login'],
+            'logout' => date('Y-m-d H:i:s')
+        ];
+        $model->insert('sessions', $data);
+        session_destroy();
+        header("Location:?action=v_logout");
     }
 
     private function c_add_user(Model $model)
     {
-        $id = $_POST['id'];
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $email = $_POST['email'];
-        $phone = $_POST['phone'];
-        $department = $_POST['department'];
-        $fname = $_POST['fname'];
-        $role = $_POST['role'];
+        if (!empty($_POST)) {
+            if (isset($_POST['add_user'])) {
+                $id = $_POST['id'];
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+                $email = $_POST['email'];
+                $phone = $_POST['phone'];
+                $department = $_POST['department'];
+                $fname = $_POST['fname'];
+                $role = $_POST['role'];
 
-        $user = new Employee();
-        $user->Employee($id, $username, $password, $email, $phone, $department);
-        $model->create_user('employees', $user);
-        $model->add_user_info('emp_info', ['eid' => $id, 'fname' => $fname, 'role' => $role]);
+                $user = new Employee();
+                $user->Employee($id, $username, $password,
+                    $email, $phone, $department);
+                try {
+                    $model->create_user('employees', $user);
+                    $model->add_user_info('emp_info',
+                        ['eid' => $id, 'fname' => $fname, 'role' => $role]);
+                } catch (PDOException $e) {
+                    $_SESSION['add_user_error'] = "Invalid data submitted!";
+                    header("Location:?action=v_user_manage");
+                }
+            }
+        } else {
+            $_SESSION['add_user_error'] = "There are no data submitted! Please add information";
+        }
         header("Location:?action=v_user_manage");
     }
 
@@ -131,16 +145,16 @@ class Controller
 
     private function c_change_pass(Model $model)
     {
-        $newPass = $_POST['new_pass'];
+        $newPass = SHA1($_POST['new_pass']);
         $_SESSION['user']['password'] = $newPass;
         $id = ['id' => $_SESSION['user']['id']];
         $table = 'employees';
-        $data = $_SESSION['user'];
+        $data = ['password' => $newPass];
         if (!empty($newPass)) {
             $model->change_info($table, $data, $id);
             $_SESSION['change_password_announce'] = 'Your password has been changed';
         } else {
-            $_SESSION['change_password_announce'] = 'Your password has been changed';
+            $_SESSION['change_password_announce'] = 'Password has not successfully changed! Try again!';
         }
         header("Location:?action=v_change_password");
     }

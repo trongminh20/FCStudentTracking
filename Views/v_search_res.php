@@ -19,23 +19,22 @@ unset($_SESSION['search_result']);
             echo "";
         }
         ?></h5>
-    <table class="table">
+    <table id="searchRes" class="table table-condensed table-striped">
         <thead>
         <tr>
-            <td>ID</td>
-            <td>Program ID</td>
-            <td>Name</td>
-            <td>phone</td>
-            <td>email</td>
-            <td>address</td>
-            <td>Dom OR Int</td>
-            <td>Enroll note</td>
-            <td>status</td>
+            <th>ID</th>
+            <th>ProgramID</th>
+            <th>Name</th>
+            <th>phone</th>
+            <th>email</th>
+            <th>address</th>
+            <th>Dom OR Int</th>
+            <th>Enroll note</th>
+            <th>status</th>
         </tr>
         </thead>
         <tbody>
         <?php
-
             for ($i = 0; $i < count($students); $i++):
             ?>
             <tr>

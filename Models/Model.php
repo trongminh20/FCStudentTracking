@@ -2,8 +2,15 @@
 
 class Model
 {
+    /**
+     * @var Database
+     */
     private $db;
 
+    /**
+     * Model constructor.
+     * @param Database $db
+     */
     public function __construct(Database $db)
     {
         $this->db = $db;
@@ -53,6 +60,11 @@ class Model
         $data = $user->to_array();
         $this->db->insert_single_row($table, $data);
     }
+
+    /**
+     * @param $table is the table need to be inserted
+     * @param $arr is an array with key => value
+     */
     function add_user_info($table, $arr){
         $this->db->insert_single_row($table, $arr);
     }
@@ -67,6 +79,11 @@ class Model
         return $this->db->select('employees',['username'=>$username]);
     }
 
+    /**
+     * @param $table
+     * @param $col
+     * @param $val
+     */
     function delete($table, $col, $val)
     {
         $this->db->delete($table, $col, $val);
@@ -147,6 +164,10 @@ class Model
         return $this->db->select($table, $data);
     }
 
+    /**
+     * @param $table
+     * @param $data
+     */
     function insert($table, $data){
         $this->db->insert_single_row($table, $data);
     }
