@@ -88,7 +88,6 @@ $labels = [
     'Remaining Payment' => 'remaining_payment'
 ];
 
-
 $table = $_POST['select_section'];
 if ($table == 'students') {
     $studentID = ['id' => $_POST['student_id']];
@@ -129,7 +128,7 @@ if ($table == 'students') {
                 }
             } else if ($v == 'yes' || $v == 'no') {
                 if ($v === 'yes') {
-                    echo "<br>";
+                    echo '<br>';
                     $form->add_input(['class' => 'form-check-input', 'name' => $k, 'value' => 'yes', 'type' =>
                         'radio', 'checked' =>
                         '']);
@@ -138,8 +137,9 @@ if ($table == 'students') {
                     $form->add_input(['class' => 'form-check-input', 'name' => $k, 'value' => 'no', 'type' =>
                         'radio']);
                     $form->add_label(['class' => $k, 'for' => "", 'label' => 'NO', 'style' => 'padding-left:10px;']);
+                    echo '<br>';
                 } else {
-                    echo "<br>";
+                    echo '<br>';
                     $form->add_input(['class' => 'form-check-input',
                         'name' => $k, 'value' => 'yes', 'type' => 'radio']);
                     $form->add_label(['class' => $k, 'for' => "", 'label' => 'YES', 'style' => 'padding-left:10px;']);
@@ -147,8 +147,8 @@ if ($table == 'students') {
                     $form->add_input(['class' => 'form-check-input', 'name' => $k, 'value' => 'no', 'type' =>
                         'radio', 'checked' => 'checked']);
                     $form->add_label(['class' => $k, 'for' => "", 'label' => 'NO', 'style' => 'padding-left:10px;']);
+                    echo '<br>';
                 }
-                echo "<br>";
             } elseif ($k == 'rmt_stu_materials') {
                 $selected = explode(", ", $v);
                 $options = ['Sheet Set', 'Laptop or Learning Support', 'Goniometer', 'Oil Holster', 'Bottle']; ?>
@@ -162,8 +162,19 @@ if ($table == 'students') {
                 </select>
                 <?php
             } else {
-                $form->add_input(['class' => 'form-control', 'name' => $k, 'type' => (($type[$k] == 'datetime') ? 'datetime-local' : $type[$k]), 'value' =>
-                    $v]);
+                if ($type[$k] == 'varchar(3)') {
+                    echo '<br>';
+                    $form->add_input(['class' => 'form-check-input', 'name' => $k, 'type' => 'radio', 'value' => 'Yes']);
+                    $form->add_label(['class' => $k, 'for' => "", 'label' => 'Yes']);
+                    echo '<br>';
+                    $form->add_input(['class' => 'form-check-input', 'name' => $k, 'type' => 'radio', 'value' => 'No']);
+                    $form->add_label(['class' => $k, 'for' => "", 'label' => 'No']);
+                    echo '<br>';
+                } else if ($type[$k] == 'datetime') {
+                    $form->add_input(['class' => 'form-control ' . $k, 'name' => $k, 'type' => 'datetime-local', 'value' => $v]);
+                } else {
+                    $form->add_input(['class' => 'form-control ' . $k, 'name' => $k, 'type' => $type[$k], 'value' => $v]);
+                }
             }
         }
         echo "<br>";
@@ -172,7 +183,6 @@ if ($table == 'students') {
     }
     ?>
 </div>
-
 <script type="text/javascript">
     window.onload = function () {
         display();
