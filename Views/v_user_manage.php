@@ -19,13 +19,17 @@ include "v_masterPage_sidebar.php";
     $view->show_table_with_manage_functions("", "table", "v_edit_user", "c_delete_user", "c_reset_pass", $loadTable);
     ?>
 
-
     <?php
-//    echo "<h3>Add New User</h3>";
-//    $addInfo = $model->get_type("employees");
-
-//    $view->display_table_to_form("formAddUser", " form form_add_user", "c_add_user",  "POST", 'employees',
-//        $model);
+    if(isset($_SESSION['add_user_error'])){
+        echo "<div class='text-center'>".
+                "<h2 style='color:darkred'>".
+                    $_SESSION['add_user_error'].
+                "</h2>".
+            "</div>";
+        unset($_SESSION['add_user_error']);
+    }else{
+        echo "<hr>";
+    }
     $labels = [
             'Employee ID'=> 'id',
             'Username' => 'username',
@@ -40,11 +44,20 @@ include "v_masterPage_sidebar.php";
     $form = new Form("form-group col-lg-8","","c_add_user","POST", 'Add new Employee',"");
     foreach($labels as $k => $v){
         $form->add_label(['for'=>'','label'=>$k]);
-        $form->add_input(['id' =>'', 'class' => 'form-control', 'name'=>$v, 'type'=>(($k == 'Password') ? 'password'
-            : 'text')]);
+        if($v == 'password') {
+            $form->add_input(['id' => '', 'class' => 'form-control', 'name' => $v,
+                'type' => 'password', 'required' => ""]);
+        }else if($v == 'email') {
+            $form->add_input(['id' => '', 'class' => 'form-control', 'name' => $v,
+                'type' => 'email', 'required' => ""]);
+        }else{
+            $form->add_input(['id' => '', 'class' => 'form-control', 'name' => $v,
+                'type' => 'text', 'required' => ""]);
+        }
     }
     echo "<br>";
     $form ->add_input(['class'=>'btn btn-primary','type' => 'submit', 'name' => 'add_user', 'value'=>'Add User']);
+     $form ->add_input(['class'=>'btn btn-warning btn-inline','type' => 'reset', 'value'=>'Clear']);
     $form ->end_form();
     ?>
 </div>
