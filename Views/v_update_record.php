@@ -105,7 +105,7 @@ if ($table == 'students') {
         $data = $rawData[0];
         ?>
         <?php
-        $form = new Form("form-group col-lg-8", "updateForm", "c_update_record", "POST", "Update Record", "");
+        $form = new Form("form-group col-lg-8", "updateForm", "c_update_record", "POST", "Update Record ". $table, "");
         $form->add_input(['name' => 'table', 'value' => $table, 'type' => 'hidden', 'id' => 'table', 'readonly' => 'readonly']);
         foreach ($data as $k => $v) { // data from database
             $form->add_label(['class' => $k, 'for' => "", 'label' => array_search($k, $labels)]);
