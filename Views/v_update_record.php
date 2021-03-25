@@ -131,12 +131,10 @@ if ($table == 'students') {
                 if ($v === 'yes') {
                     echo "<br>";
                     $form->add_input(['class' => 'form-check-input', 'name' => $k, 'value' => 'yes', 'type' =>
-                        'radio', 'checked' =>
-                        '']);
+                        'radio', 'checked' => '']);
                     $form->add_label(['class' => $k, 'for' => "", 'label' => 'YES', 'style' => 'padding-left:10px;']);
                     echo '<br>';
-                    $form->add_input(['class' => 'form-check-input', 'name' => $k, 'value' => 'no', 'type' =>
-                        'radio']);
+                    $form->add_input(['class' => 'form-check-input', 'name' => $k, 'value' => 'no', 'type' => 'radio']);
                     $form->add_label(['class' => $k, 'for' => "", 'label' => 'NO', 'style' => 'padding-left:10px;']);
                 } else {
                     echo "<br>";
@@ -162,8 +160,7 @@ if ($table == 'students') {
                 </select>
                 <?php
             } else {
-                $form->add_input(['class' => 'form-control', 'name' => $k, 'type' => (($type[$k] == 'datetime') ? 'datetime-local' : $type[$k]), 'value' =>
-                    $v]);
+                $form->add_input(['class' => 'form-control', 'name' => $k, 'type' => (($type[$k] == 'datetime') ? 'datetime-local' : $type[$k]), 'value' => $v]);
             }
         }
         echo "<br>";
