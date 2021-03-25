@@ -47,8 +47,8 @@ $labels = [
     'Enrollment Notes' => 'enroll_notes',
     'Admission status' => 'admin_status',
     'Clinic/Uniform Shirt Size' => 'clinic_shirt_size',
-    'Order Date' => 'order_date',
-    'Pick-up Date' => 'pickup_date',
+    'Order Date (YYY-mm-dd)' => 'order_date',
+    'Pick-up Date (YYY-mm-dd)' => 'pickup_date',
     'First Aid & CPR Date & Time' => 'fa_and_cpr_dt',
     'First Aid & CPR Location & Contact' => 'fa_and_cpr_contact',
     'Certificate of First Aid & CPR Receive Date' => 'cert_fa_cpr_receive',
@@ -99,6 +99,7 @@ if ($table == 'students') {
 <div id="mainContent">
     <?php
     $rawData = $model->select($table, $studentID);
+    $type = $model->get_type($table);
     if (empty($rawData)) {
         echo "<div class='text-center'><h2>This record is unavailable</h2></div>";
     } else {
@@ -162,7 +163,8 @@ if ($table == 'students') {
                 </select>
                 <?php
             } else {
-                $form->add_input(['class' => 'form-control', 'name' => $k, 'value' => $v]);
+                $form->add_input(['class' => 'form-control', 'name' => $k,'type' => $type[$k], 'value' =>
+                $v]);
             }
         }
         echo "<br>";

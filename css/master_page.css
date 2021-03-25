@@ -223,7 +223,13 @@ body{
 .shadow-none {
     box-shadow: none!important;
 }
-
+ table{
+     width: 100%;
+     font-size: 13px;
+ }
+ table >tr>td {
+    overflow: auto;
+ }
 /*-----------------------------------------------------
     Export Button Style
 ------------------------------------------------------*/

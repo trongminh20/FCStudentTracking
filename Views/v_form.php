@@ -24,7 +24,9 @@ class Form
     {
         $label = '<label ';
         foreach ($labelAtt as $att => $val) {
-            $label .= ' ' . $att . " = '" . $val . "'";
+            if($att !== 'label') {
+                $label .= ' ' . $att . " = '" . $val . "'";
+            }
         }
         $label .= ">" . $labelAtt['label'] . "</label>";
         echo $label;
