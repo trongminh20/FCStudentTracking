@@ -1,9 +1,9 @@
 <?php
-include "v_masterPage_header.php";
-?>
+//include "v_masterPage_header.php";
+//?>
 <?php
-include "v_masterPage_sidebar.php";
-?>
+//include "v_masterPage_sidebar.php";
+//?>
 
 <div class="container">
     <div id="mainContent">
@@ -38,18 +38,7 @@ include "v_masterPage_sidebar.php";
                                  style="padding-top: 7px"><?= $fname[0]['fname'] ?></div>
                         </div>
                         <hr>
-                        <!--phone number-->
-<!--                        <div class="row">-->
-<!--                            <div class="col-sm-3">-->
-<!--                                <h6 class="mb-0">Office Number</h6>-->
-<!--                            </div>-->
-<!--                            <div class="col-sm-9 text-secondary" style="padding-top:-->
-<!--                            7px">--><?php
-//                                echo $_SESSION['user']['office_number'];
-//                                ?><!--</div>-->
-<!--                        </div>-->
-<!--                        <hr>-->
-                        <!--mobile-->
+
                         <div class="row">
                             <div class="col-sm-3">
                                 <h6 class="mb-0">Mobile</h6>
