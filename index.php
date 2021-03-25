@@ -32,5 +32,6 @@ $controller = new Controller();
 // new View for generating some specific view
 $view = new View();
 
+
 //Routing to destination page
 require $controller->index($action, $model);

@@ -42,7 +42,7 @@ CREATE TABLE employees
     admin      INT
 );
 
-CREATE TABLE empInfo
+CREATE TABLE emp_info
 (
     emp_id     INT,
     fullname   VARCHAR(100),
@@ -155,15 +155,6 @@ CREATE TABLE graduations
     exam_date           DATETIME,
     T2202A              VARCHAR(3),
     employment          VARCHAR(200)
-);
-
-CREATE TABLE invoice
-(
-    number  INT PRIMARY KEY,
-    bill_to VARCHAR(50),
-    date    DATE,
-    total   INT,
-    note    VARCHAR(100)
 );
 
 CREATE TABLE payment_tracking

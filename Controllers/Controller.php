@@ -31,6 +31,11 @@ class Controller
     private function c_search(Model $model)
     {
         $keyword = $_POST['keyword'];
+        /*
+         * @ search for username
+         * # search for id number
+         * ! search for programID
+         * */
         if ($keyword[0] == '@' || $keyword[0] == '#' || $keyword[0] == '!') {
             $_SESSION['search_result'] = $model->search_student($keyword);
             header("Location:?action=v_search_res");
@@ -86,6 +91,16 @@ class Controller
             header("Location:?action=v_logout");
         }
     }
+    private function c_auto_logout(Model $model){
+        $data = ['session_id' => $_SESSION['session_id'],
+                'user_id' => $_SESSION['user']['id'],
+                'created' => $_SESSION['login'],
+                'logout' => date('Y-m-d H:i:s')
+            ];
+            $model->insert('sessions', $data);
+            session_destroy();
+            header("Location:?action=v_logout");
+    }
 
     private function c_add_user(Model $model)
     {
@@ -101,15 +116,16 @@ class Controller
         $user = new Employee();
         $user->Employee($id, $username, $password, $email, $phone, $department);
         $model->create_user('employees', $user);
-        $model ->add_user_info('emp_info', ['eid'=>$id, 'fname' => $fname, 'role' => $role]);
+        $model->add_user_info('emp_info', ['eid' => $id, 'fname' => $fname, 'role' => $role]);
         header("Location:?action=v_user_manage");
     }
 
     private function c_update_user_info(Model $model)
     {
         $data = $_POST;
+        $id = ['id' => $data['id']];
         unset($data['edit']);
-        $model->change_info('employees', $data, $data['ID']);
+        $model->change_info('employees', $data, $id);
         header("Location:?action=v_user_manage");
     }
 
@@ -117,7 +133,7 @@ class Controller
     {
         $newPass = $_POST['new_pass'];
         $_SESSION['user']['password'] = $newPass;
-        $id = $_SESSION['user']['id'];
+        $id = ['id' => $_SESSION['user']['id']];
         $table = 'employees';
         $data = $_SESSION['user'];
         if (!empty($newPass)) {
@@ -132,7 +148,10 @@ class Controller
     private function c_delete_user(Model $model)
     {
         $model->delete('requests', 'username', $_POST['username']);
+        $model->delete('emp_info', 'eid', $_POST['id']);
+        $model->delete('sessions', 'user_id', $_POST['id']);
         $model->delete('employees', 'id', $_POST['id']);
+
         $_SESSION['manage_info'] = $_POST['username'] . " has been deleted";
         header("Location:?action=v_user_manage");
     }
@@ -155,9 +174,9 @@ class Controller
 
     private function c_reset_pass(Model $model)
     {
-        $id = $_POST['id'];
+        $id = ['id' => $_POST['id']];
         $number = rand(11, 99);
-        $newPass = $id . $number;
+        $newPass = $_POST['id'] . $number;
         $data = ['password' => $newPass];
         $content = "<h3>Your password has been reset:</h3><br>" .
             "<ul><li>Your new password is: $newPass</li></ul>" .
@@ -169,7 +188,7 @@ class Controller
         Mail::$toAddress = $_POST['email'];
         Mail::$content = $content;
         Mail::$subject = 'Password has been reset';
-        $_SESSION['manage_info'] = $_POST['username'] . "'s password has been reset to phone number ";
+        $_SESSION['manage_info'] = $_POST['username'] . "'s password has been reset, a message sent to user's email. ";
         Mail::send_mail();
         header("Location:?action=v_user_manage");
     }
@@ -197,7 +216,7 @@ class Controller
         }
     }
 
-    private function c_add_ppes(Model $model)
+    private function c_add_ppes(Model $model): void
     {
         if (isset($_POST['add_ppes'])) {
             $data = $_POST;
@@ -208,7 +227,7 @@ class Controller
         }
     }
 
-    private function c_add_grad(Model $model)
+    private function c_add_grad(Model $model): void
     {
         if (isset($_POST['add_grad'])) {
             $data = $_POST;
@@ -219,7 +238,7 @@ class Controller
         }
     }
 
-    private function c_add_student(Model $model)
+    private function c_add_student(Model $model): void
     {
         $data = $_POST;
         unset($data['submit']);
@@ -228,7 +247,7 @@ class Controller
         header("Location:?action=v_enrollmentBriefSummary_form");
     }
 
-    private function c_add_payment(Model $model)
+    private function c_add_payment(Model $model): void
     {
         $data = $_POST;
         unset($data['add_payment_tracking']);
@@ -239,7 +258,7 @@ class Controller
 
     }
 
-    private function c_add_new_record(Model $model)
+    private function c_add_new_record(Model $model): void
     {
         if (isset($_POST['select_section'])) {
             $case = $_POST['select_section'];
@@ -261,8 +280,23 @@ class Controller
         }
     }
 
-    private function c_update_record()
+    private function c_update_record(Model $model): void
     {
+        $data = $_POST;
+        $table = $data['table'];
+        if ($table == 'students') {
+            $id = ['id' => $data['id']];
+        } else {
+            $id = ['student_id' => $data['student_id']];
+        }
+        unset($data['table']);
+        unset($data['update_record']);
+        if (isset($data['rmt_stu_materials'])) {
+            $data['rmt_stu_materials'] = implode(", ", $data['rmt_stu_materials']);
+        }
+        $data = $this->alter_null($data);
+        $model->change_info($table, $data, $id);
+        header("Location:?action=v_add_new_record");
 
     }
 
@@ -271,7 +305,7 @@ class Controller
      * @param $data
      * @return mixed
      */
-    private function alter_null($data)
+    private function alter_null($data): array
     {
         $d = $data;
         $arrOfNulls = array();
