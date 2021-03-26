@@ -66,6 +66,7 @@ class Controller
                 $user->set_role($data[0]['admin']);
                 // assign User's information from database -> $_SESSION
                 $_SESSION['session_id'] = rand(1000, 9999);
+
                 $_SESSION['user'] = $user->to_array();
                 $_SESSION['login'] = date('Y-m-d H:i:s');
 
@@ -191,14 +192,15 @@ class Controller
         $id = ['id' => $_POST['id']];
         $number = rand(11, 99);
         $newPass = $_POST['id'] . $number;
-        $data = ['password' => $newPass];
+        $data = ['password' => SHA1($newPass)];
+
         $content = "<h3>Your password has been reset:</h3><br>" .
             "<ul><li>Your new password is: $newPass</li></ul>" .
             "<h3>Please change your password immediately once you logged in successfully.</h3>";
         $model->change_info('employees', $data, $id);
 
         Mail::$fromAddress = "info.firstcollege@gmail.com";
-        Mail::$fromPwd = "FCstudenttracking";//"password";
+        Mail::$fromPwd = "FCstudenttracking";
         Mail::$toAddress = $_POST['email'];
         Mail::$content = $content;
         Mail::$subject = 'Password has been reset';
@@ -254,15 +256,21 @@ class Controller
 
     private function c_add_student(Model $model): void
     {
-        $data = $_POST;
-        unset($data['submit']);
-        $data = $this->alter_null($data);
-        $model->insert('students', $data);
-        header("Location:?action=v_enrollmentBriefSummary_form");
+        if(isset($_POST['add_student'])) {
+            $data = $_POST;
+            unset($data['add_student']);
+            $data = $this->alter_null($data);
+            $model->insert('students', $data);
+            $_SESSION['add_student_announcement'] = "Student ".$data['name']." has been added successfully";
+            header("Location:?action=v_enrollmentBriefSummary_form");
+        }else{
+            $_SESSION['add_student_announcement'] = "Invalid data, please try again";
+        }
     }
 
     private function c_add_payment(Model $model): void
     {
+
         $data = $_POST;
         unset($data['add_payment_tracking']);
         $data = $this->alter_null($data);

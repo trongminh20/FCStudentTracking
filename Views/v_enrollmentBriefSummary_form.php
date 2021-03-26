@@ -5,6 +5,11 @@ include "v_masterPage_sidebar.php";
 ?>
 
 <div class="container" id="mainContent" style="padding-top: 20px; margin-left:50px;">
+    <?php
+        if(isset($_SESSION['add_student_annoucement'])){
+            
+        }
+    ?>
     <div class="row">
         <div class="col-xs-12">
             <h2 style="padding-top: 10px">Enrollment Brief Summary</h2>
@@ -86,7 +91,8 @@ include "v_masterPage_sidebar.php";
                 </div>
                 <!--submit button-->
                 <div class="form-group" style="padding-top: 20px">
-                    <input class="btn btn-primary" id="btnAddNewStudent" type="submit" name="submit" value ='Add new Student'>
+                    <input class="btn btn-primary" id="btnAddNewStudent" type="submit" name="add_student" value ='Add
+                    new Student'>
                 </div>
             </form>
         </div>
