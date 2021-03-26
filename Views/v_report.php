@@ -13,7 +13,7 @@ unset($_SESSION['student']);
     <?php
     echo ((isset($_SESSION['report_info']) ? $_SESSION['report_info'] : ""));
     unset($_SESSION['report_info']);
-    $form = new Form('form-group col-lg-8', "reportForm", "v_report_generate", "POST", "Creating Report", '_blank');
+    $form = new Form('form form-group col-lg-8', "reportForm", "v_report_generate", "POST", "", '_blank');
 
     $form::start_fieldset(['id' => 'id', 'class' => '']);
     $form::add_legend(['id' => "", 'value' => "Student Information"]);
@@ -24,7 +24,9 @@ unset($_SESSION['student']);
     $form::add_input(['id' => 'progID', 'class' => 'form-control', 'name' => 'prog_id', 'type' => 'text',
         'value' =>  (($stuData != NULL) ? $stuData['prog_id'] : ""), 'placeholder' => 'Enter Program ID']);
     $form::end_fieldset();
-
+    ?>
+<div class="form-group">
+    <?php
     $form::start_fieldset(['id' => 'id', 'class' => 'class']);
     $form::add_legend(['id' => "", 'value' => "Including Information"]);
 
@@ -49,10 +51,14 @@ unset($_SESSION['student']);
     $form::add_input(['id' => 'paymentTracking', 'value' => "payment_tracking",'name'=>"include[]", 'type' => 'checkbox']);
     $form::add_label(['for' => 'paymentTracking', 'label' => 'Payment Tracking']);
     $form::end_fieldset();
-
+    ?>
+    </div>
+    <div class="form-group">
+    <?php
     $form::add_input(['class' => 'btn btn-primary', 'name' => 'preview', 'type' => 'submit', 'value' => 'preview']);
     $form::add_input(['class' => 'btn btn-primary', 'name' => 'generate', 'type' => 'submit', 'value' => 'generate']);
-
+    ?></div>
+    <?php
     $form::end_form();
     ?>
 </div>
