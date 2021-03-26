@@ -3,7 +3,7 @@ include "v_masterPage_header.php";
 include "v_masterPage_sidebar.php";
 $labels = [
     "Student ID" => 'student_id',
-    'student ID' => 'id',
+    "student ID" => 'id',
     "Program ID" => 'prog_id',
     "Photo ID" => 'photo_id',
     "Resume" => 'resume',
@@ -35,14 +35,14 @@ $labels = [
     "RMT Student Learning Materials" => 'rmt_stu_materials',
     "Acknowledgement & Agreement Form Received Date" => 'stu_ack_and_agr',
     "Self-Declaration of Health Notice Receive Date" => 'health_check_date',
-    'Student Name' => 'name',
-    'Date of birth' => 'birthdate',
-    'Phone number' => 'phone',
+    "Student Name" => 'name',
+    "Date of birth" => 'birthdate',
+    "Phone number" => 'phone',
     'Email' => 'email',
-    'Address' => 'address',
-    'Cohor' => 'cohort',
-    'Name Tag (Yes / No)' => 'name_tag',
-    'SPECO (Yes / No)' => 'speco',
+    "Address" => 'address',
+    "Cohor" => 'cohort',
+    "Name Tag" => 'name_tag',
+    "SPECO" => 'speco',
     'Domestic or International' => 'dom_or_int',
     'Enrollment Notes' => 'enroll_notes',
     'Admission status' => 'admin_status',
@@ -100,7 +100,7 @@ if ($table == 'students') {
     $rawData = $model->select($table, $studentID);
     $type = $model->get_type($table);
     if (empty($rawData)) {
-        echo "<div class='text-center'><h2>This record is unavailable</h2></div>";
+        echo "<div id='formTitle'><h2>This record is unavailable</h2></div>";
     } else {
         $data = $rawData[0];
         ?>

@@ -147,7 +147,7 @@ class View
             foreach ($d as $k => $v) {
                 echo "<input type='hidden' name='$k' value='$v'>";
             }
-            echo " <input class='btn btn-default' type='submit' name='edit_user_info' value='Edit'>";
+            echo " <input class='btn btn-link' type='submit' name='edit_user_info' value='Edit'>";
             echo "</form>";
 
             echo "</td>";
@@ -157,7 +157,7 @@ class View
             foreach ($d as $k => $v) {
                 echo "<input type='hidden' name='$k' value='$v'>";
             }
-            echo " <input class='btn btn-danger' type='submit' onclick='if(!confirm(\"Are you sure to delete this user?\")) {return false }'  name='delete_user' value='Delete'>";
+            echo " <input class='btn btn-link' type='submit' onclick='if(!confirm(\"Are you sure to delete this user?\")) {return false }'  name='delete_user' value='Delete'>";
 
             echo "</form>";
             echo "</td>";
@@ -167,7 +167,7 @@ class View
             foreach ($d as $k => $v) {
                 echo "<input type='hidden' name='$k' value='$v'>";
             }
-            echo " <input class='btn btn-warning' type='submit' name='reset_password' value='Reset Password'>";
+            echo " <input class='btn btn-link' type='submit' name='reset_password' value='Reset Password'>";
             echo "</form>";
 
             echo "</td>";
@@ -176,18 +176,4 @@ class View
         echo "</tbody>";
         echo "</table><br>";
     }
-
-//    function replace_label($src, $data)
-//    {
-//        $res = [];
-//        foreach ($data as $k => $v) {
-//            foreach ($src as $key => $val) {
-//                if ($v == $val) {
-//                    array_push($res, $key);
-//                }
-//            }
-//        }
-//        return $res;
-//    }
-
 }

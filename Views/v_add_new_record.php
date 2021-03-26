@@ -6,14 +6,14 @@ include "v_masterPage_sidebar.php";
 ?>
 
 <div class="container" id="mainContent" style="margin-left:50px;">
-    <h4>Add New Student Record</h4>
+    <h4>ADD NEW RECORD</h4>
     <div class="row">
         <div class="col-xs-12">
             <!--form starts-->
             <form class="col-lg-8" action="?action=c_add_new_record" method="POST">
                 <!--select program-->
-                <div class="form-group" id="rmt" style="padding-top: 20px;">
-                    <label for="selectSection">Select Section to Insert:</label>
+                <div class="form-group" id="rmt">
+                    <label for="selectSection">Select Section to Insert</label>
                     <select class="form-control" name="select_section" id="selectSection">
                         <option disabled selected value> -- select an option --</option>
                         <option value="Enrollment Brief Summary">Enrollment Brief Summary</option>
@@ -30,19 +30,19 @@ include "v_masterPage_sidebar.php";
         </div>
     </div>
 
-    <h4 style="padding-top: 20px;">Update Existing Record</h4>
+    <h4>UPDATE EXISTING RECORD</h4>
     <div class="row">
         <div class="col-xs-12">
             <!--form starts-->
             <form class="col-lg-8" action="?action=v_update_record" method="POST">
-                <div class="form-group" style="padding-top: 20px;">
+                <div class="form-group">
                     <label for="student_id">Student ID</label>
                     <input name="student_id" id="" class="form-control" type="number" placeholder="Enter Student ID"
                            required="required">
                 </div>
                 <!--select program-->
-                <div class="form-group" style="padding-top: 10px;">
-                    <label for="selectSection">Select Section to Update:</label>
+                <div class="form-group">
+                    <label for="selectSection">Select Section to Update</label>
                     <select class="form-control" name="select_section" id="selectSection">
                         <option disabled selected value> -- select an option --</option>
                         <option value="students">Enrollment Brief Summary</option>
@@ -53,7 +53,7 @@ include "v_masterPage_sidebar.php";
                     </select>
                 </div>
                 <div class="form-group">
-                    <input type="submit" name='update_record' value='Submit' class="btn btn-primary">
+                    <input class="btn btn-primary" type="submit" name='update_record' value='Submit'>
                 </div>
             </form>
         </div>

@@ -230,6 +230,26 @@ body{
  table >tr>td {
     overflow: auto;
  }
+
+ #formTitle{
+     text-align: center;
+     color:#122b40;
+     text-transform: uppercase;
+     padding-top: 10px;
+ }
+
+ .form-control{
+     border:none;
+     background:none;
+     border-radius: 0;
+     box-shadow: none;
+     border-bottom: 1px solid #2e6da4;
+ }
+
+ .form-group{
+     padding-top: 20px;
+ }
+
 /*-----------------------------------------------------
     Export Button Style
 ------------------------------------------------------*/

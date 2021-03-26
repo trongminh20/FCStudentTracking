@@ -13,7 +13,7 @@ class Form
      */
     public function __construct($formClass, $formId, $formAction, $formMethod, $formName, $formTarget="")
     {
-        echo "<h3>" . $formName . "</h3>";
+        echo "<h2 id='formTitle'>" . $formName . "</h2>";
         echo "<form class='" . $formClass . "' id='" . $formId . "' action='?action=" . $formAction . "' method='" . $formMethod . "' target='".$formTarget."'>";
     }
 

@@ -8,7 +8,7 @@ include "v_masterPage_sidebar.php";
 <div class="container" id="mainContent" style="padding-top: 20px; margin-left:50px;">
     <div class="row">
         <div class="col-xs-12">
-            <h2 style="padding-top: 10px">Admission Prior to Start Date</h2>
+            <h2 id="formTitle">Admission Prior to Start Date</h2>
 
             <!--Form starts-->
             <form class="col-lg-8" action="?action=c_add_apsds" method="POST">

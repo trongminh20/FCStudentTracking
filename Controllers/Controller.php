@@ -256,14 +256,14 @@ class Controller
 
     private function c_add_student(Model $model): void
     {
-        if(isset($_POST['add_student'])) {
+        if (isset($_POST['add_student'])) {
             $data = $_POST;
             unset($data['add_student']);
             $data = $this->alter_null($data);
             $model->insert('students', $data);
-            $_SESSION['add_student_announcement'] = "Student ".$data['name']." has been added successfully";
+            $_SESSION['add_student_announcement'] = "Student " . $data['name'] . " has been added successfully";
             header("Location:?action=v_enrollmentBriefSummary_form");
-        }else{
+        } else {
             $_SESSION['add_student_announcement'] = "Invalid data, please try again";
         }
     }
@@ -284,6 +284,7 @@ class Controller
     {
         if (isset($_POST['select_section'])) {
             $case = $_POST['select_section'];
+
             if ($case === 'Enrollment Brief Summary') {
                 header("location:?action=v_enrollmentBriefSummary_form");
             }
@@ -304,22 +305,30 @@ class Controller
 
     private function c_update_record(Model $model): void
     {
-        $data = $_POST;
-        $table = $data['table'];
-        if ($table == 'students') {
-            $id = ['id' => $data['id']];
-        } else {
-            $id = ['student_id' => $data['student_id']];
+        if (isset($_POST['update_record'])) {
+            $data = $_POST;
+            $table = $data['table'];
+            if ($table == 'students') {
+                $id = ['id' => $data['id']];
+            } else {
+                $id = ['student_id' => $data['student_id']];
+            }
+            unset($data['table']);
+            unset($data['update_record']);
+            if (isset($data['rmt_stu_materials'])) {
+                $data['rmt_stu_materials'] = implode(", ", $data['rmt_stu_materials']);
+            }
+            $data = $this->alter_null($data);
+            try {
+                $model->change_info($table, $data, $id);
+                $_SESSION['update_announce'] = 'Record updated';
+                }catch(PDOException $e) {
+                $_SESSION['update_announce'] = $e ->getMessage();
+            }
+            header("Location:?action=v_add_new_record");
+        }else{
+            $_SESSION['update_announce'] = "Invalid data, please try again";
         }
-        unset($data['table']);
-        unset($data['update_record']);
-        if (isset($data['rmt_stu_materials'])) {
-            $data['rmt_stu_materials'] = implode(", ", $data['rmt_stu_materials']);
-        }
-        $data = $this->alter_null($data);
-        $model->change_info($table, $data, $id);
-        header("Location:?action=v_add_new_record");
-
     }
 
     /**
