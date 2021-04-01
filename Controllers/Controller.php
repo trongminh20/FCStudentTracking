@@ -137,11 +137,21 @@ class Controller
 
     private function c_update_user_info(Model $model)
     {
-        $data = $_POST;
-        $id = ['id' => $data['id']];
-        unset($data['edit']);
-        $model->change_info('employees', $data, $id);
-        header("Location:?action=v_user_manage");
+        if (isset($_POST['edit'])) {
+            $data = $_POST;
+            $id = ['id' => $data['id']];
+            unset($data['edit']);
+            try {
+                $model->change_info('employees', $data, $id);
+            } catch (PDOException $e) {
+                $_SESSION['update_user_info'] = $e->getMessage();
+            }
+            $_SESSION['update_user_info'] = "User's information have been updated successfully";
+            header("Location:?action=v_user_manage");
+        } else {
+            $_SESSION['update_user_info'] = "Invalid input data, please try again";
+            header("Location:?action=v_user_manage");
+        }
     }
 
     private function c_change_pass(Model $model)
@@ -322,11 +332,11 @@ class Controller
             try {
                 $model->change_info($table, $data, $id);
                 $_SESSION['update_announce'] = 'Record updated';
-                }catch(PDOException $e) {
-                $_SESSION['update_announce'] = $e ->getMessage();
+            } catch (PDOException $e) {
+                $_SESSION['update_announce'] = $e->getMessage();
             }
             header("Location:?action=v_add_new_record");
-        }else{
+        } else {
             $_SESSION['update_announce'] = "Invalid data, please try again";
         }
     }
