@@ -3,7 +3,12 @@ include "v_masterPage_header.php";
 ?>
 <?php
 include "v_masterPage_sidebar.php";
-$number = $database->select_count('invoices');
+$date = date('ymd');
+$rows = $database->select_count('invoices', $date);
+
+$number= count($rows) + 1;
+$invoiceNumber = $date.$number;
+
 ?>
 <div id="mainContent" style="margin-left:50px;">
     <form class="" id="" action="?action=v_invoice_generate" method="POST" target="_blank">
@@ -11,7 +16,7 @@ $number = $database->select_count('invoices');
             <thead>
             <tr>
                 <td>
-                    INVOICE NUMBER <input type="number" name="number" value="<?= date('ymd') . $number ?>"
+                    INVOICE NUMBER <input type="number" name="number" value="<?= $invoiceNumber?>"
                                           readonly>
                     (PAID)
                 </td>

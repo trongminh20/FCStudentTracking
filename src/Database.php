@@ -56,12 +56,12 @@ class Database
         return $stm->rowCount();
     }
 
-    function select_count($table)
+    function select_count($table, $date)
     {
-        $query = "SELECT DISTINCT COUNT(*) FROM $table";
+        $query = "SELECT * FROM $table WHERE number LIKE '" . $date . "%'";
         $stm = $this->pdo->prepare($query);
-        $res = $stm->execute();
-        return $res;
+        $stm->execute();
+        return $stm->fetchAll(PDO::FETCH_ASSOC);
     }
 
     /**
