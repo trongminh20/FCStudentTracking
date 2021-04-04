@@ -326,13 +326,32 @@ include "v_masterPage_sidebar.php";
                 </div>
                 <!--submit button-->
                 <div class="form-group" style="padding-top: 20px; padding-bottom: 10px">
-                    <input type="submit" name='add_apsds' value='ADD' class="btn
-              		btn-primary">
+                    <input href="#" type="submit" name='add_apsds' value='ADD' class="btn btn-primary" data-toggle="modal" data-target="#addMoreRecordModal">
                 </div>
             </form>
         </div>
     </div>
 </div>
+<!--add more record Modal-->
+<div class="modal" id="addMoreRecordModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4>Succeeded!</h4>
+            </div>
+            <div class="modal-body">
+                <div class="actionsBtns">
+                    <form action="" method="">
+                        <input type="submit" id="btnback" class="btn btn-default btn-primary" value="Add More Record" />
+                        <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!--JS code show different section based on the program selection-->
 <script type="text/javascript">
     $(document).ready(function(){

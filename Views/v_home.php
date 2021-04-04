@@ -14,6 +14,7 @@ include "v_masterPage_sidebar.php";
                         <div class="d-flex flex-column align-items-center text-center">
                             <img src="images/img_avatar.png" alt="Admin" class="rounded-circle" width="150">
                             <div class="mt-3">
+
                                 <h4><?= $fname[0]['fname'] ?></h4>
                                 <p><?= $_SESSION['user']['username'] ?></p>
                                 <p class="text-secondary mb-1"><?=$fname[0]['role']?></p>
@@ -22,7 +23,6 @@ include "v_masterPage_sidebar.php";
                         </div>
                     </div>
                 </div>
-                <!--college social media-->
             </div>
             <!--detail info-->
             <div class="col-md-8">
@@ -38,7 +38,6 @@ include "v_masterPage_sidebar.php";
                                  style="padding-top: 7px"><?= $fname[0]['fname'] ?></div>
                         </div>
                         <hr>
-
                         <div class="row">
                             <div class="col-sm-3">
                                 <h6 class="mb-0">Mobile</h6>
@@ -62,8 +61,10 @@ include "v_masterPage_sidebar.php";
                     <div class="card-body">
                         <p class="d-flex align-items-center mb-3">
                             <?php
+
                             if ($_SESSION['user']['admin'] == 1) {
                                 echo "<h3>Received Requests</h3>";
+
 
                                 $data = $model->select('requests', NULL);
                                 $view->display_as_table("requestsTable", "", $data);

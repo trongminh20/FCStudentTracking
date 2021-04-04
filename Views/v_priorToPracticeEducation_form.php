@@ -47,6 +47,7 @@ include "v_masterPage_sidebar.php";
           <div id="RHUni" class="form-groupRH" style="padding-top: 20px; margin-bottom: 15px; display: none;">
             <label for="ClinicShirtSize">Clinic/Uniform Shirt Size:</label>
               <select class="form-control" name="clinic_shirt_size" id="ClinicShirtSize">
+                <option disabled selected value> -- select an option --</option>
                 <option value="Extra Small">Extra Small</option>
                 <option value="Small">Small</option>
                 <option value="Medium">Medium</option>
