@@ -20,14 +20,13 @@ class Controller
             case 'v':
                 return "Views/" . $dr . ".php";
             case 'c':
-                if($dr == "c_login"){
+                if ($dr == "c_login") {
                     $this->c_login($model);
-                } else if(isset($_SESSION['session_id'])){
-                $this->$dr($model);
-                }else{
+                } else if (isset($_SESSION['session_id'])) {
+                    $this->$dr($model);
+                } else {
                     header("location:?action=v_login");
                 }
-
             case 'm':
                 return "Models/" . $dr . ".php";
             default:
@@ -59,9 +58,9 @@ class Controller
             $password = SHA1($_POST['password']);
             $success = $model->sign_in($username, $password);
             $sessionID = rand(1000, 9999);
-            $check = $model ->select('sessions',['session_id' => $sessionID]);
-            while(count($check) > 0){
-                $check = $model ->select('sessions',['session_id' => $sessionID]);
+            $check = $model->select('sessions', ['session_id' => $sessionID]);
+            while (count($check) > 0) {
+                $check = $model->select('sessions', ['session_id' => $sessionID]);
                 $sessionID = rand(1000, 9999);
             }
 
