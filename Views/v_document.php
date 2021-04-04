@@ -2,6 +2,17 @@
 include "v_tech_nav.php";
 ?>
 <div id="mainContainer">
+    <div class="content" id="introduction">
+       <h1>Introduction</h1>
+       <br>
+       <p>This user guide is intended to provide the user a comprehensive explanation of all the features of this appliation.</p>
+       <p>This guide is intended for any user, whether you are an administrator or general user.</p>
+       <br>
+       <p>If you are entering information like student personal information, enrollment status, payment status you will find</p>
+       <p>the topics you need to guide you through the process.</p>
+       <br>
+       This guide covers all general and non-administrative functions of the system.</p>
+    </div> 
     <div class="content" id="resetPassword">
         <h1>How to reset Password?</h1>
         <p> 1. Click on the 'Forgot your password?' link on the login page </p>
@@ -98,7 +109,54 @@ include "v_tech_nav.php";
         </ul>
         </p>
     </div>
+    <hr>    
+    <div class="content" id="add_record">
+       <h1> How to Add New Record?</h1>
+       <h2> This function allows user to add new student record.</h2>
+       <br>
+       <p> 1. Select Add New Record</p>
+       <img src="images/new_record.png" alt="add new record">
+       <br>
+       <p> 2. Press down arrow key and select desired section.</p>
+       <img src="images/section_insert.png" alt="add new record">
+       <br>
+       <p> 3. Press submit button.</p> 
+       <img src="images/submit.png" alt="submit">
+       <br>
+       <p> 4. Fill out the form. </p>
+       <br>
+       <p> 5. Press add new student once done. </p>
+       <img src="images/add_new_student.png" alt="submit">
+    </div>
+    <hr>
+    <div class="content" id="update_record">
+       <h1> How to Update Existing Record?</h1>
+       <h2> This function allows user to update existing student record.</h2>
+       <br>
+       <p> 1. Select Add New Record</p>
+       <img src="images/new_record.png" alt="add new record">
+       <br>
+       <p> 2. Enter Student ID.</p>
+       <img src="images/student_id.png" alt="student_id">
+       <br>
+       <p> 3. Press down arrow to select section to update.</p> 
+       <img src="images/section_update.png" alt="section_update">
+       <br>
+       <p> 4. Press submit after selecting section. </p>
+       <img src="images/submit.png" alt="submit">
+       <br>
+       <p> 5. Press add new student once done. </p>
+       <img src="images/add_new_student.png" alt="submit">
+       <br>
+       <p> 6. Select student record to update.</p>
+       <br>
+       <p> 7. Press save once done. </p>
+       <img src="images/save.png" alt="submit">
+    </div> 
+    
 </div>
+          
+    
 
 </div><!--end of wrapper started in tec_nav-->
 
