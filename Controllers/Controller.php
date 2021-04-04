@@ -20,7 +20,9 @@ class Controller
             case 'v':
                 return "Views/" . $dr . ".php";
             case 'c':
-                if(isset($_SESSION['session_id'])){
+                if($dr == "c_login"){
+                    $this->c_login($model);
+                } else if(isset($_SESSION['session_id'])){
                 $this->$dr($model);
                 }else{
                     header("location:?action=v_login");
