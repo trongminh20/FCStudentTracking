@@ -51,6 +51,13 @@ class Controller
             $username = $_POST['username'];
             $password = SHA1($_POST['password']);
             $success = $model->sign_in($username, $password);
+            $sessionID = rand(1000, 9999);
+            $check = $model ->select('sessions',['session_id' => $sessionID]);
+            while(count($check) > 0){
+                $check = $model ->select('sessions',['session_id' => $sessionID]);
+                $sessionID = rand(1000, 9999);
+            }
+
             if ($success == 1) {
                 $data = $model->select_user($username);
                 if ($data[0]['admin'] == 1) {
@@ -65,7 +72,7 @@ class Controller
                 $user->set_department($data[0]['department']);
                 $user->set_role($data[0]['admin']);
                 // assign User's information from database -> $_SESSION
-                $_SESSION['session_id'] = rand(1000, 9999);
+                $_SESSION['session_id'] = $sessionID;
 
                 $_SESSION['user'] = $user->to_array();
                 $_SESSION['login'] = date('Y-m-d H:i:s');
