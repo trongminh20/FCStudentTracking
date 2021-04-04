@@ -23,8 +23,6 @@ include "v_masterPage_sidebar.php";
                         </div>
                     </div>
                 </div>
-                <!--college social media-->
-
             </div>
             <!--detail info-->
             <div class="col-md-8">
