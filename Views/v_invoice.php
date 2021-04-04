@@ -4,9 +4,11 @@ include "v_masterPage_header.php";
 <?php
 include "v_masterPage_sidebar.php";
 $date = date('ymd');
+
 $rows = $database->select_count('invoices', $date);
 
 $number= count($rows) + 1;
+
 $invoiceNumber = $date.$number;
 
 ?>

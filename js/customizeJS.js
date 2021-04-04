@@ -174,9 +174,8 @@ function shrinkable() {
                     '&nbsp;<a id="' + id + 'MoreLink" href="#!" onclick="showMore(\'' + id + '\');" style="text-decoration-line:underline">' +
                     'Show more' +
                     '</a>' +
-                    '<a class="hidden" href="#!" id="' + id + 'LessLink" onclick="showLess(\'' + id + '\');"style="text-decoration-line: underline">' +
-                    'Show less' +
-                    '</a>';
+                    '<a class="hidden" href="#!" id="' + id + 'LessLink" onclick="showLess(\'' + id + '\');"' +
+                    ' style="text-decoration-line: underline"> Show less </a>';
             }
         }
 
