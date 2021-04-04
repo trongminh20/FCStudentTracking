@@ -4,10 +4,20 @@ include "v_masterPage_sidebar.php";
 
 ?>
 
-<div class="container" id="mainContent" style="padding-top: 20px">
+<div class="container" id="mainContent" style="padding-top: 20px; margin-left:50px;">
+
     <div class="row">
+
         <div class="col-xs-12">
-            <h2 style="padding-top: 10px">Enrollment Brief Summary</h2>
+            <h2 id="formTitle" style="padding-top: 10px">Enrollment Brief Summary</h2>
+            <?php
+            if (isset($_SESSION['add_student_announcement'])) {
+                echo "<div class='text-center' style='color: #4cae4c'>" . $_SESSION['add_student_announcement'] . "</div>";
+                unset($_SESSION['add_student_announcement']);
+            } else {
+                echo "";
+            }
+            ?>
             <!--Form starts-->
             <form action="?action=c_add_student" method="POST">
                 <div class="form-group" style="padding-top: 20px">
@@ -30,12 +40,12 @@ include "v_masterPage_sidebar.php";
                     <select name="prog_id" class="form-control" id="programID">
                         <option>-- Select one --</option>
                         <?php
-                            $options = $model -> select('programs', NULL);
-                            foreach($options as $op):
-                        ?>
-                            <option value="<?=$op['id']?>"><?=$op['id']." -- ".$op['prog_name']?></option>
+                        $options = $model->select('programs', NULL);
+                        foreach ($options as $op):
+                            ?>
+                            <option value="<?= $op['id'] ?>"><?= $op['id'] . " -- " . $op['prog_name'] ?></option>
                         <?php
-                            endforeach;
+                        endforeach;
                         ?>
                     </select>
                 </div>
@@ -69,14 +79,15 @@ include "v_masterPage_sidebar.php";
                         </div>
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input name="Dom_OR_Int" id="DomORInt" value="international" type="radio"/> International
+                                <input name="Dom_OR_Int" id="DomORInt" value="international" type="radio"/>
+                                International
                             </label>
                         </div>
                     </div>
                 </div>
                 <!--enrollment notes-->
                 <div class="form-group" style="padding-top: 20px">
-                    <label for="emrollmentNotes">Emrollment Notes:</label>
+                    <label for="emrollmentNotes">Enrollment Notes:</label>
                     <textarea type="text" class="form-control" name="enroll_notes" id="emrollmentNotes"
                               rows="5"></textarea>
                 </div>
@@ -86,10 +97,11 @@ include "v_masterPage_sidebar.php";
                 </div>
                 <!--submit button-->
                 <div class="form-group" style="padding-top: 20px">
-                    <input class="btn btn-primary" id="btnAddNewStudent" type="submit" name="submit" value ='Add new
-                    Student'>
+                    <input class="btn btn-primary" id="btnAddNewStudent" type="submit" name="add_student" value='Add
+                    new Student'>
                 </div>
             </form>
         </div>
     </div>
 </div>
+<!--add more record Modal-->

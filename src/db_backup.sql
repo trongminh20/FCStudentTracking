@@ -24,6 +24,7 @@ DROP TABLE IF EXISTS `apsds`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `apsds` (
   `student_id` int(11) DEFAULT NULL,
+  `prog_id` varchar(5) DEFAULT NULL,
   `photo_id` varchar(3) DEFAULT NULL,
   `app_form` varchar(50) DEFAULT NULL,
   `app_fee` varchar(50) DEFAULT NULL,
@@ -65,8 +66,34 @@ CREATE TABLE `apsds` (
 
 LOCK TABLES `apsds` WRITE;
 /*!40000 ALTER TABLE `apsds` DISABLE KEYS */;
-INSERT INTO `apsds` VALUES (3789001,'yes','this is test','ttigdagdsg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'yes',5454,'yes',NULL,NULL,NULL,NULL,'gfsgfd',NULL,'2021-03-16 00:00:00','gfgf','fgsdfg','this is other','2021-03-31 00:00:00','yes',NULL,'2021-03-17',NULL),(3789000,'yes','test form','test fee','yes','test CRL','yes','2021-03-16 03:02:00','2021-03-17 03:02:00','2021-03-16 03:02:00','2021-03-23 03:02:00','test intro','test completed','yes',87,'yes','test crc','yes','2021-03-11 03:03:00','yes','test dip','testemail@email.com','2021-03-16 00:00:00','test contract','test student program handbook','Full Payment','2021-03-18 00:00:00','yes','Sheet Set, Laptop or Learning Support, Goniometer','2021-03-18','2021-03-10');
+INSERT INTO `apsds` VALUES (3789000,NULL,'yes','43434','434343','yes','tqrtr','yes','2021-03-14 16:54:00','2021-03-10 15:56:00','2021-03-30 17:58:00','2021-03-16 17:58:00','gfgf','gfgfgf','yes',54,'yes','gfgf','yes','2021-03-18 16:57:00','yes','gfgf','fgfgfg','2021-03-18 00:00:00','gfgfsg','gfgfgsd','','2021-03-16 00:00:00','yes','Goniometer, Oil Holster','2021-03-11','2021-03-12');
 /*!40000 ALTER TABLE `apsds` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `emp_info`
+--
+
+DROP TABLE IF EXISTS `emp_info`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `emp_info` (
+  `eid` int(11) DEFAULT NULL,
+  `fname` varchar(50) DEFAULT NULL,
+  `role` varchar(30) DEFAULT NULL,
+  KEY `eInfo_fk` (`eid`),
+  CONSTRAINT `eInfo_fk` FOREIGN KEY (`eid`) REFERENCES `employees` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `emp_info`
+--
+
+LOCK TABLES `emp_info` WRITE;
+/*!40000 ALTER TABLE `emp_info` DISABLE KEYS */;
+INSERT INTO `emp_info` VALUES (1000,'Jessie Zhang','IT coordinator'),(1001,'Timothy Yang','Director'),(1002,'Cecily Qiu','Student Advisor'),(1003,'Jason Zhong','President'),(1004,'Sydney Stoltz','Admissions Advisor');
+/*!40000 ALTER TABLE `emp_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -95,7 +122,7 @@ CREATE TABLE `employees` (
 
 LOCK TABLES `employees` WRITE;
 /*!40000 ALTER TABLE `employees` DISABLE KEYS */;
-INSERT INTO `employees` VALUES (1000,'jessie.zhang','250-718-6186','jessie.zhang@firstcollege.ca','IT Department','123456789',1),(1001,'timothy.yang','205-899-3790','timothy.yang@firstcollege.ca','Director Office','123456789',0),(1002,'cecily.qiu','250-859-8417','cecily.qiu@firstcollege.ca','Student Service Department','123456789',0),(1003,'jason.zhong','778-231-3456','jason.zhong@firstcollege.ca','President','123456789',0),(1004,'sydney.stoltz','250-718-8279','sydney.stoltz@firstcollege.ca','Student Service Department','123456789',0);
+INSERT INTO `employees` VALUES (1000,'jessie.zhang','250-718-6186','jessie.zhang@firstcollege.ca','IT Department','123456789',1),(1001,'timothy.yang','250-899-3790','timothy.yang@firstcollege.ca','Director Office','123456789',0),(1002,'cecily.qiu','250-859-8417','cecily.qiu@firstcollege.ca','Student Service Department','123456789',0),(1003,'jason.zhong','778-231-3456','jason.zhong@firstcollege.ca','President','123456789',0),(1004,'sydney.stoltz','250-718-8279','sydney.stoltz@firstcollege.ca','Student Service Department','123456789',0);
 /*!40000 ALTER TABLE `employees` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -135,6 +162,7 @@ DROP TABLE IF EXISTS `graduations`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `graduations` (
   `student_id` int(11) DEFAULT NULL,
+  `prog_id` varchar(5) DEFAULT NULL,
   `tuition_paid` varchar(3) DEFAULT NULL,
   `official_transcript` varchar(3) DEFAULT NULL,
   `completion_letter` varchar(3) DEFAULT NULL,
@@ -153,7 +181,6 @@ CREATE TABLE `graduations` (
 
 LOCK TABLES `graduations` WRITE;
 /*!40000 ALTER TABLE `graduations` DISABLE KEYS */;
-INSERT INTO `graduations` VALUES (3789000,'yes','yes','yes','yes','2021-03-23 12:33:00','yes','trtnrla');
 /*!40000 ALTER TABLE `graduations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -244,13 +271,13 @@ DROP TABLE IF EXISTS `payment_tracking`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `payment_tracking` (
   `student_id` int(11) DEFAULT NULL,
-  `domestic` varchar(3) DEFAULT NULL,
-  `international` varchar(3) DEFAULT NULL,
-  `app_fee` int(11) DEFAULT NULL,
-  `scholarships` int(11) DEFAULT NULL,
-  `intro_msg_fee` int(11) DEFAULT NULL,
-  `materials_fee` int(11) DEFAULT NULL,
+  `prog_id` varchar(5) DEFAULT NULL,
+  `application_fee` int(11) DEFAULT NULL,
+  `intro_to_message_fee` int(11) DEFAULT NULL,
+  `course_materials_fee` int(11) DEFAULT NULL,
   `textbook_fee` int(11) DEFAULT NULL,
+  `dom_or_int` varchar(15) DEFAULT NULL,
+  `scholarships` int(11) DEFAULT NULL,
   `admin_fee` int(11) DEFAULT NULL,
   `1st_payment` int(11) DEFAULT NULL,
   `2nd_payment` int(11) DEFAULT NULL,
@@ -263,6 +290,7 @@ CREATE TABLE `payment_tracking` (
   `9th_payment` int(11) DEFAULT NULL,
   `10th_payment` int(11) DEFAULT NULL,
   `total` int(11) DEFAULT NULL,
+  `remaining_payment` int(11) DEFAULT NULL,
   KEY `pay_stu_fk` (`student_id`),
   CONSTRAINT `pay_stu_fk` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -274,6 +302,7 @@ CREATE TABLE `payment_tracking` (
 
 LOCK TABLES `payment_tracking` WRITE;
 /*!40000 ALTER TABLE `payment_tracking` DISABLE KEYS */;
+INSERT INTO `payment_tracking` VALUES (3789000,'CSW',545454,NULL,NULL,NULL,'domestic',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `payment_tracking` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -286,6 +315,7 @@ DROP TABLE IF EXISTS `ppes`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ppes` (
   `student_id` int(11) DEFAULT NULL,
+  `prog_id` varchar(5) DEFAULT NULL,
   `name_tag` varchar(3) DEFAULT NULL,
   `clinic_shirt_size` varchar(30) DEFAULT NULL,
   `order_date` date DEFAULT NULL,
@@ -295,13 +325,12 @@ CREATE TABLE `ppes` (
   `cert_fa_cpr_receive` date DEFAULT NULL,
   `foodsafe_dt` datetime DEFAULT NULL,
   `cert_foodsafe_receive` date DEFAULT NULL,
-  `crc_notes` varchar(200) DEFAULT NULL,
-  `crc_receive` date DEFAULT NULL,
   `speco` varchar(3) DEFAULT NULL,
   `cli_handbook_receive` date DEFAULT NULL,
   `cli_ack_and_agr` varchar(3) DEFAULT NULL,
   `medical_file` varchar(3) DEFAULT NULL,
   `foodsafe_contact` varchar(200) DEFAULT NULL,
+  `crc_notes` varchar(50) DEFAULT NULL,
   UNIQUE KEY `ppes_stu_unq` (`student_id`),
   CONSTRAINT `ppe_stu_fk` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -313,7 +342,6 @@ CREATE TABLE `ppes` (
 
 LOCK TABLES `ppes` WRITE;
 /*!40000 ALTER TABLE `ppes` DISABLE KEYS */;
-INSERT INTO `ppes` VALUES (3789000,'yes','Extra Small',NULL,NULL,'2021-03-23 12:22:00','this is testing','2021-03-23',NULL,NULL,NULL,NULL,'yes',NULL,NULL,NULL,NULL),(3789001,'yes','Small','2021-03-24','2021-03-24','2021-03-24 12:25:00','test','2021-03-23',NULL,NULL,NULL,NULL,NULL,'2021-03-24','no','yes',NULL);
 /*!40000 ALTER TABLE `ppes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -408,7 +436,8 @@ CREATE TABLE `sessions` (
   `created` datetime DEFAULT NULL,
   `logout` datetime DEFAULT NULL,
   PRIMARY KEY (`session_id`),
-  KEY `session_fk` (`user_id`)
+  KEY `session_fk` (`user_id`),
+  CONSTRAINT `session_fk` FOREIGN KEY (`user_id`) REFERENCES `employees` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -418,7 +447,7 @@ CREATE TABLE `sessions` (
 
 LOCK TABLES `sessions` WRITE;
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
-INSERT INTO `sessions` VALUES (4067,1000,'2021-03-16 12:10:27','2021-03-16 12:33:04'),(5571,3789111,'2021-03-16 21:12:07','2021-03-16 21:12:45'),(6642,1000,'2021-03-16 20:32:43','2021-03-16 21:12:00'),(6858,3789111,'2021-03-16 21:12:52','2021-03-16 21:13:01');
+INSERT INTO `sessions` VALUES (1335,1000,'2021-03-20 15:03:42','2021-03-20 15:05:50'),(1989,1000,'2021-03-19 02:35:20','2021-03-19 02:43:23'),(2418,1000,'2021-03-19 01:43:05','2021-03-19 01:48:00'),(3929,1000,'2021-03-20 15:03:10','2021-03-20 15:03:20'),(4071,1003,'2021-03-19 02:32:15','2021-03-19 02:32:56'),(5743,1004,'2021-03-20 14:13:03','2021-03-20 14:17:45'),(6671,1003,'2021-03-19 02:33:40','2021-03-19 02:35:05'),(8698,1000,'2021-03-20 14:47:38','2021-03-20 15:00:26'),(8701,1000,'2021-03-20 15:02:34','2021-03-20 15:02:41'),(9019,1000,'2021-03-19 01:27:44','2021-03-19 01:43:00'),(9494,1000,'2021-03-19 02:21:33','2021-03-19 02:28:42');
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -439,6 +468,7 @@ CREATE TABLE `students` (
   `address` varchar(50) DEFAULT NULL,
   `dom_or_int` varchar(13) DEFAULT NULL,
   `enroll_notes` text,
+  `cohort` varchar(30) DEFAULT NULL,
   `admin_status` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `Students_FK` (`prog_id`),
@@ -452,7 +482,7 @@ CREATE TABLE `students` (
 
 LOCK TABLES `students` WRITE;
 /*!40000 ALTER TABLE `students` DISABLE KEYS */;
-INSERT INTO `students` VALUES (3100567,'CSW','minhphan','2021-03-09','345671','trongminh@kdgndf.cdfd','gangafgf','domestic','minhphan','minhpahn'),(3789000,'HCA','Jack Kerwin','2013-09-18','778-959-6325','jack.kerwin@fcstudent.ca','1010 Clement Ave, Kelowna, V1Y 7E3','Domestic','Application fee paid.','Interested'),(3789001,'CSW','Abigail Sloan','2020-07-04','250-123-1425','abigail.sloan@fcstudent.ca','101-3533 Carrington Rd,\r\nWest Kelowna, V4T 3G9','Domestic','Waiting for contract','Conditional'),(3789002,'HCA','Norman Dreger','2003-10-16','250-748-5362','norman.dreger@fcstudent.ca','202-211 Briarwood Rd,\r\nKelowna, V1X 2G4','International','Complete','Enrolled'),(3789003,'RMT','Alec Bryson','2009-01-11','778-582-4785','alec.bryson@fcstudent.ca','1806 Kloppenburg Crt, Kelowna,\r\nV1P 1N6','Domestic','','Interested'),(3789004,'RMT','Calista Cornford','2012-07-30','604-582-1213','calista.cornford@fcstudent.ca','2159 Clement Ave,\r\nKelowna, V1Y 7E3','Domestic','Waiting for transcript.','Conditional');
+INSERT INTO `students` VALUES (3100567,'CSW','minhphan','2021-03-09','345671','trongminh@kdgndf.cdfd','gangafgf','domestic','minhphan',NULL,'minhpahn'),(3789000,'HCA','Jack Kerwin','2013-09-18','778-959-6325','jack.kerwin@fcstudent.ca','1010 Clement Ave, Kelowna, V1Y 7E3','Domestic','Application fee paid.',NULL,'Interested'),(3789001,'CSW','Abigail Sloan','2020-07-04','250-123-1425','abigail.sloan@fcstudent.ca','101-3533 Carrington Rd,\r\nWest Kelowna, V4T 3G9','Domestic','Waiting for contract',NULL,'Conditional'),(3789002,'HCA','Norman Dreger','2003-10-16','250-748-5362','norman.dreger@fcstudent.ca','202-211 Briarwood Rd,\r\nKelowna, V1X 2G4','International','Complete',NULL,'Enrolled'),(3789003,'RMT','Alec Bryson','2009-01-11','778-582-4785','alec.bryson@fcstudent.ca','1806 Kloppenburg Crt, Kelowna,\r\nV1P 1N6','Domestic','',NULL,'Interested'),(3789004,'RMT','Calista Cornford','2012-07-30','604-582-1213','calista.cornford@fcstudent.ca','2159 Clement Ave,\r\nKelowna, V1Y 7E3','Domestic','Waiting for transcript.',NULL,'Conditional'),(3789005,'CSW','John Doe','1993-06-24','2509797920','johndoe@gmail.com','2339 hwy 97','domestic','Enrolled in csw program','September 2020','Enrolled');
 /*!40000 ALTER TABLE `students` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -493,4 +523,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-03-16 23:15:12
+-- Dump completed on 2021-03-20 16:53:48

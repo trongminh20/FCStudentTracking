@@ -2,8 +2,15 @@
 
 class Model
 {
+    /**
+     * @var Database
+     */
     private $db;
 
+    /**
+     * Model constructor.
+     * @param Database $db
+     */
     public function __construct(Database $db)
     {
         $this->db = $db;
@@ -19,7 +26,7 @@ class Model
     {
         return $this->db->log_in($user, $pass);
     }
-    
+
     /**
      * return data for function display_as_table in view
      * @param $table
@@ -54,6 +61,13 @@ class Model
     }
 
     /**
+     * @param $table is the table need to be inserted
+     * @param $arr is an array with key => value
+     */
+    function add_user_info($table, $arr){
+        $this->db->insert_single_row($table, $arr);
+    }
+    /**
      * Function delete user for admin
      * @param $table
      * @param $id
@@ -64,6 +78,11 @@ class Model
         return $this->db->select('employees', ['username' => $username]);
     }
 
+    /**
+     * @param $table
+     * @param $col
+     * @param $val
+     */
     function delete($table, $col, $val)
     {
         $this->db->delete($table, $col, $val);
@@ -128,6 +147,9 @@ class Model
         } else if ($keyword[0] == '#') {
             $id = ltrim($keyword, '#');
             $keyword = ['id' => $id];
+        }else if($keyword[0] == '!'){
+            $prog = ltrim($keyword,'!');
+            $keyword = ['prog_id' => $prog];
         }
         return $this->db->select('students', $keyword);
     }
@@ -142,8 +164,13 @@ class Model
         return $this->db->select($table, $data);
     }
 
-    function insert($table, $data)
-    {
+
+    /**
+     * @param $table
+     * @param $data
+     */
+    function insert($table, $data){
+
         $this->db->insert_single_row($table, $data);
     }
 }

@@ -42,6 +42,13 @@ CREATE TABLE employees
     admin      INT
 );
 
+CREATE TABLE emp_info
+(
+    emp_id     INT,
+    fullname   VARCHAR(100),
+    role       VARCHAR(100)
+);
+
 CREATE TABLE fees
 (
     id        INT PRIMARY KEY,
@@ -150,15 +157,6 @@ CREATE TABLE graduations
     employment          VARCHAR(200)
 );
 
-CREATE TABLE invoice
-(
-    number  INT PRIMARY KEY,
-    bill_to VARCHAR(50),
-    date    DATE,
-    total   INT,
-    note    VARCHAR(100)
-);
-
 CREATE TABLE payment_tracking
 (
     student_id    INT,
@@ -202,6 +200,11 @@ ALTER TABLE Students
     ADD CONSTRAINT Students_FK
         FOREIGN KEY (prog_id)
             REFERENCES Programs (id);
+
+ALTER TABLE emp_info
+    ADD CONSTRAINT employee_FK
+        FOREIGN KEY (emp_id)
+            REFERENCES Employees (id);
 
 ALTER TABLE Students
     ADD CHECK (dom_or_int IN ('Domestic', 'International'));

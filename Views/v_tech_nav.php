@@ -3,6 +3,7 @@
 <!DOCUMENT html>
 <html>
 <head>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/css_reset.css">
@@ -11,13 +12,14 @@
     <link rel="stylesheet" href="css/technical_document.css">
 </head>
 <body>
-    <div id="body-wrapper">
+<div id="body-wrapper">
     <nav id="nav-bar">
         <div id="page-title" class="nav-item">
             Student Tracking
         </div>
         <ul id="nav" class="nav-item">
             <li><a href="#introduction" class="nav-link">Introduction</a></li>
+<<<<<<< HEAD
             <li><a href="#resetPassword" class="nav-link"></a></li>
             <li><a href="#item2" class="nav-link">sample</a></li>
             <li><a href="#item3" class="nav-link">sample</a></li>
@@ -27,6 +29,13 @@
             <li><a href="" class="nav-link">sample</a></li>
             <li><a href="" class="nav-link">sample</a></li>
             <li><a href="" class="nav-link">sample</a></li>
+=======
+            <li><a href="#resetPassword" class="nav-link">Reset Password</a></li>
+            <li><a href="#changePassword" class="nav-link">Change Password</a></li>
+            <li><a href="#search" class="nav-link">Search</a></li>
+            <li><a href="#generateInvoice" class="nav-link">Invoice Generating</a></li>
+            <li><a href="?action=v_home" class="nav-link">Go To Dashboard</a></li>
+>>>>>>> 604c5dc9aa010487b14a1398f33a549f48dc34ce
         </ul>
-   </nav>
+    </nav>
 

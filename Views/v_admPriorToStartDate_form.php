@@ -5,10 +5,10 @@ include "v_masterPage_header.php";
 include "v_masterPage_sidebar.php";
 ?>
 
-<div class="container" id="mainContent" style="padding-top: 20px">
+<div class="container" id="mainContent" style="padding-top: 20px; margin-left:50px;">
     <div class="row">
         <div class="col-xs-12">
-            <h2 style="padding-top: 10px">Admission Prior to Start Date</h2>
+            <h2 id="formTitle">Admission Prior to Start Date</h2>
 
             <!--Form starts-->
             <form class="col-lg-8" action="?action=c_add_apsds" method="POST">
@@ -326,13 +326,32 @@ include "v_masterPage_sidebar.php";
                 </div>
                 <!--submit button-->
                 <div class="form-group" style="padding-top: 20px; padding-bottom: 10px">
-                    <input type="submit" name='add_apsds' value='ADD' class="btn
-              		btn-primary">
+                    <input href="#" type="submit" name='add_apsds' value='ADD' class="btn btn-primary" data-toggle="modal" data-target="#addMoreRecordModal">
                 </div>
             </form>
         </div>
     </div>
 </div>
+<!--add more record Modal-->
+<div class="modal" id="addMoreRecordModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4>Succeeded!</h4>
+            </div>
+            <div class="modal-body">
+                <div class="actionsBtns">
+                    <form action="" method="">
+                        <input type="submit" id="btnback" class="btn btn-default btn-primary" value="Add More Record" />
+                        <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!--JS code show different section based on the program selection-->
 <script type="text/javascript">
     $(document).ready(function(){
