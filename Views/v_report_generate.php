@@ -82,34 +82,34 @@ if ($apsds != "") {
         $report->Cell(50, 10, $detail['app_fee'], "", "", "", false);
         $report->Ln();
         if ($student_prog === 'RMT') {
-            $report->Cell(100, 10, 'Application Essay');
+            $report->Cell(100, 10, 'Application Essay:');
             $report->Cell(50, 10, $detail['app_essay'], "", "", "", false);
             $report->Ln();
-            $report->Cell(100, 10, 'Character Reference Letters');
+            $report->Cell(100, 10, 'Character Reference Letters:');
             $report->Cell(50, 10, $detail['refer_letter'], "", "", "", false);
             $report->Ln();
 
-            $report->Cell(100, 10, 'Resume');
+            $report->Cell(100, 10, 'Resume:');
             $report->Cell(50, 10, $detail['resume'], "", "", "", false);
             $report->Ln();
 
-            $report->Cell(100, 10, 'Intro of message course Day one');
+            $report->Cell(100, 10, 'Intro of message course Day one:');
             $report->Cell(50, 10, $detail['intro_of_msg_day1_from'], "", "", "", false);
             $report->Ln();
 
-            $report->Cell(100, 10, 'Intro of message course day two');
+            $report->Cell(100, 10, 'Intro of message course day two:');
             $report->Cell(50, 10, $detail['intro_of_msg_day2_from'], "", "", "", false);
             $report->Ln();
 
-            $report->Cell(100, 10, 'Intro of message fee with paid invoice');
+            $report->Cell(100, 10, 'Intro of message fee with paid invoice:');
             $report->Cell(50, 10, $detail['intro_fee'], "", "", "", false);
             $report->Ln();
 
-            $report->Cell(100, 10, 'Intro of message course complete');
+            $report->Cell(100, 10, 'Intro of message course complete:');
             $report->Cell(50, 10, $detail['intro_msg_complete'], "", "", "", false);
             $report->Ln();
         }
-        $report->Cell(100, 10, 'welcome Letter sent');
+        $report->Cell(100, 10, 'welcome Letter sent:');
         $report->Cell(50, 10, $detail['welcome_letter'], "", "", "", false);
         $report->Ln();
 
@@ -125,22 +125,22 @@ if ($apsds != "") {
         $report->Cell(50, 10, $detail['dips_and_trans'], "", "", "", false);
         $report->Ln();
         if ($student_prog === 'RMT') {
-            $report->Cell(100, 10, 'CRC result');
+            $report->Cell(100, 10, 'CRC result:');
             $report->Cell(50, 10, $detail['crc_result'], "", "", "", false);
             $report->Ln();
-            $report->Cell(100, 10, 'Medical notes from physician');
+            $report->Cell(100, 10, 'Medical notes from physician:');
             $report->Cell(50, 10, $detail['medical_notes'], "", "", "", false);
             $report->Ln();
 
-            $report->Cell(100, 10, 'Interview date and time');
+            $report->Cell(100, 10, 'Interview date and time:');
             $report->Cell(50, 10, $detail['interview_date'], "", "", "", false);
             $report->Ln();
 
-            $report->Cell(100, 10, 'Interview Approved');
+            $report->Cell(100, 10, 'Interview Approved:');
             $report->Cell(50, 10, $detail['interview_approved'], "", "", "", false);
             $report->Ln();
         }
-        $report->Cell(100, 10, 'Student Email');
+        $report->Cell(100, 10, 'Student Email:');
         $report->Cell(50, 10, $detail['stu_email'], "", "", "", false);
         $report->Ln();
 
@@ -168,23 +168,23 @@ if ($apsds != "") {
         $report->Cell(50, 10, $detail['received_card'], "", "", "", false);
         $report->Ln();
         if ($student_prog === 'RMT') {
-            $report->Cell(60, 10, 'RMT student materials', "", "", "", true);
+            $report->Cell(180, 10, 'RMT student materials', "", "", "", true);
 //        $report->Cell(50, 10, $detail['rmt_stu_materials'], "", "", "", false);
             $report->Ln();
-            $report->Cell(60, 10, 'Sheet Set', "", "", "", false);
-            $report->Cell(60, 10, ((strpos($detail['rmt_stu_materials'], "Sheet Set") !== false) ? "Yes" : "No"));
+            $report->Cell(100, 10, 'Sheet Set:', "", "", "", false);
+            $report->Cell(50, 10, ((strpos($detail['rmt_stu_materials'], "Sheet Set") !== false) ? "Yes" : "No"));
             $report->Ln();
-            $report->Cell(60, 10, 'Laptop or Learning Support', "", "", "", false);
-            $report->Cell(60, 10, ((strpos($detail['rmt_stu_materials'], "Laptop or Learning Support")) ? "Yes" : "No"));
+            $report->Cell(100, 10, 'Laptop or Learning Support:', "", "", "", false);
+            $report->Cell(50, 10, ((strpos($detail['rmt_stu_materials'], "Laptop or Learning Support")) ? "Yes" : "No"));
             $report->Ln();
-            $report->Cell(60, 10, 'Goniometer', "", "", "", false);
-            $report->Cell(60, 10, ((strpos($detail['rmt_stu_materials'], "Goniometer")) ? "Yes" : "No"));
+            $report->Cell(100, 10, 'Goniometer:', "", "", "", false);
+            $report->Cell(50, 10, ((strpos($detail['rmt_stu_materials'], "Goniometer")) ? "Yes" : "No"));
             $report->Ln();
-            $report->Cell(60, 10, 'Oil Holster', "", "", "", false);
-            $report->Cell(60, 10, ((strpos($detail['rmt_stu_materials'], "Oil Holster")) ? "Yes" : "No"));
+            $report->Cell(100, 10, 'Oil Holster:', "", "", "", false);
+            $report->Cell(50, 10, ((strpos($detail['rmt_stu_materials'], "Oil Holster")) ? "Yes" : "No"));
             $report->Ln();
-            $report->Cell(60, 10, 'Bottle', "", "", "", false);
-            $report->Cell(60, 10, ((strpos($detail['rmt_stu_materials'], "Bottle")) ? "Yes" : "No"));
+            $report->Cell(100, 10, 'Bottle:', "", "", "", false);
+            $report->Cell(50, 10, ((strpos($detail['rmt_stu_materials'], "Bottle")) ? "Yes" : "No"));
             $report->Ln();
         }
     } else {
@@ -206,17 +206,17 @@ if ($ppes != "") {
         $report->Cell(50, 10, $detail['name_tag'], "", "", "", false);
         if ($student_prog === 'RMT' || $student_prog === 'HCA') {
             $report->Ln();
-            $report->Cell(100, 10, 'Clinic Shirt size');
+            $report->Cell(100, 10, 'Clinic Shirt size:');
             $report->Cell(50, 10, $detail['clinic_shirt_size'], "", "", "", false);
             $report->Ln();
-            $report->Cell(100, 10, 'Order date');
+            $report->Cell(100, 10, 'Order date:');
             $report->Cell(50, 10, $detail['order_date'], "", "", "", false);
             $report->Ln();
-            $report->Cell(100, 10, 'Pick-up Date');
+            $report->Cell(100, 10, 'Pick-up Date:');
             $report->Cell(50, 10, $detail['pickup_date'], "", "", "", false);
             $report->Ln();
         }
-        $report->Cell(100, 10, 'First Aid & CPR Date & Time');
+        $report->Cell(100, 10, 'First Aid & CPR Date & Time:');
         $report->Cell(50, 10, $detail['fa_and_cpr_dt'], "", "", "", false);
         $report->Ln();
         $report->Cell(100, 10, 'First Aid & CPR Location & Contact:');
@@ -226,34 +226,34 @@ if ($ppes != "") {
         $report->Cell(50, 10, $detail['cert_fa_cpr_receive'], "", "", "", false);
         $report->Ln();
         if ($student_prog === 'CSW') {
-            $report->Cell(100, 10, 'Foodsafe and CPR date time');
+            $report->Cell(100, 10, 'Foodsafe and CPR date time:');
             $report->Cell(50, 10, $detail['foodsafe_dt'], "", "", "", false);
             $report->Ln();
-            $report->Cell(100, 10, 'Foodsafe location and contact');
+            $report->Cell(100, 10, 'Foodsafe location and contact:');
             $report->Cell(50, 10, $detail['foodsafe_contact'], "", "", "", false);
             $report->Ln();
-            $report->Cell(100, 10, 'Certificate of Foodsafe receive date');
+            $report->Cell(100, 10, 'Certificate of Foodsafe receive date:');
             $report->Cell(50, 10, $detail['cert_foodsafe_receive'], "", "", "", false);
             $report->Ln();
         }
         if ($student_prog === 'CSW' || $student_prog === 'HCA') {
-            $report->Cell(100, 10, 'Criminal record check (CRC)');
+            $report->Cell(100, 10, 'Criminal record check (CRC):');
             $report->Cell(50, 10, $detail['crc_notes'], "", "", "", false);
             $report->Ln();
         }
         if ($student_prog === 'HCA') {
-            $report->Cell(100, 10, 'SPECO');
+            $report->Cell(100, 10, 'SPECO:');
             $report->Cell(50, 10, $detail['speco'], "", "", "", false);
             $report->Ln();
         }
         if ($student_prog === 'RMT') {
-            $report->Cell(100, 10, 'Hankbook Receive Date');
+            $report->Cell(100, 10, 'Hankbook Receive Date:');
             $report->Cell(50, 10, $detail['cli_handbook_receive'], "", "", "", false);
             $report->Ln();
-            $report->Cell(100, 10, 'Acknowledgement and Agreement Form');
+            $report->Cell(100, 10, 'Acknowledgement and Agreement Form:');
             $report->Cell(50, 10, $detail['cli_ack_and_agr'], "", "", "", false);
             $report->Ln();
-            $report->Cell(100, 10, 'Medical File (Vaccinations) Received');
+            $report->Cell(100, 10, 'Medical File (Vaccinations) Received:');
             $report->Cell(50, 10, $detail['medical_file'], "", "", "", false);
             $report->Ln();
         }
@@ -265,32 +265,32 @@ if ($ppes != "") {
 //GRADUATION SECTION
 if ($grad != "") {
     $grad_data = $model->select('graduations', ['student_id' => $student_id]);
-    $report->Cell(100, 10, 'Graduation', "", "", "C", true);
+    $report->Cell(180, 10, 'Graduation', "", "", "L", true);
     $report->Ln();
    if(!empty($grad_data)) {
        $detail = $grad_data[0];
-       $report->Cell(60, 10, "Tuition paid in full");
-       $report->Cell(60, 10, $detail['tuition_paid']);
+       $report->Cell(100, 10, "Tuition paid in full:");
+       $report->Cell(50, 10, $detail['tuition_paid']);
        $report->Ln();
-       $report->Cell(60, 10, "Official Student Transcript issued");
-       $report->Cell(60, 10, $detail['official_transcript']);
+       $report->Cell(100, 10, "Official Student Transcript issued:");
+       $report->Cell(50, 10, $detail['official_transcript']);
        $report->Ln();
-       $report->Cell(60, 10, "Official Completion Letter Issued");
-       $report->Cell(60, 10, $detail['completion_letter']);
+       $report->Cell(100, 10, "Official Completion Letter Issued:");
+       $report->Cell(50, 10, $detail['completion_letter']);
        $report->Ln();
-       $report->Cell(60, 10, "Copy of signed Diploma Issued");
-       $report->Cell(60, 10, $detail['signed_diploma']);
+       $report->Cell(100, 10, "Copy of signed Diploma Issued:");
+       $report->Cell(50, 10, $detail['signed_diploma']);
        $report->Ln();
-       $report->Cell(60, 10, "Copy of T2202A (Tax Form) Issued");
-       $report->Cell(60, 10, $detail['T2202A']);
+       $report->Cell(100, 10, "Copy of T2202A (Tax Form) Issued:");
+       $report->Cell(50, 10, $detail['T2202A']);
        $report->Ln();
        if ($student_prog === 'RMT') {
-           $report->Cell(60, 10, "Board Exam Date");
-           $report->Cell(60, 10, $detail['exam_date']);
+           $report->Cell(100, 10, "Board Exam Date:");
+           $report->Cell(50, 10, $detail['exam_date']);
            $report->Ln();
        }
-       $report->Cell(60, 10, "Employment Follow Up");
-       $report->Cell(60, 10, $detail['employment']);
+       $report->Cell(100, 10, "Employment Follow Up:");
+       $report->Cell(50, 10, $detail['employment']);
        $report->Ln();
    }else{
           $report->Cell(60, 10, 'Not available');
@@ -312,12 +312,12 @@ if ($inputPayment != "") {
         $report->Cell(50, 10, "$ " .$detail['scholarships']);
         $report->Ln();
         if ($student_prog === 'RMT') {
-            $report->Cell(60, 10, "Intro to Massage Fee");
-            $report->Cell(60, 10, $detail['intro_to_message_fee']);
+            $report->Cell(100, 10, "Intro to Massage Fee:");
+            $report->Cell(50, 10, "$ " .$detail['intro_to_message_fee']);
             $report->Ln();
         }
-        $report->Cell(60, 10, "Course Materials Fee");
-        $report->Cell(60, 10, $detail['course_materials_fee']);
+        $report->Cell(100, 10, "Course Materials Fee:");
+        $report->Cell(50, 10, "$ " .$detail['course_materials_fee']);
         $report->Ln();
         $report->Cell(100, 10, "Textbook Fee:");
         $report->Cell(50, 10, "$ " .$detail['textbook_fee']);
