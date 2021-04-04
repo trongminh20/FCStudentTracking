@@ -138,6 +138,52 @@ function display() {
     });
 }
 
+
+/*Text Truncate*/
+function showMore(id) {
+    document.getElementById(id + 'Overflow').className = '';
+    document.getElementById(id + 'MoreLink').className = 'hidden';
+    document.getElementById(id + 'LessLink').className = '';
+
+}
+
+function showLess(id) {
+    document.getElementById(id + 'Overflow').className = 'hidden';
+    document.getElementById(id + 'MoreLink').className = '';
+    document.getElementById(id + 'LessLink').className = 'hidden';
+}
+
+function shrinkable() {
+    let len = 50;
+    let target = document.getElementsByClassName("shrinkable");
+
+    if (target.length > 0) {
+        for (let i = 0; i < target.length; i++) {
+            let fullText = target[i].innerHTML;
+            if (fullText.length > len) {
+                let trunc = fullText.substring(0, len).replace(/\w+$/, '');
+                var remainder = "";
+                var id = target[i].id;
+
+                remainder = fullText.substring(len, fullText.length);
+                target[i].innerHTML = '<span>'
+                    + trunc + '<span class="hidden" id="' + id + 'Overflow">'
+                    + remainder +
+                    '</span>' +
+                    '</span>' +
+                    '&nbsp;<a id="' + id + 'MoreLink" href="#!" onclick="showMore(\'' + id + '\');" style="text-decoration-line:underline">' +
+                    'Show more' +
+                    '</a>' +
+                    '<a class="hidden" href="#!" id="' + id + 'LessLink" onclick="showLess(\'' + id + '\');"style="text-decoration-line: underline">' +
+                    'Show less' +
+                    '</a>';
+            }
+        }
+
+    }
+}
+
+
 function in_array(searchKey, arr) {
     let len = arr.length;
     let result = 0;
