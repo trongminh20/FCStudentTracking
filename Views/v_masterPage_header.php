@@ -75,26 +75,16 @@
                             <?php
                         }
                         ?>
-                         <li>
-                            <form action="?action=c_logout" method="POST">
-                                <input type="submit" id="btnlogout" value="Log out" name="logout" class="btn
-                                btn-default
-                                       btn-flat"
-                                       style="background:#ef0707 ;Color:#fff;width:100%;"/>
-                            </form>
-                        </li>
-                        <!--
                         <li>
                             <input href="#" type="submit" value="Log out" name="logout" class="btn btn-default btn-flat" style="background:#ef0707; Color:#fff; width:100%;" data-toggle="modal" data-target="#logoutModal"/>
                         </li>
-                        -->
                     </ul>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
-<!--log out modal
+<!--log out modal-->
 <div class="modal" id="logoutModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
@@ -115,5 +105,3 @@
         </div>
     </div>
 </div>
--->
-
