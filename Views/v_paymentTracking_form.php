@@ -6,7 +6,7 @@ include "v_masterPage_sidebar.php";
 <div class="container" id="mainContent" style="padding-top: 20px; margin-left:50px;">
     <div class="row">
         <div class="col-xs-12">
-            <h2 style="padding-top: 10px">Payment Tracking</h2>
+            <h2  id="formTitle">Payment Tracking</h2>
             <!--Form starts-->
             <form action="?action=c_add_payment" method="POST">
             <div class="form-group">

@@ -3,7 +3,7 @@
 $data = $_POST;
 
 $number = $data['number'];
-$date = date('d-m-Y');
+$date = date('Y-m-d');
 $billto = $data['billTo'];
 $program = $data['program'];
 $note = $data['note'];
@@ -90,6 +90,8 @@ if(isset($_POST['preview'])){
     $pdf->Output("", $number . ".pdf", true);
 }
 elseif (isset($_POST['generate'])) {
+    $dataInsert = ['number' => $number, 'bill_to'=>$billto, 'date' =>$date,'total' => array_sum($total),'note'=>$note];
+    $model ->insert('invoices', $dataInsert);
     $pdf->Output( "D","invoices/".$number . ".pdf", true);
     $pdf->Output( "F","invoices/".$number . ".pdf", true);
 

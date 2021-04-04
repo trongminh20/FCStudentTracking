@@ -157,15 +157,6 @@ CREATE TABLE graduations
     employment          VARCHAR(200)
 );
 
-CREATE TABLE invoice
-(
-    number  INT PRIMARY KEY,
-    bill_to VARCHAR(50),
-    date    DATE,
-    total   INT,
-    note    VARCHAR(100)
-);
-
 CREATE TABLE payment_tracking
 (
     student_id    INT,

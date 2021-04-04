@@ -8,7 +8,7 @@ include "v_masterPage_sidebar.php";
 <div class="container" id="mainContent" style="padding-top: 20px; margin-left:50px;">
     <div class="row">
         <div class="col-xs-12">
-            <h2 style="padding-top: 10px">Admission Prior to Start Date</h2>
+            <h2 id="formTitle">Admission Prior to Start Date</h2>
 
             <!--Form starts-->
             <form class="col-lg-8" action="?action=c_add_apsds" method="POST">
@@ -356,9 +356,7 @@ include "v_masterPage_sidebar.php";
 <script type="text/javascript">
     $(document).ready(function(){
         $("#programID").on('change', function() {
-            if(this.value == '--Select one--'){
-             $("input").prop('disable', true);
-            }else if ( this.value == 'RMT'){
+            if ( this.value == 'RMT'){
                 $(".form-groupRMT").show();
             }else{
                 $(".form-groupRMT").hide();

@@ -6,9 +6,11 @@
     <title>First College Management</title>
     <link rel="stylesheet" href="css/css_reset.css"/>
     <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/master_page.css"/>
     <link rel="stylesheet" href="css/w3.css"/>
@@ -16,7 +18,10 @@
     <script src="js/jquery-1.12.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <!--Custom JS-->
-    <script src="js/javascript.js"></script>
+    <script src="js/customizeJS.js"></script>
+    <script type="text/javascript">
+        window.onload = ()=>{setup();};
+    </script>
 </head>
 
 <!-- Header Section -->
@@ -51,10 +56,8 @@
                         <li id="username"><a href="#" style="background: #ffffff;"><i
                                         class="glyphicon glyphicon-user"></i>
                                 <?php
-
-                                    $fname= $model ->select('emp_info',['eid' => $_SESSION['user']['id']]);
-
-                                    echo $fname[0]['fname'];
+                                $fname = $model->select('emp_info', ['eid' => $_SESSION['user']['id']]);
+                                echo $fname[0]['fname'];
                                 ?>
                                 (<?= ($_SESSION['user']['admin'] == 1) ? 'admin' : 'Emp' ?>)
                             </a></li>
