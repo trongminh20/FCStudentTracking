@@ -55,7 +55,7 @@ if ($student != "") {
     $report->Cell(50, 10, $detail['dom_or_int'], 0, "", "", false);
     $report->Ln();
     $report->Cell(100, 10, "Enrollment Notes:");
-    $report->Cell(50, 10, $detail['enroll_notes'], 0, "", "", false);
+    $report->MultiCell(95, 10, $detail['enroll_notes']);
     $report->Ln();
     $report->Cell(100, 10, "Contact Email:");
     $report->Cell(50, 10, $detail['email'], 0, "", "", false);
@@ -169,7 +169,6 @@ if ($apsds != "") {
         $report->Ln();
         if ($student_prog === 'RMT') {
             $report->Cell(180, 10, 'RMT student materials', "", "", "", true);
-//        $report->Cell(50, 10, $detail['rmt_stu_materials'], "", "", "", false);
             $report->Ln();
             $report->Cell(100, 10, 'Sheet Set:', "", "", "", false);
             $report->Cell(50, 10, ((strpos($detail['rmt_stu_materials'], "Sheet Set") !== false) ? "Yes" : "No"));

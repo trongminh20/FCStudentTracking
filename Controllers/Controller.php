@@ -20,7 +20,12 @@ class Controller
             case 'v':
                 return "Views/" . $dr . ".php";
             case 'c':
+                if(isset($_SESSION['session_id'])){
                 $this->$dr($model);
+                }else{
+                    header("location:?action=v_login");
+                }
+
             case 'm':
                 return "Models/" . $dr . ".php";
             default:
