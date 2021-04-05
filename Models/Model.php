@@ -106,7 +106,6 @@ class Model
     {
         $this->db->update($table, $data, $id);
     }
-
     /**
      * use for form display
      * get type of each field in pair key = >value
@@ -122,8 +121,6 @@ class Model
         }
         return $type;
     }
-
-
     /**
      * get type of columns of a table from database
      * @param $table
@@ -163,14 +160,11 @@ class Model
     {
         return $this->db->select($table, $data);
     }
-
-
     /**
      * @param $table
      * @param $data
      */
     function insert($table, $data){
-
         $this->db->insert_single_row($table, $data);
     }
 }
