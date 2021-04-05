@@ -27,7 +27,6 @@ class Model
         return $this->db->log_in($user, $pass);
     }
 
-
     /**
      * return data for function display_as_table in view
      * @param $table
@@ -76,7 +75,7 @@ class Model
 
     function select_user($username)
     {
-        return $this->db->select('employees',['username'=>$username]);
+        return $this->db->select('employees', ['username' => $username]);
     }
 
     /**
@@ -160,15 +159,18 @@ class Model
      * @param $data is an array [columns => value]
      * @return mixed
      */
-    function select($table, $data){
+    function select($table, $data)
+    {
         return $this->db->select($table, $data);
     }
+
 
     /**
      * @param $table
      * @param $data
      */
     function insert($table, $data){
+
         $this->db->insert_single_row($table, $data);
     }
 }
