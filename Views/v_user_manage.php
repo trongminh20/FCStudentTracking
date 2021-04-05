@@ -20,7 +20,7 @@ include "v_masterPage_sidebar.php";
         "c_reset_pass",
         $loadTable);
     ?>
-
+    <hr>
     <?php
     if(isset($_SESSION['add_user_error'])){
         echo "<div class='text-center'>".
@@ -30,7 +30,7 @@ include "v_masterPage_sidebar.php";
             "</div>";
         unset($_SESSION['add_user_error']);
     }else{
-        echo "<hr>";
+        echo "";
     }
     $labels = [
             'Employee ID'=> 'id',
@@ -45,21 +45,47 @@ include "v_masterPage_sidebar.php";
     ];
     $form = new Form("form-group col-lg-8","","c_add_user","POST", 'Add new Employee',"");
     foreach($labels as $k => $v){
+        echo "<br>";
         $form->add_label(['for'=>'','label'=>$k]);
         if($v == 'password') {
-            $form->add_input(['id' => '', 'class' => 'form-control', 'name' => $v,
-                'type' => 'password', 'required' => ""]);
+            $form->add_input(['id' => '',
+                'class' => 'form-control',
+                'name' => $v,
+                'type' => 'password',
+                'required' => ""]);
         }else if($v == 'email') {
-            $form->add_input(['id' => '', 'class' => 'form-control', 'name' => $v,
-                'type' => 'email', 'required' => ""]);
-        }else{
+            $form->add_input(['id' => '',
+                'class' => 'form-control',
+                'name' => $v,
+                'type' => 'email',
+                'required' => ""]);
+        }else if($v == 'phone'){
+            echo "<br>";
+            $form -> add_label(['for'=>"",
+                'label'=>"sample format: 123-456-7890",
+                "style" =>"font-size:10px;color:gray"]);
+          $form -> add_input(["id" => "",
+              "class" => 'form-control',
+              "type" => "tel",
+              "name" => $v,
+              "pattern" => "[0-9]{3}-[0-9]{3}-[0-9]{4}",
+              "value" => "   -   -    ",
+              "maxlenght" =>"12",
+              "required"=>""
+              ]);
+        } else{
             $form->add_input(['id' => '', 'class' => 'form-control', 'name' => $v,
                 'type' => 'text', 'required' => ""]);
         }
     }
     echo "<br>";
-    $form ->add_input(['class'=>'btn btn-primary','type' => 'submit', 'name' => 'add_user', 'value'=>'Add User']);
-     $form ->add_input(['class'=>'btn btn-warning btn-inline','type' => 'reset', 'value'=>'Clear']);
+    $form ->add_input(['class'=>'btn btn-primary',
+        'type' => 'submit',
+        'name' => 'add_user',
+        'value'=>'Add User']);
+    $form ->add_input(['class'=>'btn btn-warning btn-inline',
+        'type' => 'reset',
+        'value'=>'Clear Form']);
     $form ->end_form();
     ?>
 </div>

@@ -18,7 +18,11 @@ class Controller
         $action = $dr[0];
         switch ($action) {
             case 'v':
-                return "Views/" . $dr . ".php";
+                if(isset($_SESSION['session_id'])) {
+                    return "Views/" . $dr . ".php";
+                }else{
+                    return "Views/v_login.php";
+                }
             case 'c':
                 if ($dr == "c_login") {
                     $this->c_login($model);
@@ -101,7 +105,7 @@ class Controller
             ];
             $model->insert('sessions', $data);
             session_destroy();
-            header("Location:?action=v_logout");
+            header("Location:?action=v_login");
         }
     }
 

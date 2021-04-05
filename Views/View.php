@@ -167,7 +167,7 @@ class View
             foreach ($d as $k => $v) {
                 echo "<input type='hidden' name='$k' value='$v'>";
             }
-            echo " <input class='btn btn-link' type='submit' name='reset_password' value='Reset Password'>";
+            echo " <input class='btn btn-link' type='submit' name='reset_password' value='Reset'>";
             echo "</form>";
 
             echo "</td>";
