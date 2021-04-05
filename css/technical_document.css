@@ -38,19 +38,18 @@ img {
     height: 40px;
     border-bottom: 1px solid #a6e1ec;
     text-align: center;
-    margin-bottom: 20px;
 }
 
 #nav {
-    margin-left: 20px;
     display: flex;
     flex-direction: column;
 }
 
 #nav > li {
+    padding:10px 10px;
     width: 100%;
-    margin-bottom: 15px;
     border-bottom: 1px dashed #a6e1ec;
+    height: 20px;
 }
 
 #nav > li > a {
@@ -69,6 +68,6 @@ img {
     margin-top: 20px;
     margin-bottom: 30px;
 }
-a.active {
-    background-color: #2e6da4;
+li.active {
+    background-color: #353d44;
 }

@@ -6,7 +6,6 @@
     <nav id="sidebar">
         <div class="sidebar-header" style="height:60px;">
         </div>
-
         <ul class="list-unstyled components">
             <li class="active">
                 <a href="?action=v_home">
