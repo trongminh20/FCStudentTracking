@@ -171,7 +171,8 @@ function shrinkable() {
                     + remainder +
                     '</span>' +
                     '</span>' +
-                    '&nbsp;<a id="' + id + 'MoreLink" href="#!" onclick="showMore(\'' + id + '\');" style="text-decoration-line:underline">' +
+                    '&nbsp;<a id="' + id + 'MoreLink" href="#!" onclick="showMore(\'' + id + '\');"' +
+                    'style="text-decoration-line:underline">' +
                     'Show more' +
                     '</a>' +
                     '<a class="hidden" href="#!" id="' + id + 'LessLink" onclick="showLess(\'' + id + '\');"' +
@@ -194,12 +195,12 @@ function in_array(searchKey, arr) {
     return result;
 }
 
-function set_active_link(){
+function set_active_link() {
     let elements = document.getElementsByClassName("nav_link");
     let len = elements.length;
-    for(let i = 0; i < len; i++){
-        elements[i].onclick = function(){
-            for(let j = 0; j < len; j++){
+    for (let i = 0; i < len; i++) {
+        elements[i].onclick = function () {
+            for (let j = 0; j < len; j++) {
                 elements[j].classList.remove("active");
             }
             this.classList.add("active");
