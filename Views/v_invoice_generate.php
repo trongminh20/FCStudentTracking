@@ -1,7 +1,7 @@
 <?php
 
 $data = $_POST;
-$number = $data['number'];
+$number = $data['invoice_number'];
 $date = date('Y-m-d');
 $billto = $data['billTo'];
 $program = $data['program'];
@@ -37,8 +37,7 @@ $pdf->Ln(5);
 $pdf->Image("images/logo.png", 150, 20, 40, 30);
 $pdf->Ln(30);
 $pdf->Cell(40, 10, 'Invoice Number:', 0, 0, "L", true);
-$pdf->Cell(20, 10, $number, 0, 0, "", true);
-$pdf->Cell(50, 10, '(PAID)', 0, 0, "", true);
+$pdf->Cell(70, 10, $number."(PAID)", 0, 0, "", true);
 $pdf->Cell(40, 10, 'Date:', 0, 0, "R", true);
 $pdf->Cell(30, 10, $date, 0, 0, "", true);
 $pdf->Ln(20);
