@@ -58,14 +58,14 @@
                                 <?php
                                 echo $_SESSION['fname'][0]['fname'];
                                 ?>
-                                (<?= ($_SESSION['user']['admin'] == 1) ? 'admin' : 'Emp' ?>)
+                                (<?= ($_SESSION['user']['admin'] === 'admin') ? 'admin' : 'Emp' ?>)
                             </a></li>
                         <li class="divider"></li>
                         <li id="changepassword"><a href="?action=v_change_password" style="background: #ffffff;"><i
                                         class="glyphicon glyphicon-lock"></i> Change Password</a></li>
                         <li class="divider"></li>
                         <?php
-                        if ($_SESSION['user']['admin'] == 1) {
+                        if ($_SESSION['user']['admin'] === 'admin') {
                             ?>
                             <li id="adduser"><a href="?action=v_user_manage" style="background: #ffffff;"><i
                                             class="glyphicon glyphicon-plus"></i> Manage User</a></li>

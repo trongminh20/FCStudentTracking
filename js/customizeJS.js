@@ -194,6 +194,35 @@ function in_array(searchKey, arr) {
     }
     return result;
 }
+/*PHONE NUMBER VALIDATING*/
+function validate_phoneNumber() {
+    let phoneNumber = document.getElementById('tel');
+    let val = phoneNumber.value;
+    let btn = document.getElementById('submit');
+    let btnNode = document.createAttribute('disabled');
+    let node = document.createAttribute("style");
+    btnNode.value = "disabled";
+
+    let warning = document.getElementById('validateWarning')
+
+    if (val.length > 15) {
+        warning.innerHTML = 'Your input is too long';
+
+    }  else if(!val.match(/^[-.(]*(\d{3})[) ]*(\d{3})[-]*(\d{4})$/)) {
+        node.value = "border-bottom:1px solid red;";
+        phoneNumber.setAttributeNode(node);
+        btn.setAttributeNode(btnNode);
+        warning.innerHTML = 'Your input is invalid';
+    }else{
+        let first = val.substring(0, 3);
+        let second = val.substring(3, 6);
+        let last = val.substring(6, val.length);
+        phoneNumber.value = "(" + first + ") " + second + " - " + last;
+        node.value = "border-bottom:1px solid;";
+        phoneNumber.setAttributeNode(node);
+        warning.style.display="none";
+    }
+}
 
 function set_active_link() {
     let elements = document.getElementsByClassName("nav_link");

@@ -52,8 +52,8 @@ include "v_masterPage_sidebar.php";
                 <!--phone number-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="phone">Contact Number:</label>
-                    <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="phone" class="form-control"
-                           id="phone" placeholder="123-456-7890"/>
+                    <br><label id="validateWarning"></label>
+                    <input type="text" onchange="validate_phoneNumber();" name="phone" class="form-control" id="tel"/>
                 </div>
                 <!--DOB-->
                 <div class="form-group" style="padding-top: 20px">
@@ -98,8 +98,8 @@ include "v_masterPage_sidebar.php";
                 </div>
                 <!--submit button-->
                 <div class="form-group" style="padding-top: 20px">
-                    <input class="btn btn-primary" id="btnAddNewStudent" type="submit" name="add_student" value='Add
-                    new Student'>
+                    <input class="btn btn-primary" id="submit" type="submit" name="add_student"
+                           value='Add new Student'>
                 </div>
             </form>
         </div>

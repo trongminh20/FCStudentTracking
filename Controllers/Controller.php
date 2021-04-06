@@ -138,10 +138,19 @@ class Controller
                 $department = $_POST['department'];
                 $fname = $_POST['fname'];
                 $role = $_POST['role'];
+                $admin = $_POST['admin'];
 
-                $user = new Employee();
-                $user->Employee($id, $username, $password,
+                if($admin === 'admin'){
+                    $user = new Admin();
+                    $user-> Admin($id, $username, $password,
                     $email, $phone, $department);
+                }
+                if($admin === 'user'){
+                    $user = new Employee();
+                    $user->Employee($id, $username, $password,
+                    $email, $phone, $department);
+                }
+
                 try {
                     $model->create_user('employees', $user);
                     $model->add_user_info('emp_info',
