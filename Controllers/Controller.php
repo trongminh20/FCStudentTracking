@@ -18,16 +18,23 @@ class Controller
         $action = $dr[0];
         switch ($action) {
             case 'v':
-                return "Views/" . $dr . ".php";
+                if(isset($_SESSION['session_id'])) {
+                    return "Views/" . $dr . ".php";
+                }else if($dr == "v_forgot_password"){
+                    return "Views/v_forgot_password.php";
+                } else{
+                    return "Views/v_login.php";
+                }
             case 'c':
-                if($dr == "c_login"){
+                if ($dr == "c_login") {
                     $this->c_login($model);
-                } else if(isset($_SESSION['session_id'])){
-                $this->$dr($model);
-                }else{
+                } else if($dr == "c_forgot_password"){
+                    $this->c_forgot_password($model);
+                }else if (isset($_SESSION['session_id'])) {
+                    $this->$dr($model);
+                } else {
                     header("location:?action=v_login");
                 }
-
             case 'm':
                 return "Models/" . $dr . ".php";
             default:
@@ -59,9 +66,9 @@ class Controller
             $password = SHA1($_POST['password']);
             $success = $model->sign_in($username, $password);
             $sessionID = rand(1000, 9999);
-            $check = $model ->select('sessions',['session_id' => $sessionID]);
-            while(count($check) > 0){
-                $check = $model ->select('sessions',['session_id' => $sessionID]);
+            $check = $model->select('sessions', ['session_id' => $sessionID]);
+            while (count($check) > 0) {
+                $check = $model->select('sessions', ['session_id' => $sessionID]);
                 $sessionID = rand(1000, 9999);
             }
 
@@ -83,6 +90,7 @@ class Controller
 
                 $_SESSION['user'] = $user->to_array();
                 $_SESSION['login'] = date('Y-m-d H:i:s');
+                $_SESSION['fname'] = $model->select('emp_info', ['eid' => $_SESSION['user']['id']]);
 
                 header("Location:?action=v_home");
             } else {
@@ -102,7 +110,7 @@ class Controller
             ];
             $model->insert('sessions', $data);
             session_destroy();
-            header("Location:?action=v_logout");
+            header("Location:?action=v_login");
         }
     }
 
@@ -203,7 +211,7 @@ class Controller
         if ($check) {
             $request = new Request($username, 'Reset password');
             $model->request_reset_password($request);
-            $_SESSION['error'] = 'YOU REQUEST HAS SENT';
+            $_SESSION['error'] = 'Your Request was sent, please come back after receiving announcement email';
             header("Location:?action=v_login");
         } else {
             $_SESSION['forget_password'] = 'YOUR USERNAME IS NOT VALID';

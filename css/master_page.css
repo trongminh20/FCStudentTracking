@@ -241,7 +241,10 @@ table {
     border-collapse: collapse;
     table-layout: fixed;
 }
-
+.btn-link{
+    font-size: 12px;
+    max-width: 70px;
+}
 table > tbody > tr > td {
     font-size:13px;
     padding-top: 5px;
@@ -348,7 +351,6 @@ table > tbody > tr > td {
     }
 
 }
-
 /* ---------------------------------------------------
     FOOTER STYLE
 ----------------------------------------------------- */

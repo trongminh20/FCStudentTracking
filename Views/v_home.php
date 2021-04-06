@@ -15,9 +15,9 @@ include "v_masterPage_sidebar.php";
                             <img src="images/img_avatar.png" alt="Admin" class="rounded-circle" width="150">
                             <div class="mt-3">
 
-                                <h4><?= $fname[0]['fname'] ?></h4>
+                                <h4><?= $_SESSION['fname'][0]['fname'] ?></h4>
                                 <p><?= $_SESSION['user']['username'] ?></p>
-                                <p class="text-secondary mb-1"><?=$fname[0]['role']?></p>
+                                <p class="text-secondary mb-1"><?=$_SESSION['fname'][0]['role']?></p>
                                 <p class="text-muted font-size-sm"><?= $_SESSION['user']['email'] ?></p>
                             </div>
                         </div>
@@ -35,7 +35,7 @@ include "v_masterPage_sidebar.php";
                                 <h6 class="mb-0">Full Name</h6>
                             </div>
                             <div class="col-sm-9 text-secondary"
-                                 style="padding-top: 7px"><?= $fname[0]['fname'] ?></div>
+                                 style="padding-top: 7px"><?= $_SESSION['fname'][0]['fname'] ?></div>
                         </div>
                         <hr>
                         <div class="row">

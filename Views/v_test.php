@@ -1,60 +1,38 @@
 <?php
 
+print_r($_POST);
+$data = $_POST;
 
-?>
-<style>
-    .hidden {
-        display: none;
-    }
+        Mail::$fromAddress = "invoice.firstcollege@gmail.com";
+        Mail::$fromPwd = "FCstudenttracking";
+        Mail::$toAddress = $data['student_email'];
+         Mail::$content = "<h1>This is testing email from invoice</h1>";
+//        Mail::$content = "<h1>Hello " . $billto . ",</h1><br>
+//                          <p>Please see the attachment bellow for your paid invoice.</p>
+//                          <p>Thank you for interest in the " . $program . " program. Please feel free to contact us if you have any questions.</p>
+//                          <br><br>
+//                          <p>Best regards,</p>
+//                          <p>__</p>
+//                          <table>
+//                            <tr>
+//                                <td>
+//                                    <img src='images/logo.png' width='100px' height='100px' alt='First College'>
+//                                </td>
+//                                <td>
+//                                    <p style='color: #2e6da4; font-size: 12px;'><a href='https://www.firstcollege.ca/'>FIRST COLLEGE</a> | Inspiring minds through education
+//                                    <br> ADMIN OFFICE: 572 Leon Ave, 2nd floor, Kelowna, BC V1Y 6J6</p>
+//                                </td>
+//                            </tr>
+//                          </table>";
+//        Mail::$attachment = "invoices/" . $number . ".pdf";
+        Mail::$subject = 'Student Invoice';
 
-</style>
-
-<table>
-    <tr>
-        <td id="note1" class="shrinkable">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad
-            architecto,
-            aspernatur
-            consectetur cum cupiditate deleniti doloribus ducimus ea et eveniet illum minus, modi mollitia necessitatibus nemo nostrum numquam optio perferendis quam recusandae repellat reprehenderit, repudiandae sint sit sunt tenetur ullam ut vel voluptatum! Adipisci amet dolorem doloribus eaque perspiciatis?</td>
-    </tr>
-</table>
-<script>
-window.onload = function(){
-    shrinkable();
-}
-function showMore(id){
-    document.getElementById(id+'Overflow').className='';
-    document.getElementById(id+'MoreLink').className='hidden';
-    document.getElementById(id+'LessLink').className='';
-
-}
-
-function showLess(id){
-      document.getElementById(id+'Overflow').className='hidden';
-    document.getElementById(id+'MoreLink').className='';
-    document.getElementById(id+'LessLink').className='hidden';
-}
-
-function shrinkable(){
-    let len = 50;
-    let target = document.getElementsByClassName("shrinkable");
-
-    if(target.length > 0){
-        for(let i = 0; i < target.length; i++){
-            let fullText = target[i].innerHTML;
-            if(fullText.length > len){
-                let trunc = fullText.substring(0, len).replace(/\w+$/,'');
-                var remainder = "";
-                var id = target[i].id;
-
-                remainder = fullText.substring(len, fullText.length);
-                target[i].innerHTML =   '<span>' + trunc + '<span class="hidden" id="' + id + 'Overflow">'+ remainder +'</span></span>&nbsp;<a id="' + id + 'MoreLink" href="#!" onclick="showMore(\''+ id + '\');">More</a><a class="hidden" href="#!" id="' + id + 'LessLink" onclick="showLess(\''+ id + '\');">Less</a>';
-            }
-        }
-
-    }
-
-}
-
-
-</script>
-
+//        var_dump(Mail::$fromAddress);
+        echo "from:   ".Mail::$fromPwd;
+        echo "<br>To:  ".Mail::$toAddress;
+//        var_dump(Mail::$fromAddress);
+//        try {
+            Mail::send_mail();
+//        }catch(Exception $e){
+//            echo $e -> getMessage();
+//        }

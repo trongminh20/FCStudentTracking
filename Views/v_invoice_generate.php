@@ -1,7 +1,6 @@
 <?php
 
 $data = $_POST;
-
 $number = $data['number'];
 $date = date('Y-m-d');
 $billto = $data['billTo'];
@@ -74,32 +73,31 @@ for ($i = 0; $i < count($quantity); $i++) {
 $pdf->Cell(45, 10, "");
 $pdf->Cell(45, 10, "");
 $pdf->Cell(47, 10, "Subtotoal:");
-$pdf->Cell(43, 10, "$ ".array_sum($total), 0, 0, 'L');
+$pdf->Cell(43, 10, "$ " . array_sum($total), 0, 0, 'L');
 $pdf->Ln();
 $pdf->Cell(45, 10, "");
 $pdf->Cell(45, 10, "");
 $pdf->Cell(47, 10, "Total:");
-$pdf->Cell(43, 10, "$ ".array_sum($total), 0, 0, 'L');
+$pdf->Cell(43, 10, "$ " . array_sum($total), 0, 0, 'L');
 $pdf->Ln(20);
 
 $pdf->Cell(50, 10, "Thank you for your choosing First College ");
 $pdf->Ln();
 $pdf->Cell(50, 10, "Welcome!");
 
-if(isset($_POST['preview'])){
+if (isset($_POST['preview'])) {
     $pdf->Output("", $number . ".pdf", true);
-}
-elseif (isset($_POST['generate'])) {
-    $dataInsert = ['number' => $number, 'bill_to'=>$billto, 'date' =>$date,'total' => array_sum($total),'note'=>$note];
-    $model ->insert('invoices', $dataInsert);
-    $pdf->Output( "D","invoices/".$number . ".pdf", true);
-    $pdf->Output( "F","invoices/".$number . ".pdf", true);
+} elseif (isset($_POST['generate'])) {
+    $dataInsert = ['number' => $number, 'bill_to' => $billto, 'date' => $date, 'total' => array_sum($total), 'note' => $note];
+    $model->insert('invoices', $dataInsert);
+    $pdf->Output("D", "invoices/" . $number . ".pdf", true);
+    $pdf->Output("F", "invoices/" . $number . ".pdf", true);
 
-    if(isset($data['send_to_student'])) {
+    if (isset($data['send_to_student'])) {
         Mail::$fromAddress = "invoice.firstcollege@gmail.com";
-        Mail::$fromPwd = 'FCstudenttracking';
+        Mail::$fromPwd = "FCstudenttracking";
         Mail::$toAddress = $data['student_email'];
-        Mail::$content = "<h1>This is testing email from invoice</h1>";
+        Mail::$content = "<h3>Hello " . $billto . ",</h3><br><p>Please see the attachment bellow for your paid invoice.</p><p>Thank you for interest in the " . $program . " program. Please feel free to contact us if you have any questions.</p><br><br><p>Best regards,</p><p>__</p><table><tr><td><img src='images/logo.png' width='150px' height='100px' alt='First College'></td><td><p style='color: #2e6da4; font-size: 12px;'><a href='https://www.firstcollege.ca/'>FIRST COLLEGE</a> | Inspiring minds through education<br> ADMIN OFFICE: 572 Leon Ave, 2nd floor, Kelowna, BC V1Y 6J6</p></td></tr></table>";
         Mail::$attachment = "invoices/" . $number . ".pdf";
         Mail::$subject = 'Student Invoice';
         Mail::send_mail();
