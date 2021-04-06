@@ -20,13 +20,17 @@ class Controller
             case 'v':
                 if(isset($_SESSION['session_id'])) {
                     return "Views/" . $dr . ".php";
-                }else{
+                }else if($dr == "v_forgot_password"){
+                    return "Views/v_forgot_password.php";
+                } else{
                     return "Views/v_login.php";
                 }
             case 'c':
                 if ($dr == "c_login") {
                     $this->c_login($model);
-                } else if (isset($_SESSION['session_id'])) {
+                } else if($dr == "c_forgot_password"){
+                    $this->c_forgot_password($model);
+                }else if (isset($_SESSION['session_id'])) {
                     $this->$dr($model);
                 } else {
                     header("location:?action=v_login");
@@ -86,6 +90,7 @@ class Controller
 
                 $_SESSION['user'] = $user->to_array();
                 $_SESSION['login'] = date('Y-m-d H:i:s');
+                $_SESSION['fname'] = $model->select('emp_info', ['eid' => $_SESSION['user']['id']]);
 
                 header("Location:?action=v_home");
             } else {
@@ -206,7 +211,7 @@ class Controller
         if ($check) {
             $request = new Request($username, 'Reset password');
             $model->request_reset_password($request);
-            $_SESSION['error'] = 'YOU REQUEST HAS SENT';
+            $_SESSION['error'] = 'Your Request was sent, please come back after receiving announcement email';
             header("Location:?action=v_login");
         } else {
             $_SESSION['forget_password'] = 'YOUR USERNAME IS NOT VALID';
