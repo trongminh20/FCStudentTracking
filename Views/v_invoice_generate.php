@@ -1,7 +1,6 @@
 <?php
 
 $data = $_POST;
-
 $number = $data['number'];
 $date = date('Y-m-d');
 $billto = $data['billTo'];
@@ -90,38 +89,19 @@ if (isset($_POST['preview'])) {
     $pdf->Output("", $number . ".pdf", true);
 } elseif (isset($_POST['generate'])) {
     $dataInsert = ['number' => $number, 'bill_to' => $billto, 'date' => $date, 'total' => array_sum($total), 'note' => $note];
+    $model->insert('invoices', $dataInsert);
     $pdf->Output("D", "invoices/" . $number . ".pdf", true);
     $pdf->Output("F", "invoices/" . $number . ".pdf", true);
 
     if (isset($data['send_to_student'])) {
-        Mail::$fromAddress = "info.firstcollege@gmail.com";
+        Mail::$fromAddress = "invoice.firstcollege@gmail.com";
         Mail::$fromPwd = "FCstudenttracking";
         Mail::$toAddress = $data['student_email'];
-        Mail::$content = "<h1>Hello " . $billto . ",</h1><br>
-                          <p>Please see the attachment bellow for your paid invoice.</p>
-                          <p>Thank you for interest in the " . $program . " program. Please feel free to contact us if you have any questions.</p>
-                          <br><br>
-                          <p>Best regards,</p>
-                          <br><p>__</p>
-                          <table>
-                            <tr>
-                                <td>
-                                    <img src='images/logo.png' width='50px' height='70px' alt='First College'>
-                                </td>
-                                <td>
-                                    <h1>" . $_SESSION['fname'][0]['fname'] . "</h1>
-                                    <p style='color: #2e6da4; font-size: 12px;'><span style='text-transform: uppercase; font-style: italic;'>"
-                                        . $_SESSION['fname'][0]['role'] . "</span><a href='https://www.firstcollege.ca/'>FIRST COLLEGE</a> | Inspiring minds through education
-                                        <br>P1. 778.478.6611 | P2. 778.754.2888 | E. " . $_SESSION['user']['email'] . "
-                                        <br>F. 778.478.6610 | ADMIN OFFICE: 572 Leon Ave, 2nd floor, Kelowna, BC V1Y 6J6</p> 
-                                </td>
-                            </tr>
-                          </table>";
+        Mail::$content = "<h3>Hello " . $billto . ",</h3><br><p>Please see the attachment bellow for your paid invoice.</p><p>Thank you for interest in the " . $program . " program. Please feel free to contact us if you have any questions.</p><br><br><p>Best regards,</p><p>__</p><table><tr><td><img src='images/logo.png' width='150px' height='100px' alt='First College'></td><td><p style='color: #2e6da4; font-size: 12px;'><a href='https://www.firstcollege.ca/'>FIRST COLLEGE</a> | Inspiring minds through education<br> ADMIN OFFICE: 572 Leon Ave, 2nd floor, Kelowna, BC V1Y 6J6</p></td></tr></table>";
         Mail::$attachment = "invoices/" . $number . ".pdf";
         Mail::$subject = 'Student Invoice';
         Mail::send_mail();
     }
-//    $model->insert('invoices', $dataInsert);
     header("location:?action=v_invoice");
 }
 
