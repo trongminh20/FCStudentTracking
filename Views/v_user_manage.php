@@ -4,7 +4,7 @@ include "v_masterPage_header.php";
 <?php
 include "v_masterPage_sidebar.php";
 ?>
-<div id="mainContent" style="margin-left:50px;">
+<div id="mainContent" style="">
     <h1>USER INFORMATION</h1>
 
     <?php
@@ -16,9 +16,11 @@ include "v_masterPage_sidebar.php";
     //the cols that are not displayed
     $unsetCols = ['password'];
     $loadTable = $model->select_displayed_data("employees", $unsetCols);
-    $view->show_table_with_manage_functions("", "table table-striped", "v_edit_user", "c_delete_user",
-        "c_reset_pass",
-        $loadTable);
+    $view->show_table_with_manage_functions("",
+        "table table-striped",
+        "v_edit_user",
+        "c_delete_user",
+        "c_reset_pass", $loadTable);
     ?>
     <hr>
     <?php

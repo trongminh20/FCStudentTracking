@@ -1,6 +1,13 @@
 <?php
 include "v_masterPage_header.php";
 include "v_masterPage_sidebar.php";
+
+if(isset($_POST['student_id'])){
+    $id = $_POST['student_id'];
+}else{
+    $id ="";
+}
+
 ?>
 
 <div class="container" id="mainContent" style="padding-top: 20px; margin-left:50px;">
@@ -12,7 +19,7 @@ include "v_masterPage_sidebar.php";
             <div class="form-group">
               <label for="student_id">Student ID:</label><br>
               <input class="form-control" type="number" name="student_id" placeholder="Enter student ID"
-                       required="required">
+                     value="<?=$id?>" required="required">
           </div>
           <div class="form-group" style="padding-top: 20px">
                     <label for="phone">Program ID:</label>
