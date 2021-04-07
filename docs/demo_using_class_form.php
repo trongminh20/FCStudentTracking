@@ -11,7 +11,6 @@ $inputList = [
 ?>
 2: call the function form view
 <?php
-$view -> display_customized_form($id, $class,$inputList, $formMethod, $formAction, $formName);
 
 ?>
 

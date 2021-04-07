@@ -88,7 +88,14 @@ $labels = [
     'Remaining Payment' => 'remaining_payment'
 ];
 
+$tableNames = ["Admission Perior To Start Date"=>'apsds',
+    "Perior To Practice Education"=>'ppes',
+    "Enrollment Brief Summary"=>'students',
+    "Graduations"=>'graduation',
+    'Payment Tracking' => "payments_tracking"];
+
 $table = $_POST['select_section'];
+
 if ($table == 'students') {
     $studentID = ['id' => $_POST['student_id']];
 } else {
@@ -105,10 +112,14 @@ if ($table == 'students') {
         $data = $rawData[0];
         ?>
         <?php
-        $form = new Form("form-group col-lg-8", "updateForm", "c_update_record", "POST", "Update Record ". $table, "");
+        $form = new Form(["class" => "form-group col-lg-8",
+            "id" => "updateForm",
+            "action" => "?action=c_update_record",
+            "method" => "POST"],
+            "Update record in " . array_search($table,$tableNames));
         $form->add_input(['name' => 'table', 'value' => $table, 'type' => 'hidden', 'id' => 'table', 'readonly' => 'readonly']);
         foreach ($data as $k => $v) { // data from database
-            $form->add_label(['class' => $k, 'for' => "", 'label' => array_search($k, $labels)]);
+            $form->add_label(['class' => $k, 'for' => ""], array_search($k, $labels));
             if ($k === 'prog_id') { // display list of programs
                 if ($table === 'students') {
                     ?>
@@ -131,20 +142,20 @@ if ($table == 'students') {
                     echo '<br>';
                     $form->add_input(['class' => 'form-check-input', 'name' => $k, 'value' => 'yes', 'type' =>
                         'radio', 'checked' => '']);
-                    $form->add_label(['class' => $k, 'for' => "", 'label' => 'YES', 'style' => 'padding-left:10px;']);
+                    $form->add_label(['class' => $k, 'for' => "", 'style' => 'padding-left:10px;'], "YES");
                     echo '<br>';
                     $form->add_input(['class' => 'form-check-input', 'name' => $k, 'value' => 'no', 'type' => 'radio']);
-                    $form->add_label(['class' => $k, 'for' => "", 'label' => 'NO', 'style' => 'padding-left:10px;']);
+                    $form->add_label(['class' => $k, 'for' => "", 'style' => 'padding-left:10px;'], "NO");
                     echo '<br>';
                 } else {
                     echo '<br>';
                     $form->add_input(['class' => 'form-check-input',
                         'name' => $k, 'value' => 'yes', 'type' => 'radio']);
-                    $form->add_label(['class' => $k, 'for' => "", 'label' => 'YES', 'style' => 'padding-left:10px;']);
+                    $form->add_label(['class' => $k, 'for' => "", 'style' => 'padding-left:10px;'], "YES");
                     echo '<br>';
                     $form->add_input(['class' => 'form-check-input', 'name' => $k, 'value' => 'no', 'type' =>
                         'radio', 'checked' => 'checked']);
-                    $form->add_label(['class' => $k, 'for' => "", 'label' => 'NO', 'style' => 'padding-left:10px;']);
+                    $form->add_label(['class' => $k, 'for' => "", 'style' => 'padding-left:10px;'], "NO");
                     echo '<br>';
                 }
             } elseif ($k == 'rmt_stu_materials') {
@@ -163,10 +174,10 @@ if ($table == 'students') {
                 if ($type[$k] == 'varchar(3)') {
                     echo '<br>';
                     $form->add_input(['class' => 'form-check-input', 'name' => $k, 'type' => 'radio', 'value' => 'Yes']);
-                    $form->add_label(['class' => $k, 'for' => "", 'label' => 'Yes']);
+                    $form->add_label(['class' => $k, 'for' => ""], "YES");
                     echo '<br>';
                     $form->add_input(['class' => 'form-check-input', 'name' => $k, 'type' => 'radio', 'value' => 'No']);
-                    $form->add_label(['class' => $k, 'for' => "", 'label' => 'No']);
+                    $form->add_label(['class' => $k, 'for' => ""], "NO");
                     echo '<br>';
                 } else if ($type[$k] == 'datetime') {
                     $form->add_input(['class' => 'form-control ' . $k, 'name' => $k, 'type' => 'datetime-local', 'value' => $v]);

@@ -1,7 +1,8 @@
 <?php
 class Form{
 
-	public function __construct($formAttributes){
+	public function __construct($formAttributes, $formName=""){
+	    echo "<h1>".$formName."</h1>";
 		echo "<form ".$this->setup($formAttributes).">";
 	}
 
