@@ -20,7 +20,7 @@
     <!--Custom JS-->
     <script src="js/customizeJS.js"></script>
     <script type="text/javascript">
-        window.onload = ()=>{setup();};
+        window.onload = ()=>{time_setup();};
     </script>
 </head>
 

@@ -5,7 +5,7 @@ include "v_masterPage_header.php";
 include "v_masterPage_sidebar.php";
 ?>
 <div id="mainContent" style="margin-left:50px;">
-    <h1>USER MANAGEMENT INTERFACE</h1>
+    <h1>USER INFORMATION</h1>
 
     <?php
     //display error or announcements if existed
@@ -32,6 +32,7 @@ include "v_masterPage_sidebar.php";
     } else {
         echo "";
     }
+
     $labels = [
         'Employee ID' => 'id',
         'Username' => 'username',
@@ -43,12 +44,18 @@ include "v_masterPage_sidebar.php";
         'Administrator' => 'admin',
         'Employee\'s role' => 'role'
     ];
-    $form = new Form(['class' => "form-group col-lg-8", 'action' => 'v_test', 'method' => "POST"]);
+
+    $form = new Form(['class' => "form-group col-lg-8",
+        'action' => '?action=c_add_user',
+        'method' => "POST"], "ADD NEW USER");
     foreach ($labels as $k => $v) {
         echo "<br>";
         $form->add_label(['for' => ''], $k);
         if ($v === 'id') {
-            $form->add_input(['class' => 'form-control', 'type' => 'number', 'name' => 'id', 'placeholder' => 'User ID number',
+            $form->add_input(['class' => 'form-control',
+                'type' => 'number',
+                'name' => $v,
+                'placeholder' => 'User ID number',
                 'required' => ""]);
         } elseif ($v == 'password') {
             $form->add_input(['id' => '',
@@ -57,32 +64,46 @@ include "v_masterPage_sidebar.php";
                 'type' => 'password',
                 'required' => ""]);
         } else if ($v == 'email') {
-            $form->add_input(['id' => '',
+            echo "<br>";
+            $form->add_label(['id'=>'emailValidateWarn', "style"=>"color:gray; font-size:10px;"],"");
+            $form->add_input(['id' => 'email',
                 'class' => 'form-control',
                 'name' => $v,
                 'type' => 'email',
-                'required' => ""]);
+                'required' => "",
+                'onchange'=>"validate_email();"
+            ]);
         } else if ($v == 'phone') {
             echo "<br>";
-            $form->add_label(['for' => "tel", 'id' => 'validateWarning',
+            $form->add_label(['for' => "tel",
+                'id' => 'validateWarning',
                 "style" => "font-size:10px;color:gray"], '');
             $form->add_input([
                 "class" => 'form-control',
                 "type" => "text",
                 'id' => 'tel',
                 "name" => $v,
-                'onchange'=>'validate_phoneNumber();'
+                'onchange' => 'validate_phoneNumber();'
             ]);
         } else if ($v == 'admin') {
             echo "<br>";
-            $form->add_input(['id' => 'admin', 'type' => 'radio', 'name' => $v, 'value' => 'admin']);
+            $form->add_input(['id' => 'admin',
+                'type' => 'radio',
+                'name' => $v,
+                'value' => 'admin']);
             $form->add_label(['for' => 'admin'], '  Admin');
             echo "<br>";
-            $form->add_input(['id' => 'user', 'type' => 'radio', 'name' => $v, 'value' => 'user']);
+            $form->add_input(['id' => 'user',
+                'type' => 'radio',
+                'name' => $v,
+                'value' => 'user']);
             $form->add_label(['for' => 'user'], '  User');
         } else {
-            $form->add_input(['id' => '', 'class' => 'form-control', 'name' => $v,
-                'type' => 'text', 'required' => ""]);
+            $form->add_input(['id' => '',
+                'class' => 'form-control',
+                'name' => $v,
+                'type' => 'text',
+                'required' => ""]);
         }
     }
     echo "<br>";

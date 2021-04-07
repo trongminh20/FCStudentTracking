@@ -194,7 +194,7 @@ if ($table == 'students') {
 </div>
 <script type="text/javascript">
     window.onload = function () {
-        display();
+        display_input_fields();
     };
 </script>
 

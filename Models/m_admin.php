@@ -8,7 +8,7 @@ class Admin extends User{
 
     public function Admin($id, $username, $password, $email, $phoneNumber, $department){
         parent::User($id, $username, $password, $email, $phoneNumber, $department);
-        $this->role = 1;
+        $this->role = 'admin';
     }
 
 

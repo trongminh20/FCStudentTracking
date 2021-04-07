@@ -6,6 +6,8 @@ include "v_masterPage_sidebar.php";
 
 $stuData = ((isset($_SESSION['student'])) ? $_SESSION['student'] : NULL);
 unset($_SESSION['student']);
+
+$program = $model->select('programs',[]);
 ?>
 
 <div id="mainContent" style="margin-left:50px;">
@@ -15,7 +17,7 @@ unset($_SESSION['student']);
     unset($_SESSION['report_info']);
     $form = new Form(['class'=>'form form-group col-lg-8',
         'id'=> "reportForm",
-        'action'=> "v_report_generate",
+        'action'=> "?action=v_report_generate",
         'method'=> "POST",
         'target'=>'_blank'], "CREATING NEW REPORT");
 
@@ -34,7 +36,8 @@ unset($_SESSION['student']);
         'name' => 'prog_id',
         'type' => 'text',
         'value' =>  (($stuData != NULL) ? $stuData['prog_id'] : ""),
-        'placeholder' => 'Enter Program ID']);
+        'placeholder' => 'Enter Program ID',
+        'readonly'=>'readonly']);
     $form->end_fieldset();
     ?>
 <div class="form-group">

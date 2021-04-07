@@ -39,14 +39,9 @@ class Form{
 	public function add_legend($attributes, $val){
 		echo "<legend ".$this->setup($attributes).">".$val."</legend>";
 	}
-
-
-
 	public function end_form(){
 		echo "</form>";
 	}
-
-
 
 	private function setup($attributes){
 		$setting = "";
