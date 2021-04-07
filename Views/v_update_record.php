@@ -117,7 +117,9 @@ if ($table == 'students') {
             "action" => "?action=c_update_record",
             "method" => "POST"],
             "Update record in " . array_search($table,$tableNames));
-        $form->add_input(['name' => 'table', 'value' => $table, 'type' => 'hidden', 'id' => 'table', 'readonly' => 'readonly']);
+        $form->add_input(['name' => 'table', 'value' => $table,
+            'type' => 'hidden', 'id' => 'table',
+            'readonly' => 'readonly']);
         foreach ($data as $k => $v) { // data from database
             $form->add_label(['class' => $k, 'for' => ""], array_search($k, $labels));
             if ($k === 'prog_id') { // display list of programs
