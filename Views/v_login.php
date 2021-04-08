@@ -1,5 +1,9 @@
 <?php
 include "v_header.php";
+if(isset($_SESSION['user'])){
+    unset($_SESSION['user']);
+}
+
 ?>
 
 <div id="wrapper">
