@@ -18,19 +18,20 @@ class Controller
         $action = $dr[0];
         switch ($action) {
             case 'v':
-                if(isset($_SESSION['session_id'])) {
+                if (isset($_SESSION['session_id'])) {
                     return "Views/" . $dr . ".php";
-                }else if($dr == "v_forgot_password"){
+                } else if ($dr == "v_forgot_password") {
                     return "Views/v_forgot_password.php";
-                } else{
+                } else {
                     return "Views/v_login.php";
                 }
+
             case 'c':
                 if ($dr == "c_login") {
                     $this->c_login($model);
-                } else if($dr == "c_forgot_password"){
+                } else if ($dr == "c_forgot_password") {
                     $this->c_forgot_password($model);
-                }else if (isset($_SESSION['session_id'])) {
+                } else if (isset($_SESSION['session_id'])) {
                     $this->$dr($model);
                 } else {
                     header("location:?action=v_login");
@@ -140,18 +141,18 @@ class Controller
 
                 $fname = $_POST['fname'];
                 $role = $_POST['role'];
-                if($admin === 'admin'){
+                if ($admin === 'admin') {
                     $user = new Admin();
-                    $user-> Admin($id, $username, $password,$email, $phone, $department);
+                    $user->Admin($id, $username, $password, $email, $phone, $department);
                 }
-                if($admin === 'user'){
+                if ($admin === 'user') {
                     $user = new Employee();
-                    $user -> Employee($id, $username, $password, $email, $phone, $department);
+                    $user->Employee($id, $username, $password, $email, $phone, $department);
                 }
 
                 try {
                     $model->create_user('employees', $user);
-                    $model->add_user_info('emp_info',['eid' => $id, 'fname' => $fname, 'role' => $role]);
+                    $model->add_user_info('emp_info', ['eid' => $id, 'fname' => $fname, 'role' => $role]);
                 } catch (PDOException $e) {
                     $_SESSION['add_user_error'] = $e->getMessage();
                     header("Location:?action=v_user_manage");
