@@ -140,8 +140,6 @@ class Controller
 
                 $fname = $_POST['fname'];
                 $role = $_POST['role'];
-
-
                 if($admin === 'admin'){
                     $user = new Admin();
                     $user-> Admin($id, $username, $password,$email, $phone, $department);

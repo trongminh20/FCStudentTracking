@@ -213,6 +213,8 @@ function validate_phoneNumber() {
     let node = document.createAttribute("style");
 
     if (val.length > 15) {
+        node.value = "border-bottom:1px solid red;";
+        phoneNumber.setAttributeNode(node);
         warning.innerHTML = 'Your input is too long';
         btn_unactive();
     } else if (!val.match(/^[-.(]*(\d{3})[) ]*(\d{3})[-]*(\d{4})$/)) {
