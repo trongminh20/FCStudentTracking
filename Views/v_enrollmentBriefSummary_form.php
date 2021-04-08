@@ -52,7 +52,8 @@ include "v_masterPage_sidebar.php";
                 <!--phone number-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="phone">Contact Number:</label>
-                    <input type="text" name="phone" class="form-control" id="phone"/>
+                    <br><label id="validateWarning"></label>
+                    <input type="text" onchange="validate_phoneNumber();" name="phone" class="form-control" id="tel"/>
                 </div>
                 <!--DOB-->
                 <div class="form-group" style="padding-top: 20px">
@@ -62,10 +63,10 @@ include "v_masterPage_sidebar.php";
                 <!--email-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="Email">Email:</label>
-                    <input type="text" name="email" class="form-control" id="email"/>
+                    <input type="email" name="email" class="form-control" id="email"/>
                 </div>
                 <div class="form-group" style="padding-top: 20px">
-                    <label for="Email">Address:</label>
+                    <label for="address">Address:</label>
                     <input type="text" name="address" class="form-control" id="address"/>
                 </div>
                 <!--dom or int student radio button-->
@@ -92,13 +93,13 @@ include "v_masterPage_sidebar.php";
                               rows="5"></textarea>
                 </div>
                 <div class="form-group" style="padding-top: 20px">
-                    <label for="phone">Admission Status:</label>
-                    <input type="text" name="admin_status" class="form-control" id="phone"/>
+                    <label for="adminStatus">Admission Status:</label>
+                    <input type="text" name="admin_status" class="form-control" id="adminStatus"/>
                 </div>
                 <!--submit button-->
                 <div class="form-group" style="padding-top: 20px">
-                    <input class="btn btn-primary" id="btnAddNewStudent" type="submit" name="add_student" value='Add
-                    new Student'>
+                    <input class="btn btn-primary" id="submit" type="submit" name="add_student"
+                           value='Add new Student'>
                 </div>
             </form>
         </div>

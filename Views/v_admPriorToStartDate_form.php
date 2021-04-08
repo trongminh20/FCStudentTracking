@@ -1,8 +1,12 @@
 <?php
 include "v_masterPage_header.php";
-?>
-<?php
 include "v_masterPage_sidebar.php";
+
+if(isset($_POST['student_id'])){
+    $id = $_POST['student_id'];
+}else{
+    $id="";
+}
 ?>
 
 <div class="container" id="mainContent" style="padding-top: 20px; margin-left:50px;">
@@ -15,12 +19,12 @@ include "v_masterPage_sidebar.php";
                 <!--id-->
                 <div class="form-group">
                     <label for="student_id">Student ID:</label><br>
-                    <input class="form-control" type="number" name="student_id" value="" required="required">
+                    <input class="form-control" type="number" name="student_id" value="<?=$id?>" required="required">
                 </div>
 
                 <div class="form-group" style="padding-top: 20px">
                     <label for="phone">Program ID:</label>
-                    <select class="form-control" name= "prog_id" id="programID">
+                    <select class="form-control" name= "prog_id" id="programID" required>
                         <option>-- Select one --</option>
                         <?php
                         $options = $model->select('programs', NULL);

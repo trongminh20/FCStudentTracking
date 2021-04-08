@@ -35,7 +35,7 @@ unset($_SESSION['search_result']);
         </thead>
         <tbody>
         <?php
-            for ($i = 0; $i < count($students); $i++):
+        for ($i = 0; $i < count($students); $i++):
             ?>
             <tr>
                 <td class="shrinkable"><?= $students[$i]['id'] ?></td>
@@ -45,13 +45,19 @@ unset($_SESSION['search_result']);
                 <td class="shrinkable"><?= $students[$i]['email'] ?></td>
                 <td class="shrinkable"><?= $students[$i]['address'] ?></td>
                 <td class="shrinkable"><?= $students[$i]['dom_or_int'] ?></td>
-                <td class="shrinkable" id="<?='enrollNote'.$i?>"><?= $students[$i]['enroll_notes'] ?></td>
+                <td class="shrinkable" id="<?= 'enrollNote' . $i ?>"><?= $students[$i]['enroll_notes'] ?></td>
                 <td class="shrinkable"><?= $students[$i]['admin_status'] ?></td>
+                <td>
+                    <form action="?action=v_student_detail" method="POST">
+                        <input type="hidden" name='stu_id' value="<?= $students[$i]['id']; ?>">
+                        <input class="btn btn-link" type="submit" name="submit" value="Detail">
+                    </form>
+                </td>
                 <td>
                     <form action="?action=c_to_report" method="POST">
                         <input type="hidden" name='stu_id' value="<?= $students[$i]['id']; ?>">
                         <input type="hidden" name='prog_id' value="<?= $students[$i]['prog_id']; ?>">
-                        <input type="submit" name="submit" value="Report">
+                        <input class="btn btn-link" type="submit" name="submit" value="Report">
                     </form>
                 </td>
             </tr>
@@ -63,7 +69,7 @@ unset($_SESSION['search_result']);
     </table>
 </div>
 <script>
-    window.onload = function(){
+    window.onload = function () {
         shrinkable();
     }
 

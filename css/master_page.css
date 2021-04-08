@@ -161,12 +161,12 @@ a.article, a.article:hover {
 #mainContent {
     margin-top: 50px;
     margin-bottom: 100px;
+    margin-left:50px;
     padding: 50px 15px 0px 0px;
     min-height: 100vh;
     transition: all 0.3s;
     width: 100%;
     color: #5f5e5e;
-
 }
 
 .form {
@@ -277,6 +277,12 @@ table > tbody > tr > td {
 
 .hidden {
     display: none;
+}
+#emailValidateWarn,
+#validateWarning {
+    font-size: 10px;
+    color:gray;
+    padding-left: 15px;
 }
 
 /*-----------------------------------------------------
