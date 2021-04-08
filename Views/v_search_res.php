@@ -20,24 +20,25 @@ unset($_SESSION['search_result']);
         }
         ?></h5>
     <table id="searchRes" class="table table-condensed table-striped">
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>ProgramID</th>
-            <th>Name</th>
-            <th>phone</th>
-            <th>email</th>
-            <th>address</th>
-            <th>Dom OR Int</th>
-            <th>Enroll note</th>
-            <th>status</th>
+
+        <tr class="text-center">
+            <th>STUDENT ID</th>
+            <th>PROGRAM ID</th>
+            <th>NAME</th>
+            <th>PHONE</th>
+            <th>EMAIL</th>
+            <th>ADDRESS</th>
+            <th>DOM OR INT</th>
+            <th>ENROLLMENT NOTE</th>
+            <th>STATUS</th>
+            <th colspan="2"></th>
         </tr>
-        </thead>
+
         <tbody>
         <?php
         for ($i = 0; $i < count($students); $i++):
             ?>
-            <tr>
+            <tr class="text-center">
                 <td class="shrinkable"><?= $students[$i]['id'] ?></td>
                 <td class="shrinkable"><?= $students[$i]['prog_id'] ?></td>
                 <td class="shrinkable"><?= $students[$i]['name'] ?></td>
