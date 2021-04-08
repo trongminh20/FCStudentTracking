@@ -28,7 +28,7 @@
 <body>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
-        <div class="navbar-header" style="width: 250px;">
+        <div class="navbar-header" style="width: 250px;"> <!--logo section-->
             <div style="float: left; width: 84%">
                 <h3>
                     <a href="?action=v_home">
@@ -38,9 +38,12 @@
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbarCollapse">
+            <?php
+            if(isset($_SESSION['user'])){
 
+            ?>
             <ul class="nav navbar-nav navbar-right">
-                <div style="float: left; padding: 13px;">
+                <div style="float: left; padding: 13px;"> <!--Search bar section-->
                     <form class="form-inline" action="?action=c_search" method="POST">
                         <input class="form-control mr-sm-2" type="search" placeholder="@student name OR #student id OR !program id" name="keyword" style="width:430px !important;">
                         <button class="btn btn-outline-success my-2 my-sm-0" name="search" type="submit" value="Search">Search</button>
@@ -80,6 +83,10 @@
                     </ul>
                 </li>
             </ul>
+            <?php
+            }
+            ?>
+
         </div>
     </div>
 </nav>
