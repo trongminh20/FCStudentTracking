@@ -16,7 +16,7 @@ if(isset($_POST['student_id'])){
       <div class="col-xs-12">
         <h2 id="formTitle">Graduation</h2>
         <!--Form starts-->
-        <form action="?action=c_add_grad" method="POST">
+        <form class="col-lg-8" action="?action=c_add_grad" method="POST">
           <div class="form-group">
               <label for="student_id">Student ID:</label><br>
               <input class="form-control" type="number" name="student_id" placeholder="Enter student ID"

@@ -36,13 +36,13 @@ $rawData = $model->select('students', ['id' => $numberID]);
                 $apsds = count($database->select_count_record('apsds', 'student_id', $rawData[0]['id']));
                 echo(($apsds === 0) ? 'Empty' : "Recorded");
                 if ($apsds < 1) {
-                    $form = new Form(['method' => 'POST', 'action' => '?action=v_admPriorToStartDate_form', 'target' => '_blank']);
+                    $form = new Form(['method' => 'POST', 'action' => '?action=v_admPriorToStartDate_form','target'=>'_blank']);
                     $form->add_input(['type' => 'hidden', 'name' => 'student_id', 'value' => $rawData[0]['id']]);
                     $form->add_input(['class' => 'btn btn-link', 'type' => 'submit', 'name' => 'add_record', 'value' => 'Add new record']);
                     $form->end_form();
 
                 } else {
-                    $form = new Form(['method' => 'POST', 'action' => '?action=v_update_record', 'target' => '_blank']);
+                    $form = new Form(['method' => 'POST', 'action' => '?action=v_update_record','target'=>'_blank']);
                     $form->add_input(['type' => 'hidden', 'name' => 'student_id', 'value' => $rawData[0]['id']]);
                     $form->add_input(['type' => 'hidden', 'name' => 'select_section', 'value' => 'apsds']);
                     $form->add_input(['class' => 'btn btn-link', 'type' => 'submit', 'name' => 'update_record', 'value' => 'Update']);
