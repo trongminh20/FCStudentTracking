@@ -1,8 +1,12 @@
 <?php
 include "v_masterPage_header.php";
-if(isset($_SESSION['user'])){
+if(isset($_SESSION['user'])) {
     unset($_SESSION['user']);
 }
+if(isset($_SESSION['session_id'])){
+    unset($_SESSION['session_id']);
+}
+
 ?>
 <div id="mainContent">
     <h3>Enter your current Username</h3>
