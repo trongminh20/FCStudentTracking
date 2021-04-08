@@ -20,7 +20,7 @@ $rawData = $model->select('students', ['id' => $numberID]);
     <h3 class="text-center">STUDENT'S RECORD</h3>
     <br>
     <table class="table table-striped">
-        <tr class="text-center">
+        <tr class="text-center text-uppercase">
 
             <th>Admission Prior To Start Date</th>
             <th>Prior to Practice Education</th>
@@ -34,7 +34,7 @@ $rawData = $model->select('students', ['id' => $numberID]);
             <td>
                 <?php
                 $apsds = count($database->select_count_record('apsds', 'student_id', $rawData[0]['id']));
-                echo(($apsds === 0) ? 'Empty' : "Had record");
+                echo(($apsds === 0) ? 'Empty' : "Recorded");
                 if ($apsds < 1) {
                     $form = new Form(['method' => 'POST', 'action' => '?action=v_admPriorToStartDate_form', 'target' => '_blank']);
                     $form->add_input(['type' => 'hidden', 'name' => 'student_id', 'value' => $rawData[0]['id']]);
@@ -52,7 +52,7 @@ $rawData = $model->select('students', ['id' => $numberID]);
             </td>
             <td><?php
                 $ppes = count($database->select_count_record('ppes', 'student_id', $rawData[0]['id']));
-                echo(($ppes === 0) ? "Empty" : "Had record");
+                echo(($ppes === 0) ? "Empty" : "Recorded");
                 if ($ppes < 1) {
                     $form = new Form(['method' => 'POST', 'action' => '?action=v_priorToPracticeEducation_form', 'target' => '_blank']);
                     $form->add_input(['type' => 'hidden', 'name' => 'student_id', 'value' => $rawData[0]['id']]);
@@ -69,7 +69,7 @@ $rawData = $model->select('students', ['id' => $numberID]);
                 ?></td>
             <td><?php
                 $stu = count($database->select_count_record('students', 'id', $rawData[0]['id']));
-                echo(($stu === 0) ? "Empty" : "Had record");
+                echo(($stu === 0) ? "Empty" : "Recorded");
                 if ($stu < 1) {
                     $form = new Form(['method' => 'POST', 'action' => '?action=v_enrollmentBirefSummary_form', 'target' => '_blank']);
                     $form->add_input(['type' => 'hidden', 'name' => 'student_id', 'value' => $rawData[0]['id']]);
@@ -85,7 +85,7 @@ $rawData = $model->select('students', ['id' => $numberID]);
                 ?></td>
             <td><?php
                 $payment = count($database->select_count_record('payment_tracking', 'student_id', $rawData[0]['id']));
-                echo(($payment === 0) ? "Empty" : "Had record");
+                echo(($payment === 0) ? "Empty" : "Recorded");
 
                 if ($payment < 1) {
                     $form = new Form(['method' => 'POST', 'action' => '?action=v_paymentTracking_form', 'target' => '_blank']);
@@ -103,7 +103,7 @@ $rawData = $model->select('students', ['id' => $numberID]);
             <td><?php
 
                 $grad = count($database->select_count_record('graduations', 'student_id', $rawData[0]['id']));
-                echo(($grad === 0) ? "Empty" : "Had record");
+                echo(($grad === 0) ? "Empty" : "Recorded");
                 if ($grad < 1) {
                     $form = new Form(['method' => 'POST', 'action' => '?action=v_graduation_form', 'target' => '_blank']);
                     $form->add_input(['type' => 'hidden', 'name' => 'student_id', 'value' => $rawData[0]['id']]);

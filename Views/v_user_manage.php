@@ -50,6 +50,7 @@ include "v_masterPage_sidebar.php";
     $form = new Form(['class' => "form-group col-lg-8",
         'action' => '?action=c_add_user',
         'method' => "POST"], "ADD NEW USER");
+    echo "<ul><li>User ID must be unique</li><li>Username must be unique</li></ul>";
     foreach ($labels as $k => $v) {
         echo "<br>";
         $form->add_label(['for' => ''], $k);

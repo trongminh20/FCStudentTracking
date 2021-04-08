@@ -85,7 +85,7 @@ class View
         //display table header
         foreach ($data as $d) {
 
-            echo "<tr class='text-center'>";
+            echo "<tr class='text-center text-uppercase'>";
             foreach ($d as $key => $vals) {
                 if ($count < count($d)) {
                     echo "<th scope='col'>$key</th>";
