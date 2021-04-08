@@ -53,7 +53,7 @@ class View
             echo "<tr>";
             foreach ($d as $k => $v):
                 if ($count < count($d)) {
-                    echo "<td>" . $k . "</td>";
+                    echo "<th>" . $k . "</th>";
                 }
                 $count++;
             endforeach;
@@ -84,8 +84,8 @@ class View
         echo "<table id='$id' class='$class'>";
         //display table header
         foreach ($data as $d) {
-            echo "<thead>";
-            echo "<tr>";
+
+            echo "<tr class='text-center'>";
             foreach ($d as $key => $vals) {
                 if ($count < count($d)) {
                     echo "<th scope='col'>$key</th>";
@@ -93,8 +93,8 @@ class View
                 $count += 1;
             }
             echo "</tr><tr>";
-            echo "</thead>";
-            echo "<tbody>";
+
+            echo "<tbody class='text-center'>";
             //display table content
             foreach ($d as $key => $vals) {
                 echo "<td>$vals</td>";

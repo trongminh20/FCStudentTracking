@@ -10,24 +10,27 @@ $rawData = $model->select('students', ['id' => $numberID]);
 <div id="mainContent">
     <h3> Student Detail Information </h3>
     <ul>
-        <li>Student Name: <?= $rawData[0]['name'] ?></li>
-        <li>Student ID: <?= $rawData[0]['id'] ?></li>
+        <li><strong>Student Name:</strong> <?= $rawData[0]['name'] ?></li>
+        <li><strong>Student ID:</strong> <?= $rawData[0]['id'] ?></li>
+        <li><strong>Student Email:</strong> <?= $rawData[0]['email'] ?></li>
+        <li><strong>Phone Number:</strong> <?= $rawData[0]['phone'] ?></li>
     </ul>
+    <br>
 
-    <h4>Student's number of record:</h4>
-
+    <h3 class="text-center">STUDENT'S RECORD</h3>
+    <br>
     <table class="table table-striped">
-        <thead>
-        <tr>
+        <tr class="text-center">
+
             <th>Admission Prior To Start Date</th>
             <th>Prior to Practice Education</th>
             <th>Enrollment Brief Summary</th>
             <th>Payment tracking</th>
             <th>Graduations</th>
+
         </tr>
-        </thead>
         <tbody>
-        <tr>
+        <tr class="text-center">
             <td>
                 <?php
                 $apsds = count($database->select_count_record('apsds', 'student_id', $rawData[0]['id']));
