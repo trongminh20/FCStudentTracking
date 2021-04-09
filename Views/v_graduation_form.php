@@ -13,17 +13,17 @@ if (isset($_POST['student_id'])) {
 <!-- Graduation Section -->
 <div class="container" id="mainContent" style="padding-top: 20px; margin-left:50px;">
     <div class="row">
-        <div class="col-xs-12">
-            <h2 id="formTitle">Graduation</h2>
-            <!--Form starts-->
-            <form class="col-lg-8" action="?action=c_add_grad" method="POST">
-                <div class="form-group">
-                    <label for="student_id">Student ID:</label><br>
-                    <input class="form-control" type="number" name="student_id" placeholder="Enter student ID"
-                           value="<?= $id ?>" required="required">
-                </div>
-                <div class="form-group" style="padding-top: 20px">
-                    <label for="phone">Program ID:</label>
+      <div class="col-xs-12">
+        <h2 id="formTitle">Graduation</h2>
+        <!--Form starts-->
+        <form action="?action=c_add_grad" method="POST">
+          <div class="form-group">
+              <label for="student_id">Student ID*:</label><br>
+              <input class="form-control" type="number" name="student_id" placeholder="Enter student ID"
+                     value="<?=$id?>" required="required">
+          </div>
+          <div class="form-group" style="padding-top: 20px">
+                    <label for="phone">Program ID*:</label>
                     <select class="form-control" name="prog_id" id="programID">
                         <option>-- Select one --</option>
                         <?php

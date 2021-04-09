@@ -18,12 +18,12 @@ if(isset($_POST['student_id'])){
             <form class="col-lg-8" action="?action=c_add_apsds" method="POST">
                 <!--id-->
                 <div class="form-group">
-                    <label for="student_id">Student ID:</label><br>
+                    <label for="student_id">Student ID*:</label><br>
                     <input class="form-control" type="number" name="student_id" value="<?=$id?>" required="required">
                 </div>
 
                 <div class="form-group" style="padding-top: 20px">
-                    <label for="phone">Program ID:</label>
+                    <label for="phone">Program ID*:</label>
                     <select class="form-control" name= "prog_id" id="programID" required>
                         <option>-- Select one --</option>
                         <?php
@@ -243,7 +243,8 @@ if(isset($_POST['student_id'])){
                 <!--student email -->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="stuEmail">Student Email:</label>
-                    <input type="text" name="stu_email" class="form-control" id="stuEmail"/>
+                    <br><label id="emailValidateWarn"></label>
+                    <input type="text" onchange="validate_email();" name="stu_email" class="form-control" id="email"/>
                 </div>
                 <!--letter of acceptance issue date-->
                 <div class="form-group" style="padding-top: 20px">
@@ -367,7 +368,5 @@ if(isset($_POST['student_id'])){
             }
         });
     });
-
-
 </script>
 

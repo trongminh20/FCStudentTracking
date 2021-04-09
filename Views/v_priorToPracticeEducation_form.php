@@ -17,12 +17,12 @@ if(isset($_POST['student_id'])){
             <!--Form starts-->
             <form class="col-lg-8" action="?action=c_add_ppes" method="POST">
                 <div class="form-group">
-                    <label for="student_id">Student ID:</label><br>
+                    <label for="student_id">Student ID*:</label><br>
                     <input class="form-control" type="number" name="student_id" placeholder="Enter student ID"
                            value="<?=$id?>"  required="required">
                 </div>
                 <div class="form-group" style="padding-top: 20px">
-                    <label for="phone">Program ID:</label>
+                    <label for="phone">Program ID*:</label>
                     <select class="form-control" name="prog_id" id="programID">
                         <option>-- Select one --</option>
                         <?php
