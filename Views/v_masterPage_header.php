@@ -44,8 +44,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <div style="float: left; padding: 13px;"> <!--Search bar section-->
                     <form class="form-inline" action="?action=c_search" method="POST">
-                        <input class="form-control mr-sm-2" type="search" placeholder="@student name OR #student id
-                        OR !program id" name="keyword" style="width:430px !important;" required="required">
+                        <input class="form-control mr-sm-2" type="search" placeholder="@student name OR #student id OR !program id" name="keyword" style="width:430px !important;" required="required">
                         <button class="btn btn-outline-success my-2 my-sm-0" name="search" type="submit" value="Search">Search</button>
                     </form>
                 </div>
