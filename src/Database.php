@@ -56,13 +56,15 @@ class Database
         return $stm->rowCount();
     }
 
-    function select_count($table, $date)
+    function select_count_record($table, $key, $val)
     {
-        $query = "SELECT * FROM $table WHERE number LIKE '" . $date . "%'";
+        $query = "SELECT * FROM $table WHERE $key LIKE '" . $val . "%'";
         $stm = $this->pdo->prepare($query);
         $stm->execute();
         return $stm->fetchAll(PDO::FETCH_ASSOC);
     }
+
+
 
     /**
      * not include pasword

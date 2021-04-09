@@ -4,12 +4,9 @@ include "v_masterPage_header.php";
 <?php
 include "v_masterPage_sidebar.php";
 $date = date('ymd');
-
-$rows = $database->select_count('invoices', $date);
-
-$number = count($rows) + 1;
-
-$invoiceNumber = $date . $number;
+$rows = $database->select_count_record('invoices','number',$date);
+$invoiceNumber = $date;
+$invoiceNumber .= count($rows)+1;
 
 ?>
 <div id="mainContent" style="margin-left:50px;">
@@ -18,7 +15,7 @@ $invoiceNumber = $date . $number;
             <thead>
             <tr>
                 <td>
-                    INVOICE NUMBER <input type="number" name="number" value="<?= $invoiceNumber ?>"
+                    INVOICE NUMBER <input type="number" name="invoice_number" value="<?= $invoiceNumber ?>"
                                           readonly>
                     (PAID)
                 </td>

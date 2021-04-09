@@ -18,19 +18,20 @@ class Controller
         $action = $dr[0];
         switch ($action) {
             case 'v':
-                if(isset($_SESSION['session_id'])) {
+                if (isset($_SESSION['session_id'])) {
                     return "Views/" . $dr . ".php";
-                }else if($dr == "v_forgot_password"){
+                } else if ($dr == "v_forgot_password") {
                     return "Views/v_forgot_password.php";
-                } else{
+                } else {
                     return "Views/v_login.php";
                 }
+
             case 'c':
                 if ($dr == "c_login") {
                     $this->c_login($model);
-                } else if($dr == "c_forgot_password"){
+                } else if ($dr == "c_forgot_password") {
                     $this->c_forgot_password($model);
-                }else if (isset($_SESSION['session_id'])) {
+                } else if (isset($_SESSION['session_id'])) {
                     $this->$dr($model);
                 } else {
                     header("location:?action=v_login");
@@ -67,9 +68,9 @@ class Controller
             $success = $model->sign_in($username, $password);
             $sessionID = rand(1000, 9999);
             $check = $model->select('sessions', ['session_id' => $sessionID]);
-            while (count($check) > 0) {
-                $check = $model->select('sessions', ['session_id' => $sessionID]);
+            while (!empty($check)) {
                 $sessionID = rand(1000, 9999);
+                $check = $model->select('sessions', ['session_id' => $sessionID]);
             }
 
             if ($success == 1) {
@@ -136,18 +137,24 @@ class Controller
                 $email = $_POST['email'];
                 $phone = $_POST['phone'];
                 $department = $_POST['department'];
+                $admin = $_POST['admin'];
+
                 $fname = $_POST['fname'];
                 $role = $_POST['role'];
+                if ($admin === 'admin') {
+                    $user = new Admin();
+                    $user->Admin($id, $username, $password, $email, $phone, $department);
+                }
+                if ($admin === 'user') {
+                    $user = new Employee();
+                    $user->Employee($id, $username, $password, $email, $phone, $department);
+                }
 
-                $user = new Employee();
-                $user->Employee($id, $username, $password,
-                    $email, $phone, $department);
                 try {
                     $model->create_user('employees', $user);
-                    $model->add_user_info('emp_info',
-                        ['eid' => $id, 'fname' => $fname, 'role' => $role]);
+                    $model->add_user_info('emp_info', ['eid' => $id, 'fname' => $fname, 'role' => $role]);
                 } catch (PDOException $e) {
-                    $_SESSION['add_user_error'] = "Invalid data submitted!";
+                    $_SESSION['add_user_error'] = $e->getMessage();
                     header("Location:?action=v_user_manage");
                 }
             }
@@ -359,7 +366,7 @@ class Controller
             }
             header("Location:?action=v_add_new_record");
         } else {
-            $_SESSION['update_announce'] = "Invalid data, please try again";
+            $_SESSION['update_announce'] = "Inputs are empty, please try again";
         }
     }
 
