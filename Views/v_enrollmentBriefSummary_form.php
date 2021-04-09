@@ -22,7 +22,8 @@ include "v_masterPage_sidebar.php";
             <form action="?action=c_add_student" method="POST">
                 <div class="form-group" style="padding-top: 20px">
                     <label for="name">Name*:</label>
-                    <input type="text" name="name" class="form-control" id="studentName"/>
+                    <input type="text" name="name" class="form-control" id="studentName"
+                           onchange="validate_txt(this.id);"/>
                 </div>
                 <!--id-->
                 <div class="form-group" style="padding-top: 20px">
@@ -32,9 +33,10 @@ include "v_masterPage_sidebar.php";
                 <!--cohort-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="cohort">Cohort*:</label>
-                    <input type="text" name="cohort" class="form-control" id="cohort"/>
+                    <input type="text" name="cohort" class="form-control" id="cohort"
+                           onchange="validate_txt(this.id);"/>
                 </div>
-                <!--program id-->
+                 <!--program id-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="phone">Program ID*:</label>
                     <select name="prog_id" class="form-control" id="programID">
@@ -68,7 +70,8 @@ include "v_masterPage_sidebar.php";
                 </div>
                 <div class="form-group" style="padding-top: 20px">
                     <label for="address">Address:</label>
-                    <input type="text" name="address" class="form-control" id="address"/>
+                    <input type="text" name="address" class="form-control" id="address"
+                           onchange="validate_txt(this.id);"/>
                 </div>
                 <!--dom or int student radio button-->
                 <div class="form-group" style="padding-top: 20px">
@@ -91,7 +94,7 @@ include "v_masterPage_sidebar.php";
                 <div class="form-group" style="padding-top: 20px">
                     <label for="emrollmentNotes">Enrollment Notes:</label>
                     <textarea type="text" class="form-control" name="enroll_notes" id="emrollmentNotes"
-                              rows="5"></textarea>
+                              rows="5"  onchange="validate_txt(this.id);"></textarea>
                 </div>
                 <div class="form-group" style="padding-top: 20px">
                     <label for="adminStatus">Admission Status:</label>

@@ -258,7 +258,7 @@ function validate_txt(id) {
     let val = txt.value;
     let node = document.createAttribute('style');
     node.value = "border: 1px solid red";
-    let spec = /^(\w+[^;!])$/;
+    let spec = /^(\w+[^;!%])/gm;
     if (!val.match(spec)) {
         txt.setAttributeNode(node);
         txt.value = 'Special characters are not allowed';

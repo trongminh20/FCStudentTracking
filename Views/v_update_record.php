@@ -321,8 +321,17 @@ if ($table == 'students') {
                 'onchange' => 'validate_email();'
             ]);
         }
-        //value should be YES or NO , this is for the radio buttons without selected value
+        //english test result
+        else if($k === 'eng_test_result'){
+            $form->add_input(['id' => 'ID' . $k,
+                    'class' => 'form-control ' . $k,
+                    'name' => $k,
+                    'type' => 'number',
+                    'value' => $v
+                ]);
+        }
         else {
+            //value should be YES or NO , this is for the radio buttons without selected value
             if ($type[$k] == 'varchar(3)') {// if not selected value, then displaying in a radio button
                 echo '<br>';
                 $form->add_input(['class' => 'form-check-input', 'name' => $k, 'type' => 'radio', 'value' => 'Yes']);
@@ -345,7 +354,7 @@ if ($table == 'students') {
                 $form->add_input(['id' => 'ID' . $k,
                     'class' => 'form-control ' . $k,
                     'name' => $k,
-                    'type' => ((strpos('varchar', $type[$k]) >= 0) ? "text" : 'number'),
+                    'type' => ((strpos('varchar', $type[$k]) >= 0) ? "text" : $type[$k]),
                     'value' => $v,
                     'onchange' => ((strpos('varchar', $type[$k]) >= 0) ? 'validate_txt(this.id)' : "")
                 ]);
