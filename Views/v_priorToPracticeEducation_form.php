@@ -96,7 +96,7 @@ if(isset($_POST['student_id'])){
           <div id="HCFoodSafeLoc" class="form-groupHC" style="padding-top: 20px; margin-bottom: 15px; display: none;">
             <label for="foodsafeLocandContact">FoodSafe Location & Contact: </label>
             <textarea type="text" class="form-control" id="foodsafeLocandContact" name="foodsafe_contact"
-                      rows="3"></textarea>
+                      rows="3" onchange="validate_txt(this.id)"></textarea>
           </div>
           <!--certificate of foodsafe received date (need to add to db)-->
           <div id="HCFoodSafeCert" class="form-groupHC" style="padding-top: 20px; margin-bottom: 15px; display: none;">
@@ -106,7 +106,7 @@ if(isset($_POST['student_id'])){
           <!--CRC notes (need to add to db)-->
           <div id="HCcrc" class="form-groupHC" style="padding-top: 20px; margin-bottom: 15px; display: none;">
             <label for="crcNotes">Criminal Record Check (CRC): </label>
-            <input type="text" class="form-control" id="crcNotes" name="crc_notes"></input>
+            <input type="text" class="form-control" id="crcNotes" name="crc_notes" onchange="validate_txt(this.id)">
           </div>
           <!--SPECO radio button (need to add to db)-->
           <div id="hcaOnlySPECO" class="form-groupH" style="padding-top: 20px;">
