@@ -37,7 +37,7 @@ $program = $model->select('programs',[]);
         'name' => 'prog_id',
         'type' => 'text',
         'value' =>  (($stuData != NULL) ? $stuData['prog_id'] : ""),
-        'placeholder' => 'Enter Program ID',
+        //'placeholder' => 'Enter Program ID',
         'readonly'=>'readonly']);
     $form->end_fieldset();
     ?>
