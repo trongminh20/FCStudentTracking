@@ -217,7 +217,12 @@ function validate_phoneNumber() {
         phoneNumber.setAttributeNode(node);
         warning.innerHTML = 'Your input is too long';
         btn_unactive();
-    } else if (!val.match(/^[-.(]*(\d{3})[) ]*(\d{3})[-]*(\d{4})$/)) {
+    }else if (val.length < 10) {
+        node.value = "border-bottom:1px solid red;";
+        phoneNumber.setAttributeNode(node);
+        warning.innerHTML = 'Your input is too short';
+        btn_unactive();
+    }else if (!val.match(/^[-.(]*(\d{3})[) ]*(\d{3})[-]*(\d{4})$/)) {
         node.value = "border-bottom:1px solid red;";
         phoneNumber.setAttributeNode(node);
         warning.innerHTML = 'Your input is invalid';
