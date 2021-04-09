@@ -174,11 +174,12 @@ class Controller
                 $model->change_info('employees', $data, $id);
             } catch (PDOException $e) {
                 $_SESSION['update_user_info'] = $e->getMessage();
+                header("location:?action=v_edit_user");
             }
-            $_SESSION['update_user_info'] = "User's information have been updated successfully";
+            $_SESSION['manage_info'] = "User's information have been updated successfully";
             header("Location:?action=v_user_manage");
         } else {
-            $_SESSION['update_user_info'] = "Invalid input data, please try again";
+            $_SESSION['manage_info'] = "Invalid input data, please try again";
             header("Location:?action=v_user_manage");
         }
     }

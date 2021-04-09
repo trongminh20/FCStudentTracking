@@ -1,53 +1,23 @@
 <?php
-$data = $model->select('apsds', ['student_id' => 3789000]);
-$student = $data[0];
-echo $student['pay_option'] . "<br><br><br>"; ///***
-foreach ($student as $k => $v){
-if ($k === 'pay_option'){
-$options = ["Full Payment", "Student Aid BC", "Monthly Payment fee", "Payment Plan", "Others"];
-
-
-
+$form = new Form(['method' => 'POST', 'action' => '?action=v_test_validation']);
+$form->add_label([], 'Username');
+$form->add_input(['id'=>'username', 'type' => 'text', 'name' => 'username', 'onchange' => 'validate_txt(this.id)']);
+$form->add_label([], 'full name');
+$form->add_input(['id'=>'fname', 'type' => 'text', 'name' => 'fname', 'onchange' => 'validate_txt(this.id)']);
+$form->add_input(['type' => 'submit', 'name' => 'send', 'value' => 'submit']);
 ?>
-<br>
-<select name="" class="" id="selectPayment">
-    <?php
-    foreach ($options as $op) {
-        ?>
-        <option value="<?= $op ?>" name="<?= $k ?>"
-            <?php
-            if (strtolower($v) === strtolower($op)) {
-                echo "selected";
-            } else {
-                if (!in_array($v, $options)) {
-                    if ($op === "Others") {
-                        echo "selected";
-                    }
-                }
-                echo "";
-            }
-            ?>><?= $op ?></option>
-        <?php
-    }
-    echo "</select>";
-echo "<div id ='otherPayment'> <label>Enter Payment Method</label>
-    <input id='' class='' name='' value= ".((!in_array($v,$options) && $v === '')?'': $v)." >
-</div>";
-}
-    }
-    ?>
-
 
 <script>
-    function payment_track() {
-        let select = document.getElementById("selectPayment");
-        let otherPayment = document.getElementById("otherPayment");
-        if (select.value !== "Others") {
-            otherPayment.style.display = "none";
-        }else{
-            otherPayment.style.display = "block";
+
+    function validate_txt(id) {
+        let txt = document.getElementById(id);
+        let val = txt.value;
+        let node = document.createAttribute('style');
+        node.value = "border: 1px solid red";
+        let spec = /^(\w+[^;!])$/;
+        if (!val.match(spec)) {
+            txt.setAttributeNode(node);
+            txt.value = 'Not a valid data';
         }
     }
 </script>
-
-

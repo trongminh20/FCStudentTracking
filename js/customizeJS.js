@@ -253,6 +253,22 @@ function validate_email() {
     }
 }
 
+function validate_txt(id) {
+    let txt = document.getElementById(id);
+    let val = txt.value;
+    let node = document.createAttribute('style');
+    node.value = "border: 1px solid red";
+    let spec = /^(\w+[^;!])$/;
+    if (!val.match(spec)) {
+        txt.setAttributeNode(node);
+        txt.value = 'Special characters are not allowed';
+        btn_unactive();
+    }else{
+        txt.removeAttribute("style");
+        btn_active();
+    }
+}
+
 /*set active and unactive on document navigation bar*/
 function set_active_link() {
     let elements = document.getElementsByClassName("nav_link");
