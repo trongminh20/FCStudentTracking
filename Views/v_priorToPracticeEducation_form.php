@@ -2,7 +2,6 @@
 include "v_masterPage_header.php";
 include "v_masterPage_sidebar.php";
 
-
 if(isset($_POST['student_id'])){
     $id = $_POST['student_id'];
 }else{

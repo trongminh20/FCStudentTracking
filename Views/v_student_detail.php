@@ -21,13 +21,11 @@ $rawData = $model->select('students', ['id' => $numberID]);
     <br>
     <table class="table table-striped">
         <tr class="text-center text-uppercase">
-
             <th>Admission Prior To Start Date</th>
             <th>Prior to Practice Education</th>
             <th>Enrollment Brief Summary</th>
             <th>Payment tracking</th>
             <th>Graduations</th>
-
         </tr>
         <tbody>
         <tr class="text-center">
@@ -36,13 +34,13 @@ $rawData = $model->select('students', ['id' => $numberID]);
                 $apsds = count($database->select_count_record('apsds', 'student_id', $rawData[0]['id']));
                 echo(($apsds === 0) ? 'Empty' : "Recorded");
                 if ($apsds < 1) {
-                    $form = new Form(['method' => 'POST', 'action' => '?action=v_admPriorToStartDate_form','target'=>'_blank']);
+                    $form = new Form(['method' => 'POST', 'action' => '?action=v_admPriorToStartDate_form']);
                     $form->add_input(['type' => 'hidden', 'name' => 'student_id', 'value' => $rawData[0]['id']]);
                     $form->add_input(['class' => 'btn btn-link', 'type' => 'submit', 'name' => 'add_record', 'value' => 'Add new record']);
                     $form->end_form();
 
                 } else {
-                    $form = new Form(['method' => 'POST', 'action' => '?action=v_update_record','target'=>'_blank']);
+                    $form = new Form(['method' => 'POST', 'action' => '?action=v_update_record']);
                     $form->add_input(['type' => 'hidden', 'name' => 'student_id', 'value' => $rawData[0]['id']]);
                     $form->add_input(['type' => 'hidden', 'name' => 'select_section', 'value' => 'apsds']);
                     $form->add_input(['class' => 'btn btn-link', 'type' => 'submit', 'name' => 'update_record', 'value' => 'Update']);
@@ -54,12 +52,12 @@ $rawData = $model->select('students', ['id' => $numberID]);
                 $ppes = count($database->select_count_record('ppes', 'student_id', $rawData[0]['id']));
                 echo(($ppes === 0) ? "Empty" : "Recorded");
                 if ($ppes < 1) {
-                    $form = new Form(['method' => 'POST', 'action' => '?action=v_priorToPracticeEducation_form', 'target' => '_blank']);
+                    $form = new Form(['method' => 'POST', 'action' => '?action=v_priorToPracticeEducation_form']);
                     $form->add_input(['type' => 'hidden', 'name' => 'student_id', 'value' => $rawData[0]['id']]);
                     $form->add_input(['class' => 'btn btn-link', 'type' => 'submit', 'name' => 'add_record', 'value' => 'Add new record']);
                     $form->end_form();
                 } else {
-                    $form = new Form(['method' => 'POST', 'action' => '?action=v_update_record', 'target' => '_blank']);
+                    $form = new Form(['method' => 'POST', 'action' => '?action=v_update_record']);
                     $form->add_input(['type' => 'hidden', 'name' => 'student_id', 'value' => $rawData[0]['id']]);
                     $form->add_input(['type' => 'hidden', 'name' => 'select_section', 'value' => 'ppes']);
                     $form->add_input(['class' => 'btn btn-link', 'type' => 'submit', 'name' => 'update_record', 'value' => 'Update']);
@@ -71,12 +69,12 @@ $rawData = $model->select('students', ['id' => $numberID]);
                 $stu = count($database->select_count_record('students', 'id', $rawData[0]['id']));
                 echo(($stu === 0) ? "Empty" : "Recorded");
                 if ($stu < 1) {
-                    $form = new Form(['method' => 'POST', 'action' => '?action=v_enrollmentBirefSummary_form', 'target' => '_blank']);
+                    $form = new Form(['method' => 'POST', 'action' => '?action=v_enrollmentBirefSummary_form']);
                     $form->add_input(['type' => 'hidden', 'name' => 'student_id', 'value' => $rawData[0]['id']]);
                     $form->add_input(['class' => 'btn btn-link', 'type' => 'submit', 'name' => 'add_record', 'value' => 'Add new record']);
                     $form->end_form();
                 } else {
-                    $form = new Form(['method' => 'POST', 'action' => '?action=v_update_record', 'target' => '_blank']);
+                    $form = new Form(['method' => 'POST', 'action' => '?action=v_update_record']);
                     $form->add_input(['type' => 'hidden', 'name' => 'student_id', 'value' => $rawData[0]['id']]);
                     $form->add_input(['type' => 'hidden', 'name' => 'select_section', 'value' => 'students']);
                     $form->add_input(['class' => 'btn btn-link', 'type' => 'submit', 'name' => 'update_record', 'value' => 'Update']);
@@ -88,12 +86,12 @@ $rawData = $model->select('students', ['id' => $numberID]);
                 echo(($payment === 0) ? "Empty" : "Recorded");
 
                 if ($payment < 1) {
-                    $form = new Form(['method' => 'POST', 'action' => '?action=v_paymentTracking_form', 'target' => '_blank']);
+                    $form = new Form(['method' => 'POST', 'action' => '?action=v_paymentTracking_form']);
                     $form->add_input(['type' => 'hidden', 'name' => 'student_id', 'value' => $rawData[0]['id']]);
                     $form->add_input(['class' => 'btn btn-link', 'type' => 'submit', 'name' => 'add_record', 'value' => 'Add new record']);
                     $form->end_form();
                 } else {
-                    $form = new Form(['method' => 'POST', 'action' => '?action=v_update_record', 'target' => '_blank']);
+                    $form = new Form(['method' => 'POST', 'action' => '?action=v_update_record']);
                     $form->add_input(['type' => 'hidden', 'name' => 'student_id', 'value' => $rawData[0]['id']]);
                     $form->add_input(['type' => 'hidden', 'name' => 'select_section', 'value' => 'payment_tracking']);
                     $form->add_input(['class' => 'btn btn-link', 'type' => 'submit', 'name' => 'update_record', 'value' => 'Update']);
@@ -105,13 +103,13 @@ $rawData = $model->select('students', ['id' => $numberID]);
                 $grad = count($database->select_count_record('graduations', 'student_id', $rawData[0]['id']));
                 echo(($grad === 0) ? "Empty" : "Recorded");
                 if ($grad < 1) {
-                    $form = new Form(['method' => 'POST', 'action' => '?action=v_graduation_form', 'target' => '_blank']);
+                    $form = new Form(['method' => 'POST', 'action' => '?action=v_graduation_form']);
                     $form->add_input(['type' => 'hidden', 'name' => 'student_id', 'value' => $rawData[0]['id']]);
                     $form->add_input(['class' => 'btn btn-link', 'type' => 'submit', 'name' => 'add_record', 'value' => 'Add new record']);
                     $form->end_form();
 
                 } else {
-                    $form = new Form(['method' => 'POST', 'action' => '?action=v_update_record', 'target' => '_blank']);
+                    $form = new Form(['method' => 'POST', 'action' => '?action=v_update_record']);
                     $form->add_input(['type' => 'hidden', 'name' => 'student_id', 'value' => $rawData[0]['id']]);
                     $form->add_input(['type' => 'hidden', 'name' => 'select_section', 'value' => 'graduations']);
                     $form->add_input(['class' => 'btn btn-link', 'type' => 'submit', 'name' => 'update_record', 'value' => 'Update']);
