@@ -125,12 +125,11 @@ if ($table == 'students') {
         'id' => 'table',
         'readonly' => 'readonly']);
     //add input as cols in record
-    foreach ($data
-
-    as $k => $v) { // data from database
-    $form->add_label(['class' => $k, 'for' => ""], array_search($k, $labels));
+    foreach ($data as $k => $v) {
+    // data from database
+        $form->add_label(['class' => $k, 'for' => ""], array_search($k, $labels));
     // display list of programs
-    if ($k === 'prog_id') {
+        if ($k === 'prog_id') {
         if ($table === 'students') {
             ?>
             <select class='form-control' name='prog_id'>
@@ -151,8 +150,9 @@ if ($table == 'students') {
                 'value' => $v,
                 'readonly' => 'readonly']);
         }
-    } //display as radio button with selected value
-    else if ($v === 'yes' || $v === 'no') {
+    }
+        //display as radio button with selected value
+        else if ($v === 'yes' || $v === 'no') {
         if ($v === 'yes') {
             echo '<br>';
             $form->add_input(['class' => 'form-check-input ',
@@ -197,7 +197,8 @@ if ($table == 'students') {
             echo '<br>';
         }
     }
-    else if ($k === 'pay_option'){
+        //display as drop list for pay options
+        else if ($k === 'pay_option'){
     $payOptions = ["Full Payment", "Student Aid BC", "Monthly Payment", "Payment Plan", "Others"];
     ?>
     <select name="pay_option" class="form-control" id="payOptions" onchange="check();">
@@ -223,8 +224,10 @@ if ($table == 'students') {
         ?>
         <div id="otherOptionDiv" style="display:none;">
             <label>Enter Payment Method:
-                <input type="text" id="otherInput" class="form-control" value ="<?php if(!in_array($v, $payOptions)
-                    && $v!== '') {echo $v;}?>">
+                <input type="text" id="otherInput" class="form-control" value="<?php if (!in_array($v, $payOptions)
+                    && $v !== '') {
+                    echo $v;
+                } ?>" onchange="validate_txt(this.id);">
             </label>
         </div>
         <?php
@@ -242,7 +245,8 @@ if ($table == 'students') {
                 } ?>
             </select>
             <?php
-        } //display Dom or In as the radio button
+        }
+        //display Dom or In as the radio button
         else if ($k === 'dom_or_int') {
             echo "<br>";
             $values = ['domestic', 'international'];
@@ -304,7 +308,20 @@ if ($table == 'students') {
 
                 echo "<br>";
             }
-        } //value should be YES or NO , this is for the radio buttons without selected value
+        }
+        //student email in apsds
+        else if ($k === 'stu_email') {
+            echo "<br>";
+            $form->add_label(['id' => 'emailValidateWarn'], "");
+            $form->add_input(['id' => 'email',
+                'class' => 'form-control ' . $k,
+                'name' => $k,
+                'type' => 'email',
+                'value' => $v,
+                'onchange' => 'validate_email();'
+            ]);
+        }
+        //value should be YES or NO , this is for the radio buttons without selected value
         else {
             if ($type[$k] == 'varchar(3)') {// if not selected value, then displaying in a radio button
                 echo '<br>';
@@ -318,16 +335,26 @@ if ($table == 'students') {
                 $form->add_input(['class' => 'form-control ' . $k,
                     'name' => $k, 'type' => 'datetime-local',
                     'value' => $v]);
-            } else {
+            }
+            else if ($type[$k] == 'date') {
                 $form->add_input(['class' => 'form-control ' . $k,
-                    'name' => $k,
-                    'type' => $type[$k],
+                    'name' => $k, 'type' => 'date',
                     'value' => $v]);
             }
+            else {
+                $form->add_input(['id' => 'ID' . $k,
+                    'class' => 'form-control ' . $k,
+                    'name' => $k,
+                    'type' => ((strpos('varchar', $type[$k]) >= 0) ? "text" : 'number'),
+                    'value' => $v,
+                    'onchange' => ((strpos('varchar', $type[$k]) >= 0) ? 'validate_txt(this.id)' : "")
+                ]);
+            }
         }
-        }
+    }
         echo "<br>";
-        $form->add_input(['class' => 'btn btn-primary', 'name' => 'update_record', 'value' => 'Save', 'type' => 'submit']);
+        $form->add_input(['class' => 'btn btn-primary', 'id' => 'submit', 'name' => 'update_record', 'value' => 'Save', 'type' =>
+            'submit']);
         $form->end_form();
         }
         ?>
