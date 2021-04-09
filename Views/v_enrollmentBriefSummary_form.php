@@ -21,7 +21,7 @@ include "v_masterPage_sidebar.php";
             <!--Form starts-->
             <form action="?action=c_add_student" method="POST">
                 <div class="form-group" style="padding-top: 20px">
-                    <label for="name">Name:</label>
+                    <label for="name">Name*:</label>
                     <input type="text" name="name" class="form-control" id="studentName"/>
                 </div>
                 <!--id-->
@@ -31,12 +31,12 @@ include "v_masterPage_sidebar.php";
                 </div>
                 <!--cohort-->
                 <div class="form-group" style="padding-top: 20px">
-                    <label for="cohort">Cohort:</label>
+                    <label for="cohort">Cohort*:</label>
                     <input type="text" name="cohort" class="form-control" id="cohort"/>
                 </div>
                 <!--program id-->
                 <div class="form-group" style="padding-top: 20px">
-                    <label for="phone">Program ID:</label>
+                    <label for="phone">Program ID*:</label>
                     <select name="prog_id" class="form-control" id="programID">
                         <option>-- Select one --</option>
                         <?php
@@ -63,7 +63,8 @@ include "v_masterPage_sidebar.php";
                 <!--email-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="Email">Email:</label>
-                    <input type="email" name="email" class="form-control" id="email"/>
+                    <br><label id="emailValidateWarn"></label>
+                    <input type="text" onchange="validate_email();" name="email" class="form-control" id="email"/>
                 </div>
                 <div class="form-group" style="padding-top: 20px">
                     <label for="address">Address:</label>
