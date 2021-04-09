@@ -70,7 +70,7 @@ function do_inactive() {
 function check() {
     let e = document.getElementById("payOptions");
     let name = document.createAttribute("name");
-    if (e.value == 'Others') {
+    if (e.value === 'Others') {
         name.value = "pay_option";
         document.getElementById("otherOptionDiv").setAttribute("style", "display=block;")
         document.getElementById("otherInput").setAttributeNode(name);
@@ -249,6 +249,22 @@ function validate_email() {
         node.value = "border-bottom:1px solid;";
         emailWarning.style.display = "none";
         emailTxt.setAttributeNode(node);
+        btn_active();
+    }
+}
+
+function validate_txt(id) {
+    let txt = document.getElementById(id);
+    let val = txt.value;
+    let node = document.createAttribute('style');
+    node.value = "border: 1px solid red";
+    let spec = /^(\w+[^;!])$/;
+    if (!val.match(spec)) {
+        txt.setAttributeNode(node);
+        txt.value = 'Special characters are not allowed';
+        btn_unactive();
+    }else{
+        txt.removeAttribute("style");
         btn_active();
     }
 }

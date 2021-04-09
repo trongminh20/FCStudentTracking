@@ -27,9 +27,10 @@ $program = $model->select('programs',[]);
     $form->add_input(['id' => 'stuID',
         'class' => 'form-control',
         'name' => 'stu_id',
-        'type' => 'text',
+        'type' => 'number',
         'value' =>(($stuData != NULL) ? $stuData['stu_id'] : ""),
-        'placeholder' => 'Enter Student ID']);
+        'placeholder' => 'Enter Student ID',
+        "required"=>""]);
     $form->add_label(['for' => 'progID'],'Program');
     $form->add_input(['id' => 'progID',
         'class' => 'form-control',

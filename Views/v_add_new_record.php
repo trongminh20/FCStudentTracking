@@ -43,7 +43,7 @@ include "v_masterPage_sidebar.php";
                 <!--select program-->
                 <div class="form-group">
                     <label for="selectSection">Select Section to Update</label>
-                    <select class="form-control" name="select_section" id="selectSection">
+                    <select class="form-control" name="select_section" id="selectSection" required="required">
                         <option disabled selected value> -- select an option --</option>
                         <option value="students">Enrollment Brief Summary</option>
                         <option value="apsds">Admission Prior to Start Date</option>

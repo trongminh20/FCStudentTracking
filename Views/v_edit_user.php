@@ -9,6 +9,14 @@ $data = $_POST;
 unset($data['edit_user_info']);
 ?>
 <div id="mainContent" style="margin-left:50px;">
+    <?php
+        if(isset($_SESSION['update_user_info'])){
+            echo $_SESSION['update_user_info'];
+            unset($_SESSION['update_user_info']);
+        }else{
+            echo "";
+        }
+    ?>
     <h1>Form for edit user information</h1>
     <form id="" class="col-lg-8" action="?action=c_update_user_info" method="POST">
         <?php
@@ -22,6 +30,7 @@ unset($data['edit_user_info']);
             if ($k === 'email') {
                 echo "<br><label id='emailValidateWarn'></label>";
             }
+
             if ($k === 'admin') {
                 ?>
                 <br>
@@ -50,7 +59,15 @@ unset($data['edit_user_info']);
                        } else {
                            echo "";
                        } ?>"
-                       value="<?= $v ?>">
+                       value="<?= $v ?>"
+                    <?php
+                        if($k === 'id'){
+                            echo "readonly";
+                        }else{
+                            echo "";
+                        }
+                    ?>
+                >
                 <?php
             }
             ?>

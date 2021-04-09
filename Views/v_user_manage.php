@@ -102,11 +102,13 @@ include "v_masterPage_sidebar.php";
                 'value' => 'user']);
             $form->add_label(['for' => 'user'], '  User');
         } else {
-            $form->add_input(['id' => '',
+            $form->add_input(['id' => 'ID'.$v,
                 'class' => 'form-control',
                 'name' => $v,
                 'type' => 'text',
-                'required' => ""]);
+                'required' => "",
+                'onchange' =>"validate_txt(this.id)"
+                ]);
         }
     }
     echo "<br>";
