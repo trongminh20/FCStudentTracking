@@ -56,13 +56,15 @@ class Database
         return $stm->rowCount();
     }
 
-    function select_count($table)
+    function select_count_record($table, $key, $val)
     {
-        $query = "SELECT DISTINCT COUNT(*) FROM $table";
+        $query = "SELECT * FROM $table WHERE $key LIKE '" . $val . "%'";
         $stm = $this->pdo->prepare($query);
-        $res = $stm->execute();
-        return $res;
+        $stm->execute();
+        return $stm->fetchAll(PDO::FETCH_ASSOC);
     }
+
+
 
     /**
      * not include pasword

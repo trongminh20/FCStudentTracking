@@ -20,38 +20,45 @@ unset($_SESSION['search_result']);
         }
         ?></h5>
     <table id="searchRes" class="table table-condensed table-striped">
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>ProgramID</th>
-            <th>Name</th>
-            <th>phone</th>
-            <th>email</th>
-            <th>address</th>
-            <th>Dom OR Int</th>
-            <th>Enroll note</th>
-            <th>status</th>
+
+        <tr class="text-center">
+            <th>STUDENT ID</th>
+            <th>PROGRAM ID</th>
+            <th>NAME</th>
+            <th>PHONE</th>
+            <th>EMAIL</th>
+            <th>ADDRESS</th>
+            <th>DOM OR INT</th>
+            <th>ENROLLMENT NOTE</th>
+            <th>STATUS</th>
+            <th colspan="2"></th>
         </tr>
-        </thead>
+
         <tbody>
         <?php
-            for ($i = 0; $i < count($students); $i++):
+        for ($i = 0; $i < count($students); $i++):
             ?>
-            <tr>
-                <td><?= $students[$i]['id'] ?></td>
-                <td><?= $students[$i]['prog_id'] ?></td>
-                <td><?= $students[$i]['name'] ?></td>
-                <td><?= $students[$i]['phone'] ?></td>
-                <td><?= $students[$i]['email'] ?></td>
-                <td><?= $students[$i]['address'] ?></td>
-                <td><?= $students[$i]['dom_or_int'] ?></td>
-                <td><?= $students[$i]['enroll_notes'] ?></td>
-                <td><?= $students[$i]['admin_status'] ?></td>
+            <tr class="text-center">
+                <td class="shrinkable"><?= $students[$i]['id'] ?></td>
+                <td class="shrinkable"><?= $students[$i]['prog_id'] ?></td>
+                <td class="shrinkable"><?= $students[$i]['name'] ?></td>
+                <td class="shrinkable"><?= $students[$i]['phone'] ?></td>
+                <td class="shrinkable"><?= $students[$i]['email'] ?></td>
+                <td class="shrinkable"><?= $students[$i]['address'] ?></td>
+                <td class="shrinkable"><?= $students[$i]['dom_or_int'] ?></td>
+                <td class="shrinkable" id="<?= 'enrollNote' . $i ?>"><?= $students[$i]['enroll_notes'] ?></td>
+                <td class="shrinkable"><?= $students[$i]['admin_status'] ?></td>
+                <td>
+                    <form action="?action=v_student_detail" method="POST">
+                        <input type="hidden" name='stu_id' value="<?= $students[$i]['id']; ?>">
+                        <input class="btn btn-link" type="submit" name="submit" value="Detail">
+                    </form>
+                </td>
                 <td>
                     <form action="?action=c_to_report" method="POST">
                         <input type="hidden" name='stu_id' value="<?= $students[$i]['id']; ?>">
                         <input type="hidden" name='prog_id' value="<?= $students[$i]['prog_id']; ?>">
-                        <input type="submit" name="submit" value="Report">
+                        <input class="btn btn-link" type="submit" name="submit" value="Report">
                     </form>
                 </td>
             </tr>
@@ -62,3 +69,9 @@ unset($_SESSION['search_result']);
         </tbody>
     </table>
 </div>
+<script>
+    window.onload = function () {
+        shrinkable();
+    }
+
+</script>

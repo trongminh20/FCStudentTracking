@@ -32,7 +32,7 @@ class Mail
         $mail->Host = 'smtp.gmail.com';
         $mail->Port = 587;
 
-        $mail->Username = self::$fromAddress;//'invoice.firstcollege@gmail.com';
+        $mail->Username = self::$fromAddress;
         $mail->Password = self::$fromPwd;
 
         $mail->SetFrom('no-reply');

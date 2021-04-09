@@ -6,49 +6,7 @@ class View
     {
     }
 
-    /**
-     * @param $id
-     * @param $class
-     * @param $inputList is a 3D array
-     * [
-     *  [
-     *      fieldset => [],
-     *      legend => []
-     *  ],
-     *  [
-     *      label => [],
-     *      intput => []
-     *  ],
-     *  [
-     *      label => [],
-     *      input => []
-     *  ],
-     *  [
-     *      end_fieldset=>[]
-     *  ]
-     *  ,...
-     * ]
-     * @param $formMethod
-     * @param $formAction
-     * @param $formName
-     */
-    public function display_customized_form($id, $class, $inputList, $formMethod, $formAction, $formName)
-    {
-        $form = new Form($id, $class, $formMethod, $formAction, $formName);
-        for ($i = 0; $i < count($inputList); $i++) {
-            foreach ($inputList[$i] as $key => $val) {
-                if ($key == 'fieldset') $form::start_fieldset($val);
-                if ($key == 'end_fieldset') $form::end_fieldset();
-                if ($key == 'legend') $form::add_legend($val);
-                if ($key == 'label') $form::add_label($val);
-                if ($key == 'input') $form::add_input($val);
-                if ($key == 'textarea') $form::add_text_area($val);
-                echo "<br>";
-                if ($key == 'selection') $form::add_selection($val);
-            }
-        }
-        $form::end_form();
-    }
+
 
     /**
      * generate a form view from a chosen table
@@ -95,7 +53,7 @@ class View
             echo "<tr>";
             foreach ($d as $k => $v):
                 if ($count < count($d)) {
-                    echo "<td>" . $k . "</td>";
+                    echo "<th>" . $k . "</th>";
                 }
                 $count++;
             endforeach;
@@ -126,8 +84,8 @@ class View
         echo "<table id='$id' class='$class'>";
         //display table header
         foreach ($data as $d) {
-            echo "<thead>";
-            echo "<tr>";
+
+            echo "<tr class='text-center text-uppercase'>";
             foreach ($d as $key => $vals) {
                 if ($count < count($d)) {
                     echo "<th scope='col'>$key</th>";
@@ -135,8 +93,8 @@ class View
                 $count += 1;
             }
             echo "</tr><tr>";
-            echo "</thead>";
-            echo "<tbody>";
+
+            echo "<tbody class='text-center'>";
             //display table content
             foreach ($d as $key => $vals) {
                 echo "<td>$vals</td>";
@@ -147,7 +105,7 @@ class View
             foreach ($d as $k => $v) {
                 echo "<input type='hidden' name='$k' value='$v'>";
             }
-            echo " <input class='btn btn-default' type='submit' name='edit_user_info' value='Edit'>";
+            echo " <input class='btn btn-link' type='submit' name='edit_user_info' value='Edit'>";
             echo "</form>";
 
             echo "</td>";
@@ -157,7 +115,7 @@ class View
             foreach ($d as $k => $v) {
                 echo "<input type='hidden' name='$k' value='$v'>";
             }
-            echo " <input class='btn btn-danger' type='submit' onclick='if(!confirm(\"Are you sure to delete this user?\")) {return false }'  name='delete_user' value='Delete'>";
+            echo " <input class='btn btn-link' type='submit' onclick='if(!confirm(\"Are you sure to delete this user?\")) {return false }'  name='delete_user' value='Delete'>";
 
             echo "</form>";
             echo "</td>";
@@ -167,7 +125,7 @@ class View
             foreach ($d as $k => $v) {
                 echo "<input type='hidden' name='$k' value='$v'>";
             }
-            echo " <input class='btn btn-warning' type='submit' name='reset_password' value='Reset Password'>";
+            echo " <input class='btn btn-link' type='submit' name='reset_password' value='Reset'>";
             echo "</form>";
 
             echo "</td>";
@@ -176,18 +134,4 @@ class View
         echo "</tbody>";
         echo "</table><br>";
     }
-
-//    function replace_label($src, $data)
-//    {
-//        $res = [];
-//        foreach ($data as $k => $v) {
-//            foreach ($src as $key => $val) {
-//                if ($v == $val) {
-//                    array_push($res, $key);
-//                }
-//            }
-//        }
-//        return $res;
-//    }
-
 }

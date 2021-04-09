@@ -201,7 +201,7 @@ ALTER TABLE Students
         FOREIGN KEY (prog_id)
             REFERENCES Programs (id);
 
-ALTER TABLE empInfo
+ALTER TABLE emp_info
     ADD CONSTRAINT employee_FK
         FOREIGN KEY (emp_id)
             REFERENCES Employees (id);

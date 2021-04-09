@@ -24,7 +24,7 @@ var warningTime;
 /*end global variables*/
 
 /* auto log out section */
-function setup() {
+function time_setup() {
     document.addEventListener("onmousemove", reset_timer, false);
     document.addEventListener("wheel", reset_timer, false);
     document.addEventListener("onkeypress", reset_timer, false);
@@ -70,7 +70,7 @@ function do_inactive() {
 function check() {
     let e = document.getElementById("payOptions");
     let name = document.createAttribute("name");
-    if (e.value == 'Others') {
+    if (e.value === 'Others') {
         name.value = "pay_option";
         document.getElementById("otherOptionDiv").setAttribute("style", "display=block;")
         document.getElementById("otherInput").setAttributeNode(name);
@@ -81,7 +81,7 @@ function check() {
 }
 
 /* for updating record*/
-function display() {
+function display_input_fields() {
     let table = document.getElementById('table').value;
     let progID = document.getElementById('programID').value;
     let inputArr = document.querySelectorAll("input, select,label");
@@ -138,6 +138,51 @@ function display() {
     });
 }
 
+
+/*Text Truncate*/
+function showMore(id) {
+    document.getElementById(id + 'Overflow').className = '';
+    document.getElementById(id + 'MoreLink').className = 'hidden';
+    document.getElementById(id + 'LessLink').className = '';
+
+}
+
+function showLess(id) {
+    document.getElementById(id + 'Overflow').className = 'hidden';
+    document.getElementById(id + 'MoreLink').className = '';
+    document.getElementById(id + 'LessLink').className = 'hidden';
+}
+
+function shrinkable() {
+    let len = 50;
+    let target = document.getElementsByClassName("shrinkable");
+
+    if (target.length > 0) {
+        for (let i = 0; i < target.length; i++) {
+            let fullText = target[i].innerHTML;
+            if (fullText.length > len) {
+                let trunc = fullText.substring(0, len).replace(/\w+$/, '');
+                var remainder = "";
+                var id = target[i].id;
+
+                remainder = fullText.substring(len, fullText.length);
+                target[i].innerHTML = '<span>'
+                    + trunc + '<span class="hidden" id="' + id + 'Overflow">'
+                    + remainder +
+                    '</span>' +
+                    '</span>' +
+                    '&nbsp;<a id="' + id + 'MoreLink" href="#!" onclick="showMore(\'' + id + '\');"' +
+                    'style="text-decoration-line:underline">' +
+                    'Show more' +
+                    '</a>' +
+                    '<a class="hidden" href="#!" id="' + id + 'LessLink" onclick="showLess(\'' + id + '\');"' +
+                    ' style="text-decoration-line: underline"> Show less </a>';
+            }
+        }
+    }
+}
+
+
 function in_array(searchKey, arr) {
     let len = arr.length;
     let result = 0;
@@ -149,4 +194,104 @@ function in_array(searchKey, arr) {
     return result;
 }
 
+/*input vALIDATING*/
+function btn_unactive() {
+    let btn = document.getElementById('submit');
+    let btnNode = document.createAttribute('disabled');
+    btnNode.value = "disabled";
+    btn.setAttributeNode(btnNode);
+}
 
+function btn_active() {
+    document.getElementById('submit').removeAttribute("disabled");
+}
+
+function validate_phoneNumber() {
+    let phoneNumber = document.getElementById('tel');
+    let val = phoneNumber.value;
+    let warning = document.getElementById('validateWarning')
+    let node = document.createAttribute("style");
+
+    if (val.length > 15) {
+        node.value = "border-bottom:1px solid red;";
+        phoneNumber.setAttributeNode(node);
+        warning.innerHTML = 'Your input is too long';
+        btn_unactive();
+    } else if (!val.match(/^[-.(]*(\d{3})[) ]*(\d{3})[-]*(\d{4})$/)) {
+        node.value = "border-bottom:1px solid red;";
+        phoneNumber.setAttributeNode(node);
+        warning.innerHTML = 'Your input is invalid';
+        btn_unactive();
+    } else {
+        let first = val.substring(0, 3);
+        let second = val.substring(3, 6);
+        let last = val.substring(6, val.length);
+        phoneNumber.value = "(" + first + ") " + second + " - " + last;
+        node.value = "border-bottom:1px solid;";
+        phoneNumber.setAttributeNode(node);
+        warning.style.display = "none";
+        btn_active();
+    }
+}
+
+function validate_email() {
+    let emailTxt = document.getElementById('email');
+    let emailVal = emailTxt.value;
+    let emailWarning = document.getElementById('emailValidateWarn');
+    let node = document.createAttribute('style');
+    let pattern = /^(([^<>()\[\]\\.,;:\s@\"]+(\.[^<>()\[\]\\.,;:\s@\"]+)*)|(\"\.+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!emailVal.match(pattern)) {
+        node.value = "border-bottom:1px solid red;";
+        emailWarning.innerHTML = "Email is invalid";
+        emailTxt.setAttributeNode(node);
+        btn_unactive();
+    } else {
+        node.value = "border-bottom:1px solid;";
+        emailWarning.style.display = "none";
+        emailTxt.setAttributeNode(node);
+        btn_active();
+    }
+}
+
+function validate_txt(id) {
+    let txt = document.getElementById(id);
+    let val = txt.value;
+    let node = document.createAttribute('style');
+    node.value = "border: 1px solid red";
+    let spec = /^(\w+[^;!])$/;
+    if (!val.match(spec)) {
+        txt.setAttributeNode(node);
+        txt.value = 'Special characters are not allowed';
+        btn_unactive();
+    }else{
+        txt.removeAttribute("style");
+        btn_active();
+    }
+}
+
+/*set active and unactive on document navigation bar*/
+function set_active_link() {
+    let elements = document.getElementsByClassName("nav_link");
+    let len = elements.length;
+    for (let i = 0; i < len; i++) {
+        elements[i].onclick = function () {
+            for (let j = 0; j < len; j++) {
+                elements[j].classList.remove("active");
+            }
+            this.classList.add("active");
+        }
+
+    }
+
+}
+
+/*showing password checkbox*/
+function showPassword() {
+    let txtPwd = document.getElementById('txtPwd');
+    let checked = document.getElementById('showPass');
+    if (checked.checked) {
+        txtPwd.type = 'text';
+    } else {
+        txtPwd.type = 'password';
+    }
+}

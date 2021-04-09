@@ -3,7 +3,7 @@ include "v_masterPage_header.php";
 include "v_masterPage_sidebar.php";
 $labels = [
     "Student ID" => 'student_id',
-    'student ID' => 'id',
+    "student ID" => 'id',
     "Program ID" => 'prog_id',
     "Photo ID" => 'photo_id',
     "Resume" => 'resume',
@@ -35,14 +35,14 @@ $labels = [
     "RMT Student Learning Materials" => 'rmt_stu_materials',
     "Acknowledgement & Agreement Form Received Date" => 'stu_ack_and_agr',
     "Self-Declaration of Health Notice Receive Date" => 'health_check_date',
-    'Student Name' => 'name',
-    'Date of birth' => 'birthdate',
-    'Phone number' => 'phone',
+    "Student Name" => 'name',
+    "Date of birth" => 'birthdate',
+    "Phone number" => 'phone',
     'Email' => 'email',
-    'Address' => 'address',
-    'Cohor' => 'cohort',
-    'Name Tag (Yes / No)' => 'name_tag',
-    'SPECO (Yes / No)' => 'speco',
+    "Address" => 'address',
+    "Cohort" => 'cohort',
+    "Name Tag" => 'name_tag',
+    "SPECO" => 'speco',
     'Domestic or International' => 'dom_or_int',
     'Enrollment Notes' => 'enroll_notes',
     'Admission status' => 'admin_status',
@@ -88,7 +88,14 @@ $labels = [
     'Remaining Payment' => 'remaining_payment'
 ];
 
+$tableNames = ["Admission Perior To Start Date" => 'apsds',
+    "Perior To Practice Education" => 'ppes',
+    "Enrollment Brief Summary" => 'students',
+    "Graduations" => 'graduation',
+    'Payment Tracking' => "payments_tracking"];
+
 $table = $_POST['select_section'];
+
 if ($table == 'students') {
     $studentID = ['id' => $_POST['student_id']];
 } else {
@@ -100,90 +107,234 @@ if ($table == 'students') {
     $rawData = $model->select($table, $studentID);
     $type = $model->get_type($table);
     if (empty($rawData)) {
-        echo "<div class='text-center'><h2>This record is unavailable</h2></div>";
+        echo "<div id='formTitle'><h2>This record is unavailable</h2></div>";
     } else {
-        $data = $rawData[0];
-        ?>
+    $data = $rawData[0];
+    ?>
+    <?php
+    //creating new form
+    $form = new Form(["class" => "form-group col-lg-8",
+        "id" => "updateForm",
+        "action" => "?action=c_update_record",
+        "method" => "POST"],
+        "Update record in " . array_search($table, $tableNames));
+    //store table name for action
+    $form->add_input(['name' => 'table',
+        'value' => $table,
+        'type' => 'hidden',
+        'id' => 'table',
+        'readonly' => 'readonly']);
+    //add input as cols in record
+    foreach ($data
+
+    as $k => $v) { // data from database
+    $form->add_label(['class' => $k, 'for' => ""], array_search($k, $labels));
+    // display list of programs
+    if ($k === 'prog_id') {
+        if ($table === 'students') {
+            ?>
+            <select class='form-control' name='prog_id'>
+            <?php
+            $programs = $model->select('programs', NULL);
+            foreach ($programs as $prog):?>
+                <option value="<?= $prog['id'] ?>" <?= (($v == $prog['id']) ? "selected" : "") ?>>
+                    <?= $prog['id'] . " -- " . $prog['prog_name'] ?>
+                </option>
+            <?php
+            endforeach;
+            ?>
+            </select><?php
+        } else { //only students record is allowed to be updated
+            $form->add_input(['class' => 'form-control',
+                'id' => 'programID',
+                'name' => $k,
+                'value' => $v,
+                'readonly' => 'readonly']);
+        }
+    } //display as radio button with selected value
+    else if ($v === 'yes' || $v === 'no') {
+        if ($v === 'yes') {
+            echo '<br>';
+            $form->add_input(['class' => 'form-check-input ',
+                'name' => $k,
+                'value' => 'yes',
+                'type' => 'radio',
+                'checked' => '']);
+            $form->add_label(['class' => $k,
+                'for' => "",
+                'style' => 'padding-left:10px;'],
+                "YES");
+            echo '<br>';
+            $form->add_input(['class' => 'form-check-input',
+                'name' => $k,
+                'value' => 'no',
+                'type' => 'radio']);
+            $form->add_label(['class' => $k,
+                'for' => "",
+                'style' => 'padding-left:10px;'],
+                "NO");
+            echo '<br>';
+        } else {
+            echo '<br>';
+            $form->add_input(['class' => 'form-check-input',
+                'name' => $k,
+                'value' => 'yes',
+                'type' => 'radio']);
+            $form->add_label(['class' => $k,
+                'for' => "",
+                'style' => 'padding-left:10px;'],
+                "YES");
+            echo '<br>';
+            $form->add_input(['class' => 'form-check-input',
+                'name' => $k,
+                'value' => 'no',
+                'type' => 'radio',
+                'checked' => 'checked']);
+            $form->add_label(['class' => $k,
+                'for' => "",
+                'style' => 'padding-left:10px;'],
+                "NO");
+            echo '<br>';
+        }
+    }
+    else if ($k === 'pay_option'){
+    $payOptions = ["Full Payment", "Student Aid BC", "Monthly Payment", "Payment Plan", "Others"];
+    ?>
+    <select name="pay_option" class="form-control" id="payOptions" onchange="check();">
         <?php
-        $form = new Form("form-group col-lg-8", "updateForm", "c_update_record", "POST", "Update Record ". $table, "");
-        $form->add_input(['name' => 'table', 'value' => $table, 'type' => 'hidden', 'id' => 'table', 'readonly' => 'readonly']);
-        foreach ($data as $k => $v) { // data from database
-            $form->add_label(['class' => $k, 'for' => "", 'label' => array_search($k, $labels)]);
-            if ($k === 'prog_id') { // display list of programs
-                if ($table === 'students') {
-                    ?>
-                    <select class='form-control' name='prog_id'>
-                    <?php
-                    $programs = $model->select('programs', NULL);
-                    foreach ($programs as $prog):?>
-                        <option value="<?= $prog['id'] ?>" <?= (($v == $prog['id']) ? "selected" : "") ?>>
-                            <?= $prog['id'] . " -- " . $prog['prog_name'] ?>
-                        </option>
-                    <?php
-                    endforeach;
-                    ?>
-                    </select><?php
-                } else { //only students record is allowed to be updated
-                    $form->add_input(['class' => 'form-control', 'id' => 'programID', 'name' => $k, 'value' => $v, 'readonly' => 'readonly']);
-                }
-            } else if ($v == 'yes' || $v == 'no') {
-                if ($v === 'yes') {
-                    echo '<br>';
-                    $form->add_input(['class' => 'form-check-input', 'name' => $k, 'value' => 'yes', 'type' =>
-                        'radio', 'checked' => '']);
-                    $form->add_label(['class' => $k, 'for' => "", 'label' => 'YES', 'style' => 'padding-left:10px;']);
-                    echo '<br>';
-                    $form->add_input(['class' => 'form-check-input', 'name' => $k, 'value' => 'no', 'type' => 'radio']);
-                    $form->add_label(['class' => $k, 'for' => "", 'label' => 'NO', 'style' => 'padding-left:10px;']);
-                    echo '<br>';
-                } else {
-                    echo '<br>';
-                    $form->add_input(['class' => 'form-check-input',
-                        'name' => $k, 'value' => 'yes', 'type' => 'radio']);
-                    $form->add_label(['class' => $k, 'for' => "", 'label' => 'YES', 'style' => 'padding-left:10px;']);
-                    echo '<br>';
-                    $form->add_input(['class' => 'form-check-input', 'name' => $k, 'value' => 'no', 'type' =>
-                        'radio', 'checked' => 'checked']);
-                    $form->add_label(['class' => $k, 'for' => "", 'label' => 'NO', 'style' => 'padding-left:10px;']);
-                    echo '<br>';
-                }
-            } elseif ($k == 'rmt_stu_materials') {
-                $selected = explode(", ", $v);
-                $options = ['Sheet Set', 'Laptop or Learning Support', 'Goniometer', 'Oil Holster', 'Bottle']; ?>
-                <select class='form-control' name='rmt_stu_materials[]' multiple>
-                    <?php foreach ($options as $op) { ?>
-                        <option value="<?= $op ?>" <?php echo((in_array($op, $selected)) ? "selected" : "") ?>>
-                            <?= $op ?>
-                        </option>
-                        <?php
-                    } ?>
-                </select>
+        foreach ($payOptions as $op) {
+            ?>
+            <option value="<?= $op ?>" name="<?= $k ?>"
                 <?php
-            } else {
-                if ($type[$k] == 'varchar(3)') {
-                    echo '<br>';
-                    $form->add_input(['class' => 'form-check-input', 'name' => $k, 'type' => 'radio', 'value' => 'Yes']);
-                    $form->add_label(['class' => $k, 'for' => "", 'label' => 'Yes']);
-                    echo '<br>';
-                    $form->add_input(['class' => 'form-check-input', 'name' => $k, 'type' => 'radio', 'value' => 'No']);
-                    $form->add_label(['class' => $k, 'for' => "", 'label' => 'No']);
-                    echo '<br>';
-                } else if ($type[$k] == 'datetime') {
-                    $form->add_input(['class' => 'form-control ' . $k, 'name' => $k, 'type' => 'datetime-local', 'value' => $v]);
+                if (strtolower($v) === strtolower($op)) {
+                    echo "selected";
                 } else {
-                    $form->add_input(['class' => 'form-control ' . $k, 'name' => $k, 'type' => $type[$k], 'value' => $v]);
+                    if (!in_array($v, $payOptions)) {
+                        if ($op === "Others") {
+                            echo "selected";
+                        }
+                    }
+                    echo "";
                 }
+                ?>><?= $op ?></option>
+            <?php
+        }
+        echo "</select>";
+        ?>
+        <div id="otherOptionDiv" style="display:none;">
+            <label>Enter Payment Method:
+                <input type="text" id="otherInput" class="form-control" value ="<?php if(!in_array($v, $payOptions)
+                    && $v!== '') {echo $v;}?>">
+            </label>
+        </div>
+        <?php
+        }
+        //display as the selection list
+        else if ($k === 'rmt_stu_materials') {
+            $selected = explode(", ", $v);
+            $options = ['Sheet Set', 'Laptop or Learning Support', 'Goniometer', 'Oil Holster', 'Bottle']; ?>
+            <select class='form-control' name='rmt_stu_materials[]' multiple>
+                <?php foreach ($options as $op) { ?>
+                    <option value="<?= $op ?>" <?php echo((in_array($op, $selected)) ? "selected" : "") ?>>
+                        <?= $op ?>
+                    </option>
+                    <?php
+                } ?>
+            </select>
+            <?php
+        } //display Dom or In as the radio button
+        else if ($k === 'dom_or_int') {
+            echo "<br>";
+            $values = ['domestic', 'international'];
+            if ($v === 'domestic') {
+                $form->add_input([
+                    'class' => 'form-check-input ' . $k,
+                    'type' => 'radio',
+                    'name' => $k,
+                    'value' => 'domestic',
+                    "checked" => ""
+                ]);
+                $form->add_label(["class" => $k], 'Domestic');
+                echo "<br>";
+                $form->add_input([
+                    'class' => 'form-check-input ' . $k,
+                    'type' => 'radio',
+                    'name' => $k,
+                    'value' => 'international'
+                ]);
+                $form->add_label(['class' => $k], 'International');
+                echo "<br>";
+            } else if ($v === 'international') {
+                echo "<br>";
+                $form->add_input([
+                    'class' => 'form-check-input ' . $k,
+                    'type' => 'radio',
+                    'name' => $k,
+                    'value' => 'domestic',
+                ]);
+                $form->add_label(['class' => $k], 'Domestic');
+                echo "<br>";
+                $form->add_input([
+                    'class' => 'form-check-input ' . $k,
+                    'type' => 'radio',
+                    'name' => $k,
+                    'value' => 'international',
+                    "checked" => ""
+                ]);
+                $form->add_label(['class' => $k], 'international');
+
+                echo "<br>";
+            } else {
+                echo "<br>";
+                $form->add_input([
+                    'class' => 'form-check-input ' . $k,
+                    'type' => 'radio',
+                    'name' => $k,
+                    'value' => 'domestic',
+                ]);
+                $form->add_label(['class' => $k], 'Domestic');
+                echo "<br>";
+                $form->add_input([
+                    'class' => 'form-check-input ' . $k,
+                    'type' => 'radio',
+                    'name' => $k,
+                    'value' => 'international',
+                ]);
+                $form->add_label(['class' => $k], 'international');
+
+                echo "<br>";
             }
+        } //value should be YES or NO , this is for the radio buttons without selected value
+        else {
+            if ($type[$k] == 'varchar(3)') {// if not selected value, then displaying in a radio button
+                echo '<br>';
+                $form->add_input(['class' => 'form-check-input', 'name' => $k, 'type' => 'radio', 'value' => 'Yes']);
+                $form->add_label(['class' => $k, 'for' => ""], "YES");
+                echo '<br>';
+                $form->add_input(['class' => 'form-check-input', 'name' => $k, 'type' => 'radio', 'value' => 'No']);
+                $form->add_label(['class' => $k, 'for' => ""], "NO");
+                echo '<br>';
+            } else if ($type[$k] == 'datetime') {
+                $form->add_input(['class' => 'form-control ' . $k,
+                    'name' => $k, 'type' => 'datetime-local',
+                    'value' => $v]);
+            } else {
+                $form->add_input(['class' => 'form-control ' . $k,
+                    'name' => $k,
+                    'type' => $type[$k],
+                    'value' => $v]);
+            }
+        }
         }
         echo "<br>";
         $form->add_input(['class' => 'btn btn-primary', 'name' => 'update_record', 'value' => 'Save', 'type' => 'submit']);
         $form->end_form();
-    }
-    ?>
+        }
+        ?>
 </div>
 <script type="text/javascript">
     window.onload = function () {
-        display();
+        display_input_fields();
     };
 </script>
 

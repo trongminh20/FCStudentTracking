@@ -27,7 +27,6 @@ class Model
         return $this->db->log_in($user, $pass);
     }
 
-
     /**
      * return data for function display_as_table in view
      * @param $table
@@ -76,7 +75,7 @@ class Model
 
     function select_user($username)
     {
-        return $this->db->select('employees',['username'=>$username]);
+        return $this->db->select('employees', ['username' => $username]);
     }
 
     /**
@@ -107,7 +106,6 @@ class Model
     {
         $this->db->update($table, $data, $id);
     }
-
     /**
      * use for form display
      * get type of each field in pair key = >value
@@ -123,8 +121,6 @@ class Model
         }
         return $type;
     }
-
-
     /**
      * get type of columns of a table from database
      * @param $table
@@ -160,10 +156,10 @@ class Model
      * @param $data is an array [columns => value]
      * @return mixed
      */
-    function select($table, $data){
+    function select($table, $data)
+    {
         return $this->db->select($table, $data);
     }
-
     /**
      * @param $table
      * @param $data

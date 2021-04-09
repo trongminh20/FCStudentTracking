@@ -92,7 +92,7 @@ CREATE TABLE `emp_info` (
 
 LOCK TABLES `emp_info` WRITE;
 /*!40000 ALTER TABLE `emp_info` DISABLE KEYS */;
-INSERT INTO `emp_info` (`eid`, `fname`, `role`) VALUES (1000,'Jessie Zhang','IT coordinator'),(1001,'Timothy Yang','Director Office'),(1002,'Cecily Qiu','Student Service Department'),(1003,'Jason Zhong','President'),(1007,'phan trong minh','IT');
+INSERT INTO `emp_info` (`eid`, `fname`, `role`) VALUES (1000,'Jessie Zhang','IT coordinator'),(1001,'Timothy Yang','Director'),(1002,'Cecily Qiu','Student Advisor'),(1003,'Jason Zhong','President'),(1004,'Sydney Stoltz','Admissions Advisor'),(1007,'phan trong minh','IT');
 /*!40000 ALTER TABLE `emp_info` ENABLE KEYS */;
 UNLOCK TABLES;
 

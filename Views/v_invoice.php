@@ -3,7 +3,11 @@ include "v_masterPage_header.php";
 ?>
 <?php
 include "v_masterPage_sidebar.php";
-$number = $database->select_count('invoices');
+$date = date('ymd');
+$rows = $database->select_count_record('invoices','number',$date);
+$invoiceNumber = $date;
+$invoiceNumber .= count($rows)+1;
+
 ?>
 <div id="mainContent" style="margin-left:50px;">
     <form class="" id="" action="?action=v_invoice_generate" method="POST" target="_blank">
@@ -11,7 +15,7 @@ $number = $database->select_count('invoices');
             <thead>
             <tr>
                 <td>
-                    INVOICE NUMBER <input type="number" name="number" value="<?= date('ymd') . $number ?>"
+                    INVOICE NUMBER <input type="number" name="invoice_number" value="<?= $invoiceNumber ?>"
                                           readonly>
                     (PAID)
                 </td>
@@ -150,14 +154,14 @@ $number = $database->select_count('invoices');
                            style="display: none"><br>
                     <label for="sendEmail"><input class="" id="sendEmail" type="checkbox"
                                                   name="send_to_student"
-                                                  value="yes" onclick="add_email_input();">  Send to this
+                                                  value="yes" onclick="add_email_input();"> Send to this
                         student</label>
                 </td>
             </tr>
         </table>
 
-        <input id="" class="btn btn-primary" type="submit" name="preview" value="Preview">
-        <input id="" class="btn btn-primary" type="submit" name="generate" value="Generate">
+        <input id="btnPreview" class="btn btn-primary" type="submit" name="preview" value="Preview">
+        <input id="btnGenerate" class="btn btn-primary" type="submit" name="generate" value="Generate">
     </form>
 </div>
 <script>
@@ -176,11 +180,13 @@ $number = $database->select_count('invoices');
     function add_email_input() {
         var checkbox = document.getElementById('sendEmail');
         var studentEmail = document.getElementById('studentEmail');
-
+        var btn = document.getElementById("btnGenerate");
         if (checkbox.checked == true) {
             studentEmail.style.display = "block";
+            btn.setAttribute('value', "Send");
         } else {
             studentEmail.style.display = "none";
+            btn.setAttribute('value', "Generate");
 
         }
     }

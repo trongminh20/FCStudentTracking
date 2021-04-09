@@ -6,7 +6,6 @@
     <nav id="sidebar">
         <div class="sidebar-header" style="height:60px;">
         </div>
-
         <ul class="list-unstyled components">
             <li class="active">
                 <a href="?action=v_home">
@@ -37,7 +36,7 @@
                 </a>
                 <ul class="collapse list-unstyled" id="helpSubmenu">
                     <li><a href="?action=v_document">Find Help Here</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="?action=v_contact">Contact Us</a></li>
                 </ul>
             </li>
 
