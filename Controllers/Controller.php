@@ -395,4 +395,9 @@ class Controller
         return $d;
     }
 
+    public function c_test(){
+        echo "test";
+    }
+
+
 }
