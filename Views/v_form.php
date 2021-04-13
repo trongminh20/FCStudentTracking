@@ -4,17 +4,17 @@ class Form
 {
     /**
      * Form constructor.
-     * @param $class
-     * @param $id
-     * @param $action
-     * @param $method
+     * @param $formClass
+     * @param $formId
+     * @param $formAction
+     * @param $formMethod
      * @param $formName
-     * @param string $target
+     * @param string $formTarget
      */
-    public function __construct($class, $id, $action, $method, $formName, $target="")
+    public function __construct($formClass, $formId, $formAction, $formMethod, $formName, $formTarget="")
     {
-        echo "<h3>" . $formName . "</h3>";
-        echo "<form class='" . $class . "' id='" . $id . "' action='?action=" . $action . "' method='" . $method . "' target='".$target."'>";
+        echo "<h2 id='formTitle'>" . $formName . "</h2>";
+        echo "<form class='" . $formClass . "' id='" . $formId . "' action='?action=" . $formAction . "' method='" . $formMethod . "' target='".$formTarget."'>";
     }
 
     /**
@@ -24,7 +24,9 @@ class Form
     {
         $label = '<label ';
         foreach ($labelAtt as $att => $val) {
-            $label .= ' ' . $att . " = '" . $val . "'";
+            if($att !== 'label') {
+                $label .= ' ' . $att . " = '" . $val . "'";
+            }
         }
         $label .= ">" . $labelAtt['label'] . "</label>";
         echo $label;

@@ -5,10 +5,10 @@ include "v_masterPage_sidebar.php";
 
 
 <!-- Graduation Section -->
-  <div class="container" id="mainContent" style="padding-top: 20px">
+  <div class="container" id="mainContent" style="padding-top: 20px; margin-left:50px;">
     <div class="row">
       <div class="col-xs-12">
-        <h2 style="padding-top: 10px">Graduation</h2>
+        <h2 id="formTitle">Graduation</h2>
         <!--Form starts-->
         <form action="?action=c_add_grad" method="POST">
           <div class="form-group">

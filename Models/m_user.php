@@ -6,6 +6,7 @@ class User{
     private $email;
     private $phoneNumber;
     private $department;
+    private $officeNumber;
 
     /**
      * default constructor with no parameters
@@ -74,6 +75,22 @@ class User{
     function change_phone_number($pNumber){
         $this->phoneNumber = $pNumber;
     }
+//
+//    /**
+//     * @param mixed $officeNumber
+//     */
+//    public function set_office_number($officeNumber)
+//    {
+//        $this->officeNumber = $officeNumber;
+//    }
+
+//    /**
+//     * @return mixed
+//     */
+//    public function get_office_number()
+//    {
+//        return $this->officeNumber;
+//    }
 
     /**this function is used for testing
      * @return string
@@ -82,20 +99,7 @@ class User{
         return "this is from user";
     }
 
-    /**
-     * return an array that store the data of a users
-     * in format [key => values]
-     * @return array
-     */
-    function to_array(){
-        return [
-            'id' =>$this->get_id(),
-            'username'=>$this->get_username(),
-            'password'=> $this->get_password(),
-            'email' => $this->get_email(),
-            'phone'=> $this->get_phone_number()
-        ];
-    }
+
 
     /**
      * @param mixed $id
@@ -129,4 +133,20 @@ class User{
         $this->phoneNumber = $phoneNumber;
     }
 
+     /**
+     * return an array that store the data of a users
+     * in format [key => values]
+     * @return array
+     */
+//    function to_array(){
+//        return [
+//            'id' =>$this->get_id(),
+//            'username'=>$this->get_username(),
+//            'password'=> $this->get_password(),
+//            'email' => $this->get_email(),
+//            'phone'=> $this->get_phone_number(),
+//            'department' => $this->get_department(),
+//            'office_number' => $this->get_office_number()
+//        ];
+//    }
 }

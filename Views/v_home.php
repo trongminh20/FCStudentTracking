@@ -5,32 +5,75 @@ include "v_masterPage_header.php";
 include "v_masterPage_sidebar.php";
 ?>
 
- <div id="mainContent">
-     <table>
-        <tr>
-            <td>
-                <img src="images/img_avatar.png" alt="logo" width="300px" height="300px">
-            </td>
-            </tr>
+<div class="container">
+    <div id="mainContent">
+        <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <img src="images/img_avatar.png" alt="Admin" class="rounded-circle" width="150">
+                            <div class="mt-3">
 
-         <tr>
-            <td><?=$_SESSION['user']['username']?></td>
-        </tr>
-        <tr>
-            <td><?=$_SESSION['user']['phone']?></td>
-        </tr>
-        <tr>
-            <td><?=$_SESSION['user']['email']?></td>
-        </tr>
-    </table>
+                                <h4><?= $fname[0]['fname'] ?></h4>
+                                <p><?= $_SESSION['user']['username'] ?></p>
+                                <p class="text-secondary mb-1"><?=$fname[0]['role']?></p>
+                                <p class="text-muted font-size-sm"><?= $_SESSION['user']['email'] ?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--detail info-->
+            <div class="col-md-8">
+                <!--info part-->
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <!--full name-->
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Full Name</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary"
+                                 style="padding-top: 7px"><?= $fname[0]['fname'] ?></div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Mobile</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary"
+                                 style="padding-top: 7px"><?= $_SESSION['user']['phone'] ?></div>
+                        </div>
+                        <hr>
+                        <!--department-->
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Department</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary"
+                                 style="padding-top: 7px"><?= $_SESSION['user']['department'] ?></div>
+                        </div>
+                    </div>
+                </div>
+                <!--received request part-->
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <p class="d-flex align-items-center mb-3">
+                            <?php
 
-     <?php
-     echo "<h3>Received Requests</h3>";
-     if($_SESSION['user']['admin'] == 1) {
-         $data = $model -> select('requests',NULL);
-         $view->display_as_table("requestsTable","", $data);
-     }
-     ?>
+                            if ($_SESSION['user']['admin'] == 1) {
+                                echo "<h3>Received Requests</h3>";
 
- </div>
 
+                                $data = $model->select('requests', NULL);
+                                $view->display_as_table("requestsTable", "", $data);
+                            }
+                            ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

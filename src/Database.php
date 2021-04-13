@@ -56,12 +56,12 @@ class Database
         return $stm->rowCount();
     }
 
-    function select_count($table)
+    function select_count($table, $date)
     {
-        $query = "SELECT DISTINCT COUNT(*) FROM $table";
+        $query = "SELECT * FROM $table WHERE number LIKE '" . $date . "%'";
         $stm = $this->pdo->prepare($query);
-        $res = $stm->execute();
-        return $res;
+        $stm->execute();
+        return $stm->fetchAll(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -116,15 +116,19 @@ class Database
         $fields = array_keys($data);
         $vals = array_values($data);
         $bind = "";
+        $cond ="";
         for ($i = 0; $i < count($fields); $i++) {
             $bind .= $fields[$i] . " = ?,";
         }
-        $query = "UPDATE $table SET " . rtrim($bind, ",") . " WHERE id = $id ";
+        foreach($id as $k => $v){
+            $cond .= $k ." = ". $v;
+        }
+        $query = "UPDATE $table SET " . rtrim($bind, ",") . " WHERE ".$cond ;
         $stm = $this->pdo->prepare($query);
         try {
             $stm->execute($vals);
         } catch (PDOException $e) {
-            echo $e->errorInfo;
+            echo $e->getMessage();
         }
     }
 

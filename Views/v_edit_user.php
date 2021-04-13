@@ -8,7 +8,7 @@ include "v_masterPage_sidebar.php";
 $data = $_POST;
 unset($data['edit_user_info']);
 ?>
-<div id="mainContent">
+<div id="mainContent" style="margin-left:50px;">
 <h1>Form for edit user information</h1>
 <form id="" class="" action="?action=c_update_user_info" method="POST">
     <?php

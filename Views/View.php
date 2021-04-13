@@ -87,7 +87,6 @@ class View
     }
 
 
-
     public function display_as_table($id = "", $class = "", $data)
     {
         $count = 0;
@@ -118,7 +117,8 @@ class View
      * @param $actionForDelete routes to controller or view for feature Delete information
      * @param $data
      */
-    public function show_table_with_manage_functions($id = "", $class = "",
+    public function show_table_with_manage_functions($id = "",
+                                                     $class ="",
                                                      $actionForEdit, $actionForDelete,
                                                      $actionForReset, $data)
     {
@@ -126,20 +126,20 @@ class View
         echo "<table id='$id' class='$class'>";
         //display table header
         foreach ($data as $d) {
+            echo "<thead>";
             echo "<tr>";
             foreach ($d as $key => $vals) {
                 if ($count < count($d)) {
-                    echo "<td>$key</td>";
-                } else {
-                    echo "<td></td>";
+                    echo "<th scope='col'>$key</th>";
                 }
                 $count += 1;
             }
             echo "</tr><tr>";
+            echo "</thead>";
+            echo "<tbody>";
             //display table content
             foreach ($d as $key => $vals) {
                 echo "<td>$vals</td>";
-
             }
             //information for Edit
             echo "<td>";
@@ -147,7 +147,7 @@ class View
             foreach ($d as $k => $v) {
                 echo "<input type='hidden' name='$k' value='$v'>";
             }
-            echo " <input class='btn btn-default' type='submit' name='edit_user_info' value='Edit'>";
+            echo " <input class='btn btn-link' type='submit' name='edit_user_info' value='Edit'>";
             echo "</form>";
 
             echo "</td>";
@@ -157,10 +157,9 @@ class View
             foreach ($d as $k => $v) {
                 echo "<input type='hidden' name='$k' value='$v'>";
             }
-            echo " <input class='btn btn-danger' type='submit' name='delete_user' value='Delete'>";
+            echo " <input class='btn btn-link' type='submit' onclick='if(!confirm(\"Are you sure to delete this user?\")) {return false }'  name='delete_user' value='Delete'>";
 
             echo "</form>";
-
             echo "</td>";
             //information for Reset Password
             echo "<td>";
@@ -168,13 +167,13 @@ class View
             foreach ($d as $k => $v) {
                 echo "<input type='hidden' name='$k' value='$v'>";
             }
-            echo " <input class='btn btn-warning' type='submit' name='reset_password' value='Reset Password'>";
+            echo " <input class='btn btn-link' type='submit' name='reset_password' value='Reset'>";
             echo "</form>";
 
             echo "</td>";
             echo "</tr>";
         }
+        echo "</tbody>";
         echo "</table><br>";
     }
-
 }

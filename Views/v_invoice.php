@@ -3,15 +3,22 @@ include "v_masterPage_header.php";
 ?>
 <?php
 include "v_masterPage_sidebar.php";
-$number = $database->select_count('invoice');
+$date = date('ymd');
+
+$rows = $database->select_count('invoices', $date);
+
+$number= count($rows) + 1;
+
+$invoiceNumber = $date.$number;
+
 ?>
-<div id="mainContent">
+<div id="mainContent" style="margin-left:50px;">
     <form class="" id="" action="?action=v_invoice_generate" method="POST" target="_blank">
         <table class="table">
             <thead>
             <tr>
                 <td>
-                    INVOICE NUMBER <input type="number" name="number" value="<?= date('ymd') . $number ?>"
+                    INVOICE NUMBER <input type="number" name="number" value="<?= $invoiceNumber?>"
                                           readonly>
                     (PAID)
                 </td>
@@ -156,8 +163,8 @@ $number = $database->select_count('invoice');
             </tr>
         </table>
 
-        <input id="" class="btn btn-primary" type="submit" name="preview" value="Preview">
-        <input id="" class="btn btn-primary" type="submit" name="generate" value="Generate">
+        <input id="btnPreview" class="btn btn-primary" type="submit" name="preview" value="Preview">
+        <input id="btnGenerate" class="btn btn-primary" type="submit" name="generate" value="Generate">
     </form>
 </div>
 <script>
@@ -176,9 +183,10 @@ $number = $database->select_count('invoice');
     function add_email_input() {
         var checkbox = document.getElementById('sendEmail');
         var studentEmail = document.getElementById('studentEmail');
-
+        var btn = document.getElementById("btnGenerate");
         if (checkbox.checked == true) {
             studentEmail.style.display = "block";
+            btn.setAttribute('value', "Send");
         } else {
             studentEmail.style.display = "none";
 
