@@ -1,8 +1,12 @@
 <?php
 include "v_masterPage_header.php";
-?>
-<?php
 include "v_masterPage_sidebar.php";
+
+if(isset($_POST['student_id'])){
+    $id = $_POST['student_id'];
+}else{
+    $id="";
+}
 ?>
 
 <div class="container" id="mainContent" style="padding-top: 20px; margin-left:50px;">
@@ -14,13 +18,13 @@ include "v_masterPage_sidebar.php";
             <form class="col-lg-8" action="?action=c_add_apsds" method="POST">
                 <!--id-->
                 <div class="form-group">
-                    <label for="student_id">Student ID:</label><br>
-                    <input class="form-control" type="number" name="student_id" value="" required="required">
+                    <label for="student_id">Student ID*:</label><br>
+                    <input class="form-control" type="number" name="student_id" value="<?=$id?>" required="required">
                 </div>
 
                 <div class="form-group" style="padding-top: 20px">
-                    <label for="phone">Program ID:</label>
-                    <select class="form-control" name= "prog_id" id="programID">
+                    <label for="phone">Program ID*:</label>
+                    <select class="form-control" name= "prog_id" id="programID" required>
                         <option>-- Select one --</option>
                         <?php
                         $options = $model->select('programs', NULL);
@@ -52,12 +56,13 @@ include "v_masterPage_sidebar.php";
                 <!--application form received notes-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="appForm">Application Form:</label>
-                    <input type="text" name="app_form" class="form-control" id="appForm"/>
+                    <input type="text" name="app_form" class="form-control" id="appForm"
+                           onchange="validate_txt(this.id)"/>
                 </div>
                 <!--application fee notes-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="appFee">Application Fee with Paid Invoice:</label>
-                    <input type="text" name="app_fee" class="form-control" id="appFee"/>
+                    <input type="text" name="app_fee" class="form-control" id="appFee" onchange="validate_txt(this.id)"/>
                 </div>
                 <!--application essay radio button-->
                 <div id="rmtOnlyApp" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
@@ -78,7 +83,8 @@ include "v_masterPage_sidebar.php";
                 <!--reference letters notes-->
                 <div id="rmtOnlyRef" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
                     <label for="refLetters">Character Reference Letters:</label>
-                    <input type="text" name="refer_letter" class="form-control" id="refLetters"/>
+                    <input type="text" name="refer_letter" class="form-control" id="refLetters"
+                           onchange="validate_txt(this.id)"/>
                 </div>
                 <!--resume radio button-->
                 <div id="rmtOnlyRes" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
@@ -99,7 +105,7 @@ include "v_masterPage_sidebar.php";
                 <!--intro to massage date & time day 1 -->
                 <div id="rmtOnlyIntro1" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
                     <label class="control-label" for="introOfMsgDay1">Intro of Massage Course Day One:</label>
-                    <div name="intro_of_msg" id="introOfMsgDay1" class="row" style="padding-top: 10px">
+                    <div id="introOfMsgDay1" class="row" style="padding-top: 10px">
                         <!---from_datetimePicker-->
                         <div class="col-sm-6">
                             <label class="control-label" id="introOfMsgDay1From">From:</label>
@@ -143,12 +149,12 @@ include "v_masterPage_sidebar.php";
                 <!--intro to massage fee notes-->
                 <div id="rmtOnlyIntroFee" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
                     <label for="introFee">Intro of Massage Fee with Paid Invoice:</label>
-                    <input type="text" name="intro_Fee" class="form-control" id="introFee"/>
+                    <input type="number" name="intro_Fee" class="form-control" id="introFee"/>
                 </div>
                 <!--intro to massage completed notes -->
                 <div id="rmtOnlyComp" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
                     <label for="introToMassageComp">Intro of Massage Course Completed:</label>
-                    <input type="text" name="intro_msg_complete" class="form-control" id="introToMassageComp"/>
+                    <input type="text" name="intro_msg_complete" class="form-control" id="introToMassageComp" onchange="validate_txt(this.id)"/>
                 </div>
                 <!--welcome letter radio button-->
                 <div class="form-group" style="padding-top: 20px">
@@ -191,12 +197,14 @@ include "v_masterPage_sidebar.php";
                 <!--high school diploma & transcript notes -->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="diplomaAndTranscript">High School Diploma & Transcript (Or Above):</label>
-                    <input type="text" name="dips_and_trans" class="form-control" id="diplomaAndTranscript"/>
+                    <input type="text" name="dips_and_trans" class="form-control" id="diplomaAndTranscript"
+                           onchange="validate_txt(this.id)"/>
                 </div>
                 <!--CRC result notes -->
                 <div id="rmtOnlyCRC" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
                     <label for="CRCResult">CRC Result:</label>
-                    <input type="text" name="crc_result" class="form-control" id="CRCResult"/>
+                    <input type="text" name="crc_result" class="form-control" id="CRCResult"
+                           onchange="validate_txt(this.id)"/>
                 </div>
                 <!--medical notes radio button-->
                 <div id="rmtOnlyMed" class="form-groupRMT" style="padding-top: 20px; margin-bottom: 15px; display: none;">
@@ -239,7 +247,8 @@ include "v_masterPage_sidebar.php";
                 <!--student email -->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="stuEmail">Student Email:</label>
-                    <input type="text" name="stu_email" class="form-control" id="stuEmail"/>
+                    <br><label id="emailValidateWarn"></label>
+                    <input type="text" onchange="validate_email();" name="stu_email" class="form-control" id="email"/>
                 </div>
                 <!--letter of acceptance issue date-->
                 <div class="form-group" style="padding-top: 20px">
@@ -249,13 +258,13 @@ include "v_masterPage_sidebar.php";
                 <!--enrollment contract notes -->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="enrollContract">Enrollment Contract:</label>
-                    <input type="text" name="enroll_contract" class="form-control" id="enrollContract"/>
+                    <input type="text" name="enroll_contract" class="form-control" id="enrollContract" onchange="validate_txt(this.id)"/>
                 </div>
                 <!--Student & Program Handbooks notes (changed name)-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="StudentProgramHandbooksNotes">Student & Program Handbooks:</label>
                     <textarea type="text" class="form-control" name="stu_prog_handbook_notes" id="StudentProgramHandbooksNotes"
-                              rows="5"></textarea>
+                              rows="5" onchange="validate_txt(this.id)"></textarea>
                 </div>
                 <!--Student ackmowledgement & agreemtnt form received date (changed name)-->
                 <div class="form-group" style="padding-top: 20px">
@@ -286,7 +295,7 @@ include "v_masterPage_sidebar.php";
                     </select>
                     <div id="otherOptionDiv" style="display:none;">
                         <label>Enter Payment Method:
-                            <input type="text" id="otherInput" class="form-control">
+                            <input type="text" id="otherInput" class="form-control" onchange="validate_txt(this.id)">
                         </label>
                     </div>
                 </div>
@@ -363,7 +372,5 @@ include "v_masterPage_sidebar.php";
             }
         });
     });
-
-
 </script>
 

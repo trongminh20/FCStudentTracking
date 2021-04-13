@@ -1,6 +1,12 @@
 <?php
 include "v_masterPage_header.php";
 include "v_masterPage_sidebar.php";
+
+if(isset($_POST['student_id'])){
+    $id = $_POST['student_id'];
+}else{
+    $id="";
+}
 ?>
 
 <!-- Prior to Practice Education Section -->
@@ -11,12 +17,12 @@ include "v_masterPage_sidebar.php";
             <!--Form starts-->
             <form class="col-lg-8" action="?action=c_add_ppes" method="POST">
                 <div class="form-group">
-                    <label for="student_id">Student ID:</label><br>
+                    <label for="student_id">Student ID*:</label><br>
                     <input class="form-control" type="number" name="student_id" placeholder="Enter student ID"
-                           required="required">
+                           value="<?=$id?>"  required="required">
                 </div>
                 <div class="form-group" style="padding-top: 20px">
-                    <label for="phone">Program ID:</label>
+                    <label for="phone">Program ID*:</label>
                     <select class="form-control" name="prog_id" id="programID">
                         <option>-- Select one --</option>
                         <?php
@@ -90,7 +96,7 @@ include "v_masterPage_sidebar.php";
           <div id="HCFoodSafeLoc" class="form-groupHC" style="padding-top: 20px; margin-bottom: 15px; display: none;">
             <label for="foodsafeLocandContact">FoodSafe Location & Contact: </label>
             <textarea type="text" class="form-control" id="foodsafeLocandContact" name="foodsafe_contact"
-                      rows="3"></textarea>
+                      rows="3" onchange="validate_txt(this.id)"></textarea>
           </div>
           <!--certificate of foodsafe received date (need to add to db)-->
           <div id="HCFoodSafeCert" class="form-groupHC" style="padding-top: 20px; margin-bottom: 15px; display: none;">
@@ -100,7 +106,7 @@ include "v_masterPage_sidebar.php";
           <!--CRC notes (need to add to db)-->
           <div id="HCcrc" class="form-groupHC" style="padding-top: 20px; margin-bottom: 15px; display: none;">
             <label for="crcNotes">Criminal Record Check (CRC): </label>
-            <input type="text" class="form-control" id="crcNotes" name="crc_notes"></input>
+            <input type="text" class="form-control" id="crcNotes" name="crc_notes" onchange="validate_txt(this.id)">
           </div>
           <!--SPECO radio button (need to add to db)-->
           <div id="hcaOnlySPECO" class="form-groupH" style="padding-top: 20px;">

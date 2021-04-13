@@ -71,3 +71,7 @@ img {
 li.active {
     background-color: #353d44;
 }
+
+span {
+    font-weight: bold;
+}

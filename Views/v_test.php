@@ -1,29 +1,23 @@
 <?php
+$form = new Form(['method' => 'POST', 'action' => '?action=v_test_validation']);
+$form->add_label([], 'Username');
+$form->add_input(['id'=>'username', 'type' => 'text', 'name' => 'username', 'onchange' => 'validate_txt(this.id)']);
+$form->add_label([], 'full name');
+$form->add_input(['id'=>'fname', 'type' => 'text', 'name' => 'fname', 'onchange' => 'validate_txt(this.id)']);
+$form->add_input(['type' => 'submit', 'name' => 'send', 'value' => 'submit']);
 ?>
-<style>
-    .active{
-        background-color: blue;
-    }
-</style>
-<ul onclick="setActive();">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">link1</a></li>
-</ul>
 
 <script>
-    function setActive() {
-        var eles = document.getElementsByTagName("LI");
-        var classname = document.createAttribute("class");
-        classname.value = "active";
-        for (var i = 0; i < eles.length; i++) {
-            if (eles[i].class === "active") {
-                eles[i].setAttribute("class","");
-            } else {
-                eles[i].setAttributeNode(classname);
-            }
+
+    function validate_txt(id) {
+        let txt = document.getElementById(id);
+        let val = txt.value;
+        let node = document.createAttribute('style');
+        node.value = "border: 1px solid red";
+        let spec = /^(\w+[^;!])$/;
+        if (!val.match(spec)) {
+            txt.setAttributeNode(node);
+            txt.value = 'Not a valid data';
         }
     }
-
-
 </script>
-

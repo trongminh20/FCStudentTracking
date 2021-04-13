@@ -13,7 +13,7 @@ class Employee extends User
     public function Employee($id,$username, $password, $email, $phoneNumber, $department)
     {
         parent::User($id, $username, $password, $email, $phoneNumber, $department);
-        $this->role = 0;
+        $this->role = 'user';
     }
     /**
      * @param mixed $role

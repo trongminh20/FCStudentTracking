@@ -21,8 +21,9 @@ include "v_masterPage_sidebar.php";
             <!--Form starts-->
             <form action="?action=c_add_student" method="POST">
                 <div class="form-group" style="padding-top: 20px">
-                    <label for="name">Name:</label>
-                    <input type="text" name="name" class="form-control" id="studentName"/>
+                    <label for="name">Name*:</label>
+                    <input type="text" name="name" class="form-control" id="studentName"
+                           onchange="validate_txt(this.id);"/>
                 </div>
                 <!--id-->
                 <div class="form-group" style="padding-top: 20px">
@@ -31,12 +32,13 @@ include "v_masterPage_sidebar.php";
                 </div>
                 <!--cohort-->
                 <div class="form-group" style="padding-top: 20px">
-                    <label for="cohort">Cohort:</label>
-                    <input type="text" name="cohort" class="form-control" id="cohort"/>
+                    <label for="cohort">Cohort*:</label>
+                    <input type="text" name="cohort" class="form-control" id="cohort"
+                           onchange="validate_txt(this.id);"/>
                 </div>
-                <!--program id-->
+                 <!--program id-->
                 <div class="form-group" style="padding-top: 20px">
-                    <label for="phone">Program ID:</label>
+                    <label for="phone">Program ID*:</label>
                     <select name="prog_id" class="form-control" id="programID">
                         <option>-- Select one --</option>
                         <?php
@@ -52,7 +54,8 @@ include "v_masterPage_sidebar.php";
                 <!--phone number-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="phone">Contact Number:</label>
-                    <input type="text" name="phone" class="form-control" id="phone"/>
+                    <br><label id="validateWarning"></label>
+                    <input type="text" onchange="validate_phoneNumber();" name="phone" class="form-control" id="tel"/>
                 </div>
                 <!--DOB-->
                 <div class="form-group" style="padding-top: 20px">
@@ -62,11 +65,13 @@ include "v_masterPage_sidebar.php";
                 <!--email-->
                 <div class="form-group" style="padding-top: 20px">
                     <label for="Email">Email:</label>
-                    <input type="text" name="email" class="form-control" id="email"/>
+                    <br><label id="emailValidateWarn"></label>
+                    <input type="text" onchange="validate_email();" name="email" class="form-control" id="email"/>
                 </div>
                 <div class="form-group" style="padding-top: 20px">
-                    <label for="Email">Address:</label>
-                    <input type="text" name="address" class="form-control" id="address"/>
+                    <label for="address">Address:</label>
+                    <input type="text" name="address" class="form-control" id="address"
+                           onchange="validate_txt(this.id);"/>
                 </div>
                 <!--dom or int student radio button-->
                 <div class="form-group" style="padding-top: 20px">
@@ -89,16 +94,16 @@ include "v_masterPage_sidebar.php";
                 <div class="form-group" style="padding-top: 20px">
                     <label for="emrollmentNotes">Enrollment Notes:</label>
                     <textarea type="text" class="form-control" name="enroll_notes" id="emrollmentNotes"
-                              rows="5"></textarea>
+                              rows="5"  onchange="validate_txt(this.id);"></textarea>
                 </div>
                 <div class="form-group" style="padding-top: 20px">
-                    <label for="phone">Admission Status:</label>
-                    <input type="text" name="admin_status" class="form-control" id="phone"/>
+                    <label for="adminStatus">Admission Status:</label>
+                    <input type="text" name="admin_status" class="form-control" id="adminStatus"/>
                 </div>
                 <!--submit button-->
                 <div class="form-group" style="padding-top: 20px">
-                    <input class="btn btn-primary" id="btnAddNewStudent" type="submit" name="add_student" value='Add
-                    new Student'>
+                    <input class="btn btn-primary" id="submit" type="submit" name="add_student"
+                           value='Add new Student'>
                 </div>
             </form>
         </div>
