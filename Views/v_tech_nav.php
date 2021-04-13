@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/css_reset.css">
     <title>Student Tracking System's Document</title>
     <link rel="stylesheet" href="css/technical_document.css">
-    <script src="js/customizeJS.js" type="text/javascript"></script>
+    <script src="js/customizeJS.js" type="text/javascript"></script
 </head>
 <body>
 <div id="body-wrapper">
@@ -20,11 +20,15 @@
             <li class="nav_link"><a href="#introduction" class="nav-link">Introduction</a></li>
             <li class="nav_link"><a href="#resetPassword" class="nav-link">Reset Password</a></li>
             <li class="nav_link"><a href="#changePassword" class="nav-link">Change Password</a></li>
-            <li class="nav_link"><a href="#search" class="nav-link">How to search student</a></li>
-            <li class="nav_link"><a href="#generateInvoice" class="nav-link">Invoice Generating</a></li>
-            <li class="nav_link"><a href="#addRecord" class="nav-link">Adding new Record</a></li>
-            <li class="nav_link"><a href="#updateRecord" class="nav-link">Updating record</a></li>
-            <li class="nav_link"><a href="#generateInvoice" class="nav-link">Generating new invoice</a></li>
+            <li class="nav_link"><a href="#search" class="nav-link">Search for Students</a></li>
+            <li class="nav_link"><a href="#addRecord" class="nav-link">Add New Record</a></li>
+            <li class="nav_link"><a href="#updateRecord" class="nav-link">Update Record</a></li>
+            <li class="nav_link"><a href="#generateInvoice" class="nav-link">Generate New Invoice</a></li>
+            <li class="nav_link"><a href="#generateReport" class="nav-link">Generate New Report</a></li>
+            <li class="nav_link"><a href="#manageUserAddEmployee" class="nav-link">Add Employee</a></li>
+            <li class="nav_link"><a href="#manageUserRemoveEmployee" class="nav-link">Remove Employee</a></li>
+            <li class="nav_link"><a href="#manageUserResetEmployee" class="nav-link">Reset Employee</a></li>
+            <li class="nav_link"><a href="#manageUserEditEmployee" class="nav-link">Edit Employee</a></li>
             <li class="nav_link"><a href="?action=v_home" class="nav-link">Go To Dashboard</a></li>
         </ul>
     </nav>
