@@ -21,10 +21,11 @@
             <li class="nav_link"><a href="#resetPassword" class="nav-link">Reset Password</a></li>
             <li class="nav_link"><a href="#changePassword" class="nav-link">Change Password</a></li>
             <li class="nav_link"><a href="#search" class="nav-link">How to Search Student</a></li>
-            <li class="nav_link"><a href="#generateInvoice" class="nav-link">Invoice Generating</a></li>
             <li class="nav_link"><a href="#studentDetail" class="nav-link">Check Student Details</a></li>
             <li class="nav_link"><a href="#addRecord" class="nav-link">Adding New Record</a></li>
             <li class="nav_link"><a href="#updateRecord" class="nav-link">Updating Record</a></li>
+            <li class="nav_link"><a href="#generateInvoice" class="nav-link">Invoice Generating</a></li>
+            <li class="nav_link"><a href="#generateReport" class="nav-link">Report Generating</a></li>
             <li class="nav_link"><a href="?action=v_home" class="nav-link">Go To Dashboard</a></li>
         </ul>
     </nav>

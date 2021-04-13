@@ -29,7 +29,6 @@ include "v_tech_nav.php";
     <hr>
     <div class="content" id="changePassword">
         <h1>How to change your password?</h1>
-        <br>
         <p>This function allows user to change password.</p>
         <br>
         <div class="content" id="">
@@ -61,9 +60,9 @@ include "v_tech_nav.php";
         <h1> How to Check Students' Details?</h1>
         <h2> This function allows user to check students' information and see which sections already have data and which sections don't have data, then the user will be able to either add new data/update existing data to the corresponding sections.</h2>
         <br>
-        <p> 1. Starting by search the student <br> For example if the user wants to see the students under HCA program:</p>
+        <p> 1. Starting by search the student <br> For example if the user wants to check the students' details under HCA program:</p>
         <img src="images/search_result.png" alt="search_result">
-        <br>
+        <br><br>
         <p> 2. Click <span>"Detail"</span> button next to the student you would like to see <br> I choose Elliot Bryant as an example:</p>
         <img src="images/student_detail.png" alt="student_detail">
         <br>
@@ -79,13 +78,13 @@ include "v_tech_nav.php";
         <br>
         <p> 1. Select Add New Record</p>
         <img src="images/new_record.png" alt="add new record">
-        <br>
+        <br><br>
         <p> 2. Press down arrow key and select desired section.</p>
         <img src="images/section_insert.png" alt="add new record">
-        <br>
+        <br><br>
         <p> 3. Press submit button.</p>
         <img src="images/submit.png" alt="submit">
-        <br>
+        <br><br>
         <p> 4. Fill out the form. </p>
         <br>
         <p> 5. Press add new student once done. </p>
@@ -98,19 +97,19 @@ include "v_tech_nav.php";
         <br>
         <p> 1. Select Add New Record</p>
         <img src="images/new_record.png" alt="add new record">
-        <br>
+        <br><br>
         <p> 2. Enter Student ID.</p>
         <img src="images/student_id.png" alt="student_id">
-        <br>
+        <br><br>
         <p> 3. Press down arrow to select section to update.</p>
         <img src="images/section_update.png" alt="section_update">
-        <br>
+        <br><br>
         <p> 4. Press submit after selecting section. </p>
         <img src="images/submit.png" alt="submit">
-        <br>
+        <br><br>
         <p> 5. Press add new student once done. </p>
         <img src="images/add_new_student.png" alt="submit">
-        <br>
+        <br><br>
         <p> 6. Select student record to update.</p>
         <br>
         <p> 7. Press save once done. </p>
@@ -130,7 +129,7 @@ include "v_tech_nav.php";
         <p> 2. Enter the student ID or student name.</p>
         <br>
         <p>(Note: If using student ID, type # followed by student number. If using student name, type @ followed by
-            student name.)</p>
+            student name. If search by program, type ! followed by program ID. )</p>
         <br><br>
         <p> 3. Press Enter <img src="images/enter.jpg" alt="enter" style="width:60px; height:30px;"> or search tab
             button
@@ -140,9 +139,9 @@ include "v_tech_nav.php";
     <hr>
     <div class="content" id="generateInvoice">
         <h1> How to generate invoice? </h1>
-        <p> 1. Navigate to the 'Generate Invoice' page under the 'Export Documents' tab in the navigation bar </p>
+        <p> 1. Navigate to the <span>'Generate Invoice'</span> page under the <span>'Export Documents'</span> tab in the navigation bar </p>
         <img src="images/GenerateInvoice1.jpg" alt="Generate Invoice Step 1">
-
+        <br><br>
         <p> 2. Fill out the appropriate information for the invoice </p>
         <!-- Put information about the form here -->
         <img src="images/GenerateInvoice2.jpg" alt="Generate Invoice Step 2">
@@ -181,6 +180,46 @@ include "v_tech_nav.php";
             <li><span> Preview: </span> Generates a pdf preview of the invoice in a new tab</li>
             <br>
             <li><span> Generate: </span> Generates and downloads a pdf copy of the invoice</li>
+        </ul>
+    </div>
+    <hr>
+    <div class="content" id="generateReport">
+        <h1>How to generate student report?</h1>
+        <p>There are 2 methods for the user to be able to generate a student's report <br><br><span>Method 1:</span></p>
+        <br>
+        <p> 1. Navigate to the <span>'Generate Report'</span> page under the <span>'Export Documents'</span> tab in the navigation bar</p>
+        <br>
+        <p><img src="images/generate_report1.png" alt="Generate Report Method 1 Step 1"></p>
+        <br>
+        <p> 2. Enter the student ID and choose the sections you want to see in the report under <span>"Including Information"</span>.</p>
+        <br>
+        <p><img src="images/generate_report2.png" alt="Generate Report Method 1 Step 2"></p>
+        <br>
+        <p>(Note: The program ID section will be auto-filled in.)</p>
+        <br><br>
+        <p> 3. Click the 'Preview' or 'Generate' button to generate report</p>
+        <br>
+        <ul>
+            <li><span> Preview: </span> Generate a pdf preview of the report in a new tab</li>
+            <br>
+            <li><span> Generate: </span> Generate and download a pdf copy of the report</li>
+        </ul>
+        <br><br>
+        <p><span>Method 2: </span></p>
+        <br>
+        <p> 1. Starting by search the student: <br> For example if you want to check the report for an HCA student:</p>
+        <img src="images/search_result.png" alt="Generate Report Method 2 Step 1">
+        <br><br>
+        <p> 2. Click <span>"Report"</span> button next to the student you would like to see <br> I choose Elliot Bryant as an example:</p>
+        <img src="images/generate_report3.png" alt="Generate Report Method 2 Step 2">
+        <p>You will see the student ID and the program ID have been auto-filled in. Now you can choose the sections you want to see in the report under <span>"Including Information"</span>.</p>
+        <br><br>
+        <p> 3. Click the 'Preview' or 'Generate' button to generate report</p>
+        <br>
+        <ul>
+            <li><span> Preview: </span> Generate a pdf preview of the report in a new tab</li>
+            <br>
+            <li><span> Generate: </span> Generate and download a pdf copy of the report</li>
         </ul>
     </div>
 </div>
