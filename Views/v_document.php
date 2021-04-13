@@ -46,15 +46,31 @@ include "v_tech_nav.php";
             <br>
             <img src="images/new_pword.png" alt="new_password">
             <br><br>
-            <p>4. Press enter <img src="images/enter.jpg" alt="enter" style="width:80px;height:40px;"> or select
+            <p>4. Press enter <img src="images/enter.jpg" alt="enter" style="width:60px; height:30px;"> or select
                 change
                 button <img src="images/change.png" alt="change"
-                            style="width:80px;height:40px;">.</p>
+                            style="width:60px; height:30px;">.</p>
             <br>
             <p>5. Message "Your password has been changed" will appear confirming change password was
                 successful.</p>
             <br><br>
         </div>
+    </div>
+    <hr>
+    <div class="content" id="studentDetail">
+        <h1> How to Check Students' Details?</h1>
+        <h2> This function allows user to check students' information and see which sections already have data and which sections don't have data, then the user will be able to either add new data/update existing data to the corresponding sections.</h2>
+        <br>
+        <p> 1. Starting by search the student <br> For example if the user wants to see the students under HCA program:</p>
+        <img src="images/search_result.png" alt="search_result">
+        <br>
+        <p> 2. Click <span>"Detail"</span> button next to the student you would like to see <br> I choose Elliot Bryant as an example:</p>
+        <img src="images/student_detail.png" alt="student_detail">
+        <br>
+        <p> As you can see in the page, the student's general information shows at the top left corner. Elliot only has data under "Graduations" section.</p>
+        <p> 3. If you want to update the data entered in the "Graduations" section, click <img src="images/update.png" alt="update" style="width:60px; height:30px;"></p>
+        <p> 4. If you want to add new record to the sections that don't have any data, click <img src="images/add.png" alt="add" style="width:60px; height:30px;"></p>
+        <br>
     </div>
     <hr>
     <div class="content" id="addRecord">
@@ -116,9 +132,9 @@ include "v_tech_nav.php";
         <p>(Note: If using student ID, type # followed by student number. If using student name, type @ followed by
             student name.)</p>
         <br><br>
-        <p> 3. Press Enter <img src="images/enter.jpg" alt="enter" style="width:80px;height:40px;"> or search tab
+        <p> 3. Press Enter <img src="images/enter.jpg" alt="enter" style="width:60px; height:30px;"> or search tab
             button
-            <img src="images/search_button.jpg" style="width:80px;height:40px;"></p>
+            <img src="images/search_button.jpg" style="width:60px; height:30px;"></p>
         <br>
     </div>
     <hr>
